@@ -100,6 +100,10 @@
       <h2 class="cs-section-title">Design Inconsistency at Enterprise Scale</h2>
       <p class="cs-section-intro">Workhuman builds HR and recognition products used by global companies. By the time I joined, the design inconsistency had become a real problem — two regional teams, no shared components, and engineers rebuilding the same things over and over.</p>
 
+      <div class="cs-img" style="margin-bottom: 40px;">
+        <img src="images/wh-ds/inconsistency-before.png" alt="Design inconsistency — fragmented button styles, spacing, and color usage across products before the system" />
+      </div>
+
       <div class="three-col">
         <div class="content-block">
           <div class="block-label">Distributed Team Challenges</div>
@@ -143,7 +147,7 @@
       <p class="cs-section-intro">The token system took a few weeks to set up properly. It's slower upfront than just picking colors and moving on — but it's what made everything downstream actually manageable.</p>
 
       <div class="cs-img" style="margin-bottom: 40px;">
-        <img src="images/wh-ds/token-architecture.png" alt="4-tier token architecture — Primitives to Aliases to Semantic Tokens to Component Tokens, with theming and scalability benefits" />
+        <img src="images/wh-ds/token-colors-grid.png" alt="Token color system — primitive and semantic color scales organized in a structured grid" />
       </div>
 
       <div class="token-tiers">
@@ -209,8 +213,9 @@
       <h2 class="cs-section-title">Building Blocks of Consistency</h2>
       <p class="cs-section-intro">Foundation, navigation, data display, forms, feedback — every category documented with states, variants, and accessibility annotations.</p>
 
-      <div class="cs-img" style="margin-bottom: 40px;">
-        <img src="images/wh-ds/component-library.png" alt="Component library — button variants, color tokens, Figma component properties, and selection colors in production" />
+      <div class="img-grid-2" style="margin-bottom: 40px;">
+        <div class="cs-img"><img src="images/wh-ds/figma-library-overview.png" alt="Figma component library — organized component categories and variants" /></div>
+        <div class="cs-img"><img src="images/wh-ds/component-buttons.png" alt="Button component — states, variants, and properties in the design system" /></div>
       </div>
 
       <div class="three-col">
@@ -238,7 +243,7 @@
       <p class="cs-section-intro">Components without documentation = components that don't get used. Every component shipped with overview, anatomy, code examples, usage guidelines, behavior specs, and accessibility notes.</p>
 
       <div class="cs-img" style="margin-bottom: 40px;">
-        <img src="images/wh-ds/documentation.png" alt="Documentation system — component anatomy, Storybook integration, code examples, and usage guidelines" />
+        <img src="images/wh-ds/storybook-docs.png" alt="Storybook documentation — component anatomy, code examples, and usage guidelines" />
       </div>
 
       <div style="background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 32px;">
@@ -268,7 +273,7 @@
       <p class="cs-section-intro">The library being built wasn't the hard part. Getting people to actually use it — and keep using it as the product grew — that took more deliberate work.</p>
 
       <div class="cs-img" style="margin-bottom: 40px;">
-        <img src="images/wh-ds/governance.png" alt="Governance model — maintenance schedule, version control, contribution process, and live update feed from Terra" />
+        <img src="images/wh-ds/governance-updates.png" alt="Governance model — version control, contribution process, and live update feed" />
       </div>
 
       <div class="insights-list">
@@ -309,10 +314,10 @@
       <p class="cs-section-intro">Token-based theming in action across Workhuman's products — consistent component usage, accessibility built in, responsive from 320px to 1920px.</p>
 
       <div class="cs-img" style="margin-bottom: 16px;">
-        <img src="images/wh-ds/production-desktop.png" alt="Design system in production — token-based theming, consistent components, and accessibility across Workhuman products" />
+        <img src="images/wh-ds/production-light.png" alt="Design system in production — token-based theming with consistent components across Workhuman products" />
       </div>
       <div class="cs-img" style="margin-bottom: 40px;">
-        <img src="images/wh-ds/production-dark-mode.png" alt="Dark Mode and responsive design — grid system, touch targets, and Dark Mode shipped in 2 weeks via token architecture" />
+        <img src="images/wh-ds/production-dark.png" alt="Dark Mode — shipped in 2 weeks via token architecture, full component coverage" />
       </div>
 
       <div class="two-col">
