@@ -1032,6 +1032,19 @@ body {
   border-radius: var(--radius);
 }
 
+/* Real images in grid slots */
+.cs-img {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--cream);
+}
+.cs-img img {
+  width: 100%;
+  display: block;
+}
+.cs-img.tall img { min-height: 320px; object-fit: cover; }
+.cs-img.short img { max-height: 180px; object-fit: cover; }
+
 /* Deliverables list */
 .deliverables-grid {
   display: grid;
