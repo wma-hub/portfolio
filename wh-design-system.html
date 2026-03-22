@@ -75,45 +75,20 @@
           <div class="sub">Down to one governed component</div>
         </div>
         <div class="metric-card">
-          <div class="number">70%</div>
-          <div class="label">Reduction in Design Debt</div>
-          <div class="sub">Across web products</div>
+          <div class="number">95%</div>
+          <div class="label">Adoption Rate</div>
+          <div class="sub">Across designers and developers</div>
         </div>
         <div class="metric-card">
-          <div class="number">85%</div>
-          <div class="label">Less Repeated Q&amp;A</div>
-          <div class="sub">Designer–engineer per feature</div>
-        </div>
-        <div class="metric-card">
-          <div class="number">20+</div>
-          <div class="label">People on One Source</div>
-          <div class="sub">US &amp; Ireland teams unified</div>
+          <div class="number">40%</div>
+          <div class="label">Faster Design-to-Dev Handoff</div>
+          <div class="sub">Documentation eliminated back-and-forth</div>
         </div>
         <div class="metric-card">
           <div class="number">2w</div>
           <div class="label">Dark Mode Shipped</div>
-          <div class="sub">vs. 3 months without tokens</div>
+          <div class="sub">vs. 2–3 months without tokens</div>
         </div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- VISUAL SHOWCASE -->
-    <section class="cs-section">
-      <p class="cs-section-label">Visual Showcase</p>
-      <h2 class="cs-section-title">Component Library — Selected Work</h2>
-
-      <div class="cs-img tall" style="margin-bottom: 16px;">
-        <img src="images/wh/social-ads-grid.png" alt="Workhuman social ad campaign — full system applied across 10 ad variants" />
-      </div>
-      <div class="img-grid-2" style="margin-bottom: 16px;">
-        <div class="cs-img"><img src="images/wh/buttons-component.png" alt="Button component documentation — CTA styles and states" /></div>
-        <div class="cs-img"><img src="images/wh/card-components.png" alt="Card component system — large, medium, and small variants" /></div>
-      </div>
-      <div class="img-grid-2">
-        <div class="cs-img"><img src="images/wh/carousel-icons.png" alt="Carousel icon design — light and dark mode" /></div>
-        <div class="cs-img"><img src="images/wh/tab-navigation.png" alt="Tab navigation spacing specification — US and Ireland teams" /></div>
       </div>
     </section>
 
@@ -134,29 +109,26 @@
             <li>Misaligned implementations across regions</li>
             <li>Duplicate work happening in parallel</li>
             <li>Knowledge gaps across time zones</li>
-            <li>No handoff standard between design and dev</li>
           </ul>
         </div>
         <div class="content-block">
           <div class="block-label">Design Fragmentation</div>
           <h4>15+ Button Variations</h4>
-          <p>Each designer creating their own button styles, colors, and spacing scales — by hand, per feature.</p>
+          <p>Each designer creating their own styles, colors, and spacing scales — by hand, per feature.</p>
           <ul>
-            <li>Inconsistent user experience across products</li>
+            <li>Inconsistent UX across products</li>
             <li>15+ button variations in production</li>
             <li>Massive technical debt accumulating</li>
-            <li>Brand dilution over time</li>
           </ul>
         </div>
         <div class="content-block">
           <div class="block-label">Slow Development Cycles</div>
           <h4>3–4 Weeks Per Feature</h4>
-          <p>Engineers rebuilding components from scratch for each new feature because no reusable code library existed.</p>
+          <p>Engineers rebuilding components from scratch because no reusable code library existed.</p>
           <ul>
             <li>3–4 week dev cycles per feature</li>
-            <li>Designers answering same questions repeatedly (85% of time)</li>
+            <li>85% of designer time spent answering repeated questions</li>
             <li>No reusable component code library</li>
-            <li>Expensive, unsustainable maintenance</li>
           </ul>
         </div>
       </div>
@@ -170,29 +142,33 @@
       <h2 class="cs-section-title">Foundation of Scalability</h2>
       <p class="cs-section-intro">The token system took a few weeks to set up properly. It's slower upfront than just picking colors and moving on — but it's what made everything downstream actually manageable.</p>
 
+      <div class="cs-img" style="margin-bottom: 40px;">
+        <img src="images/wh-ds/token-architecture.png" alt="4-tier token architecture — Primitives to Aliases to Semantic Tokens to Component Tokens, with theming and scalability benefits" />
+      </div>
+
       <div class="token-tiers">
         <div class="token-tier">
           <div class="token-tier-num">Tier 1</div>
           <div class="token-tier-name">Primitives</div>
-          <div class="token-tier-desc">Primitive tokens establish base scale for spacing, colors, and typography — the foundation all other tokens reference.</div>
+          <div class="token-tier-desc">Base scale for spacing, colors, and typography — the foundation all other tokens reference.</div>
           <span class="token-example">5B63E4 · spacing-4 · font-16</span>
         </div>
         <div class="token-tier">
           <div class="token-tier-num">Tier 2</div>
           <div class="token-tier-name">Aliases</div>
-          <div class="token-tier-desc">Aliases translate primitives into semantic meaning between design and engineering. The bridge layer.</div>
+          <div class="token-tier-desc">Translate primitives into semantic meaning between design and engineering.</div>
           <span class="token-example">humanity/60 · brand-primary = humanity-60</span>
         </div>
         <div class="token-tier">
           <div class="token-tier-num">Tier 3</div>
           <div class="token-tier-name">Semantic Tokens</div>
-          <div class="token-tier-desc">Semantic tokens add contextual meaning, making implementation intuitive for engineers without design context.</div>
+          <div class="token-tier-desc">Add contextual meaning, making implementation intuitive for engineers without design context.</div>
           <span class="token-example">surface-primary · text-default</span>
         </div>
         <div class="token-tier">
           <div class="token-tier-num">Tier 4</div>
           <div class="token-tier-name">Component Tokens</div>
-          <div class="token-tier-desc">Component tokens demonstrate how base primitives manifest in actual UI patterns — buttons, inputs, cards.</div>
+          <div class="token-tier-desc">How base primitives manifest in actual UI patterns — buttons, inputs, cards.</div>
           <span class="token-example">button-bg-primary · input-border-focus</span>
         </div>
       </div>
@@ -227,45 +203,137 @@
 
     <div class="divider"></div>
 
+    <!-- COMPONENT LIBRARY -->
+    <section class="cs-section">
+      <p class="cs-section-label">Component Library</p>
+      <h2 class="cs-section-title">Building Blocks of Consistency</h2>
+      <p class="cs-section-intro">Foundation, navigation, data display, forms, feedback — every category documented with states, variants, and accessibility annotations.</p>
+
+      <div class="cs-img" style="margin-bottom: 40px;">
+        <img src="images/wh-ds/component-library.png" alt="Component library — button variants, color tokens, Figma component properties, and selection colors in production" />
+      </div>
+
+      <div class="three-col">
+        <div class="content-block">
+          <div class="block-label">Foundation</div>
+          <p>Typography scale (6 sizes), color palette (primitive + semantic), 8pt grid spacing, elevation system, border radius scale, 200+ icon library.</p>
+        </div>
+        <div class="content-block">
+          <div class="block-label">Navigation &amp; Data</div>
+          <p>Top nav, sidebar, breadcrumbs, tabs, pagination, steppers. Cards (8 variants), sortable tables, lists, avatars, tooltips, modals.</p>
+        </div>
+        <div class="content-block">
+          <div class="block-label">Forms &amp; Feedback</div>
+          <p>Text inputs (8 states), dropdowns (6 states), checkboxes, radios, toggles, date pickers. Alerts, toasts, progress bars, loading spinners, status badges.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- DOCUMENTATION -->
+    <section class="cs-section">
+      <p class="cs-section-label">Documentation</p>
+      <h2 class="cs-section-title">Making the System Usable</h2>
+      <p class="cs-section-intro">Components without documentation = components that don't get used. Every component shipped with overview, anatomy, code examples, usage guidelines, behavior specs, and accessibility notes.</p>
+
+      <div class="cs-img" style="margin-bottom: 40px;">
+        <img src="images/wh-ds/documentation.png" alt="Documentation system — component anatomy, Storybook integration, code examples, and usage guidelines" />
+      </div>
+
+      <div style="background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 32px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; text-align: center;">
+          <div>
+            <div style="font-family: var(--font-mono); font-size: 14px; color: var(--muted); margin-bottom: 8px;">New designer onboarding</div>
+            <div style="font-family: var(--font-mono); font-size: 28px; font-weight: 700; color: var(--ink);">2w → 3 days</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-mono); font-size: 14px; color: var(--muted); margin-bottom: 8px;">Engineer questions</div>
+            <div style="font-family: var(--font-mono); font-size: 28px; font-weight: 700; color: #2D7A4F;">60% reduction</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-mono); font-size: 14px; color: var(--muted); margin-bottom: 8px;">Consistent implementation</div>
+            <div style="font-family: var(--font-mono); font-size: 28px; font-weight: 700; color: var(--metric-accent);">95% adherence</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
     <!-- GOVERNANCE -->
     <section class="cs-section">
       <p class="cs-section-label">Governance &amp; Adoption</p>
       <h2 class="cs-section-title">A System That Gets Used</h2>
       <p class="cs-section-intro">The library being built wasn't the hard part. Getting people to actually use it — and keep using it as the product grew — that took more deliberate work.</p>
 
+      <div class="cs-img" style="margin-bottom: 40px;">
+        <img src="images/wh-ds/governance.png" alt="Governance model — maintenance schedule, version control, contribution process, and live update feed from Terra" />
+      </div>
+
       <div class="insights-list">
         <div class="insight-item">
           <div class="insight-num">01</div>
           <div class="insight-content">
             <h4>Cross-Functional Ownership</h4>
-            <p>Designers, developers, and product managers all had defined roles in the governance model. No single team owned or blocked the system — contributions and reviews were distributed, ensuring the system reflected real product needs.</p>
+            <p>Designers, developers, and product managers all had defined roles in the governance model. Contributions and reviews were distributed, ensuring the system reflected real product needs.</p>
           </div>
         </div>
         <div class="insight-item">
           <div class="insight-num">02</div>
           <div class="insight-content">
-            <h4>Documentation First</h4>
-            <p>Every component shipped with usage guidelines, do/don't examples, and accessibility annotations. The 85% reduction in repeated designer–engineer Q&A came directly from this investment — engineers could answer their own questions.</p>
+            <h4>Contribution Process</h4>
+            <p>New component request → validate need (3+ use cases) → design review → engineering feasibility → documentation required → approval and addition to library. Kept the system lean.</p>
           </div>
         </div>
         <div class="insight-item">
           <div class="insight-num">03</div>
           <div class="insight-content">
-            <h4>Accessibility as a Foundation</h4>
-            <p>Accessibility testing was built into component development, not bolted on after. Every component met WCAG standards before entering the library, removing the per-feature accessibility review cycle.</p>
-          </div>
-        </div>
-        <div class="insight-item">
-          <div class="insight-num">04</div>
-          <div class="insight-content">
-            <h4>US + Ireland Synchronization</h4>
-            <p>The token architecture gave both teams a shared vocabulary. Design decisions made in Dublin were immediately legible in Boston — and vice versa — without a synchronization meeting.</p>
+            <h4>Version Control</h4>
+            <p>Semantic versioning (1.2.3), changelog with every release, deprecation warnings with 6-month notice, and migration guides for breaking changes. Teams could update on their schedule.</p>
           </div>
         </div>
       </div>
 
       <div class="callout">
         <p>The first few components didn't feel any faster than just doing it from scratch. The payoff came gradually — around component 15 or 20, engineers stopped pinging designers for specs on things we'd already solved. New features started showing up in reviews that were already mostly right. That's when I understood what the system was actually for.</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- IN PRODUCTION -->
+    <section class="cs-section">
+      <p class="cs-section-label">Solution in Context</p>
+      <h2 class="cs-section-title">Design System in Production</h2>
+      <p class="cs-section-intro">Token-based theming in action across Workhuman's products — consistent component usage, accessibility built in, responsive from 320px to 1920px.</p>
+
+      <div class="cs-img" style="margin-bottom: 16px;">
+        <img src="images/wh-ds/production-desktop.png" alt="Design system in production — token-based theming, consistent components, and accessibility across Workhuman products" />
+      </div>
+      <div class="cs-img" style="margin-bottom: 40px;">
+        <img src="images/wh-ds/production-dark-mode.png" alt="Dark Mode and responsive design — grid system, touch targets, and Dark Mode shipped in 2 weeks via token architecture" />
+      </div>
+
+      <div class="two-col">
+        <div class="content-block">
+          <div class="block-label">Why Dark Mode Was Fast</div>
+          <ul>
+            <li>Create dark color primitives: 1 day</li>
+            <li>Update semantic token mappings: 2 days</li>
+            <li>Test components for contrast issues: 1 week</li>
+            <li>Ship: 1 day</li>
+          </ul>
+          <p style="margin-top: 8px; font-size: 13px; color: var(--muted);">Old approach (component-by-component updates): 2–3 months. New approach: 2 weeks total.</p>
+        </div>
+        <div class="content-block">
+          <div class="block-label">Mobile-First Responsive</div>
+          <ul>
+            <li>Components adapt 320px → 1920px</li>
+            <li>All touch targets meet 40x40px minimum</li>
+            <li>Grid system handles complex responsive layouts without custom CSS</li>
+          </ul>
+        </div>
       </div>
     </section>
 
