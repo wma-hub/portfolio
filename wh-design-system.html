@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workhuman Design System — Wilson Ma</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo">WM</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Work</a></li>
+      <li><a href="mailto:ny.wilson.ma@gmail.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="cs-hero">
+    <div class="cs-hero-inner">
+      <a href="index.html" class="cs-back">Back to Work</a>
+      <span class="tag tag-systems">Systems</span>
+      <h1 class="cs-title">Workhuman Design System</h1>
+      <p class="cs-subtitle">How a token-based architecture eliminated 15+ button variations, unified US and Ireland teams, and reduced dev cycles by 60%.</p>
+      <div class="cs-meta-grid">
+        <div class="cs-meta-item">
+          <strong>Role</strong>
+          <span>Design System Designer (Web)</span>
+        </div>
+        <div class="cs-meta-item">
+          <strong>Timeline</strong>
+          <span>2024 – Present</span>
+        </div>
+        <div class="cs-meta-item">
+          <strong>Platform</strong>
+          <span>Web (Desktop + Mobile Responsive)</span>
+        </div>
+        <div class="cs-meta-item">
+          <strong>Team</strong>
+          <span>Designers · Developers · Product Managers</span>
+        </div>
+        <div class="cs-meta-item">
+          <strong>Methods</strong>
+          <span>Design Tokens · Component Architecture · Documentation · Governance Frameworks · Accessibility Testing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <div style="background: var(--white);">
+  <div class="cs-content">
+
+    <!-- IMPACT -->
+    <section class="cs-section">
+      <p class="cs-section-label">Impact</p>
+      <h2 class="cs-section-title">From 3–4 Week Dev Cycles to a Single Source of Truth</h2>
+      <p class="cs-section-intro">Before the design system, engineers rebuilt components for every feature. Designers in the US and Ireland worked from different assumptions. The system fixed both.</p>
+
+      <div class="metric-hero">
+        <div class="metric-hero-number">↑60%</div>
+        <div>
+          <div class="metric-hero-label">Reduction in Dev Cycle Time</div>
+          <div class="metric-hero-context">From 3–4 week feature cycles to reusable, documented components engineers can implement without redesign.</div>
+          <div class="metric-hero-note">70% reduction in design debt. 85% reduction in repeated designer–engineer Q&A per feature.</div>
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="number">15+</div>
+          <div class="label">Button Variations Eliminated</div>
+          <div class="sub">Down to one governed component</div>
+        </div>
+        <div class="metric-card">
+          <div class="number">70%</div>
+          <div class="label">Reduction in Design Debt</div>
+          <div class="sub">Across web products</div>
+        </div>
+        <div class="metric-card">
+          <div class="number">85%</div>
+          <div class="label">Less Repeated Q&amp;A</div>
+          <div class="sub">Designer–engineer per feature</div>
+        </div>
+        <div class="metric-card">
+          <div class="number">20+</div>
+          <div class="label">People on One Source</div>
+          <div class="sub">US &amp; Ireland teams unified</div>
+        </div>
+        <div class="metric-card">
+          <div class="number">2w</div>
+          <div class="label">Dark Mode Shipped</div>
+          <div class="sub">vs. 3 months without tokens</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PROBLEM -->
+    <section class="cs-section">
+      <p class="cs-section-label">Problem</p>
+      <h2 class="cs-section-title">Design Inconsistency at Enterprise Scale</h2>
+      <p class="cs-section-intro">Workhuman builds HR and recognition products used by global companies. By the time I joined, the design inconsistency had become a real problem — two regional teams, no shared components, and engineers rebuilding the same things over and over.</p>
+
+      <div class="three-col">
+        <div class="content-block">
+          <div class="block-label">Distributed Team Challenges</div>
+          <h4>US + Ireland Working in Silos</h4>
+          <p>Two teams with different design approaches, no shared language, and no single source of truth.</p>
+          <ul>
+            <li>Misaligned implementations across regions</li>
+            <li>Duplicate work happening in parallel</li>
+            <li>Knowledge gaps across time zones</li>
+            <li>No handoff standard between design and dev</li>
+          </ul>
+        </div>
+        <div class="content-block">
+          <div class="block-label">Design Fragmentation</div>
+          <h4>15+ Button Variations</h4>
+          <p>Each designer creating their own button styles, colors, and spacing scales — by hand, per feature.</p>
+          <ul>
+            <li>Inconsistent user experience across products</li>
+            <li>15+ button variations in production</li>
+            <li>Massive technical debt accumulating</li>
+            <li>Brand dilution over time</li>
+          </ul>
+        </div>
+        <div class="content-block">
+          <div class="block-label">Slow Development Cycles</div>
+          <h4>3–4 Weeks Per Feature</h4>
+          <p>Engineers rebuilding components from scratch for each new feature because no reusable code library existed.</p>
+          <ul>
+            <li>3–4 week dev cycles per feature</li>
+            <li>Designers answering same questions repeatedly (85% of time)</li>
+            <li>No reusable component code library</li>
+            <li>Expensive, unsustainable maintenance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- TOKEN ARCHITECTURE -->
+    <section class="cs-section">
+      <p class="cs-section-label">Token Architecture</p>
+      <h2 class="cs-section-title">Foundation of Scalability</h2>
+      <p class="cs-section-intro">The token system took a few weeks to set up properly. It's slower upfront than just picking colors and moving on — but it's what made everything downstream actually manageable.</p>
+
+      <div class="token-tiers">
+        <div class="token-tier">
+          <div class="token-tier-num">Tier 1</div>
+          <div class="token-tier-name">Primitives</div>
+          <div class="token-tier-desc">Primitive tokens establish base scale for spacing, colors, and typography — the foundation all other tokens reference.</div>
+          <span class="token-example">5B63E4 · spacing-4 · font-16</span>
+        </div>
+        <div class="token-tier">
+          <div class="token-tier-num">Tier 2</div>
+          <div class="token-tier-name">Aliases</div>
+          <div class="token-tier-desc">Aliases translate primitives into semantic meaning between design and engineering. The bridge layer.</div>
+          <span class="token-example">humanity/60 · brand-primary = humanity-60</span>
+        </div>
+        <div class="token-tier">
+          <div class="token-tier-num">Tier 3</div>
+          <div class="token-tier-name">Semantic Tokens</div>
+          <div class="token-tier-desc">Semantic tokens add contextual meaning, making implementation intuitive for engineers without design context.</div>
+          <span class="token-example">surface-primary · text-default</span>
+        </div>
+        <div class="token-tier">
+          <div class="token-tier-num">Tier 4</div>
+          <div class="token-tier-name">Component Tokens</div>
+          <div class="token-tier-desc">Component tokens demonstrate how base primitives manifest in actual UI patterns — buttons, inputs, cards.</div>
+          <span class="token-example">button-bg-primary · input-border-focus</span>
+        </div>
+      </div>
+
+      <div class="three-col">
+        <div class="content-block">
+          <div class="block-label">Enables Theming</div>
+          <ul>
+            <li>Dark Mode = Change Tier 1 primitives only</li>
+            <li>All components update automatically</li>
+            <li>Dark Mode shipped in 2 weeks (not 3 months)</li>
+          </ul>
+        </div>
+        <div class="content-block">
+          <div class="block-label">Scales Globally</div>
+          <ul>
+            <li>Single source of truth for 20+ people</li>
+            <li>US &amp; Ireland teams stay synchronized</li>
+            <li>No "shadow design systems" emerging</li>
+          </ul>
+        </div>
+        <div class="content-block">
+          <div class="block-label">Reduces Maintenance</div>
+          <ul>
+            <li>Update one token = update everywhere</li>
+            <li>No hunting for hardcoded values</li>
+            <li>70% reduction in design debt</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- GOVERNANCE -->
+    <section class="cs-section">
+      <p class="cs-section-label">Governance &amp; Adoption</p>
+      <h2 class="cs-section-title">A System That Gets Used</h2>
+      <p class="cs-section-intro">The library being built wasn't the hard part. Getting people to actually use it — and keep using it as the product grew — that took more deliberate work.</p>
+
+      <div class="insights-list">
+        <div class="insight-item">
+          <div class="insight-num">01</div>
+          <div class="insight-content">
+            <h4>Cross-Functional Ownership</h4>
+            <p>Designers, developers, and product managers all had defined roles in the governance model. No single team owned or blocked the system — contributions and reviews were distributed, ensuring the system reflected real product needs.</p>
+          </div>
+        </div>
+        <div class="insight-item">
+          <div class="insight-num">02</div>
+          <div class="insight-content">
+            <h4>Documentation First</h4>
+            <p>Every component shipped with usage guidelines, do/don't examples, and accessibility annotations. The 85% reduction in repeated designer–engineer Q&A came directly from this investment — engineers could answer their own questions.</p>
+          </div>
+        </div>
+        <div class="insight-item">
+          <div class="insight-num">03</div>
+          <div class="insight-content">
+            <h4>Accessibility as a Foundation</h4>
+            <p>Accessibility testing was built into component development, not bolted on after. Every component met WCAG standards before entering the library, removing the per-feature accessibility review cycle.</p>
+          </div>
+        </div>
+        <div class="insight-item">
+          <div class="insight-num">04</div>
+          <div class="insight-content">
+            <h4>US + Ireland Synchronization</h4>
+            <p>The token architecture gave both teams a shared vocabulary. Design decisions made in Dublin were immediately legible in Boston — and vice versa — without a synchronization meeting.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p>The first few components didn't feel any faster than just doing it from scratch. The payoff came gradually — around component 15 or 20, engineers stopped pinging designers for specs on things we'd already solved. New features started showing up in reviews that were already mostly right. That's when I understood what the system was actually for.</p>
+      </div>
+    </section>
+
+  </div>
+  </div>
+
+  <!-- NEXT -->
+  <div class="cs-next">
+    <p class="cs-next-label">Back to the beginning</p>
+    <h2 class="cs-next-title">Workhuman Careers Refresh</h2>
+    <p class="cs-next-sub">2.7% → 64.6% CVR — real data, sustained over 3 months</p>
+    <a href="wh-careers.html" class="btn-primary">View Case Study</a>
+    <a href="index.html" class="btn-secondary">All Work</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="logo">WILSON MA</span>
+    <div class="contact">
+      <a href="mailto:ny.wilson.ma@gmail.com">ny.wilson.ma@gmail.com</a>
+      <a href="tel:6469540002">646 954 0002</a>
+    </div>
+  </footer>
+
+</body>
+</html>
