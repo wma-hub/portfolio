@@ -75,19 +75,19 @@
           <div class="sub">Solo designer on a 4-person team</div>
         </div>
         <div class="metric-card">
-          <div class="number">60%</div>
-          <div class="label">Components reused</div>
-          <div class="sub">Auth · Forms · Nav · Cards · Progress UI</div>
+          <div class="number">35+</div>
+          <div class="label">Health plan clients</div>
+          <div class="sub">Serving millions of members</div>
         </div>
         <div class="metric-card">
-          <div class="number">40%</div>
-          <div class="label">Components rebuilt</div>
-          <div class="sub">Brand · Healthcare · Compliance</div>
+          <div class="number">WCAG AAA</div>
+          <div class="label">Accessibility standard</div>
+          <div class="sub">Healthcare compliance-critical</div>
         </div>
         <div class="metric-card">
-          <div class="number">3-tier</div>
-          <div class="label">Token architecture</div>
-          <div class="sub">Primitive → Semantic → Component</div>
+          <div class="number">99+</div>
+          <div class="label">Automated QA reports</div>
+          <div class="sub">Running continuously 24/7</div>
         </div>
       </div>
     </section>
@@ -98,46 +98,45 @@
     <section class="cs-section">
       <p class="cs-section-label">Problem</p>
       <h2 class="cs-section-title">Understanding the Market Challenge</h2>
-      <p class="cs-section-intro">Mindset was conceived as a consumer meditation app focused on habit formation in a market dominated by Calm ($2B valuation) and Headspace ($320M funding). We were a self-funded 4-person team with no marketing budget.</p>
+      <p class="cs-section-intro">Mindset was conceived as a consumer meditation app in a market dominated by Calm ($2B valuation) and Headspace ($320M funding). We were a self-funded 4-person team with no marketing budget.</p>
+
+      <div class="cs-img" style="margin-bottom: 40px;">
+        <img src="images/aegis/market-challenge.png" alt="Market challenge — competitive landscape showing Headspace, Calm, Ten Percent Happier, InsightTimer vs. Mindset" />
+      </div>
 
       <div class="three-col">
         <div class="content-block">
           <div class="block-label">Market Saturation</div>
           <h4>Impossible to Compete on Content</h4>
-          <p>Consumer meditation market dominated by well-funded incumbents.</p>
-          <ul>
-            <li>Headspace: 70M+ downloads, celebrity partnerships, enterprise B2B expansion</li>
-            <li>Calm: 100M+ downloads, $150M annual revenue, massive content library</li>
-            <li>Marketing spend to break through was well beyond what we had</li>
-            <li>No path to differentiation without funding</li>
-          </ul>
+          <p>Consumer meditation market dominated by well-funded incumbents. Headspace: 70M+ downloads. Calm: 100M+ downloads, $150M annual revenue.</p>
         </div>
         <div class="content-block">
           <div class="block-label">Resource Constraints</div>
           <h4>4-Person Team, 3-Month Runway</h4>
-          <p>Self-funded with limited research budget and a critical validation deadline.</p>
-          <ul>
-            <li>3-month runway insufficient for traditional validation cycle</li>
-            <li>Limited budget for user research</li>
-            <li>4-person team couldn't compete on scale</li>
-            <li>Self-funded model unsustainable without traction</li>
-          </ul>
+          <p>Self-funded with limited research budget. Couldn't compete on content volume, celebrity partnerships, or marketing spend.</p>
         </div>
         <div class="content-block">
           <div class="block-label">Unclear Differentiation</div>
           <h4>"Better Habit Formation" Wasn't Enough</h4>
-          <p>Generic value proposition couldn't overcome switching costs from established apps.</p>
-          <ul>
-            <li>Users already invested in competitors</li>
-            <li>Switching costs too high</li>
-            <li>No unique market position</li>
-            <li>Ten Percent Happier, InsightTimer also in the space</li>
-          </ul>
+          <p>Users already invested in competitors. Switching costs too high. No unique market position without significant funding.</p>
         </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- THE PIVOT -->
+    <section class="cs-section">
+      <p class="cs-section-label">The Strategic Decision</p>
+      <h2 class="cs-section-title">Why We Pivoted</h2>
+      <p class="cs-section-intro">At week 12, we made the call: stop building for a saturated consumer market and leverage founder expertise for B2B healthcare.</p>
+
+      <div class="cs-img" style="margin-bottom: 40px;">
+        <img src="images/aegis/pivot-decision.png" alt="Pivot decision — Mindset (dead end) vs. Aegis (opportunity), comparing CAC, scale, founder advantage, and time to revenue" />
       </div>
 
       <div class="callout">
-        <p>We couldn't win in consumer wellness without a marketing budget. The honest question was: where could we? Healthcare workforce wellness made sense — employers pay for it, so there's no individual switching cost, and the market was much less crowded than B2C meditation. It wasn't a glamorous pivot, but it was the right one.</p>
+        <p>We couldn't win in consumer wellness without a marketing budget. Healthcare workforce wellness made sense — employers pay for it, so there's no individual switching cost, and the market was much less crowded than B2C meditation. The co-founders had 10+ years in healthcare ops, which meant we could sell on expertise rather than spend.</p>
       </div>
     </section>
 
@@ -149,6 +148,10 @@
       <h2 class="cs-section-title">Why the Pivot Took 3 Weeks Instead of 4 Months</h2>
       <p class="cs-section-intro">From the start, Mindset was built on a token-based system — not because I knew we'd pivot, but because it was the right way to build. That decision turned out to matter a lot.</p>
 
+      <div class="cs-img" style="margin-bottom: 40px;">
+        <img src="images/aegis/design-system-advantage.png" alt="Design system advantage — Mindset to Aegis pivot showing original app, new platform, token architecture, and time saved" />
+      </div>
+
       <div class="two-col">
         <div class="content-block">
           <div class="block-label">Token Architecture</div>
@@ -158,77 +161,122 @@
             <li><strong>Semantic tokens</strong> — brand-primary, surface-secondary</li>
             <li><strong>Component tokens</strong> — button-bg-default, input-border-focus</li>
           </ul>
-          <p style="margin-top:12px;">This structure meant that a brand identity swap required changing <em>only the primitive layer</em> — all semantic and component tokens cascaded automatically.</p>
+          <p style="margin-top:12px;">A brand identity swap required changing <em>only the primitive layer</em> — all semantic and component tokens cascaded automatically.</p>
         </div>
         <div class="content-block">
           <div class="block-label">What Made the Pivot Possible</div>
           <h4>Reused vs. Changed</h4>
-          <p><strong>Reused (60%):</strong></p>
-          <ul>
-            <li>Auth flows · Forms · Navigation · Cards</li>
-            <li>Progress UI · Multi-tenant architecture</li>
-            <li>Same patterns, inputs, structure, layouts</li>
-          </ul>
-          <p style="margin-top:8px;"><strong>Changed (40%):</strong></p>
-          <ul>
-            <li>Branding · Content · Features</li>
-            <li>New identity · Healthcare context</li>
-            <li>Compliance · Admin-focused reporting</li>
-          </ul>
-        </div>
-      </div>
-
-      <div style="background: var(--cream); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; margin-bottom: 32px;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; text-align: center;">
-          <div>
-            <div style="font-family: var(--font-mono); font-size: 14px; color: var(--muted); margin-bottom: 8px;">Building Aegis from scratch</div>
-            <div style="font-family: var(--font-mono); font-size: 32px; font-weight: 700; color: var(--ink);">12–16 weeks</div>
-          </div>
-          <div>
-            <div style="font-family: var(--font-mono); font-size: 14px; color: var(--muted); margin-bottom: 8px;">Pivoting with design system</div>
-            <div style="font-family: var(--font-mono); font-size: 32px; font-weight: 700; color: #2D7A4F;">~3 weeks</div>
-          </div>
-          <div>
-            <div style="font-family: var(--font-mono); font-size: 14px; color: var(--muted); margin-bottom: 8px;">Efficiency gain</div>
-            <div style="font-family: var(--font-mono); font-size: 32px; font-weight: 700; color: var(--metric-accent);">~60%</div>
-          </div>
+          <p><strong>Reused (60%):</strong> Auth flows, forms, navigation, cards, progress UI, multi-tenant architecture — same patterns, same inputs, same structure.</p>
+          <p style="margin-top:8px;"><strong>Changed (40%):</strong> Brand identity, healthcare content, compliance features, admin-focused reporting.</p>
         </div>
       </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- THE NEW PRODUCT -->
+    <!-- THE PRODUCT -->
     <section class="cs-section">
-      <p class="cs-section-label">The Solution</p>
-      <h2 class="cs-section-title">From Mindset to Aegis</h2>
-      <p class="cs-section-intro">Healthcare workforce wellness management — a B2B platform enabling health plan sponsors to track and manage employee wellness implementation across their network.</p>
+      <p class="cs-section-label">The Product</p>
+      <h2 class="cs-section-title">Three Interconnected Platforms</h2>
+      <p class="cs-section-intro">Aegis isn't one tool — it's three platforms built from a shared system, each solving a different stage of client lifecycle.</p>
 
-      <div class="two-col">
-        <div class="content-block">
-          <div class="block-label">Core Product Features</div>
-          <h4>Implementation Management Dashboard</h4>
-          <ul>
-            <li>Total implementations tracker (Complete · In Progress · Not Started)</li>
-            <li>Filter and Sort by geography, go-live date, business requirements</li>
-            <li>Multi-tenant: supports multiple health plan clients simultaneously</li>
-            <li>Compliance-ready reporting for healthcare requirements</li>
-          </ul>
-        </div>
-        <div class="content-block">
-          <div class="block-label">Target Context</div>
-          <h4>Enterprise Health Plans</h4>
-          <ul>
-            <li>Western Dental — West region, multi-location rollout</li>
-            <li>Greenbrier Union Premium Health Care Plan</li>
-            <li>Admin-focused workflows for plan sponsors</li>
-            <li>Employer-sponsored access removes individual barrier to entry</li>
-          </ul>
-        </div>
+      <h3 style="font-family: var(--font-mono); font-size: 16px; margin-bottom: 12px; color: var(--ink);">Operations Hub — Onboarding &amp; Configuration</h3>
+      <p style="margin-bottom: 24px; color: var(--muted);">10-section questionnaire replaces email-based requirements gathering. Real-time progress tracking, save-and-resume, and a review workflow that catches errors before implementation begins.</p>
+
+      <div class="cs-img" style="margin-bottom: 48px;">
+        <img src="images/aegis/ops-hub-ui.png" alt="Operations Hub — onboarding and configuration UI showing before/after redesign, desktop and mobile" />
+      </div>
+
+      <h3 style="font-family: var(--font-mono); font-size: 16px; margin-bottom: 12px; color: var(--ink);">QA Hub — Continuous Data Quality Monitoring</h3>
+      <p style="margin-bottom: 24px; color: var(--muted);">Most platforms validate once at launch. Aegis monitors continuously. 99+ automated reports run 24/7 for 35+ health plan clients — flagging stale records, formatting errors, and regulatory compliance gaps before they reach members.</p>
+
+      <div class="cs-img" style="margin-bottom: 48px;">
+        <img src="images/aegis/qa-hub-ui.png" alt="QA Hub — continuous data quality monitoring with report feed, provider completeness checks, and compliance dashboards" />
       </div>
 
       <div class="callout">
-        <p>The thing that made this market actually work for us: the employer buys it, not the employee. That changes everything — there's no acquisition cost per user, no competing against someone's existing Calm subscription, no "why would I switch?" objection. The plan sponsor (an HR team or health plan) makes the decision and rolls it out to their people.</p>
+        <p>Provider directory data is mission-critical — members depend on it to find care. Physicians move, retire, change specialties. A wrong address means someone shows up to a closed office. A wrong specialty means a misdiagnosis risk. The QA Hub exists because data degrades constantly, and manual checking doesn't scale across 35+ clients.</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- DESIGN PRINCIPLES -->
+    <section class="cs-section">
+      <p class="cs-section-label">Design System</p>
+      <h2 class="cs-section-title">Healthcare-First Design Principles</h2>
+      <p class="cs-section-intro">Healthcare is compliance-critical. Every component was designed to WCAG AAA from day one — 7:1 contrast ratios, full keyboard navigation, semantic HTML + ARIA labels, 44x44px touch targets.</p>
+
+      <div class="cs-img" style="margin-bottom: 40px;">
+        <img src="images/aegis/design-principles.png" alt="Healthcare-first design principles — token tiers from primitives to component tokens, WCAG AAA accessibility standards" />
+      </div>
+
+      <div class="three-col">
+        <div class="content-block">
+          <div class="block-label">Accessibility-First</div>
+          <p>7:1 contrast ratios, keyboard nav, screen reader support, 44x44px touch targets. Healthcare = compliance-critical, so AAA wasn't optional.</p>
+        </div>
+        <div class="content-block">
+          <div class="block-label">Mobile-Optimized</div>
+          <p>Large touch targets, high contrast for bright hospital environments, offline-capable patterns. Healthcare workers don't sit at desks.</p>
+        </div>
+        <div class="content-block">
+          <div class="block-label">Admin-Focused</div>
+          <p>Multi-organization support, role-based access control, compliance reporting, audit logs. B2B requires organization management from the ground up.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- REAL CLIENTS -->
+    <section class="cs-section">
+      <p class="cs-section-label">Solution in Context</p>
+      <h2 class="cs-section-title">Real Clients, Real Impact</h2>
+      <p class="cs-section-intro">35+ health plan clients across the country — from New York's largest health system to regional insurers.</p>
+
+      <div class="cs-img" style="margin-bottom: 40px;">
+        <img src="images/aegis/real-clients.png" alt="Client overview — Northwell Health, Premera Blue Cross, LifeWise, SurveyMonkey, Ensign, and others using the platform" />
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- OUTCOMES -->
+    <section class="cs-section">
+      <p class="cs-section-label">Impact &amp; Outcomes</p>
+      <h2 class="cs-section-title">Measuring Success</h2>
+
+      <div class="cs-img" style="margin-bottom: 40px;">
+        <img src="images/aegis/impact-metrics.png" alt="Impact and outcomes — quantitative metrics, qualitative stakeholder feedback, and business value" />
+      </div>
+
+      <div class="three-col">
+        <div class="content-block">
+          <div class="block-label">Quantitative</div>
+          <ul>
+            <li>35+ health plan clients on platform</li>
+            <li>Millions of members served</li>
+            <li>60% dev-cycle reduction via component reuse</li>
+            <li>3-week pivot (vs. 12-16 week estimate from scratch)</li>
+          </ul>
+        </div>
+        <div class="content-block">
+          <div class="block-label">Qualitative</div>
+          <ul>
+            <li>"Everything is laid out in a super clean and clear way"</li>
+            <li>100% task completion rate with zero drop-off</li>
+            <li>Feedback focused on simplicity and workflow clarity</li>
+          </ul>
+        </div>
+        <div class="content-block">
+          <div class="block-label">Business Value</div>
+          <ul>
+            <li>Avoided 6-12 months in saturated consumer market</li>
+            <li>Leveraged founder healthcare expertise as moat</li>
+            <li>Entered underserved B2B market with enterprise-scale architecture</li>
+          </ul>
+        </div>
       </div>
     </section>
 
