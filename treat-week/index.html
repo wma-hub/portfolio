@@ -224,50 +224,15 @@
       flex-direction: column;
       gap: 16px;
     }
-    /* sticker cluster: Figma frame 564×267px; export bounding box 721×505 (ellipse overflow) */
-    .tw-04-cluster {
-      width: 564px;
-      height: 267px;
-      overflow: hidden;
-      flex-shrink: 0;
-      position: relative;
-    }
-    .tw-04-cluster img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 721px;
+    /* bare imgs: row right (04-1) + bottom (04-2) */
+    .tw-04-block1 > img {
       display: block;
-    }
-    /* browser mockup: Figma frame 952×568; export 1235×832 (141.6px ellipse overhang each side) */
-    .tw-04-browser {
-      width: 952px;
-      height: 568px;
-      overflow: hidden;
       flex-shrink: 0;
-      position: relative;
     }
-    .tw-04-browser img {
-      position: absolute;
-      top: 0;
-      left: -142px;
-      width: 1235px;
+    /* 04-2: intrinsic 1x width (1235px); glow overflow clips via .tw-body overflow-x:clip */
+    .tw-04-content > img {
       display: block;
-    }
-    /* desktop/print/tablet spread: Figma frame 1000×504; export 1208×646 (117px left overhang) */
-    .tw-04-spread {
-      width: 100%;
-      height: 504px;
-      overflow: hidden;
-      flex-shrink: 0;
-      position: relative;
-    }
-    .tw-04-spread img {
-      position: absolute;
-      top: 0;
-      left: -117px;
-      width: 1208px;
-      display: block;
+      max-width: none;
     }
 
     /* 05 — IMPACT */
@@ -349,12 +314,8 @@
       .tw-04-content { padding: 0; }
       .tw-04-block1 { flex-direction: column; gap: 32px; }
       .tw-04-copy { width: 100%; }
-      .tw-04-cluster { width: 100%; height: auto; }
-      .tw-04-cluster img { position: static; width: 100%; height: auto; }
-      .tw-04-browser { width: 100%; height: auto; }
-      .tw-04-browser img { position: static; left: auto; width: 100%; height: auto; }
-      .tw-04-spread { height: auto; }
-      .tw-04-spread img { position: static; left: auto; width: 100%; height: auto; }
+      .tw-04-block1 > img,
+      .tw-04-content > img { width: 100%; height: auto; }
       .tw-05-grid { grid-template-columns: repeat(2, 1fr); }
       .tw-05-card { height: auto; min-height: 90px; }
       .tw-page-nav { flex-direction: column; gap: 24px; align-items: flex-start; }
@@ -472,16 +433,9 @@
               <p class="tw-body-text">The campaign ran across US employee communications for the sale window, September 22&#8211;26: digital signage, email, intranet, social, and the Workhuman Connect platform, all pulling from one system.</p>
               <p class="tw-body-text">The same white-label templates ship to customers running their own store programs.</p>
             </div>
-            <div class="tw-04-cluster">
-              <img src="/assets/treatweek/04-1.png" width="721" height="505" alt="Email and marketing application">
-            </div>
+            <img src="/assets/treatweek/04-1.png" width="721" alt="Email and marketing application">
           </div>
-          <div class="tw-04-browser">
-            <img src="/assets/treatweek/04-2.png" width="1235" height="832" alt="Browser and platform mockup">
-          </div>
-          <div class="tw-04-spread">
-            <img src="/assets/treatweek/04-3.png" width="1208" height="646" alt="Desktop, print, and tablet spread">
-          </div>
+          <img src="/assets/treatweek/04-2.png" width="1235" alt="Applied formats spread">
         </div>
       </section>
 
