@@ -153,12 +153,8 @@
 
     /* ── 05 Scope ─────────────────────────────────────────── */
     .scope-layout { display: flex; gap: 80px; align-items: flex-start; }
-    .scope-phase { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 32px; }
-    .scope-phase-box { border-radius: 6px; display: flex; align-items: center; justify-content: center; padding: 28px 24px; gap: 16px; min-height: 108px; }
-    .scope-phase-box.light { background: #f5f0f0; }
-    .scope-phase-box.dark  { background: #141414; }
-    .scope-phase-box img { height: 46px; width: auto; flex-shrink: 0; }
-    .scope-phase-box img.wordmark { height: 31px; }
+    .scope-phase { flex: 0 0 auto; display: flex; flex-direction: column; gap: 32px; }
+    .scope-phase-img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
     .scope-bullets { list-style: disc; padding-left: 24px; display: flex; flex-direction: column; gap: 6px; }
     .scope-bullets li { font-size: var(--text-18); color: #203f5b; line-height: 1.6; }
 
@@ -322,9 +318,7 @@
             <p>Ad size canvases, layout variants, component shells, animation specs, IAB spacing tokens: the skeleton every build inherits.</p>
           </div>
           <div class="tier-visuals">
-            <img src="/assets/marly/foundation-figma.png" alt="Foundation Figma library" style="width:48%;border-radius:12px;margin-bottom:-40px;box-shadow:0 4px 15px rgba(0,0,0,0.25);display:block;">
-            <img src="/assets/marly/foundation-components.png" alt="Foundation components" class="tier-img-sm">
-            <img src="/assets/marly/foundation-specs.png" alt="Foundation specs" class="tier-img-md">
+            <img src="/assets/marly/02b-01.png" alt="Foundation Figma library" style="width:100%;max-width:100%;display:block;">
           </div>
         </div>
 
@@ -334,7 +328,7 @@
             <p>Foundation components with brand tokens swapped in: color styles, type styles, logo assets, imagery rules. Every client file inherits Foundation updates, which is why the second campaign for any client is faster than the first.</p>
           </div>
           <div class="tier-visuals">
-            <img src="/assets/marly/client-layer.png" alt="Per-client Figma layer" class="tier-img" style="border-radius:12px;">
+            <img src="/assets/marly/02b-02.png" alt="Per-client Figma layer" style="width:100%;max-width:100%;display:block;">
           </div>
         </div>
 
@@ -344,14 +338,7 @@
             <p>A <strong>CLAUDE.md</strong> spec that translates the brief into machine-readable production instructions, authored by Opus before Code starts Stage 1.</p>
           </div>
           <div class="tier-visuals">
-            <div class="campaign-stack">
-              <div class="campaign-card">
-                <img src="/assets/marly/campaign-claude-md-1.png" alt="CLAUDE.md campaign spec">
-              </div>
-              <div class="campaign-card" style="margin-left:10%;width:90%;margin-top:-40px;">
-                <img src="/assets/marly/campaign-claude-md-2.png" alt="CLAUDE.md campaign spec detail">
-              </div>
-            </div>
+            <img src="/assets/marly/02b-03.png" alt="Per-campaign CLAUDE.md spec" style="width:100%;max-width:100%;display:block;">
           </div>
         </div>
       </div>
@@ -364,10 +351,7 @@
         <p class="ml-text" style="margin-bottom:32px;">Animation intent is locked at the brief stage rather than discovered mid-build. Campaign type determines the sequence, and brand energy from the client <strong>CLAUDE.md</strong> selects which animation token executes inside it. Ghia&#8217;s retargeting campaign opens on a product that&#8217;s already in frame, a slow opacity fade, because retargeting assumes recognition, while Graza&#8217;s mayo launch leads with squeeze-bottle physics on the entrance, because a launch has to introduce the thing.</p>
         <div class="anim-layout">
           <div class="anim-screens">
-            <img src="/assets/marly/anim-spec-1.png" alt="Animation spec" class="anim-screen">
-            <img src="/assets/marly/anim-spec-2.png" alt="Animation tokens" class="anim-screen">
-            <img src="/assets/marly/anim-spec-3.png" alt="Animation sequence" class="anim-screen">
-            <img src="/assets/marly/anim-spec-4.png" alt="Surface effects spec" class="anim-screen anim-screen-magenta">
+            <img src="/assets/marly/02c-01.png" alt="Animation and surface effects spec" class="anim-screen">
           </div>
           <div class="anim-copy">
             <p>Surface effects sit on top of animation as a separate compositional layer: scrims that keep text readable over imagery, feathered edges that blend product into background, ambient glows, shimmer sweeps.</p>
@@ -434,7 +418,7 @@
             </div>
           </div>
           <div class="build-step-screens">
-            <img src="/assets/marly/step1-brief.png" alt="Tumblerware brief document" class="img-faded">
+            <img src="/assets/marly/04-01.png" alt="Tumblerware brief document" style="width:100%;max-width:100%;display:block;border-radius:6px;">
           </div>
         </div>
 
@@ -453,9 +437,7 @@
             </div>
           </div>
           <div class="build-step-screens">
-            <div class="img-card">
-              <img src="/assets/marly/step2-plan-md-full.png" alt="plan.md document">
-            </div>
+            <img src="/assets/marly/04-02.png" alt="plan.md document" style="width:100%;max-width:100%;display:block;border-radius:6px;">
           </div>
         </div>
 
@@ -474,7 +456,7 @@
             </div>
           </div>
           <div class="build-step-screens">
-            <img src="/assets/marly/step3-lofi.png" alt="Lo-fi layout wireframes for Tumblerware">
+            <img src="/assets/marly/04-03.png" alt="Lo-fi layout wireframes for Tumblerware" style="width:100%;max-width:100%;display:block;border-radius:6px;">
           </div>
         </div>
 
@@ -492,8 +474,7 @@
             </div>
           </div>
           <div class="build-step-screens">
-            <img src="/assets/marly/step4-claude-md.png" alt="CLAUDE.md spec">
-            <img src="/assets/marly/step4-claude-md-2.png" alt="CLAUDE.md detail">
+            <img src="/assets/marly/04-04.png" alt="CLAUDE.md spec" style="width:100%;max-width:100%;display:block;border-radius:6px;">
           </div>
         </div>
 
@@ -512,8 +493,7 @@
             </div>
           </div>
           <div class="build-step-screens">
-            <img src="/assets/marly/step5-verify.png" alt="verify-delivery output">
-            <img src="/assets/marly/step5-verify-2.png" alt="verify-delivery detail">
+            <img src="/assets/marly/04-05.png" alt="verify-delivery output" style="width:100%;max-width:100%;display:block;border-radius:6px;">
           </div>
         </div>
 
@@ -554,10 +534,7 @@
         <p class="ml-section-heading">05 &#8212; Scope</p>
         <div class="scope-layout">
           <div class="scope-phase">
-            <div class="scope-phase-box light">
-              <img src="/assets/marly/phase1-opus-logo.png" alt="Claude Opus">
-              <img src="/assets/marly/phase1-opus-wordmark.png" alt="Anthropic" class="wordmark">
-            </div>
+            <img src="/assets/marly/05-01.png" alt="Phase I — Planning with Opus" class="scope-phase-img">
             <ul class="scope-bullets">
               <li>Reads Figma frames, authors plan.md</li>
               <li>Writes the CLAUDE.md Code builds from</li>
@@ -565,10 +542,7 @@
             </ul>
           </div>
           <div class="scope-phase">
-            <div class="scope-phase-box dark">
-              <img src="/assets/marly/phase2-claude-icon.png" alt="Claude Code icon">
-              <img src="/assets/marly/phase2-claude-wordmark.png" alt="Claude Code" class="wordmark" style="height:60px;">
-            </div>
+            <img src="/assets/marly/05-02.png" alt="Phase II — Execution with Claude Code" class="scope-phase-img">
             <ul class="scope-bullets">
               <li>Generates HTML, runs the build</li>
               <li>Runs /verify-delivery ground-truth check</li>
