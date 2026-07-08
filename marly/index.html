@@ -35,18 +35,19 @@
       line-height: 1.1;
     }
     .ml-subtitle { font-size: clamp(18px, 1.67vw, 24px); font-weight: 700; color: var(--text-secondary); }
-    .ml-body { font-size: var(--text-18); color: var(--text-secondary); line-height: 1.7; }
+    .ml-body-hero { font-size: var(--text-18); color: var(--text-secondary); line-height: 1.7; }
 
-    /* ── Marly white body section ─────────────────────────── */
+    /* ── White body ───────────────────────────────────────── */
     .ml-body-section {
       background: #fff;
-      padding: 80px clamp(40px, 12.5vw, 180px) 120px;
+      padding: 80px clamp(24px, 6.94vw, 100px) 120px;
       display: flex;
       flex-direction: column;
       gap: 0;
     }
     .ml-section { padding: 40px 0; display: flex; flex-direction: column; gap: 40px; }
     .ml-section-divider { width: 80px; height: 2px; background: rgba(155,192,228,0.5); }
+    .ml-full-divider { width: 100%; height: 1px; background: rgba(155,192,228,0.3); margin: 8px 0; }
     .ml-section-heading {
       font-size: clamp(24px, 3.33vw, 48px);
       font-weight: 600;
@@ -54,273 +55,124 @@
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      white-space: nowrap;
     }
-    .ml-text { font-size: var(--text-18); color: #203f5b; line-height: 1.7; max-width: 780px; }
+    .ml-text { font-size: var(--text-18); color: #203f5b; line-height: 1.7; }
     .ml-text p + p { margin-top: 1em; }
     .ml-text strong { font-weight: 700; }
+    .ml-text em { font-style: italic; }
 
     /* Stat callout */
-    .ml-stat-block {
-      display: flex;
-      align-items: flex-start;
-      gap: clamp(40px, 8.33vw, 120px);
-    }
+    .ml-stat-block { display: flex; gap: clamp(40px, 8.33vw, 120px); align-items: flex-start; }
     .ml-stat-text { flex: 1; min-width: 0; }
-    .ml-stat-callout {
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px;
-      text-align: center;
-    }
+    .ml-stat-callout { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding: 40px; text-align: center; }
     .ml-stat-num {
-      font-size: clamp(32px, 3.33vw, 48px);
-      font-weight: 700;
+      font-size: clamp(32px, 3.33vw, 48px); font-weight: 700;
       background: linear-gradient(94.13deg, #001d93 33.876%, #476bfe 113.48%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }
     .ml-stat-label {
-      font-size: var(--text-18);
-      font-weight: 600;
+      font-size: var(--text-18); font-weight: 600;
       background: linear-gradient(95.68deg, #001d93 33.876%, #476bfe 113.48%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-align: center;
-      line-height: 1.4;
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      text-align: center; line-height: 1.4;
     }
 
-    /* ── Pipeline gate diagram ───────────────────────────── */
-    .pipeline-diagram {
-      background: #fff;
-      border: 1px solid #d9d9d9;
-      border-radius: 6px;
-      padding: 24px;
-      overflow-x: auto;
-    }
-    .pipeline-inner {
-      display: flex;
-      gap: 0;
-      align-items: flex-start;
-      min-width: 780px;
-    }
-    .pipeline-phase {
-      flex: 0 0 280px;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-    .pipeline-phase-box {
-      height: 108px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      gap: 16px;
-    }
+    /* ── Pipeline diagram ─────────────────────────────────── */
+    .pipeline-diagram { background: #fff; border: 1px solid #d9d9d9; border-radius: 6px; padding: 24px; overflow-x: auto; }
+    .pipeline-inner { display: flex; gap: 0; align-items: flex-start; min-width: 780px; }
+    .pipeline-phase { flex: 0 0 280px; display: flex; flex-direction: column; gap: 24px; }
+    .pipeline-phase-box { height: 108px; border-radius: 6px; display: flex; align-items: center; justify-content: center; padding: 24px; gap: 16px; }
     .pipeline-phase-box.light { background: #f5f0f0; }
     .pipeline-phase-box.dark  { background: #141414; }
-    .pipeline-phase-box img   { height: 48px; width: auto; flex-shrink: 0; }
-    .pipeline-phase-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 1.28px;
-      color: #203f5b;
-      line-height: 1.4;
-    }
+    .pipeline-phase-box img   { height: 46px; width: auto; flex-shrink: 0; }
+    .pipeline-phase-box img.wordmark { height: 31px; }
+    .pipeline-phase-label { font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; letter-spacing: 1.28px; color: #203f5b; line-height: 1.4; }
     .pipeline-phase-body { font-size: 16px; color: #203f5b; line-height: 1.5; }
-    .pipeline-phase-body em { font-style: italic; }
-    .pipeline-phase-body strong { font-weight: 700; }
     .pipeline-chips { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-    .pipeline-chip {
-      background: #f4f5f7;
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-family: 'Space Mono', monospace;
-      font-size: 12px;
-      color: #333;
-      white-space: nowrap;
-    }
+    .pipeline-chip { background: #f4f5f7; padding: 8px 14px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 12px; color: #333; white-space: nowrap; }
     .pipeline-chip-arrow { font-family: 'Space Mono', monospace; font-size: 13px; color: #9ca3af; }
-    .pipeline-connector {
-      flex: 0 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding-top: 24px;
-      gap: 8px;
-    }
+    .pipeline-connector { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 36px 24px 0; gap: 8px; }
     .pipeline-connector-label { font-size: 10px; color: #6b7280; white-space: nowrap; }
-    .pipeline-gate {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .pipeline-gate { display: flex; align-items: center; gap: 8px; }
     .pipeline-gate-arrow { font-family: 'Space Mono', monospace; font-size: 18px; color: #9ca3af; }
-    .pipeline-gate-pill {
-      background: #476bfe;
-      color: #fff;
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 8px 18px;
-      border-radius: 200px;
-      white-space: nowrap;
-    }
+    .pipeline-gate-pill { background: #476bfe; color: #fff; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; padding: 8px 18px; border-radius: 200px; white-space: nowrap; }
     .pipeline-gate-pill.italic { font-style: italic; }
-    .pipeline-deploy {
-      background: #001d93;
-      color: #fff;
-      font-family: 'Space Mono', monospace;
-      font-size: 12px;
-      font-weight: 700;
-      padding: 10px 18px;
-      border-radius: 6px;
-      white-space: nowrap;
-      margin-top: 39px;
-    }
+    .pipeline-deploy { background: #001d93; color: #fff; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; padding: 10px 18px; border-radius: 6px; white-space: nowrap; }
 
     /* ── Three-tier library ───────────────────────────────── */
-    .tier-row {
-      display: flex;
-      gap: 80px;
-      align-items: center;
-      padding: 40px 24px;
-    }
+    .tier-row { display: flex; gap: 80px; align-items: center; padding: 40px 0; }
     .tier-copy { flex: 0 0 400px; font-size: var(--text-18); color: #203f5b; line-height: 1.7; }
     .tier-copy p + p { margin-top: 1em; }
     .tier-copy strong { font-weight: 700; }
     .tier-visuals { flex: 1; min-width: 0; position: relative; }
-    .tier-img-stack { display: grid; position: relative; }
-    .tier-img {
-      width: 100%;
-      border-radius: 6px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-      display: block;
-    }
-    .tier-img-sm {
-      width: 61%;
-      margin-left: 21%;
-      margin-bottom: 8px;
-      border-radius: 6px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-      display: block;
-    }
-    .tier-img-md {
-      width: 62%;
-      margin-left: 38%;
-      border-radius: 6px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-      display: block;
-    }
-
-    /* Campaign screenshots - stacked with slight offset */
+    .tier-img { width: 100%; border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.25); display: block; }
+    .tier-img-sm { width: 61%; margin-left: 21%; margin-bottom: 8px; border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.25); display: block; }
+    .tier-img-md { width: 62%; margin-left: 38%; border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.25); display: block; }
     .campaign-stack { position: relative; width: 100%; }
-    .campaign-card {
-      background: #fff;
-      border: 2px solid #d9d9d9;
-      border-radius: 6px;
-      padding: 16px;
-      box-shadow: 0 4px 7.5px rgba(0,0,0,0.25);
-      margin-bottom: -60px;
-    }
-    .campaign-card:last-child { margin-bottom: 0; }
-    .campaign-card + .campaign-card { margin-left: 10%; width: 90%; }
-    .campaign-card + .campaign-card + .campaign-card { margin-left: 20%; width: 80%; }
+    .campaign-card { background: #fff; border: 2px solid #d9d9d9; border-radius: 6px; padding: 16px; box-shadow: 0 4px 7.5px rgba(0,0,0,0.25); }
     .campaign-card img { width: 100%; display: block; mask-image: linear-gradient(to bottom, rgba(255,255,255,1) 40%, rgba(255,255,255,0) 90%); }
 
+    /* ── 02C Animation ────────────────────────────────────── */
+    .anim-layout { display: flex; gap: 80px; align-items: flex-start; }
+    .anim-screens { flex-shrink: 0; width: clamp(200px, 27vw, 380px); display: flex; flex-direction: column; gap: 10px; }
+    .anim-screen { border-radius: 6px; box-shadow: 0 5px 7.5px rgba(0,0,0,0.25); display: block; width: 100%; }
+    .anim-screen-magenta { border: 1px solid #ff00ee; }
+    .anim-copy { flex: 1; min-width: 0; font-size: var(--text-18); color: #203f5b; line-height: 1.7; }
+    .anim-copy p + p { margin-top: 1.25em; }
+
     /* ── Brand Range ──────────────────────────────────────── */
-    .brand-logos {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 24px 0;
-      flex-wrap: wrap;
-      gap: 24px;
-    }
-    .brand-logo-cell {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 72px;
-      flex: 1;
-      min-width: 80px;
-    }
+    .brand-logos { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; flex-wrap: wrap; gap: 24px; }
+    .brand-logo-cell { display: flex; align-items: center; justify-content: center; height: 72px; flex: 1; min-width: 80px; }
     .brand-logo-cell img { max-height: 43px; max-width: 130px; object-fit: contain; }
+    .brand-range-para { font-size: var(--text-18); color: #203f5b; line-height: 1.7; padding: 0 0 40px; }
+    .ad-slots-col { display: flex; flex-direction: column; gap: 48px; align-items: center; }
+    .ad-slot-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .ad-slot-label { font-size: 10px; color: #888; text-align: center; }
+    .ad-slot { position: relative; overflow: hidden; background: #f5f5f5; flex-shrink: 0; }
+    .ad-slot iframe { position: absolute; top: 0; left: 0; border: 0; display: block; }
 
-    /* Ad slot rows */
-    .ad-slots-row {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      align-items: center;
+    /* ── 04 Build Traced ──────────────────────────────────── */
+    .build-step { display: flex; gap: 80px; align-items: flex-start; padding: 40px 0; }
+    .build-step-copy { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
+    .step-label { display: flex; flex-direction: column; gap: 6px; }
+    .step-num {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.5px;
+      background: linear-gradient(117.53deg, #001d93 33.876%, #476bfe 113.48%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .ad-slot-wrap {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-    .ad-slot-label {
-      font-size: 10px;
-      color: #888;
-      text-align: center;
-    }
-    .ad-slot {
-      position: relative;
-      overflow: hidden;
-      background: #f5f5f5;
-      flex-shrink: 0;
-    }
-    .ad-slot iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      border: 0;
-      display: block;
-    }
-    .ad-slot-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
-    /* ── Step 6 Delivered ─────────────────────────────────── */
-    .delivered-layout {
-      display: flex;
-      gap: 80px;
-      align-items: flex-start;
-    }
-    .delivered-copy { flex: 1; min-width: 0; }
-    .delivered-heading {
-      font-size: clamp(20px, 2vw, 32px);
-      font-weight: 600;
-      font-style: italic;
+    .step-title {
+      font-size: clamp(18px, 1.67vw, 24px); font-weight: 600; font-style: italic;
       background: linear-gradient(102.17deg, #001d93 33.876%, #476bfe 113.48%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 24px;
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .delivered-heading span:first-child { font-style: normal; font-size: clamp(18px, 1.8vw, 28px); display: block; }
-    .delivered-ad { flex-shrink: 0; }
-    .delivered-ad iframe { display: block; border: 0; }
+    .build-step-screens { flex-shrink: 0; width: clamp(220px, 32vw, 460px); display: flex; flex-direction: column; gap: 12px; }
+    .build-step-screens img { width: 100%; border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.25); display: block; }
+    .img-card { background: #fff; border-radius: 6px; padding: 24px; box-shadow: 0 4px 7.5px rgba(0,0,0,0.25); }
+    .img-card img { box-shadow: none; border-radius: 0; }
+    .img-faded { opacity: 0.5; }
+
+    /* ── 05 Scope ─────────────────────────────────────────── */
+    .scope-layout { display: flex; gap: 80px; align-items: flex-start; }
+    .scope-phase { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 32px; }
+    .scope-phase-box { border-radius: 6px; display: flex; align-items: center; justify-content: center; padding: 28px 24px; gap: 16px; min-height: 108px; }
+    .scope-phase-box.light { background: #f5f0f0; }
+    .scope-phase-box.dark  { background: #141414; }
+    .scope-phase-box img { height: 46px; width: auto; flex-shrink: 0; }
+    .scope-phase-box img.wordmark { height: 31px; }
+    .scope-bullets { list-style: disc; padding-left: 24px; display: flex; flex-direction: column; gap: 6px; }
+    .scope-bullets li { font-size: var(--text-18); color: #203f5b; line-height: 1.6; }
 
     @media (max-width: 900px) {
       .ml-stat-block { flex-direction: column; }
-      .pipeline-inner { flex-wrap: wrap; }
+      .pipeline-inner { flex-wrap: nowrap; min-width: 760px; }
       .tier-row { flex-direction: column; }
       .tier-copy { flex: none; width: 100%; }
-      .delivered-layout { flex-direction: column; }
-      .ml-body-section { padding-left: var(--px-outer); padding-right: var(--px-outer); }
+      .anim-layout { flex-direction: column; }
+      .anim-screens { width: 100%; }
+      .build-step { flex-direction: column; }
+      .build-step-screens { width: 100%; }
+      .scope-layout { flex-direction: column; }
+      .ml-body-section { padding-left: clamp(16px, 4vw, 40px); padding-right: clamp(16px, 4vw, 40px); }
     }
   </style>
 </head>
@@ -349,7 +201,7 @@
         <div class="ml-hero-copy">
           <p class="ml-title">MARLY Creative Concepts</p>
           <p class="ml-subtitle">Animated HTML5 display, built like a system.</p>
-          <p class="ml-body">Marly is the solo studio I founded and run: a Figma-to-production pipeline that turns brand design systems into animated ad sets. I'm the creative director, the pipeline architect, and the final QA gate, which is why the system below exists at all.</p>
+          <p class="ml-body-hero">Marly is the solo studio I founded and run: a Figma-to-production pipeline that turns brand design systems into animated ad sets. I'm the creative director, the pipeline architect, and the final QA gate, which is why the system below exists at all.</p>
         </div>
         <div class="hero-cards">
           <div class="info-card">
@@ -362,7 +214,7 @@
           </div>
           <div class="info-card">
             <p class="info-card-label">Delivery</p>
-            <p class="info-card-body">~30min HTML generation<br><span style="font-size:10px;">48h full campaign</span></p>
+            <p class="info-card-body">~30 min HTML generation<br><span style="font-size:10px;">48 h full campaign</span></p>
           </div>
           <div class="info-card">
             <p class="info-card-label">Portfolio</p>
@@ -372,16 +224,16 @@
       </div>
     </section>
 
-    <!-- BODY -->
+    <!-- WHITE BODY -->
     <section class="ml-body-section">
 
-      <!-- 01 The Problem -->
+      <!-- 01 — The Problem -->
       <div class="ml-section fade-up">
         <p class="ml-section-heading">01 &#8212; The Problem</p>
         <div class="ml-stat-block">
           <div class="ml-stat-text ml-text">
             <p>Enterprise platforms like Celtra automate at scale but assume someone else is producing the creative. Agencies charge $350&#8211;1,500 per ad set and reset the file handoff with every campaign. DIY tools produce output that looks like Canva, because it is.</p>
-            <p>D2C brands spend real money on type, palette, and a product with a shape worth showing, and still can't get those choices honored downstream.</p>
+            <p>D2C brands spend real money on type, palette, and a product with a shape worth showing, and still can&#8217;t get those choices honored downstream.</p>
           </div>
           <div class="ml-stat-callout">
             <p class="ml-stat-num">~2x CTR</p>
@@ -392,7 +244,7 @@
 
       <div class="ml-section-divider"></div>
 
-      <!-- 02A The Pipeline -->
+      <!-- 02A — The Pipeline -->
       <div class="ml-section fade-up">
         <p class="ml-section-heading">02A &#8212; The Pipeline</p>
         <p class="ml-text">Every Marly build runs through a two-phase gate architecture:</p>
@@ -400,13 +252,13 @@
         <div class="pipeline-diagram" role="img" aria-label="Two-phase pipeline: Planning with Opus then Execution with Claude Code">
           <div class="pipeline-inner">
 
-            <!-- Phase I -->
             <div class="pipeline-phase">
               <div class="pipeline-phase-box light">
-                <img src="/assets/marly/phase1-opus-logo.png" alt="Claude Opus logo">
+                <img src="/assets/marly/phase1-opus-logo.png" alt="Claude Opus">
+                <img src="/assets/marly/phase1-opus-wordmark.png" alt="Anthropic" class="wordmark">
               </div>
               <div style="display:flex;flex-direction:column;gap:12px;">
-                <div class="pipeline-phase-label">PHASE I<br>PLANNING &#183; OPUS</div>
+                <div class="pipeline-phase-label">PHASE I&#8201;&#8212;&#8201;PLANNING &#183; OPUS</div>
                 <p class="pipeline-phase-body">Opus authors a <em>plan.md</em> before Code touches a file, and no build starts until the <em>&#167;7 coverage table</em> is fully resolved.</p>
               </div>
               <div class="pipeline-chips">
@@ -416,7 +268,6 @@
               </div>
             </div>
 
-            <!-- Connector 1 -->
             <div class="pipeline-connector">
               <span class="pipeline-connector-label">9 rows resolve</span>
               <div class="pipeline-gate">
@@ -426,14 +277,13 @@
               </div>
             </div>
 
-            <!-- Phase II -->
             <div class="pipeline-phase">
               <div class="pipeline-phase-box dark">
                 <img src="/assets/marly/phase2-claude-icon.png" alt="Claude Code icon">
-                <img src="/assets/marly/phase2-claude-wordmark.png" alt="Claude Code" style="height:36px;">
+                <img src="/assets/marly/phase2-claude-wordmark.png" alt="Claude Code" class="wordmark" style="height:60px;">
               </div>
               <div style="display:flex;flex-direction:column;gap:12px;">
-                <div class="pipeline-phase-label">PHASE II<br>EXECUTION &#183; CLAUDE CODE</div>
+                <div class="pipeline-phase-label">PHASE II&#8201;&#8212;&#8201;EXECUTION &#183; CLAUDE CODE</div>
                 <p class="pipeline-phase-body">Claude Code generates HTML, deploys the review portal, and syncs the Notion workspace, while <strong>/verify-delivery</strong> runs a ground-truth file-system check before the review page goes live.</p>
               </div>
               <div class="pipeline-chips">
@@ -445,7 +295,6 @@
               </div>
             </div>
 
-            <!-- Connector 2 -->
             <div class="pipeline-connector">
               <span class="pipeline-connector-label">9-check ground truth</span>
               <div class="pipeline-gate">
@@ -462,7 +311,7 @@
 
       <div class="ml-section-divider"></div>
 
-      <!-- 02B Three-Tier Library -->
+      <!-- 02B — Three-Tier Library -->
       <div class="ml-section fade-up">
         <p class="ml-section-heading">02B &#8212; Three-Tier Library</p>
         <p class="ml-text">The pipeline runs on a three-tier Figma library structure, where each layer compounds the one below it.</p>
@@ -473,13 +322,13 @@
             <p>Ad size canvases, layout variants, component shells, animation specs, IAB spacing tokens: the skeleton every build inherits.</p>
           </div>
           <div class="tier-visuals">
-            <img src="/assets/marly/foundation-figma.png" alt="Foundation Figma library" class="tier-img" style="width:48%;border-radius:12px;margin-bottom:-40px;">
+            <img src="/assets/marly/foundation-figma.png" alt="Foundation Figma library" style="width:48%;border-radius:12px;margin-bottom:-40px;box-shadow:0 4px 15px rgba(0,0,0,0.25);display:block;">
             <img src="/assets/marly/foundation-components.png" alt="Foundation components" class="tier-img-sm">
             <img src="/assets/marly/foundation-specs.png" alt="Foundation specs" class="tier-img-md">
           </div>
         </div>
 
-        <div class="tier-row" style="padding-top:80px;">
+        <div class="tier-row" style="padding-top:60px;">
           <div class="tier-copy">
             <p>The second layer is <strong>per-client.</strong></p>
             <p>Foundation components with brand tokens swapped in: color styles, type styles, logo assets, imagery rules. Every client file inherits Foundation updates, which is why the second campaign for any client is faster than the first.</p>
@@ -489,7 +338,7 @@
           </div>
         </div>
 
-        <div class="tier-row" style="padding-top:40px;">
+        <div class="tier-row" style="padding-top:24px;">
           <div class="tier-copy">
             <p>The third layer is <strong>per-campaign.</strong></p>
             <p>A <strong>CLAUDE.md</strong> spec that translates the brief into machine-readable production instructions, authored by Opus before Code starts Stage 1.</p>
@@ -509,75 +358,181 @@
 
       <div class="ml-section-divider"></div>
 
-      <!-- 03 Brand Range -->
+      <!-- 02C — Animation + Surface Effects -->
       <div class="ml-section fade-up">
-        <p class="ml-section-heading">03 &#8212; Brand Range</p>
-        <p class="ml-text">Every brand that comes through the pipeline gets the same ten stages and a different output. Ghia's pastel restraint and Magic Spoon's saturated maximalism run through identical infrastructure because the system encodes process, not aesthetic.</p>
-
-        <div class="brand-logos">
-          <div class="brand-logo-cell">
-            <img src="/assets/marly/graza-logo.png" alt="Graza">
+        <p class="ml-section-heading">02C &#8212; Animation + Surface Effects</p>
+        <p class="ml-text" style="margin-bottom:32px;">Animation intent is locked at the brief stage rather than discovered mid-build. Campaign type determines the sequence, and brand energy from the client <strong>CLAUDE.md</strong> selects which animation token executes inside it. Ghia&#8217;s retargeting campaign opens on a product that&#8217;s already in frame, a slow opacity fade, because retargeting assumes recognition, while Graza&#8217;s mayo launch leads with squeeze-bottle physics on the entrance, because a launch has to introduce the thing.</p>
+        <div class="anim-layout">
+          <div class="anim-screens">
+            <img src="/assets/marly/anim-spec-1.png" alt="Animation spec" class="anim-screen">
+            <img src="/assets/marly/anim-spec-2.png" alt="Animation tokens" class="anim-screen">
+            <img src="/assets/marly/anim-spec-3.png" alt="Animation sequence" class="anim-screen">
+            <img src="/assets/marly/anim-spec-4.png" alt="Surface effects spec" class="anim-screen anim-screen-magenta">
           </div>
-          <div class="brand-logo-cell">
-            <img src="/assets/marly/byredo-logo.png" alt="Byredo">
+          <div class="anim-copy">
+            <p>Surface effects sit on top of animation as a separate compositional layer: scrims that keep text readable over imagery, feathered edges that blend product into background, ambient glows, shimmer sweeps.</p>
+            <p>Gorjana gets a warm gold shimmer because the product is brass, while Graza gets none at all, because nothing about a matte squeeze bottle on flat color wants atmosphere.</p>
           </div>
-          <div class="brand-logo-cell">
-            <img src="/assets/marly/tumblerware-logo.png" alt="Tumblerware">
-          </div>
-          <div class="brand-logo-cell">
-            <img src="/assets/marly/ritual-logo.png" alt="Ritual">
-          </div>
-          <div class="brand-logo-cell">
-            <img src="/assets/marly/ghia-logo.png" alt="Ghia">
-          </div>
-          <div class="brand-logo-cell">
-            <img src="/assets/marly/levis-logo.png" alt="Levi's">
-          </div>
-        </div>
-
-        <!-- Ad showcase slots -->
-        <!-- §8 REVIEW NOTE: Only Tumblerware/fathers-day has an /ads/ directory on disk.
-             Graza, Ghia, Ritual, Levi's, Byredo, Magic Spoon have no /ads/ subdirectory
-             and are excluded from all slot rotations. Each slot shows Tumblerware only.
-             Rotation becomes active once other brands publish /ads/ directories. -->
-        <div class="ad-slots-row" id="brand-range-slots">
-
-          <div class="ad-slot-wrap" data-slot="728x90">
-            <p class="ad-slot-label">728&times;90</p>
-            <div class="ad-slot" style="width:728px;height:90px;max-width:100%;" id="slot-728x90"></div>
-          </div>
-
-          <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap;justify-content:center;">
-            <div class="ad-slot-wrap" data-slot="300x250">
-              <p class="ad-slot-label">300&times;250</p>
-              <div class="ad-slot" style="width:300px;height:250px;" id="slot-300x250"></div>
-            </div>
-            <div class="ad-slot-wrap" data-slot="160x600">
-              <p class="ad-slot-label">160&times;600</p>
-              <div class="ad-slot" style="width:160px;height:600px;" id="slot-160x600"></div>
-            </div>
-          </div>
-
         </div>
       </div>
 
       <div class="ml-section-divider"></div>
 
-      <!-- STEP 6 — DELIVERED -->
+      <!-- 03 — Brand Range -->
       <div class="ml-section fade-up">
-        <div class="delivered-layout">
-          <div class="delivered-copy">
-            <div class="delivered-heading">
-              <span>STEP 6 &#8212;</span>
-              DELIVERED
+        <p class="ml-section-heading">03 &#8212; Brand Range</p>
+        <p class="ml-text">Every brand that comes through the pipeline gets the same ten stages and a different output. Ghia&#8217;s pastel restraint and Magic Spoon&#8217;s saturated maximalism run through identical infrastructure because the system encodes process, not aesthetic.</p>
+
+        <div class="brand-logos">
+          <div class="brand-logo-cell"><img src="/assets/marly/graza-logo.png" alt="Graza"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/byredo-logo.png" alt="Byredo"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/tumblerware-logo.png" alt="Tumblerware"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/ritual-logo.png" alt="Ritual"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/ghia-logo.png" alt="Ghia"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/levis-logo.png" alt="Levi's"></div>
+        </div>
+
+        <p class="brand-range-para">What changes per client lives entirely in the per-client layer; color tokens, motion pacing, type pairing, the texture of how a CTA should feel. Six logos in this range, six different answers to the same brief: make the product look inevitable in under three seconds.</p>
+
+        <!-- §8 NOTE: Only Tumblerware/fathers-day has /ads/ on disk (728x90, 300x250, 160x600).
+             All other brands excluded from rotation (no /ads/ directory). Single unit per slot —
+             rendered static per rotation amendment. -->
+        <div class="ad-slots-col" id="brand-range-slots">
+          <div class="ad-slot-wrap" data-slot="728x90">
+            <div class="ad-slot" style="width:min(728px,100%);height:90px;" id="slot-728x90"></div>
+            <p class="ad-slot-label">728&#215;90</p>
+          </div>
+          <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap;justify-content:center;">
+            <div class="ad-slot-wrap" data-slot="300x250">
+              <div class="ad-slot" style="width:300px;height:250px;" id="slot-300x250"></div>
+              <p class="ad-slot-label">300&#215;250</p>
+            </div>
+            <div class="ad-slot-wrap" data-slot="160x600">
+              <div class="ad-slot" style="width:160px;height:600px;" id="slot-160x600"></div>
+              <p class="ad-slot-label">160&#215;600</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ml-section-divider"></div>
+
+      <!-- 04 — A Build, Traced -->
+      <div class="ml-section fade-up">
+        <p class="ml-section-heading">04 &#8212; A Build, Traced</p>
+        <p class="ml-text">One campaign, from brief to deployed review portal: the Tumblerware Father&#8217;s Day set, three IAB sizes, taken from a lo-fi internal draft to client-facing V1 through a full change in creative direction mid-pipeline.</p>
+
+        <!-- STEP 1 -->
+        <div class="build-step">
+          <div class="build-step-copy">
+            <div class="step-label">
+              <span class="step-num">STEP 1 &#8212;</span>
+              <span class="step-title">BRIEF</span>
+            </div>
+            <div class="ml-text">
+              <p>The brief is the contract, captured in full before Opus touches a <strong>CLAUDE.md.</strong> Tumblerware&#8217;s declared Architecture B: motion carried by CSS token classes and vanilla JS, no GSAP, no external runtime. That constraint survived a mid-pipeline change in creative direction into the shipped units, where <strong>/verify-delivery</strong> still checks for it.</p>
+            </div>
+          </div>
+          <div class="build-step-screens">
+            <img src="/assets/marly/step1-brief.png" alt="Tumblerware brief document" class="img-faded">
+          </div>
+        </div>
+
+        <div class="ml-full-divider"></div>
+
+        <!-- STEP 2 -->
+        <div class="build-step">
+          <div class="build-step-copy">
+            <div class="step-label">
+              <span class="step-num">STEP 2 &#8212;</span>
+              <span class="step-title">PLAN.MD</span>
+            </div>
+            <div class="ml-text">
+              <p>Before Code reads a brief, Opus authors a <strong>plan.md:</strong> brief synthesis, gap audit with explicit resolutions, a diff against deployed state for V2+ builds, and the &#167;7 coverage table, a row for every pipeline stage with a status on every row.</p>
+              <p>Code cannot start Stage 1 until every row resolves.</p>
+            </div>
+          </div>
+          <div class="build-step-screens">
+            <div class="img-card">
+              <img src="/assets/marly/step2-plan-md-full.png" alt="plan.md document">
+            </div>
+          </div>
+        </div>
+
+        <div class="ml-full-divider"></div>
+
+        <!-- STEP 3 -->
+        <div class="build-step">
+          <div class="build-step-copy">
+            <div class="step-label">
+              <span class="step-num">STEP 3 &#8212;</span>
+              <span class="step-title">FIGMA LO-FI + CREATIVE DIRECTION PASS</span>
+            </div>
+            <div class="ml-text">
+              <p>Structural composition happens in Figma before brand is applied: Foundation layout variants assign zones, type hierarchy, and asset placement per size, with no color or product imagery to distract from the architecture.</p>
+              <p>The CD pass follows: color, type, product photography, negative space. Code reads the finished frames via <em>get_design_context</em> and executes them 1:1. For Tumblerware the CD pass replaced the brief&#8217;s dark product-demo direction with a light multi-product carousel, and because Figma is Source 1 after CD, the frames won.</p>
+            </div>
+          </div>
+          <div class="build-step-screens">
+            <img src="/assets/marly/step3-lofi.png" alt="Lo-fi layout wireframes for Tumblerware">
+          </div>
+        </div>
+
+        <div class="ml-full-divider"></div>
+
+        <!-- STEP 4 -->
+        <div class="build-step">
+          <div class="build-step-copy">
+            <div class="step-label">
+              <span class="step-num">STEP 4 &#8212;</span>
+              <span class="step-title">CLAUDE.MD</span>
+            </div>
+            <div class="ml-text">
+              <p><strong>CLAUDE.md</strong> is machine-readable creative direction: hex values mapped to semantic roles, animation classes assigned from the token library, layout variant IDs looked up from the Foundation index rather than inferred. The spec leaves nothing to interpretation, because interpretation is where builds diverge from design.</p>
+            </div>
+          </div>
+          <div class="build-step-screens">
+            <img src="/assets/marly/step4-claude-md.png" alt="CLAUDE.md spec">
+            <img src="/assets/marly/step4-claude-md-2.png" alt="CLAUDE.md detail">
+          </div>
+        </div>
+
+        <div class="ml-full-divider"></div>
+
+        <!-- STEP 5 -->
+        <div class="build-step">
+          <div class="build-step-copy">
+            <div class="step-label">
+              <span class="step-num">STEP 5 &#8212;</span>
+              <span class="step-title">/VERIFY-DELIVERY</span>
+            </div>
+            <div class="ml-text">
+              <p>Before the review page builds, <strong>/verify-delivery</strong> runs a ground-truth check against the deployed file state rather than a self-report from Code: paths resolving, file weights, IAB compliance, animation tokens per spec.</p>
+              <p>If any check fails, the build stops. The review page doesn&#8217;t build until the gate passes. This is how the pipeline catches the class of errors that only surface after a client clicks &#8220;play.&#8221;</p>
+            </div>
+          </div>
+          <div class="build-step-screens">
+            <img src="/assets/marly/step5-verify.png" alt="verify-delivery output">
+            <img src="/assets/marly/step5-verify-2.png" alt="verify-delivery detail">
+          </div>
+        </div>
+
+        <div class="ml-full-divider"></div>
+
+        <!-- STEP 6 -->
+        <div class="build-step" style="align-items:center;">
+          <div class="build-step-copy">
+            <div class="step-label">
+              <span class="step-num">STEP 6 &#8212;</span>
+              <span class="step-title">DELIVERED</span>
             </div>
             <div class="ml-text">
               <p>Production-ready HTML5, deployed to the review portal at:<br>
-              <a href="https://www.marly.cc/review/tumblerware/fathers-day" target="_blank" rel="noopener noreferrer" style="color:#001d93;font-weight:700;text-underline-offset:2px;text-decoration:underline;">https://www.marly.cc/review/tumblerware/fathers-day</a>.</p>
+              <a href="https://www.marly.cc/review/tumblerware/fathers-day" target="_blank" rel="noopener noreferrer" style="color:#001d93;font-weight:700;text-underline-offset:3px;text-decoration:underline;">marly.cc/review/tumblerware/fathers-day</a>.</p>
               <p>IAB-compliant weights, click-tags in place, and a playback interface with per-ad replay for client review.</p>
             </div>
           </div>
-          <div class="delivered-ad">
+          <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:8px;">
             <iframe
               src="https://www.marly.cc/review/tumblerware/fathers-day/ads/300x250.html"
               width="300"
@@ -585,7 +540,40 @@
               scrolling="no"
               title="Tumblerware Father's Day — 300x250 display ad"
               loading="lazy"
+              style="display:block;border:0;"
             ></iframe>
+            <p style="font-size:10px;color:#888;">300&#215;250</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ml-section-divider"></div>
+
+      <!-- 05 — Scope -->
+      <div class="ml-section fade-up">
+        <p class="ml-section-heading">05 &#8212; Scope</p>
+        <div class="scope-layout">
+          <div class="scope-phase">
+            <div class="scope-phase-box light">
+              <img src="/assets/marly/phase1-opus-logo.png" alt="Claude Opus">
+              <img src="/assets/marly/phase1-opus-wordmark.png" alt="Anthropic" class="wordmark">
+            </div>
+            <ul class="scope-bullets">
+              <li>Reads Figma frames, authors plan.md</li>
+              <li>Writes the CLAUDE.md Code builds from</li>
+              <li>Creative judgment, before a file is touched</li>
+            </ul>
+          </div>
+          <div class="scope-phase">
+            <div class="scope-phase-box dark">
+              <img src="/assets/marly/phase2-claude-icon.png" alt="Claude Code icon">
+              <img src="/assets/marly/phase2-claude-wordmark.png" alt="Claude Code" class="wordmark" style="height:60px;">
+            </div>
+            <ul class="scope-bullets">
+              <li>Generates HTML, runs the build</li>
+              <li>Runs /verify-delivery ground-truth check</li>
+              <li>Deploys to Vercel, syncs Notion</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -623,33 +611,27 @@
 </div>
 <script src="/js/site.js"></script>
 <script>
-/* ── Brand Range rotating showcase ───────────────────────────────────────────
-   ROTATE_MS: [min, max] milliseconds per slot rotation interval.
-   Only brands with a unit at the exact slot size are entered into rotation.
-   ───────────────────────────────────────────────────────────────────────── */
+/* ── Brand Range rotating showcase ─────────────────────────────────────────
+   ROTATE_MS: [min, max] milliseconds per rotation interval.
+   Rotation amendment: if pool resolves to a single unit, render it static —
+   no crossfade infrastructure, no opacity transition.
+   ─────────────────────────────────────────────────────────────────────────*/
 var ROTATE_MS = [3000, 5000];
 
+/* §8 NOTE — only Tumblerware/fathers-day has /ads/ on disk.
+   All three slots show a single Tumblerware unit → static render per amendment. */
 var AD_SLOTS = [
   {
-    id: 'slot-728x90',
-    w: 728, h: 90,
-    units: [
-      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/728x90.html', label: 'Tumblerware' }
-    ]
+    id: 'slot-728x90',  w: 728,  h: 90,
+    units: [{ src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/728x90.html', label: 'Tumblerware' }]
   },
   {
-    id: 'slot-300x250',
-    w: 300, h: 250,
-    units: [
-      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/300x250.html', label: 'Tumblerware' }
-    ]
+    id: 'slot-300x250', w: 300, h: 250,
+    units: [{ src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/300x250.html', label: 'Tumblerware' }]
   },
   {
-    id: 'slot-160x600',
-    w: 160, h: 600,
-    units: [
-      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/160x600.html', label: 'Tumblerware' }
-    ]
+    id: 'slot-160x600', w: 160, h: 600,
+    units: [{ src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/160x600.html', label: 'Tumblerware' }]
   }
 ];
 
@@ -659,42 +641,53 @@ function randMs() {
   return ROTATE_MS[0] + Math.random() * (ROTATE_MS[1] - ROTATE_MS[0]);
 }
 
-function makeIframe(src, w, h) {
+function makeIframe(src, w, h, title) {
   var f = document.createElement('iframe');
   f.src = src;
   f.width = w;
   f.height = h;
   f.scrolling = 'no';
-  f.setAttribute('border', '0');
-  f.style.cssText = 'border:0;display:block;position:absolute;top:0;left:0;';
+  f.title = title || 'Ad unit';
   f.loading = 'lazy';
+  f.style.cssText = 'border:0;display:block;position:absolute;top:0;left:0;';
   return f;
 }
 
-function initSlot(slotCfg) {
-  var el = document.getElementById(slotCfg.id);
-  if (!el || slotCfg.units.length === 0) return;
+function initSlot(cfg) {
+  var el = document.getElementById(cfg.id);
+  if (!el || cfg.units.length === 0) return;
 
+  /* ── Static path: single unit, no animation (rotation amendment) ───── */
+  if (cfg.units.length === 1) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting && !el.hasChildNodes()) {
+          el.appendChild(makeIframe(cfg.units[0].src, cfg.w, cfg.h, cfg.units[0].label));
+          io.disconnect();
+        }
+      });
+    }, { rootMargin: '200px' });
+    io.observe(el);
+    return;
+  }
+
+  /* ── Rotation path: multi-unit double-buffered crossfade ─────────────── */
   var idx = 0;
   var active = null;
   var timer = null;
   var running = false;
 
   function showUnit(i) {
-    var unit = slotCfg.units[i];
-    var next = makeIframe(unit.src, slotCfg.w, slotCfg.h);
+    var unit = cfg.units[i];
+    var next = makeIframe(unit.src, cfg.w, cfg.h, unit.label);
     next.style.opacity = '0';
     next.style.transition = 'opacity 0.4s ease';
     el.appendChild(next);
-
-    /* Fade out old, fade in new */
-    requestAnimationFrame(function () {
+    requestAnimationFrame(function() {
       next.style.opacity = '1';
       if (active) {
         var prev = active;
-        setTimeout(function () {
-          if (prev.parentNode) prev.parentNode.removeChild(prev);
-        }, 450);
+        setTimeout(function() { if (prev.parentNode) prev.parentNode.removeChild(prev); }, 450);
       }
       active = next;
     });
@@ -702,20 +695,16 @@ function initSlot(slotCfg) {
 
   function advance() {
     if (!running) return;
-    idx = (idx + 1) % slotCfg.units.length;
+    idx = (idx + 1) % cfg.units.length;
     showUnit(idx);
-    if (slotCfg.units.length > 1) {
-      timer = setTimeout(advance, randMs());
-    }
+    timer = setTimeout(advance, randMs());
   }
 
   function start() {
     if (running) return;
     running = true;
     if (!active) showUnit(idx);
-    if (!prefersReducedMotion && slotCfg.units.length > 1) {
-      timer = setTimeout(advance, randMs());
-    }
+    if (!prefersReducedMotion) timer = setTimeout(advance, randMs());
   }
 
   function stop() {
@@ -723,16 +712,13 @@ function initSlot(slotCfg) {
     clearTimeout(timer);
   }
 
-  /* Lazy-init: start when approaching viewport, pause when offscreen */
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { start(); } else { stop(); }
-    });
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { start(); } else { stop(); } });
   }, { rootMargin: '200px' });
   io.observe(el);
 }
 
-AD_SLOTS.forEach(function (s) { initSlot(s); });
+AD_SLOTS.forEach(function(cfg) { initSlot(cfg); });
 </script>
 </body>
 </html>
