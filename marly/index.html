@@ -115,7 +115,7 @@
     /* ── 02C Animation ────────────────────────────────────── */
     .anim-layout { display: flex; gap: 80px; align-items: flex-start; padding-left: 60px; }
     .anim-screens { flex: 0 0 486px; width: 486px; display: flex; flex-direction: column; gap: 10px; }
-    .anim-screen { border-radius: 6px; box-shadow: 0 5px 7.5px rgba(0,0,0,0.25); display: block; width: 100%; }
+    .anim-screen { display: block; width: 100%; }
     .anim-screen-magenta { border: 1px solid #ff00ee; }
     .anim-copy { flex: 0 0 454px; font-size: var(--text-18); color: #203f5b; line-height: 1.7; }
     .anim-copy p + p { margin-top: 1.25em; }
@@ -146,7 +146,8 @@
       -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }
     .build-step-screens { flex-shrink: 0; width: clamp(220px, 32vw, 460px); display: flex; flex-direction: column; gap: 12px; }
-    .build-step-screens img { width: 100%; border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.25); display: block; }
+    .build-step-screens img { width: 100%; display: block; }
+    img.export { background: none; padding: 0; border-radius: 0; box-shadow: none; display: block; }
     .img-card { background: #fff; border-radius: 6px; padding: 24px; box-shadow: 0 4px 7.5px rgba(0,0,0,0.25); }
     .img-card img { box-shadow: none; border-radius: 0; }
     .img-faded { opacity: 0.5; }
@@ -154,7 +155,7 @@
     /* ── 05 Scope ─────────────────────────────────────────── */
     .scope-layout { display: flex; gap: 80px; align-items: flex-start; }
     .scope-phase { flex: 1 0 0; display: flex; flex-direction: column; gap: 32px; }
-    .scope-phase-img { display: block; width: 100%; height: auto; border-radius: 6px; }
+    .scope-phase-img { display: block; width: 100%; height: auto; }
     .scope-bullets { list-style: disc; padding-left: 24px; display: flex; flex-direction: column; gap: 6px; }
     .scope-bullets li { font-size: var(--text-18); color: #203f5b; line-height: 24px; letter-spacing: 1.44px; }
 
@@ -321,7 +322,7 @@
             <p>Ad size canvases, layout variants, component shells, animation specs, IAB spacing tokens: the skeleton every build inherits.</p>
           </div>
           <div class="tier-visuals">
-            <img src="/assets/marly/02b-01.png" alt="Foundation Figma library" width="552" style="display:block;margin-left:auto;">
+            <img width="567" class="export" src="/assets/marly/02b-01.png" alt="Foundation Figma library" style="display:block;margin-left:auto">
           </div>
         </div>
 
@@ -331,7 +332,7 @@
             <p>Foundation components with brand tokens swapped in: color styles, type styles, logo assets, imagery rules. Every client file inherits Foundation updates, which is why the second campaign for any client is faster than the first.</p>
           </div>
           <div class="tier-visuals">
-            <img src="/assets/marly/02b-02.png" alt="Per-client Figma layer" width="533" style="display:block;margin-left:auto;">
+            <img width="533" class="export" src="/assets/marly/02b-02.png" alt="Per-client Figma layer" style="display:block;margin-left:auto">
           </div>
         </div>
 
@@ -341,7 +342,7 @@
             <p>A <strong>CLAUDE.md</strong> spec that translates the brief into machine-readable production instructions, authored by Opus before Code starts Stage 1.</p>
           </div>
           <div class="tier-visuals">
-            <img src="/assets/marly/02b-03.png" alt="Per-campaign CLAUDE.md spec" width="552" style="display:block;margin-left:auto;">
+            <img width="780" class="export" src="/assets/marly/02b-03.png" alt="Per-campaign CLAUDE.md spec" style="display:block;margin-left:auto">
           </div>
         </div>
       </div>
@@ -354,7 +355,7 @@
         <p class="ml-text" style="margin-bottom:32px;">Animation intent is locked at the brief stage rather than discovered mid-build. Campaign type determines the sequence, and brand energy from the client <strong>CLAUDE.md</strong> selects which animation token executes inside it. Ghia&#8217;s retargeting campaign opens on a product that&#8217;s already in frame, a slow opacity fade, because retargeting assumes recognition, while Graza&#8217;s mayo launch leads with squeeze-bottle physics on the entrance, because a launch has to introduce the thing.</p>
         <div class="anim-layout">
           <div class="anim-screens">
-            <img src="/assets/marly/02c-01.png" alt="Animation and surface effects spec" width="624" class="anim-screen">
+            <img width="624" src="/assets/marly/02c-01.png" alt="Animation and surface effects spec" class="export anim-screen">
           </div>
           <div class="anim-copy">
             <p>Surface effects sit on top of animation as a separate compositional layer: scrims that keep text readable over imagery, feathered edges that blend product into background, ambient glows, shimmer sweeps.</p>
@@ -422,7 +423,7 @@
             </div>
           </div>
           <div class="build-step-screens" style="flex:0 0 533px;width:533px;">
-            <img src="/assets/marly/04-01.png" alt="Tumblerware brief document" width="738" style="max-width:100%;display:block;border-radius:6px;">
+            <img width="738" class="export" src="/assets/marly/04-01.png" alt="Tumblerware brief document" style="max-width:100%;display:block">
           </div>
         </div>
 
@@ -441,7 +442,7 @@
             </div>
           </div>
           <div class="build-step-screens" style="flex:0 0 649px;width:649px;">
-            <img src="/assets/marly/04-02.png" alt="plan.md document" width="910" style="max-width:100%;display:block;border-radius:6px;">
+            <img width="910" class="export" src="/assets/marly/04-02.png" alt="plan.md document" style="max-width:100%;display:block">
           </div>
         </div>
 
@@ -460,7 +461,7 @@
             </div>
           </div>
           <div class="build-step-screens">
-            <img src="/assets/marly/04-03.png" alt="Lo-fi layout wireframes for Tumblerware" width="480" style="max-width:100%;display:block;border-radius:6px;">
+            <img width="480" class="export" src="/assets/marly/04-03.png" alt="Lo-fi layout wireframes for Tumblerware" style="max-width:100%;display:block">
           </div>
         </div>
 
@@ -478,7 +479,7 @@
             </div>
           </div>
           <div class="build-step-screens" style="width:100%;max-width:100%;">
-            <img src="/assets/marly/04-06.png" alt="CLAUDE.md spec" width="1110" style="max-width:100%;display:block;border-radius:6px;">
+            <img width="1110" class="export" src="/assets/marly/04-06.png" alt="CLAUDE.md spec" style="max-width:100%;display:block">
           </div>
         </div>
 
@@ -497,7 +498,7 @@
             </div>
           </div>
           <div class="build-step-screens" style="width:100%;max-width:100%;">
-            <img src="/assets/marly/04-05.png" alt="verify-delivery output" width="1111" style="max-width:100%;display:block;border-radius:6px;">
+            <img width="1111" class="export" src="/assets/marly/04-05.png" alt="verify-delivery output" style="max-width:100%;display:block">
           </div>
         </div>
 
@@ -538,7 +539,7 @@
         <p class="ml-section-heading">05 &#8212; Scope</p>
         <div class="scope-layout">
           <div class="scope-phase">
-            <img src="/assets/marly/05-01.png" alt="Phase I — Planning with Opus" width="500" class="scope-phase-img">
+            <img width="500" src="/assets/marly/05-01.png" alt="Phase I — Planning with Opus" class="export scope-phase-img">
             <ul class="scope-bullets">
               <li>Reads Figma frames, authors plan.md</li>
               <li>Writes the CLAUDE.md Code builds from</li>
@@ -546,7 +547,7 @@
             </ul>
           </div>
           <div class="scope-phase">
-            <img src="/assets/marly/05-02.png" alt="Phase II — Execution with Claude Code" width="500" class="scope-phase-img">
+            <img width="500" src="/assets/marly/05-02.png" alt="Phase II — Execution with Claude Code" class="export scope-phase-img">
             <ul class="scope-bullets">
               <li>Generates HTML, runs the build</li>
               <li>Runs /verify-delivery ground-truth check</li>
