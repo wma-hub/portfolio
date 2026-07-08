@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Runeberg Terminal — Wilson Ma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+  <style>
+    /* ── Runeberg hero ────────────────────────────────────── */
+    .rb-hero-section {
+      background: var(--bg);
+      padding: var(--px-outer);
+      padding-top: 40px;
+    }
+    .rb-hero-card {
+      background: #202731;
+      border: 0.951px solid var(--border-hero);
+      border-radius: 12px;
+      padding: var(--px-outer);
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .rb-hero-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .rb-title {
+      font-size: clamp(32px, 5vw, 72px);
+      font-weight: 600;
+      background: linear-gradient(71.41deg, #ee6868 8.24%, #f9a45f 52.94%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+    }
+    .rb-subtitle {
+      font-size: clamp(18px, 1.67vw, 24px);
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+    .rb-body {
+      font-size: var(--text-18);
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ── Runeberg body (white section) ───────────────────── */
+    .rb-body-section {
+      background: #fff;
+      padding: 80px clamp(40px, 12.5vw, 180px) 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Section header gradient */
+    .rb-section-heading {
+      font-size: clamp(28px, 3.33vw, 48px);
+      font-weight: 600;
+      background: linear-gradient(111.21deg, #001d93 33.876%, #476bfe 113.48%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+      margin-bottom: 40px;
+    }
+
+    .rb-section {
+      padding: 40px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .rb-section-divider {
+      width: 80px;
+      height: 2px;
+      background: rgba(155, 192, 228, 0.5);
+      margin: 0;
+    }
+
+    .rb-text {
+      font-size: var(--text-18);
+      color: #203f5b;
+      line-height: 1.7;
+      max-width: 780px;
+    }
+    .rb-text p + p { margin-top: 1em; }
+    .rb-text strong { font-weight: 700; }
+    .rb-text em { font-style: italic; }
+
+    /* ── Problem section layout ───────────────────────────── */
+    .rb-problem-layout {
+      display: flex;
+      gap: 80px;
+      align-items: flex-start;
+    }
+    .rb-problem-quote {
+      flex-shrink: 0;
+      width: clamp(180px, 19.3vw, 277px);
+    }
+    .rb-quote-text {
+      font-size: clamp(16px, 1.67vw, 24px);
+      font-weight: 700;
+      font-style: italic;
+      color: #203f5b;
+      line-height: 1.5;
+    }
+    .rb-quote-text em {
+      font-weight: 400;
+    }
+    .rb-collage {
+      flex: 1;
+      min-width: 0;
+      position: relative;
+    }
+
+    /* Screenshot with caption */
+    .rb-screenshot {
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      width: 100%;
+      display: block;
+    }
+    .rb-screenshot-border {
+      border: 1px solid #d9d9d9;
+      border-radius: 7px;
+    }
+    .rb-screenshot-magenta {
+      border: 2px dashed #ff00ee;
+      border-radius: 6px;
+    }
+    .rb-caption {
+      font-size: 10px;
+      font-style: italic;
+      color: #000;
+      text-align: right;
+      margin-top: 6px;
+    }
+
+    /* Magenta annotation overlay */
+    .rb-magenta-box {
+      background: rgba(255, 0, 238, 0.05);
+      border: 1.099px solid #ff00ee;
+      border-radius: 2.2px;
+    }
+
+    /* Problem collage: signal overview + magenta overlay + icon */
+    .rb-problem-collage {
+      position: relative;
+    }
+    .rb-problem-collage .rb-screenshot { border-radius: 6px; }
+    .rb-problem-collage .rb-osrs-icon {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 40px;
+      height: 40px;
+      border-radius: 4px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.25);
+    }
+    .rb-problem-collage .rb-magenta-overlay {
+      position: absolute;
+      bottom: 20px;
+      right: -16px;
+      width: 45%;
+      height: 30%;
+      background: rgba(255, 0, 238, 0.05);
+      border: 1.099px dashed #ff00ee;
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    /* Signal engine collage */
+    .rb-signal-collage {
+      display: grid;
+      gap: 16px;
+    }
+    .rb-signal-row {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .rb-signal-row .col-left { flex: 0 0 46%; position: relative; }
+    .rb-signal-row .col-right { flex: 1; }
+    .rb-highlight-strip {
+      position: absolute;
+      left: 5%;
+      width: 65%;
+      height: 24px;
+      background: #dff6ee;
+      margin-top: -2px;
+    }
+    .rb-small-magenta {
+      display: inline-block;
+      width: 8%;
+      height: 26px;
+    }
+
+    /* Verdict section */
+    .rb-verdict-wrap {
+      position: relative;
+      width: 100%;
+    }
+    .rb-verdict-wide {
+      width: 100%;
+      border-radius: 6px;
+      display: block;
+    }
+    .rb-verdict-panel {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 21.6%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    /* Quote block */
+    .rb-terminal-quote {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(16px, 1.6vw, 24px);
+      color: #203f5b;
+      line-height: 1.6;
+      max-width: 700px;
+      padding: 0 24px;
+    }
+
+    /* Override section */
+    .rb-override-layout {
+      display: flex;
+      gap: 80px;
+      align-items: flex-start;
+    }
+    .rb-override-copy { flex: 1; min-width: 0; }
+    .rb-override-screens {
+      flex-shrink: 0;
+      width: clamp(280px, 27.1vw, 390px);
+      position: relative;
+    }
+    .rb-override-screens .rb-screenshot-top {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      display: block;
+    }
+    .rb-override-screens .rb-screenshot-bottom {
+      margin-top: 8px;
+      width: 84%;
+      margin-left: auto;
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      display: block;
+    }
+    .rb-override-caption {
+      font-size: var(--text-18);
+      font-style: italic;
+      color: #203f5b;
+      line-height: 1.5;
+      margin-top: 16px;
+    }
+
+    /* Daily operation */
+    .rb-daily-layout {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .rb-daily-screens { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+    .rb-daily-mobile { flex-shrink: 0; width: clamp(160px, 20vw, 280px); }
+    .rb-daily-mobile img { width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.25); }
+
+    /* Origin */
+    .rb-origin-layout {
+      display: flex;
+      gap: 80px;
+      align-items: flex-start;
+    }
+    .rb-origin-copy { flex: 1; min-width: 0; }
+    .rb-origin-screens { flex-shrink: 0; width: clamp(280px, 41vw, 591px); position: relative; }
+    .rb-origin-screens img {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      display: block;
+    }
+    .rb-origin-magenta {
+      position: absolute;
+      bottom: 60px;
+      left: 40%;
+      width: 17%;
+      height: 30px;
+    }
+
+    /* Prev/Next nav */
+    .rb-page-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 2px solid rgba(155, 192, 228, 0.5);
+      padding-top: 40px;
+      margin-top: 40px;
+    }
+    .rb-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #474747;
+      font-size: var(--text-18);
+      text-decoration: none;
+    }
+    .rb-nav-item:hover .rb-nav-icon { border-color: #9bc0e4; }
+    .rb-nav-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid #e7e7e7;
+      border-radius: 4px;
+      flex-shrink: 0;
+      transition: border-color 0.2s;
+    }
+    .rb-nav-label strong { font-weight: 700; }
+
+    @media (max-width: 900px) {
+      .rb-problem-layout { flex-direction: column; }
+      .rb-override-layout { flex-direction: column; }
+      .rb-origin-layout { flex-direction: column; }
+      .rb-daily-layout { flex-direction: column; }
+      .rb-body-section { padding-left: var(--px-outer); padding-right: var(--px-outer); }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-wordmark" aria-label="wma.nyc home">
+      <svg viewBox="0 0 40 39.999" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M32.7275 0C36.744 0.000144051 39.9999 3.25601 40 7.27246V32.7266C39.9999 36.743 36.744 39.9989 32.7275 39.999H7.27246C3.25602 39.9989 8.67142e-05 36.743 0 32.7266V7.27246C9.1388e-05 3.25601 3.25602 0.000144051 7.27246 0H32.7275ZM9.26758 28.0898C8.27491 28.0899 7.46995 28.8941 7.46973 29.8867C7.46985 30.8794 8.27484 31.6845 9.26758 31.6846H10.4912C11.484 31.6846 12.2889 30.8795 12.2891 29.8867C12.2888 28.8941 11.4839 28.0898 10.4912 28.0898H9.26758ZM16.0146 28.0898C15.022 28.0899 14.217 28.8941 14.2168 29.8867C14.2169 30.8794 15.0219 31.6845 16.0146 31.6846H17.2383C18.2311 31.6846 19.036 30.8795 19.0361 29.8867C19.0359 28.8941 18.231 28.0898 17.2383 28.0898H16.0146ZM22.7617 28.0898C21.7691 28.0899 20.9641 28.8941 20.9639 29.8867C20.964 30.8794 21.769 31.6845 22.7617 31.6846H23.9854C24.9781 31.6846 25.7831 30.8795 25.7832 29.8867C25.783 28.8941 24.9781 28.0898 23.9854 28.0898H22.7617ZM29.5078 28.0898C28.5152 28.09 27.7102 28.8942 27.71 29.8867C27.7101 30.8794 28.5152 31.6844 29.5078 31.6846H30.7314C31.7242 31.6846 32.5292 30.8795 32.5293 29.8867C32.5291 28.8941 31.7242 28.0898 30.7314 28.0898H29.5078ZM9.26758 20.8984C8.27477 20.8985 7.46974 21.7035 7.46973 22.6963C7.46985 23.689 8.27484 24.4941 9.26758 24.4941H17.2383C18.231 24.4941 19.036 23.689 19.0361 22.6963C19.0361 21.7035 18.2311 20.8985 17.2383 20.8984H9.26758ZM22.7617 20.8984C21.7689 20.8985 20.9639 21.7035 20.9639 22.6963C20.964 23.689 21.769 24.4941 22.7617 24.4941H30.7324C31.7252 24.4941 32.5302 23.689 32.5303 22.6963C32.5303 21.7034 31.7253 20.8984 30.7324 20.8984H22.7617ZM9.26758 14.6064C8.27479 14.6065 7.46976 15.4115 7.46973 16.4043C7.46985 17.397 8.27484 18.2021 9.26758 18.2021H17.2383C18.231 18.2021 19.036 17.397 19.0361 16.4043C19.0361 15.4115 18.2311 14.6065 17.2383 14.6064H9.26758ZM22.7617 14.6064C21.7689 14.6065 20.9639 15.4115 20.9639 16.4043C20.964 17.397 21.769 18.2021 22.7617 18.2021H30.7324C31.7252 18.2021 32.5302 17.397 32.5303 16.4043C32.5302 15.4115 31.7253 14.6064 30.7324 14.6064H22.7617ZM9.26758 8.31445C8.27477 8.3145 7.46973 9.11948 7.46973 10.1123C7.46992 11.105 8.27489 11.9101 9.26758 11.9102H17.2383C18.231 11.9102 19.0359 11.105 19.0361 10.1123C19.0361 9.11946 18.2311 8.31446 17.2383 8.31445H9.26758ZM22.7617 8.31445C21.7689 8.3145 20.9639 9.11953 20.9639 10.1123C20.964 11.105 21.769 11.9101 22.7617 11.9102H30.7324C31.7252 11.9101 32.5302 11.105 32.5303 10.1123C32.5302 9.11953 31.7252 8.3145 30.7324 8.31445H22.7617Z" fill="#F1ECE7"/>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="/#work">Work</a>
+      <a href="/about">About</a>
+      <a href="mailto:ny.wilson.ma@gmail.com" class="nav-cta">Get in touch</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="rb-hero-section">
+      <div class="rb-hero-card fade-up">
+        <div class="rb-hero-copy">
+          <p class="rb-title">Runeberg Terminal</p>
+          <p class="rb-subtitle">Bloomberg for a game economy.</p>
+          <p class="rb-body">The Grand Exchange is Old School RuneScape's player-driven commodities market: 3,000+ items, real volatility, visible volume, and nothing but a raw price API to read it with. Runeberg Terminal is the market intelligence terminal I built and run daily, with a layered signal engine, verdicts that explain themselves, and an override that keeps a human in the loop.</p>
+        </div>
+        <div class="hero-cards">
+          <div class="info-card">
+            <p class="info-card-label">Scope</p>
+            <p class="info-card-body">Signal engine, verdict system, risk grading, P&amp;L tracking, Discord alerts</p>
+          </div>
+          <div class="info-card">
+            <p class="info-card-label">Context</p>
+            <p class="info-card-body">Personal tool, built from zero Python experience</p>
+          </div>
+          <div class="info-card">
+            <p class="info-card-label">Delivery</p>
+            <p class="info-card-body">Locally-deployed Python/Streamlit app, 10 modules, 2,400+ lines</p>
+          </div>
+          <div class="info-card">
+            <p class="info-card-label">Status</p>
+            <p class="info-card-body">Active, 18+ versions, 2026</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="rb-body-section">
+
+      <!-- 01 Problem -->
+      <div class="rb-section fade-up">
+        <p class="rb-section-heading">01 &#8212; Problem</p>
+        <div class="rb-text">
+          <p>Flipping items on the Grand Exchange is a decision-making problem under noisy data. Prices spike and crash hourly, some items dump on predictable cycles, and the wiki's raw price API tells you what happened without telling you what it means.</p>
+          <p>Every trade came down to the same question:</p>
+        </div>
+        <div class="rb-problem-layout">
+          <div class="rb-problem-quote">
+            <p class="rb-quote-text">&#8220;Is this signal real, <em>or am I about to chase<br>a correction?&#8221;</em></p>
+          </div>
+          <div class="rb-collage rb-problem-collage">
+            <img src="/assets/runeberg/signal-overview.png" alt="Runeberg signal overview" class="rb-screenshot">
+            <img src="/assets/runeberg/osrs-icon.png" alt="OSRS icon" class="rb-osrs-icon">
+            <div class="rb-magenta-overlay"></div>
+            <p class="rb-caption">July 01, 2026</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rb-section-divider"></div>
+
+      <!-- 02 Signal Engine -->
+      <div class="rb-section fade-up">
+        <p class="rb-section-heading">02 &#8212; The Signal Engine</p>
+        <div class="rb-text">
+          <p>Runeberg answers that with a layered signal engine. It pulls live and historical prices across four timeframes, scores movers on momentum and volume, then runs each candidate through graded buy and sell checklists before anything surfaces as an action.</p>
+        </div>
+
+        <div class="rb-signal-collage">
+          <div class="rb-signal-row">
+            <div class="col-left">
+              <img src="/assets/runeberg/signal-table.png" alt="Signal table" class="rb-screenshot rb-screenshot-border">
+              <div class="rb-highlight-strip"></div>
+            </div>
+            <div class="col-right">
+              <img src="/assets/runeberg/signal-detail.png" alt="Signal detail view" class="rb-screenshot rb-screenshot-magenta">
+            </div>
+          </div>
+          <div style="position:relative;">
+            <img src="/assets/runeberg/signal-table.png" alt="Signal table condensed" class="rb-screenshot rb-screenshot-border" style="width:72%;">
+            <div class="rb-magenta-box" style="position:absolute;top:0;left:4%;width:8.6%;height:26px;"></div>
+            <p class="rb-caption">July 01, 2026</p>
+          </div>
+        </div>
+
+        <div class="rb-text">
+          <p>A verdict engine weighs <strong>7-day, 30-day,</strong> and <strong>90-day percentile position</strong> into plain-English calls, from <strong>SELL NOW</strong> to <strong>DON'T SELL</strong>, each with its reasoning attached. Nothing appears on screen without a letter-grade and a reason why.</p>
+        </div>
+
+        <div>
+          <div class="rb-verdict-wrap">
+            <img src="/assets/runeberg/verdict-wide.png" alt="Verdict table" class="rb-verdict-wide rb-screenshot">
+            <img src="/assets/runeberg/verdict-panel.png" alt="Verdict panel" class="rb-verdict-panel">
+          </div>
+          <blockquote class="rb-terminal-quote">
+            The algorithm serves the interface, and the interface serves a decision a human has to make under uncertainty.
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="rb-section-divider"></div>
+
+      <!-- 03 Override Layer -->
+      <div class="rb-section fade-up">
+        <div class="rb-override-layout">
+          <div class="rb-override-copy">
+            <p class="rb-section-heading">03 &#8212; The Override Layer</p>
+            <div class="rb-text">
+              <p>The most interesting engineering is the override layer. Momentum algorithms chase corrections they shouldn't trust, so Runeberg runs a two-layer regime-break check.</p>
+              <p><strong>When longer-timeframe structure contradicts a short-term signal, the label gets hard-replaced and the grade takes a penalty.</strong></p>
+              <p>The machine still surfaces the signal, but it arrives demoted, with the disagreement visible. That pattern&#8202;&#8212;&#8202;letting a system flag its own uncertainty instead of hiding it&#8202;&#8212;&#8202;is the thing I keep taking into design work with AI systems.</p>
+            </div>
+          </div>
+          <div class="rb-override-screens">
+            <img src="/assets/runeberg/override-left.png" alt="Override detection view" class="rb-screenshot-top">
+            <img src="/assets/runeberg/override-right.png" alt="Override label detail" class="rb-screenshot-bottom">
+            <p class="rb-override-caption">Dump detection doesn't just classify the drop, it also measures how long recovery historically takes.</p>
+            <p class="rb-caption" style="text-align:right;">July 01, 2026</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rb-section-divider"></div>
+
+      <!-- 04 Daily Operation -->
+      <div class="rb-section fade-up">
+        <p class="rb-section-heading">04 &#8212; Daily Operation</p>
+        <div class="rb-text">
+          <p>Running daily, positions, realized P&amp;L, and a full signal history persist all locally. A Discord webhook fires alerts only when a signal passes every metric gate, because an alert you learn to ignore is worse than no alert.</p>
+        </div>
+        <div class="rb-daily-layout">
+          <div class="rb-daily-screens">
+            <div style="position:relative;">
+              <img src="/assets/runeberg/daily-table.png" alt="Daily signals table" class="rb-screenshot rb-screenshot-border" style="border-radius:12px;">
+              <div class="rb-magenta-box" style="position:absolute;bottom:0;left:1.4%;width:46.8%;height:26px;"></div>
+            </div>
+            <div style="position:relative;">
+              <img src="/assets/runeberg/pl-table.png" alt="P&L table" class="rb-screenshot" style="border-radius:12px;border:1px solid #d9d9d9;">
+              <div class="rb-magenta-box" style="position:absolute;top:0;left:14.6%;width:85.3%;height:35px;"></div>
+            </div>
+          </div>
+          <div class="rb-daily-mobile">
+            <img src="/assets/runeberg/discord-mobile.png" alt="Discord alert on mobile">
+          </div>
+        </div>
+      </div>
+
+      <div class="rb-section-divider"></div>
+
+      <!-- 05 Origin -->
+      <div class="rb-section fade-up">
+        <p class="rb-section-heading">05 &#8212; Origin</p>
+        <div class="rb-origin-layout">
+          <div class="rb-origin-copy">
+            <div class="rb-text">
+              <p>I started this with zero Python background. Runeberg Terminal became a way to learn by building something I'd actually use. 18+ versions later, it isn't shipped software, but it's built like it wants to be: cached API layers, state persistence, alert thresholds a user can trust.</p>
+              <p>It's what happens when the barrier between an idea and a working tool gets low enough that a designer stops waiting for an engineer.</p>
+            </div>
+          </div>
+          <div class="rb-origin-screens">
+            <img src="/assets/runeberg/origin-terminal.png" alt="Runeberg Terminal overview">
+            <div class="rb-magenta-box rb-origin-magenta"></div>
+            <p class="rb-caption" style="margin-top:6px;">July 02, 2026</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREV / NEXT NAV -->
+      <nav class="rb-page-nav" aria-label="Project navigation">
+        <a href="/#work" class="rb-nav-item">
+          <div class="rb-nav-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 12L6 8L10 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="rb-nav-label"><strong>Previous project:</strong> Treat Week</span>
+        </a>
+        <a href="/marly" class="rb-nav-item">
+          <span class="rb-nav-label"><strong>Next project:</strong> MARLY Creative Concepts</span>
+          <div class="rb-nav-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 4L10 8L6 12" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </a>
+      </nav>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-mark">
+        <div class="footer-brand">
+          <svg viewBox="0 0 40 39.999" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M32.7275 0C36.744 0.000144051 39.9999 3.25601 40 7.27246V32.7266C39.9999 36.743 36.744 39.9989 32.7275 39.999H7.27246C3.25602 39.9989 8.67142e-05 36.743 0 32.7266V7.27246C9.1388e-05 3.25601 3.25602 0.000144051 7.27246 0H32.7275ZM9.26758 28.0898C8.27491 28.0899 7.46995 28.8941 7.46973 29.8867C7.46985 30.8794 8.27484 31.6845 9.26758 31.6846H10.4912C11.484 31.6846 12.2889 30.8795 12.2891 29.8867C12.2888 28.8941 11.4839 28.0898 10.4912 28.0898H9.26758ZM16.0146 28.0898C15.022 28.0899 14.217 28.8941 14.2168 29.8867C14.2169 30.8794 15.0219 31.6845 16.0146 31.6846H17.2383C18.2311 31.6846 19.036 30.8795 19.0361 29.8867C19.0359 28.8941 18.231 28.0898 17.2383 28.0898H16.0146ZM22.7617 28.0898C21.7691 28.0899 20.9641 28.8941 20.9639 29.8867C20.964 30.8794 21.769 31.6845 22.7617 31.6846H23.9854C24.9781 31.6846 25.7831 30.8795 25.7832 29.8867C25.783 28.8941 24.9781 28.0898 23.9854 28.0898H22.7617ZM29.5078 28.0898C28.5152 28.09 27.7102 28.8942 27.71 29.8867C27.7101 30.8794 28.5152 31.6844 29.5078 31.6846H30.7314C31.7242 31.6846 32.5292 30.8795 32.5293 29.8867C32.5291 28.8941 31.7242 28.0898 30.7314 28.0898H29.5078ZM9.26758 20.8984C8.27477 20.8985 7.46974 21.7035 7.46973 22.6963C7.46985 23.689 8.27484 24.4941 9.26758 24.4941H17.2383C18.231 24.4941 19.036 23.689 19.0361 22.6963C19.0361 21.7035 18.2311 20.8985 17.2383 20.8984H9.26758ZM22.7617 20.8984C21.7689 20.8985 20.9639 21.7035 20.9639 22.6963C20.964 23.689 21.769 24.4941 22.7617 24.4941H30.7324C31.7252 24.4941 32.5302 23.689 32.5303 22.6963C32.5303 21.7034 31.7253 20.8984 30.7324 20.8984H22.7617ZM9.26758 14.6064C8.27479 14.6065 7.46976 15.4115 7.46973 16.4043C7.46985 17.397 8.27484 18.2021 9.26758 18.2021H17.2383C18.231 18.2021 19.036 17.397 19.0361 16.4043C19.0361 15.4115 18.2311 14.6065 17.2383 14.6064H9.26758ZM22.7617 14.6064C21.7689 14.6065 20.9639 15.4115 20.9639 16.4043C20.964 17.397 21.769 18.2021 22.7617 18.2021H30.7324C31.7252 18.2021 32.5302 17.397 32.5303 16.4043C32.5302 15.4115 31.7253 14.6064 30.7324 14.6064H22.7617ZM9.26758 8.31445C8.27477 8.3145 7.46973 9.11948 7.46973 10.1123C7.46992 11.105 8.27489 11.9101 9.26758 11.9102H17.2383C18.231 11.9102 19.0359 11.105 19.0361 10.1123C19.0361 9.11946 18.2311 8.31446 17.2383 8.31445H9.26758ZM22.7617 8.31445C21.7689 8.3145 20.9639 9.11953 20.9639 10.1123C20.964 11.105 21.769 11.9101 22.7617 11.9102H30.7324C31.7252 11.9101 32.5302 11.105 32.5303 10.1123C32.5302 9.11953 31.7252 8.3145 30.7324 8.31445H22.7617Z" fill="#F1ECE7"/>
+          </svg>
+          <span class="footer-brand-name">wma.nyc</span>
+        </div>
+        <p class="footer-tagline">Designer and creative technologist in New York.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/#work">Work</a>
+        <a href="/about">About</a>
+        <a href="https://www.linkedin.com/in/wilsonxma/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:ny.wilson.ma@gmail.com">Email</a>
+      </nav>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>&#169; 2026 Wilson Ma</p>
+      <p class="footer-tagline-hidden">Designed in Figma, shipped through the same pipeline as the ads.</p>
+    </div>
+  </footer>
+
+</div>
+<script src="/js/site.js"></script>
+</body>
+</html>
