@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workhuman — Wilson Ma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+  <style>
+    /* ── Workhuman page ── */
+    .wh-hero { background: var(--bg); padding: var(--px-outer); padding-top: 40px; }
+    .wh-hero-card {
+      background: linear-gradient(80.45deg, #202731 52%, #2e3f56 100%);
+      border: 0.951px solid var(--border-hero);
+      border-radius: 12px;
+      padding: var(--px-outer);
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .wh-hero-copy { display: flex; flex-direction: column; gap: 16px; }
+    .wh-hero-title {
+      font-size: clamp(40px, 5vw, 72px);
+      font-weight: 600;
+      background: linear-gradient(70.67deg, #ee6868 5.4%, #f9a45f 42.55%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+      font-style: italic;
+    }
+    .wh-hero-sub {
+      font-size: clamp(18px, 1.67vw, 24px);
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+    .wh-hero-body { font-size: var(--text-18); color: var(--text-secondary); line-height: 1.6; }
+
+    /* ── White body ── */
+    .wh-body {
+      background: #fff;
+      padding: 80px clamp(24px, 12.5vw, 180px) 180px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* ── Section ── */
+    .wh-section {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    .wh-section + .wh-section {
+      border-top: 1px solid #e4e3df;
+    }
+    .wh-category {
+      font-size: 18px;
+      font-weight: 700;
+      color: #474747;
+      line-height: 26px;
+    }
+    .wh-section-title {
+      font-size: clamp(28px, 3.33vw, 48px);
+      font-weight: 600;
+      background: linear-gradient(111.21deg, rgb(0,29,147) 33.876%, rgb(71,107,254) 113.48%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.15;
+    }
+    .wh-section-title em {
+      font-style: italic;
+      background: inherit;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .wh-section-sub {
+      font-size: 18px;
+      font-weight: 700;
+      color: #474747;
+      line-height: 26px;
+    }
+    .wh-body-text { font-size: 18px; color: #203f5b; line-height: 1.6; }
+    .wh-body-text + .wh-body-text { margin-top: 24px; }
+
+    /* ── Stat cards (light on white sections) ── */
+    .wh-stat-row {
+      display: flex;
+      gap: 8px;
+    }
+    .wh-stat-card {
+      flex: 1;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid #9bc0e4;
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      color: #333e6a;
+    }
+    .wh-stat-label { font-size: 18px; font-weight: 700; }
+    .wh-stat-value { font-size: 14px; line-height: 1.5; }
+    .wh-stat-value strong { font-weight: 700; }
+    .wh-stat-note { font-size: 14px; color: #000; font-style: italic; }
+
+    /* ── Conversion Design section ── */
+    .wh-cd-split {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      padding: 40px 0;
+    }
+    .wh-cd-left { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 40px; align-items: flex-start; }
+    .wh-cd-stat-highlight {
+      background: linear-gradient(130deg, #f6f6f6 0%, #f8faff 100%);
+      border: 2px solid #fff;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-self: center;
+    }
+    .wh-cd-stat-big {
+      font-size: clamp(20px, 1.67vw, 24px);
+      font-weight: 700;
+      background: linear-gradient(98deg, rgb(0,29,147) 33.876%, rgb(71,107,254) 113.48%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .wh-cd-stat-sub {
+      font-size: 12px;
+      color: rgb(0,29,147);
+      text-align: center;
+      line-height: 1.5;
+    }
+    .wh-cd-right { flex: 1; min-width: 0; position: relative; }
+    .wh-cd-screens {
+      position: relative;
+      width: 100%;
+      padding-bottom: 70%;
+    }
+    .wh-cd-screen {
+      position: absolute;
+      border: 1px solid #efefef;
+      border-radius: 6px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+      overflow: hidden;
+    }
+    .wh-cd-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .wh-cd-annot {
+      position: absolute;
+      background: rgba(255,0,238,0.05);
+      border: 1px solid #ff00ee;
+      border-radius: 4px;
+    }
+    .wh-cd-num {
+      position: absolute;
+      font-size: 17px;
+      font-weight: 700;
+      color: #ff00ee;
+    }
+    .wh-quote-block {
+      background: #f8faff;
+      border-radius: 12px;
+      padding: 16px 24px;
+      text-align: center;
+    }
+    .wh-quote-text {
+      font-size: clamp(16px, 1.67vw, 24px);
+      font-weight: 700;
+      font-style: italic;
+      color: #203f5b;
+      line-height: 1.4;
+    }
+
+    /* ── Tab viewer (real interactive tabs) ── */
+    .wh-tab-viewer { display: flex; flex-direction: column; gap: 40px; }
+    .wh-tab-bar {
+      display: flex;
+      gap: 6px;
+      background: rgba(241,244,248,0.5);
+      padding: 6px;
+      border-radius: 12px;
+      align-self: flex-start;
+    }
+    .wh-tab {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #203f5b;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      transition: all 0.15s;
+    }
+    .wh-tab[aria-selected="true"] {
+      background: #fff;
+      border: 1.5px solid #295ce6;
+      color: #295ce6;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(15,23,41,0.08);
+    }
+    .wh-tab-panel { display: none; flex-direction: column; gap: 16px; }
+    .wh-tab-panel.active { display: flex; }
+    .wh-tab-layer-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    .wh-viewer-well {
+      background: rgba(236,241,246,0.25);
+      border: 1px dashed #b8c4d6;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      overflow: hidden;
+    }
+    .wh-viewer-well-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+    .wh-viewer-caption {
+      font-size: 12px;
+      color: #203f5b;
+      text-align: center;
+      max-width: 640px;
+    }
+    .wh-viewer-tab-note { font-size: 14px; color: #203f5b; line-height: 1.5; }
+
+    /* Tab 1 screenshot collage */
+    .wh-t1-collage {
+      position: relative;
+      width: 100%;
+      padding-bottom: 65%;
+      overflow: hidden;
+    }
+    .wh-t1-main {
+      position: absolute;
+      left: 0; top: 0;
+      width: 41%; height: 100%;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .wh-t1-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .wh-t1-values {
+      position: absolute;
+      right: 0; top: 0;
+      width: 32%; height: 52%;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .wh-t1-values img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .wh-t1-teams {
+      position: absolute;
+      right: 0; top: 55%;
+      width: 32%; height: 44%;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .wh-t1-teams img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .wh-t1-annot {
+      position: absolute;
+      left: 20.5%; top: 11%;
+      width: 18.5%; height: 32%;
+      background: rgba(255,0,238,0.05);
+      border: 1.061px solid #ff00ee;
+      border-radius: 4px;
+    }
+    .wh-t1-annot2 {
+      position: absolute;
+      right: 0; top: 43%;
+      width: 14%; height: 16%;
+      background: rgba(255,0,238,0.05);
+      border: 1.061px solid #ff00ee;
+      border-radius: 4px;
+    }
+
+    /* Tab 2 screenshot collage */
+    .wh-t2-collage {
+      position: relative;
+      width: 100%;
+      padding-bottom: 58%;
+      overflow: hidden;
+    }
+    .wh-t2-main {
+      position: absolute;
+      left: 0; top: 4%;
+      width: 70%; height: 60%;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 5px 26px rgba(0,0,0,0.05);
+    }
+    .wh-t2-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .wh-t2-search {
+      position: absolute;
+      left: 17%; top: 65%;
+      width: 62%; height: 17%;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 5px 26px rgba(0,0,0,0.05);
+    }
+    .wh-t2-search img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .wh-t2-recs {
+      position: absolute;
+      right: 0; top: 0;
+      width: 47%; height: 71%;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    }
+    .wh-t2-recs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .wh-t2-annot {
+      position: absolute;
+      left: 2.3%; top: 17%;
+      width: 34%; height: 4.5%;
+      background: rgba(255,0,238,0.05);
+      border: 1.061px solid #ff00ee;
+      border-radius: 4px;
+    }
+    /* Department tags row */
+    .wh-dept-tags-well {
+      background: rgba(236,241,246,0.25);
+      border: 1px dashed #b8c4d6;
+      border-radius: 12px;
+      padding: 24px 60px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
+    }
+    .wh-dept-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.889px;
+      text-transform: uppercase;
+      color: #fff;
+      border: 1px solid;
+    }
+    .wh-dept-tag.dark-text { color: #171e3b; }
+
+    /* Tab 3 */
+    .wh-t3-row { display: flex; gap: 24px; align-items: stretch; }
+    .wh-t3-detail {
+      flex: 1.5;
+      background: rgba(236,241,246,0.25);
+      border: 1px dashed #b8c4d6;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+    .wh-t3-rail {
+      flex: 1;
+      background: rgba(236,241,246,0.1);
+      border: 1px dashed #ff00ee;
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+    .wh-t3-well-title { font-size: 17px; font-weight: 700; color: #1e293b; text-align: center; }
+    .wh-t3-img {
+      width: 100%;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 5px 50px rgba(0,0,0,0.1);
+      flex: 1;
+    }
+    .wh-t3-img img { width: 100%; height: 100%; object-fit: cover; display: block; max-height: 400px; }
+    .wh-t3-rail-img {
+      width: 100%;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 5px 50px rgba(0,0,0,0.1);
+      flex: 1;
+      position: relative;
+    }
+    .wh-t3-rail-img img { width: 100%; display: block; max-height: 400px; object-fit: cover; }
+    .wh-t3-rail-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 40%, #fff 100%);
+      pointer-events: none;
+    }
+
+    /* ── DS section / token cascade ── */
+    .wh-token-tiers {
+      display: flex;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .wh-tier {
+      flex: 1;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 193px;
+    }
+    .wh-tier-header { display: flex; flex-direction: column; gap: 2px; }
+    .wh-tier-num { font-size: 10px; font-weight: 600; color: #212744; opacity: 0.5; text-transform: capitalize; }
+    .wh-tier-name { font-size: 16px; font-weight: 600; color: #212744; text-transform: capitalize; }
+    .wh-tier-token {
+      background: #f4f5f7;
+      border: 0.9px solid rgba(0,0,0,0.15);
+      border-radius: 6px;
+      padding: 7px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #212744;
+    }
+    .wh-tier-swatch {
+      width: 16px; height: 16px;
+      background: #5b63e4;
+      border: 0.5px solid #9bc0e4;
+      flex-shrink: 0;
+    }
+    .wh-tier-swatch.white { background: #fff; }
+    .wh-tier-ex { font-size: 14px; font-style: italic; color: #212744; line-height: 1.4; }
+
+    /* Button annotation zone */
+    .wh-btn-zone {
+      background: rgba(236,241,246,0.25);
+      border: 1px dashed #b8c4d6;
+      border-radius: 12px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      overflow: hidden;
+    }
+    .wh-btn-demo {
+      background: #fff;
+      border: 2px solid #e8e9eb;
+      border-radius: 12px;
+      padding: 16px 32px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #171e3b;
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px #5b63e4;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: default;
+    }
+    .wh-btn-annotations {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .wh-btn-annot-chip {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid #ff00ee;
+      border-radius: 6px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+    }
+    .wh-btn-annot-key { font-weight: 700; color: #1e293b; }
+    .wh-btn-annot-val { font-style: italic; color: #1e293b; }
+    .wh-btn-annot-pill {
+      background: #f4f5f7;
+      border: 0.9px solid rgba(0,0,0,0.15);
+      border-radius: 6px;
+      padding: 4px 7px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #212744;
+    }
+    .wh-btn-annot-pill-swatch {
+      width: 14px; height: 14px;
+      flex-shrink: 0;
+    }
+
+    /* DS quote */
+    .wh-ds-quote {
+      padding: 40px;
+      text-align: center;
+    }
+    .wh-ds-quote-text {
+      font-size: clamp(18px, 1.67vw, 24px);
+      font-weight: 600;
+      font-style: italic;
+      color: #1e293b;
+      line-height: 1.4;
+    }
+    .wh-ds-quote-attr { font-size: 12px; color: #203f5b; margin-top: 8px; }
+
+    /* DS adoption stats */
+    .wh-adopt-row {
+      display: flex;
+      gap: 16px;
+    }
+    .wh-adopt-card {
+      flex: 1;
+      border: 1px solid #d9d9d9;
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+      text-align: center;
+    }
+    .wh-adopt-num { font-size: 20px; font-weight: 700; color: #1e293b; }
+    .wh-adopt-label { font-size: 12px; color: #203f5b; }
+
+    /* Contribution pipeline */
+    .wh-pipeline {
+      background: rgba(236,241,246,0.25);
+      border: 1px dashed #b8c4d6;
+      border-radius: 12px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .wh-pipeline-header { display: flex; flex-direction: column; gap: 4px; }
+    .wh-pipeline-title { font-size: 18px; font-weight: 600; color: #1e293b; }
+    .wh-pipeline-note { font-size: 12px; color: #203f5b; }
+    .wh-pipeline-steps {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      justify-content: space-between;
+    }
+    .wh-pipeline-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      position: relative;
+    }
+    .wh-pipeline-step::after {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background: #cbd5e1;
+    }
+    .wh-pipeline-step:last-child::after { display: none; }
+    .wh-pipeline-circle {
+      width: 32px; height: 32px;
+      border-radius: 16px;
+      border: 1px solid #cbd5e1;
+      background: #f1f4f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: #203f5b;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .wh-pipeline-step.final .wh-pipeline-circle {
+      background: #295ce6;
+      color: #fff;
+      font-weight: 800;
+      border-color: #295ce6;
+    }
+    .wh-pipeline-step-label {
+      font-size: 12px;
+      color: #1e293b;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .wh-pipeline-step.final .wh-pipeline-step-label { font-weight: 700; }
+    .wh-pipeline-footnote { font-size: 12px; color: #203f5b; }
+
+    /* DS screenshots collage */
+    .wh-ds-collage {
+      position: relative;
+      width: 100%;
+      padding-bottom: 75%;
+    }
+    .wh-ds-main-screen {
+      position: absolute;
+      left: 0; top: 32px;
+      width: 75%;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    }
+    .wh-ds-main-screen img { width: 100%; display: block; }
+    .wh-ds-tablet {
+      position: absolute;
+      right: 0; top: 0;
+      width: 24%;
+      border: 1px solid #d9d9d9;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 6px 64px rgba(0,0,0,0.1);
+    }
+    .wh-ds-tablet img { width: 100%; display: block; }
+    .wh-ds-phone-wrap {
+      position: absolute;
+      right: 0.5%;
+      top: 18%;
+      width: 24.5%;
+      background: #272727;
+      border-radius: 5px;
+      padding: 8px 4px;
+      box-shadow: 0 5px 6px rgba(0,0,0,0.05);
+    }
+    .wh-ds-phone { border-radius: 7px; overflow: hidden; }
+    .wh-ds-phone img { width: 100%; display: block; }
+    .wh-ds-mobile {
+      position: absolute;
+      right: 0; top: 55%;
+      width: 24%;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 6px 64px rgba(0,0,0,0.1);
+    }
+    .wh-ds-mobile img { width: 100%; display: block; }
+    .wh-ds-stat-strip {
+      font-size: clamp(11px, 0.9vw, 13px);
+      font-weight: 600;
+      color: #1e293b;
+      letter-spacing: 0.26px;
+      text-align: center;
+      padding-top: 8px;
+    }
+
+    /* ── Production Infrastructure ── */
+    .wh-echo-body {
+      font-size: 18px;
+      color: #203f5b;
+      line-height: 1.6;
+    }
+    .wh-campaign-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    .wh-campaign-well {
+      background: #f1f4f8;
+      border: 1px dashed #cbd5e1;
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .wh-campaign-well.span-row { grid-row: span 1; }
+    .wh-campaign-label { font-size: 14px; font-weight: 700; color: #1e293b; text-align: center; }
+    .wh-campaign-img { width: 100%; border-radius: 6px; overflow: hidden; }
+    .wh-campaign-img img { width: 100%; display: block; }
+    .wh-campaign-badge {
+      position: absolute;
+      top: 8px; left: 8px;
+      background: #7c5cfc;
+      border-radius: 5px;
+      padding: 4px 8px;
+      font-size: 9px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.27px;
+      text-transform: uppercase;
+    }
+
+    /* ── Page nav ── */
+    .wh-page-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 40px;
+    }
+    .wh-nav-side { display: flex; align-items: center; gap: 16px; }
+    .wh-nav-icon {
+      border: 1px solid #e7e7e7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      border-radius: 4px;
+    }
+    .wh-nav-label { font-size: 18px; color: #474747; line-height: 26px; white-space: nowrap; }
+    .wh-nav-label strong { font-weight: 700; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .wh-body { padding-left: 40px; padding-right: 40px; }
+      .wh-cd-split { flex-direction: column; gap: 40px; }
+      .wh-token-tiers { flex-wrap: wrap; }
+      .wh-tier { min-width: 44%; }
+      .wh-adopt-row { flex-wrap: wrap; }
+      .wh-t3-row { flex-direction: column; }
+      .wh-campaign-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .wh-body { padding-left: 20px; padding-right: 20px; }
+      .wh-stat-row { flex-direction: column; }
+      .wh-token-tiers { flex-direction: column; }
+      .wh-pipeline-step-label { display: none; }
+      .wh-page-nav { flex-direction: column; gap: 24px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-wordmark" aria-label="wma.nyc home">
+      <svg viewBox="0 0 40 39.999" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M32.7275 0C36.744 0.000144051 39.9999 3.25601 40 7.27246V32.7266C39.9999 36.743 36.744 39.9989 32.7275 39.999H7.27246C3.25602 39.9989 8.67142e-05 36.743 0 32.7266V7.27246C9.1388e-05 3.25601 3.25602 0.000144051 7.27246 0H32.7275ZM9.26758 28.0898C8.27491 28.0899 7.46995 28.8941 7.46973 29.8867C7.46985 30.8794 8.27484 31.6845 9.26758 31.6846H10.4912C11.484 31.6846 12.2889 30.8795 12.2891 29.8867C12.2888 28.8941 11.4839 28.0898 10.4912 28.0898H9.26758ZM16.0146 28.0898C15.022 28.0899 14.217 28.8941 14.2168 29.8867C14.2169 30.8794 15.0219 31.6845 16.0146 31.6846H17.2383C18.2311 31.6846 19.036 30.8795 19.0361 29.8867C19.0359 28.8941 18.231 28.0898 17.2383 28.0898H16.0146ZM22.7617 28.0898C21.7691 28.0899 20.9641 28.8941 20.9639 29.8867C20.964 30.8794 21.769 31.6845 22.7617 31.6846H23.9854C24.9781 31.6846 25.7831 30.8795 25.7832 29.8867C25.783 28.8941 24.9781 28.0898 23.9854 28.0898H22.7617ZM29.5078 28.0898C28.5152 28.09 27.7102 28.8942 27.71 29.8867C27.7101 30.8794 28.5152 31.6844 29.5078 31.6846H30.7314C31.7242 31.6846 32.5292 30.8795 32.5293 29.8867C32.5291 28.8941 31.7242 28.0898 30.7314 28.0898H29.5078ZM9.26758 20.8984C8.27477 20.8985 7.46974 21.7035 7.46973 22.6963C7.46985 23.689 8.27484 24.4941 9.26758 24.4941H17.2383C18.231 24.4941 19.036 23.689 19.0361 22.6963C19.0361 21.7035 18.2311 20.8985 17.2383 20.8984H9.26758ZM22.7617 20.8984C21.7689 20.8985 20.9639 21.7035 20.9639 22.6963C20.964 23.689 21.769 24.4941 22.7617 24.4941H30.7324C31.7252 24.4941 32.5302 23.689 32.5303 22.6963C32.5303 21.7034 31.7253 20.8984 30.7324 20.8984H22.7617ZM9.26758 14.6064C8.27479 14.6065 7.46976 15.4115 7.46973 16.4043C7.46985 17.397 8.27484 18.2021 9.26758 18.2021H17.2383C18.231 18.2021 19.036 17.397 19.0361 16.4043C19.0361 15.4115 18.2311 14.6065 17.2383 14.6064H9.26758ZM22.7617 14.6064C21.7689 14.6065 20.9639 15.4115 20.9639 16.4043C20.964 17.397 21.769 18.2021 22.7617 18.2021H30.7324C31.7252 18.2021 32.5302 17.397 32.5303 16.4043C32.5302 15.4115 31.7253 14.6064 30.7324 14.6064H22.7617ZM9.26758 8.31445C8.27477 8.3145 7.46973 9.11948 7.46973 10.1123C7.46992 11.105 8.27489 11.9101 9.26758 11.9102H17.2383C18.231 11.9102 19.0359 11.105 19.0361 10.1123C19.0361 9.11946 18.2311 8.31446 17.2383 8.31445H9.26758ZM22.7617 8.31445C21.7689 8.3145 20.9639 9.11953 20.9639 10.1123C20.964 11.105 21.769 11.9101 22.7617 11.9102H30.7324C31.7252 11.9101 32.5302 11.105 32.5303 10.1123C32.5302 9.11953 31.7252 8.3145 30.7324 8.31445H22.7617Z" fill="#F1ECE7"/>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="/#work">Work</a>
+      <a href="/about">About</a>
+      <a href="mailto:ny.wilson.ma@gmail.com" class="nav-cta">Get in touch</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="wh-hero" aria-label="Workhuman">
+    <div class="wh-hero-card">
+      <div class="wh-hero-copy fade-up">
+        <h1 class="wh-hero-title">Workhuman</h1>
+        <p class="wh-hero-sub">Same instinct, five layers.</p>
+        <p class="wh-hero-body">Workhuman is a B2B SaaS platform for employee recognition. Over four years I worked across conversion design, product systems, production infrastructure, creative technology, and interactive tooling &#8212; different problems at different scales, but the same underlying move: identify the problem, build the solution.</p>
+      </div>
+      <div class="hero-cards fade-up">
+        <div class="info-card">
+          <p class="info-card-label">Scope</p>
+          <p class="info-card-body">Conversion design, two design systems, interactive sales tooling</p>
+        </div>
+        <div class="info-card">
+          <p class="info-card-label">Context</p>
+          <p class="info-card-body">B2B SaaS, in-house, US + Ireland design org</p>
+        </div>
+        <div class="info-card">
+          <p class="info-card-label">Delivery</p>
+          <p class="info-card-body">Careers experience, Aura DS, Echo DS, Ceros ABM, ROI calculator</p>
+        </div>
+        <div class="info-card">
+          <p class="info-card-label">Status</p>
+          <p class="info-card-body">Four years, shipped and measured</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHITE BODY -->
+  <main class="wh-body">
+
+    <!-- 01 — CONVERSION DESIGN -->
+    <div class="wh-section fade-up">
+      <div>
+        <p class="wh-category">Conversion Design</p>
+        <h2 class="wh-section-title">01 &#8212; Careers Experience Refresh</h2>
+        <p class="wh-section-sub">97 of 100 visitors never explored a single job.</p>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="wh-stat-row">
+        <div class="wh-stat-card">
+          <p class="wh-stat-label">Output</p>
+          <p class="wh-stat-value"><strong>2.7% &#x2192; 64.6%</strong> homepage-to-jobs conversion</p>
+        </div>
+        <div class="wh-stat-card">
+          <p class="wh-stat-label">Delivery</p>
+          <p class="wh-stat-value"><strong>&#x2193;59%</strong> exit rate on the new experience</p>
+        </div>
+        <div class="wh-stat-card">
+          <p class="wh-stat-label">Portfolio</p>
+          <p class="wh-stat-value"><strong>1 &#x2192; 3&#x2013;4 jobs viewed</strong> per session</p>
+        </div>
+      </div>
+      <p class="wh-stat-note">Measured in Heap Analytics; Oct&#x2013;Dec, 3 months post-launch</p>
+
+      <!-- Split: body + before screenshots -->
+      <div class="wh-cd-split">
+        <div class="wh-cd-left">
+          <p class="wh-body-text">The Careers page was losing nearly everyone. Not because the jobs were wrong, but because the page gave no reason to stay. Information architecture was flat, the value proposition was buried, and the visual hierarchy treated every section as equally important, which is to say none of them were.</p>
+          <div class="wh-cd-stat-highlight">
+            <p class="wh-cd-stat-big">Only 3 out of 100</p>
+            <p class="wh-cd-stat-sub">candidates viewing the careers homepage<br>clicked through to browse job listings.</p>
+          </div>
+        </div>
+        <div class="wh-cd-right">
+          <div class="wh-cd-screens">
+            <!-- Before screenshots stacked with magenta annotations -->
+            <div class="wh-cd-screen" style="left: 0; top: 0; width: 82%; height: 47%;">
+              <img src="/assets/workhuman/wh-before-1.jpg" alt="Careers page before redesign — top section">
+            </div>
+            <div class="wh-cd-annot" style="left: 6.2%; top: 37%; width: 14%; height: 7.2%;"></div>
+            <div class="wh-cd-screen" style="left: 20%; top: 47%; width: 82%; height: 47%;">
+              <img src="/assets/workhuman/wh-before-1.jpg" alt="Careers page before redesign — scroll">
+            </div>
+            <div class="wh-cd-screen" style="right: 0; top: 22%; width: 45%; height: 37%;">
+              <img src="/assets/workhuman/wh-before-2.jpg" alt="Careers page element — before">
+            </div>
+            <div class="wh-cd-annot" style="left: 24%; top: 51.5%; width: 14.5%; height: 7.3%;"></div>
+            <div class="wh-cd-num" style="left: 3%; top: 74%;">1</div>
+            <div class="wh-cd-num" style="left: 24%; top: 80%;">2</div>
+            <div class="wh-cd-num" style="left: 57%; top: 75%;">3</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post-body text -->
+      <p class="wh-body-text">The redesign worked from the drop-off data outward:</p>
+      <div class="wh-quote-block">
+        <p class="wh-quote-text">What were people looking for when they arrived, and where did the page fail to deliver?</p>
+      </div>
+      <p class="wh-body-text">The structural answer was sequencing:<br>Lead with what Workhuman actually is as a place to work, then give candidates a reason to believe it, then make it easy to find the right role. Conversion compounded: 55.3% the first month, 73.7% the second, 77.6% the third.</p>
+
+      <!-- Interactive tab viewer -->
+      <div class="wh-tab-viewer" role="region" aria-label="Layered Journey — three phases">
+        <div class="wh-tab-bar" role="tablist" aria-label="Careers experience layers">
+          <button class="wh-tab" role="tab" aria-selected="true" aria-controls="wh-panel-1" id="wh-tab-1">Why Workhuman?</button>
+          <button class="wh-tab" role="tab" aria-selected="false" aria-controls="wh-panel-2" id="wh-tab-2">What roles exist?</button>
+          <button class="wh-tab" role="tab" aria-selected="false" aria-controls="wh-panel-3" id="wh-tab-3">Is this role for me?</button>
+        </div>
+
+        <!-- Tab 1 panel -->
+        <div class="wh-tab-panel active" id="wh-panel-1" role="tabpanel" aria-labelledby="wh-tab-1">
+          <p class="wh-tab-layer-label">Layer 1: The &#8220;why&#8221; before the &#8220;what.&#8221;</p>
+          <div class="wh-viewer-well">
+            <p class="wh-viewer-well-title">Careers Homepage:&nbsp;&nbsp;Introduction</p>
+            <div class="wh-t1-collage">
+              <div class="wh-t1-main">
+                <img src="/assets/workhuman/wh-tab1-homepage.jpg" alt="Careers homepage — culture first">
+              </div>
+              <div class="wh-t1-values">
+                <img src="/assets/workhuman/wh-tab1-teams.jpg" alt="Careers homepage — teams section">
+              </div>
+              <div class="wh-t1-teams">
+                <img src="/assets/workhuman/wh-tab1-values.jpg" alt="Careers homepage — values section">
+              </div>
+              <div class="wh-t1-annot"></div>
+              <div class="wh-t1-annot2"></div>
+              <span class="wh-cd-num" style="left: 1.2%; bottom: 17%; font-size: 14px;">1</span>
+              <span class="wh-cd-num" style="left: 43.3%; top: 18%; font-size: 14px;">2</span>
+              <span class="wh-cd-num" style="left: 43.3%; bottom: 10%; font-size: 14px;">3</span>
+            </div>
+            <p class="wh-viewer-caption">Reading order is the design: Testimonial video &#x2192; Why Workhuman &#x2192; Values &#x2192; Benefits &#x2192; Teams &#x2192; Jobs</p>
+          </div>
+          <p class="wh-viewer-tab-note">Culture-first homepage: testimonial video up top, values in action, regional benefits, ten teams.</p>
+        </div>
+
+        <!-- Tab 2 panel -->
+        <div class="wh-tab-panel" id="wh-panel-2" role="tabpanel" aria-labelledby="wh-tab-2">
+          <p class="wh-tab-layer-label">Layer 2: Browse without friction.</p>
+          <div class="wh-viewer-well">
+            <p class="wh-viewer-well-title">Job Listing:&nbsp;&nbsp;Open Positions</p>
+            <div class="wh-t2-collage">
+              <div class="wh-t2-main">
+                <img src="/assets/workhuman/wh-tab2-listing.jpg" alt="Job listing page — open positions">
+              </div>
+              <div class="wh-t2-search">
+                <img src="/assets/workhuman/wh-tab2-search.jpg" alt="Job search bar">
+              </div>
+              <div class="wh-t2-recs">
+                <img src="/assets/workhuman/wh-tab2-recs.jpg" alt="Recommended jobs sidebar">
+              </div>
+              <div class="wh-t2-annot"></div>
+            </div>
+            <p class="wh-viewer-caption">Filters stay optional while the tags do the scanning. Ex.: Product roles are pink everywhere they appear.</p>
+          </div>
+          <!-- Department tags -->
+          <div class="wh-dept-tags-well">
+            <span class="wh-dept-tag" style="background: #747889; border-color: #8b8e9d;">Human Experience</span>
+            <span class="wh-dept-tag" style="background: #1d70e3; border-color: #619cff;">Customer Excellence</span>
+            <span class="wh-dept-tag" style="background: #6070a1; border-color: #7f8eba;">E-Commerce</span>
+            <span class="wh-dept-tag" style="background: #c13838; border-color: #ee8585;">Legal &amp; Finance</span>
+            <span class="wh-dept-tag dark-text" style="background: #ffcf27; border-color: #ffe860;">Technology</span>
+            <span class="wh-dept-tag dark-text" style="background: #ff8a33; border-color: #ffa857;">Operations</span>
+            <span class="wh-dept-tag" style="background: #eb5f92; border-color: #ee86ac;">Product</span>
+            <span class="wh-dept-tag dark-text" style="background: #4fc497; border-color: #71d4ab;">Marketing</span>
+            <span class="wh-dept-tag dark-text" style="background: #38d4ff; border-color: #61e4ff;">Sales</span>
+            <span class="wh-dept-tag dark-text" style="background: #e8e9eb; border-color: #c1cce8;">Other</span>
+          </div>
+          <p class="wh-viewer-tab-note">Color-coded department tags for instant scanning, filters kept optional so casual browsers and targeted searchers both flow. 13.1% bounce on the browse page.</p>
+        </div>
+
+        <!-- Tab 3 panel -->
+        <div class="wh-tab-panel" id="wh-panel-3" role="tabpanel" aria-labelledby="wh-tab-3">
+          <p class="wh-tab-layer-label">Layer 3: The next job, before they ask</p>
+          <div class="wh-t3-row">
+            <div class="wh-t3-detail">
+              <p class="wh-t3-well-title">Job detail:&nbsp;&nbsp;Five-tab structure</p>
+              <div class="wh-t3-img">
+                <img src="/assets/workhuman/wh-tab3-detail.jpg" alt="Job detail page — 5-tab structure">
+              </div>
+              <p class="wh-viewer-caption">Five tabs, five candidate questions: role, team, culture, benefits, location.</p>
+            </div>
+            <div class="wh-t3-rail">
+              <p class="wh-t3-well-title">Right rail: &#8220;Candidates Also Viewed&#8221;</p>
+              <div class="wh-t3-rail-img">
+                <img src="/assets/workhuman/wh-tab3-rail.jpg" alt="Right rail — Candidates Also Viewed recommendations">
+              </div>
+              <p class="wh-viewer-caption">Three recommendations, persistent across every tab. This is where 1 job per session became 4.</p>
+            </div>
+          </div>
+          <p class="wh-viewer-tab-note">Five tabs mapped to candidate questions, with &#8220;Candidates Also Viewed&#8221; persistent across all of them. Jobs viewed per session went from 1 to nearly 4.</p>
+        </div>
+      </div>
+
+      <p class="wh-body-text">The system underneath: three layers, each answering one question. Why Workhuman &#x2192; what roles exist &#x2192; is this role for me. The right-rail recommendations on Layer 3 took jobs viewed per session from 1 to nearly 4.</p>
+    </div>
+
+    <!-- 02 — PRODUCT SYSTEMS (Aura DS) -->
+    <div class="wh-section fade-up">
+      <div>
+        <p class="wh-category">Product Systems</p>
+        <h2 class="wh-section-title">02 &#8212; Web Design System, <em>Aura</em></h2>
+        <p class="wh-section-sub">Fifteen button variants. Two offices. No shared language.</p>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="wh-stat-row">
+        <div class="wh-stat-card">
+          <p class="wh-stat-label">Output</p>
+          <p class="wh-stat-value"><strong>15+ &#x2192; 1</strong> button variants consolidated</p>
+        </div>
+        <div class="wh-stat-card">
+          <p class="wh-stat-label">Delivery</p>
+          <p class="wh-stat-value"><strong>&#x7e;60%</strong> dev cycle reduction</p>
+        </div>
+        <div class="wh-stat-card">
+          <p class="wh-stat-label">Portfolio</p>
+          <p class="wh-stat-value"><strong>2 offices</strong> one token system</p>
+        </div>
+      </div>
+
+      <!-- Body copy -->
+      <div style="display: flex; gap: 24px;">
+        <p class="wh-body-text" style="flex: 1;">Workhuman&#8217;s US and Ireland design teams had developed their component libraries independently. By the time I joined, the drift was visible everywhere &#8212; inconsistent spacing, divergent type scales, and a button component that had forked into fifteen variants across both codebases, none of them formally documented.</p>
+        <p class="wh-body-text" style="flex: 1;">The work was less about building new components and more about establishing the conditions under which both teams could stop rebuilding the same things. That meant a token layer first: named decisions about color, spacing, and typography that could travel between Figma and code without re-interpretation at each handoff.</p>
+      </div>
+
+      <!-- Token tiers -->
+      <div class="wh-token-tiers">
+        <div class="wh-tier" style="background: #ffebdd;">
+          <div class="wh-tier-header">
+            <span class="wh-tier-num">Tier 1:</span>
+            <span class="wh-tier-name">Primitives</span>
+          </div>
+          <div class="wh-tier-token">
+            <div class="wh-tier-swatch"></div>
+            <span>#5B63E4</span>
+          </div>
+          <p class="wh-tier-ex">Ex.: humanity-60, spacing-4, font-16</p>
+        </div>
+        <div class="wh-tier" style="background: rgba(255,235,221,0.8);">
+          <div class="wh-tier-header">
+            <span class="wh-tier-num">Tier 2:</span>
+            <span class="wh-tier-name">Aliases</span>
+          </div>
+          <div class="wh-tier-token">
+            <div class="wh-tier-swatch"></div>
+            <span>humanity/60</span>
+          </div>
+          <p class="wh-tier-ex">Ex.: brand-primary = humanity-60</p>
+        </div>
+        <div class="wh-tier" style="background: rgba(255,235,221,0.6);">
+          <div class="wh-tier-header">
+            <span class="wh-tier-num">Tier 3:</span>
+            <span class="wh-tier-name">Semantic Tokens</span>
+          </div>
+          <div style="display: flex; gap: 16px; align-items: center;">
+            <div style="background: #5b63e4; border: 0.9px solid rgba(196,242,255,0.25); border-radius: 6px; width: 100px; height: 33px; display: flex; align-items: center; justify-content: center; opacity: 0.25; font-size: 11px; color: #fff; font-weight: 400;">brandPrimary</div>
+            <div style="background: #5b63e4; border: 1px dashed #f18bff; border-radius: 6px; width: 100px; height: 33px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #fff; font-weight: 400;">buttonPrimary</div>
+          </div>
+          <p class="wh-tier-ex">Ex.: surface-primary, text-default</p>
+        </div>
+        <div class="wh-tier" style="background: rgba(255,235,221,0.4);">
+          <div class="wh-tier-header">
+            <span class="wh-tier-num">Tier 4:</span>
+            <span class="wh-tier-name">Component Tokens</span>
+          </div>
+          <button style="background: #5b63e4; border: none; border-radius: 6px; padding: 8px 16px; font-size: 14px; color: #fff; cursor: default; display: flex; align-items: center; gap: 8px; width: fit-content;">
+            <span>Get Started</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6H10M10 6L7 3M10 6L7 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="wh-tier-ex">Ex.: button-bg-primary, input-border-focus</p>
+        </div>
+      </div>
+
+      <!-- Button annotation zone -->
+      <div class="wh-btn-zone">
+        <div class="wh-btn-demo">
+          <span>Get Started</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7H12M12 7L8 3M12 7L8 11" stroke="#171e3b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="wh-btn-annotations">
+          <div class="wh-btn-annot-chip">
+            <span class="wh-btn-annot-key">Label and Icon:</span>
+            <span class="wh-btn-annot-val">button/white/default/text</span>
+            <div class="wh-btn-annot-pill">
+              <div class="wh-btn-annot-pill-swatch" style="background: #171e3b;"></div>
+              <span>#171E3B</span>
+            </div>
+          </div>
+          <div class="wh-btn-annot-chip">
+            <span class="wh-btn-annot-key">Component token:</span>
+            <span class="wh-btn-annot-val">button/white/default/background</span>
+            <div class="wh-btn-annot-pill">
+              <div class="wh-btn-annot-pill-swatch" style="background: #fff; border: 0.5px solid #9bc0e4;"></div>
+              <span>#FFFFFF</span>
+            </div>
+          </div>
+          <div class="wh-btn-annot-chip">
+            <span class="wh-btn-annot-key">Focus ring:</span>
+            <span class="wh-btn-annot-val">border/acc-default</span>
+            <div class="wh-btn-annot-pill">
+              <div class="wh-btn-annot-pill-swatch" style="background: #5b63e4;"></div>
+              <span>humanity/60</span>
+            </div>
+            <div class="wh-btn-annot-pill">
+              <div class="wh-btn-annot-pill-swatch" style="background: #5b63e4;"></div>
+              <span>#5B63E4</span>
+            </div>
+          </div>
+          <div class="wh-btn-annot-chip">
+            <span class="wh-btn-annot-key">Type scale:</span>
+            <span class="wh-btn-annot-val">component/button/small</span>
+            <div class="wh-btn-annot-pill"><span>14px</span></div>
+          </div>
+        </div>
+        <p class="wh-viewer-caption">White variant, focus state. The ring resolves to humanity-60 &#8212; the same primitive in Tier 1 above. That&#8217;s the cascade, on one component.</p>
+      </div>
+
+      <!-- DS quote + adoption numbers -->
+      <div class="wh-ds-quote">
+        <p class="wh-ds-quote-text">&#8220;We spend 60% of our time answering the same design questions.&#8221;</p>
+        <p class="wh-ds-quote-attr">(Engineering, discovery interviews)</p>
+      </div>
+      <div class="wh-adopt-row">
+        <div class="wh-adopt-card">
+          <p class="wh-adopt-num">2 wks &#x2192; 3 days</p>
+          <p class="wh-adopt-label">new designer onboarding</p>
+        </div>
+        <div class="wh-adopt-card">
+          <p class="wh-adopt-num">&#x2193;60%</p>
+          <p class="wh-adopt-label">engineer questions after docs</p>
+        </div>
+        <div class="wh-adopt-card">
+          <p class="wh-adopt-num">95%</p>
+          <p class="wh-adopt-label">implementation adherence</p>
+        </div>
+      </div>
+
+      <!-- Contribution pipeline -->
+      <div class="wh-pipeline">
+        <div class="wh-pipeline-header">
+          <p class="wh-pipeline-title">Contribution pipeline: How new components are added to Aura</p>
+          <p class="wh-pipeline-note">Semantic versioning, changelog every release, 6-month deprecation notice, migration guides for breaking changes</p>
+        </div>
+        <div class="wh-pipeline-steps">
+          <div class="wh-pipeline-step">
+            <div class="wh-pipeline-circle">1</div>
+            <p class="wh-pipeline-step-label">Request</p>
+          </div>
+          <div class="wh-pipeline-step">
+            <div class="wh-pipeline-circle">2</div>
+            <p class="wh-pipeline-step-label">Validate need<br>3+ use cases</p>
+          </div>
+          <div class="wh-pipeline-step">
+            <div class="wh-pipeline-circle">3</div>
+            <p class="wh-pipeline-step-label">Design<br>review</p>
+          </div>
+          <div class="wh-pipeline-step">
+            <div class="wh-pipeline-circle">4</div>
+            <p class="wh-pipeline-step-label">Engineering<br>feasibility</p>
+          </div>
+          <div class="wh-pipeline-step">
+            <div class="wh-pipeline-circle">5</div>
+            <p class="wh-pipeline-step-label">Docs<br>required</p>
+          </div>
+          <div class="wh-pipeline-step final">
+            <div class="wh-pipeline-circle">6</div>
+            <p class="wh-pipeline-step-label">Ship</p>
+          </div>
+        </div>
+        <p class="wh-pipeline-footnote">Compromise: Token naming took three iterations before the semantics made sense to engineers; this causes early confusion but establishes long-term clarity.</p>
+      </div>
+
+      <!-- DS screenshots collage -->
+      <div class="wh-ds-collage">
+        <div class="wh-ds-main-screen">
+          <img src="/assets/workhuman/wh-ds-main.jpg" alt="Aura Design System — Figma component library">
+        </div>
+        <div class="wh-ds-tablet">
+          <img src="/assets/workhuman/wh-ds-tablet.jpg" alt="Aura DS — tablet view">
+        </div>
+        <div class="wh-ds-phone-wrap">
+          <div class="wh-ds-phone">
+            <img src="/assets/workhuman/wh-ds-phone.jpg" alt="Aura DS — phone screen">
+          </div>
+        </div>
+        <div class="wh-ds-mobile">
+          <img src="/assets/workhuman/wh-ds-mobile.jpg" alt="Aura DS — mobile screen">
+        </div>
+      </div>
+      <p class="wh-ds-stat-strip">150+ components &middot; 200+ icons &middot; 8pt grid &middot; 6-size type scale &middot; WCAG AA baked in</p>
+    </div>
+
+    <!-- 03 — PRODUCTION INFRASTRUCTURE (Echo DS) -->
+    <div class="wh-section fade-up">
+      <div>
+        <p class="wh-category">Production Infrastructure</p>
+        <h2 class="wh-section-title">03 &#8212; Marketing Design System, <em>Echo</em></h2>
+        <p class="wh-section-sub">Thirty deliverables a month. Starting each campaign from scratch became the bottleneck.</p>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="wh-stat-row">
+        <div class="wh-stat-card">
+          <p class="wh-stat-label">Output</p>
+          <p class="wh-stat-value"><strong>30&#215;</strong> deliverables per month, systematized</p>
+        </div>
+        <div class="wh-stat-card">
+          <p class="wh-stat-label">Delivery</p>
+          <p class="wh-stat-value"><strong>6 channels</strong> one component library</p>
+        </div>
+        <div class="wh-stat-card">
+          <p class="wh-stat-label">Portfolio</p>
+          <p class="wh-stat-value"><strong>NA + EMEA</strong> multi-vertical rollout</p>
+        </div>
+      </div>
+
+      <!-- Body copy -->
+      <p class="wh-echo-body">Workhuman&#8217;s marketing team ran a monthly webinar program across six channels: Social, email, display ads, organic social, landing pages, and on-brand event promotion. Every month, the same visual problem needed to be solved again. There was no system for it.</p>
+      <p class="wh-echo-body" style="margin-top: 0;">Echo DS was the system. A purpose-built component library structured as two parallel tracks: a <strong>Webinar Library</strong> (ads, landing pages, and email) and an <strong>Organic Social Library</strong> (award badges).</p>
+
+      <!-- Campaign grid -->
+      <div>
+        <p style="font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 16px;">One campaign, four surfaces</p>
+        <div class="wh-campaign-grid">
+          <!-- Landing page — spans two rows -->
+          <div class="wh-campaign-well" style="grid-row: span 2;">
+            <span class="wh-campaign-badge">LP</span>
+            <p class="wh-campaign-label">Landing page</p>
+            <div class="wh-campaign-img">
+              <img src="/assets/workhuman/wh-campaign-lp.jpg" alt="Webinar landing page">
+            </div>
+          </div>
+          <!-- Email -->
+          <div class="wh-campaign-well">
+            <span class="wh-campaign-badge">EML</span>
+            <p class="wh-campaign-label">Email</p>
+            <div class="wh-campaign-img">
+              <img src="/assets/workhuman/wh-campaign-email.jpg" alt="Webinar email">
+            </div>
+          </div>
+          <!-- Social post -->
+          <div class="wh-campaign-well">
+            <span class="wh-campaign-badge">SOC</span>
+            <p class="wh-campaign-label">Social post</p>
+            <div class="wh-campaign-img">
+              <img src="/assets/workhuman/wh-campaign-social.jpg" alt="Social post">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREV / NEXT NAV -->
+    <nav class="wh-page-nav fade-up" aria-label="Project navigation">
+      <div class="wh-nav-side">
+        <a href="/treat-week" class="wh-nav-icon" aria-label="Next: Treat Week">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 12L6 8L10 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="/treat-week" class="wh-nav-label">
+          <strong>Next project:</strong> Treat Week
+        </a>
+      </div>
+      <div class="wh-nav-side">
+        <a href="/marly" class="wh-nav-label">
+          <strong>Previous project:</strong> MARLY Creative Concepts
+        </a>
+        <a href="/marly" class="wh-nav-icon" aria-label="Previous: MARLY">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M6 12L10 8L6 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-mark">
+        <div class="footer-brand">
+          <svg viewBox="0 0 40 39.999" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M32.7275 0C36.744 0.000144051 39.9999 3.25601 40 7.27246V32.7266C39.9999 36.743 36.744 39.9989 32.7275 39.999H7.27246C3.25602 39.9989 8.67142e-05 36.743 0 32.7266V7.27246C9.1388e-05 3.25601 3.25602 0.000144051 7.27246 0H32.7275ZM9.26758 28.0898C8.27491 28.0899 7.46995 28.8941 7.46973 29.8867C7.46985 30.8794 8.27484 31.6845 9.26758 31.6846H10.4912C11.484 31.6846 12.2889 30.8795 12.2891 29.8867C12.2888 28.8941 11.4839 28.0898 10.4912 28.0898H9.26758ZM16.0146 28.0898C15.022 28.0899 14.217 28.8941 14.2168 29.8867C14.2169 30.8794 15.0219 31.6845 16.0146 31.6846H17.2383C18.2311 31.6846 19.036 30.8795 19.0361 29.8867C19.0359 28.8941 18.231 28.0898 17.2383 28.0898H16.0146ZM22.7617 28.0898C21.7691 28.0899 20.9641 28.8941 20.9639 29.8867C20.964 30.8794 21.769 31.6845 22.7617 31.6846H23.9854C24.9781 31.6846 25.7831 30.8795 25.7832 29.8867C25.783 28.8941 24.9781 28.0898 23.9854 28.0898H22.7617ZM29.5078 28.0898C28.5152 28.09 27.7102 28.8942 27.71 29.8867C27.7101 30.8794 28.5152 31.6844 29.5078 31.6846H30.7314C31.7242 31.6846 32.5292 30.8795 32.5293 29.8867C32.5291 28.8941 31.7242 28.0898 30.7314 28.0898H29.5078ZM9.26758 20.8984C8.27477 20.8985 7.46974 21.7035 7.46973 22.6963C7.46985 23.689 8.27484 24.4941 9.26758 24.4941H17.2383C18.231 24.4941 19.036 23.689 19.0361 22.6963C19.0361 21.7035 18.2311 20.8985 17.2383 20.8984H9.26758ZM22.7617 20.8984C21.7689 20.8985 20.9639 21.7035 20.9639 22.6963C20.964 23.689 21.769 24.4941 22.7617 24.4941H30.7324C31.7252 24.4941 32.5302 23.689 32.5303 22.6963C32.5303 21.7034 31.7253 20.8984 30.7324 20.8984H22.7617ZM9.26758 14.6064C8.27479 14.6065 7.46976 15.4115 7.46973 16.4043C7.46985 17.397 8.27484 18.2021 9.26758 18.2021H17.2383C18.231 18.2021 19.036 17.397 19.0361 16.4043C19.0361 15.4115 18.2311 14.6065 17.2383 14.6064H9.26758ZM22.7617 14.6064C21.7689 14.6065 20.9639 15.4115 20.9639 16.4043C20.964 17.397 21.769 18.2021 22.7617 18.2021H30.7324C31.7252 18.2021 32.5302 17.397 32.5303 16.4043C32.5302 15.4115 31.7253 14.6064 30.7324 14.6064H22.7617ZM9.26758 8.31445C8.27477 8.3145 7.46973 9.11948 7.46973 10.1123C7.46992 11.105 8.27489 11.9101 9.26758 11.9102H17.2383C18.231 11.9102 19.0359 11.105 19.0361 10.1123C19.0361 9.11946 18.2311 8.31446 17.2383 8.31445H9.26758ZM22.7617 8.31445C21.7689 8.3145 20.9639 9.11953 20.9639 10.1123C20.964 11.105 21.769 11.9101 22.7617 11.9102H30.7324C31.7252 11.9101 32.5302 11.105 32.5303 10.1123C32.5302 9.11953 31.7252 8.3145 30.7324 8.31445H22.7617Z" fill="#F1ECE7"/>
+          </svg>
+          <span class="footer-brand-name">wma.nyc</span>
+        </div>
+        <p class="footer-tagline">Designer and creative technologist in New York.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/#work">Work</a>
+        <a href="/about">About</a>
+        <a href="https://www.linkedin.com/in/wilsonxma/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:ny.wilson.ma@gmail.com">Email</a>
+      </nav>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>&#169; 2026 Wilson Ma</p>
+      <p class="footer-tagline-hidden">Designed in Figma, shipped through the same pipeline as the ads.</p>
+    </div>
+  </footer>
+
+</div><!-- .page -->
+
+<script src="/js/site.js"></script>
+<script>
+  (function() {
+    var tabs = document.querySelectorAll('.wh-tab');
+    var panels = document.querySelectorAll('.wh-tab-panel');
+    function activateTab(tab) {
+      tabs.forEach(function(t) {
+        t.setAttribute('aria-selected', 'false');
+      });
+      panels.forEach(function(p) {
+        p.classList.remove('active');
+      });
+      tab.setAttribute('aria-selected', 'true');
+      var panelId = tab.getAttribute('aria-controls');
+      document.getElementById(panelId).classList.add('active');
+    }
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() { activateTab(tab); });
+      tab.addEventListener('keydown', function(e) {
+        var idx = Array.prototype.indexOf.call(tabs, tab);
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          tabs[(idx + 1) % tabs.length].focus();
+          activateTab(tabs[(idx + 1) % tabs.length]);
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          tabs[(idx - 1 + tabs.length) % tabs.length].focus();
+          activateTab(tabs[(idx - 1 + tabs.length) % tabs.length]);
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          tabs[0].focus();
+          activateTab(tabs[0]);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          tabs[tabs.length - 1].focus();
+          activateTab(tabs[tabs.length - 1]);
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>

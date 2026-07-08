@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treat Week — Wilson Ma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400&family=Space+Mono:wght@400;700&family=Archivo+Black&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+  <style>
+    /* ── Treat Week page ── */
+    .tw-hero { background: var(--bg); padding: var(--px-outer); padding-top: 40px; }
+    .tw-hero-card {
+      background: linear-gradient(80.45deg, var(--bg-hero-from) 52%, var(--bg-hero-to) 100%);
+      border: 0.951px solid var(--border-hero);
+      border-radius: 12px;
+      padding: var(--px-outer);
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .tw-hero-copy { display: flex; flex-direction: column; gap: 16px; }
+    .tw-hero-title {
+      font-size: var(--text-48);
+      font-weight: 600;
+      background: linear-gradient(83.5deg, #ee6868 18.86%, #f9a45f 91.73%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+      font-style: italic;
+    }
+    .tw-hero-sub {
+      font-size: clamp(18px, 1.67vw, 24px);
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+    .tw-hero-body { font-size: var(--text-18); color: var(--text-secondary); line-height: 1.6; }
+
+    /* ── White body ── */
+    .tw-body {
+      background: #fff;
+      padding: 80px clamp(24px, 12.5vw, 180px) 180px;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+    .tw-section { display: flex; flex-direction: column; gap: 40px; }
+    .tw-section-title {
+      font-size: clamp(28px, 3.33vw, 48px);
+      font-weight: 600;
+      background: linear-gradient(111.21deg, rgb(0,29,147) 33.876%, rgb(71,107,254) 113.48%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.15;
+    }
+    .tw-body-text { font-size: 18px; color: #203f5b; line-height: 1.6; }
+
+    /* ── Brief section ── */
+    .tw-brief-row {
+      display: flex;
+      gap: 80px;
+      align-items: flex-start;
+    }
+    .tw-brief-text { flex: 1; min-width: 0; }
+    .tw-constraint-box {
+      flex-shrink: 0;
+      width: 340px;
+      background: #fff;
+      border: 1px solid #d9d9d9;
+      border-radius: 12px;
+      padding: 24px 32px;
+      color: #203f5b;
+      font-size: 18px;
+    }
+    .tw-constraint-box h4 { font-weight: 700; margin-bottom: 12px; }
+    .tw-constraint-box ul {
+      list-style: disc;
+      padding-left: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .tw-constraint-box li { line-height: 1.5; }
+    .tw-banner {
+      width: 100%;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #f2f1f1;
+    }
+    .tw-banner img { width: 100%; display: block; }
+
+    /* ── Identity Exploration ── */
+    .tw-quote-block {
+      background: #fff;
+      border-left: 3px solid rgba(155,192,228,0.5);
+      padding: 16px 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .tw-quote-text {
+      font-size: clamp(16px, 1.25vw, 20px);
+      font-weight: 700;
+      font-style: italic;
+      color: #203f5b;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .tw-logo-screenshot {
+      background: #f2f1f1;
+      border-radius: 6px;
+      padding: 24px;
+      overflow: hidden;
+    }
+    .tw-logo-screenshot img { width: 100%; display: block; border-radius: 4px; }
+    .tw-logo-thumbnails {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .tw-logo-thumb {
+      flex: 1;
+      min-width: 140px;
+      max-width: 200px;
+      aspect-ratio: 1;
+      border-radius: 6px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-direction: column;
+      gap: 4px;
+      position: relative;
+    }
+    .tw-logo-thumb-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+    .tw-logo-treat { font-size: 22px; line-height: 1; }
+    .tw-logo-week { font-size: 22px; line-height: 1; margin-left: 8px; }
+
+    /* ── 03 System section ── */
+    .tw-system-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 24px;
+    }
+    .tw-system-label {
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+    }
+    .tw-divider-light { height: 2px; background: rgba(155,192,228,0.5); }
+
+    /* Logo grid */
+    .tw-logo-grid {
+      display: flex;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .tw-logo-half {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .tw-logo-cards-row {
+      display: flex;
+      gap: 24px;
+      align-items: stretch;
+      flex: 1;
+    }
+    .tw-logo-card {
+      flex: 1;
+      border-radius: 6px;
+      box-shadow: 0 4px 7.5px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 36px;
+      min-height: 152px;
+    }
+    .tw-logo-card-inner {
+      position: relative;
+      width: 140px;
+    }
+    .tw-logo-card-inner img,
+    .tw-logo-card-inner svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .tw-badge {
+      position: absolute;
+      background: #ff00ee;
+      border: 0.5px solid #f73b3b;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      color: #fff;
+      letter-spacing: 0.27px;
+    }
+    .tw-badge-1 { left: 72.8%; top: 0; }
+    .tw-badge-2 { left: 88.6%; top: 32%; }
+    .tw-logo-mode-label {
+      font-size: 10px;
+      font-style: italic;
+      color: #000;
+    }
+
+    /* Typography */
+    .tw-type-row {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+    .tw-type-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .tw-type-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tw-type-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      background: #ff00ee;
+      border: 0.5px solid #f73b3b;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      color: #fff;
+      letter-spacing: 0.3px;
+      flex-shrink: 0;
+    }
+    .tw-type-role-label {
+      font-size: 10px;
+      color: #203f5b;
+      letter-spacing: 0.3px;
+    }
+    .tw-type-specimen {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .tw-type-aa { font-size: 28px; color: #000; line-height: 1; }
+    .tw-type-name { font-size: 16px; color: #000; }
+
+    /* Color palette */
+    .tw-palette-layout {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+    .tw-palette-label-col { width: 160px; flex-shrink: 0; }
+    .tw-palette-grid { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .tw-palette-row { display: flex; gap: 11px; }
+    .tw-swatch {
+      flex: 1;
+      height: 220px;
+      border-radius: 6px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 16px;
+    }
+    .tw-swatch.wide { flex: 1.5; }
+    .tw-swatch-top { display: flex; flex-direction: column; gap: 2px; }
+    .tw-swatch-bot { display: flex; flex-direction: column; gap: 16px; }
+    .tw-swatch-field { display: flex; flex-direction: column; gap: 2px; }
+    .tw-swatch-key { font-weight: 700; font-size: 14px; }
+    .tw-swatch-val { font-size: 14px; }
+    .tw-on-dark { color: #fff; }
+    .tw-on-dark .tw-swatch-val { color: #cfcfcf; }
+    .tw-on-dark .tw-swatch-key { color: #fff; }
+    .tw-on-light { color: #333e6a; }
+    .tw-on-light .tw-swatch-val { color: #203f5b; }
+
+    /* Graphical elements */
+    .tw-illus-row {
+      display: flex;
+      gap: 24px;
+    }
+    .tw-illus-item {
+      flex: 1;
+      aspect-ratio: 1;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .tw-illus-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ── Applied Formats ── */
+    .tw-delivery-row {
+      display: flex;
+      gap: 100px;
+      align-items: flex-start;
+    }
+    .tw-delivery-text { flex: 1; min-width: 0; }
+    .tw-browser-mock {
+      flex: 1;
+      min-width: 0;
+      border-radius: 7px;
+      overflow: hidden;
+      box-shadow: 0 13px 17px rgba(0,0,0,0.1);
+      background: #fff;
+    }
+    .tw-browser-chrome {
+      height: 37px;
+      background: #f5f5f5;
+      border-bottom: 0.35px solid rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .tw-browser-dots {
+      display: flex;
+      gap: 4px;
+    }
+    .tw-browser-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d9d9d9;
+    }
+    .tw-browser-bar {
+      flex: 1;
+      height: 19px;
+      background: rgba(0,0,0,0.05);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: #4c4c4c;
+      margin: 0 20px;
+    }
+    .tw-browser-body {
+      overflow: hidden;
+      position: relative;
+    }
+    .tw-browser-body img {
+      width: 100%;
+      display: block;
+      opacity: 0.3;
+      filter: blur(1.7px);
+    }
+    .tw-browser-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .tw-browser-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .tw-browser-treat { font-size: 28px; font-family: 'Archivo Black', 'Inter', sans-serif; font-weight: 900; color: #4535cd; }
+    .tw-browser-week { font-size: 28px; font-style: italic; color: #4535cd; margin-left: 14px; }
+    .tw-browser-notif {
+      background: #fff;
+      border: 0.87px solid #9bc0e4;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px;
+      width: 200px;
+    }
+    .tw-browser-notif-text { font-weight: 700; font-size: 10px; color: #2d3249; }
+    .tw-campaign-assets {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .tw-asset-item {
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    }
+    .tw-asset-item img { width: 100%; display: block; object-fit: cover; }
+    .tw-asset-item.tall { aspect-ratio: 2/3; }
+    .tw-asset-item.wide { aspect-ratio: 16/7; grid-column: span 2; }
+
+    /* ── Scope stats ── */
+    .tw-scope-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .tw-scope-card {
+      background: rgba(155,192,228,0.08);
+      border: 1px solid rgba(155,192,228,0.3);
+      border-radius: 6px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tw-scope-number {
+      font-size: clamp(28px, 2.5vw, 36px);
+      font-weight: 600;
+      background: linear-gradient(111.21deg, rgb(0,29,147) 33.876%, rgb(71,107,254) 113.48%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .tw-scope-label { font-size: 14px; color: #203f5b; font-weight: 400; }
+
+    /* ── Prev/Next nav ── */
+    .tw-page-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tw-nav-side { display: flex; align-items: center; gap: 16px; }
+    .tw-nav-icon {
+      border: 1px solid #e7e7e7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .tw-nav-label { font-size: 18px; color: #474747; line-height: 26px; white-space: nowrap; }
+    .tw-nav-label strong { font-weight: 700; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .tw-body { padding-left: 40px; padding-right: 40px; }
+      .tw-brief-row { flex-direction: column; }
+      .tw-constraint-box { width: 100%; }
+      .tw-logo-grid { flex-direction: column; }
+      .tw-type-row { flex-direction: column; }
+      .tw-palette-layout { flex-direction: column; }
+      .tw-palette-label-col { width: 100%; }
+      .tw-palette-row { flex-wrap: wrap; }
+      .tw-swatch { min-width: 140px; height: 180px; }
+      .tw-delivery-row { flex-direction: column; gap: 40px; }
+      .tw-campaign-assets { grid-template-columns: 1fr 1fr; }
+      .tw-asset-item.wide { grid-column: span 2; }
+    }
+    @media (max-width: 700px) {
+      .tw-body { padding-left: 20px; padding-right: 20px; }
+      .tw-logo-thumbnails { justify-content: center; }
+      .tw-logo-thumb { min-width: 120px; max-width: 150px; }
+      .tw-scope-grid { grid-template-columns: 1fr 1fr; }
+      .tw-campaign-assets { grid-template-columns: 1fr; }
+      .tw-asset-item.wide { grid-column: span 1; }
+      .tw-page-nav { flex-direction: column; gap: 24px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- NAV -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-wordmark" aria-label="wma.nyc home">
+      <svg viewBox="0 0 40 39.999" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M32.7275 0C36.744 0.000144051 39.9999 3.25601 40 7.27246V32.7266C39.9999 36.743 36.744 39.9989 32.7275 39.999H7.27246C3.25602 39.9989 8.67142e-05 36.743 0 32.7266V7.27246C9.1388e-05 3.25601 3.25602 0.000144051 7.27246 0H32.7275ZM9.26758 28.0898C8.27491 28.0899 7.46995 28.8941 7.46973 29.8867C7.46985 30.8794 8.27484 31.6845 9.26758 31.6846H10.4912C11.484 31.6846 12.2889 30.8795 12.2891 29.8867C12.2888 28.8941 11.4839 28.0898 10.4912 28.0898H9.26758ZM16.0146 28.0898C15.022 28.0899 14.217 28.8941 14.2168 29.8867C14.2169 30.8794 15.0219 31.6845 16.0146 31.6846H17.2383C18.2311 31.6846 19.036 30.8795 19.0361 29.8867C19.0359 28.8941 18.231 28.0898 17.2383 28.0898H16.0146ZM22.7617 28.0898C21.7691 28.0899 20.9641 28.8941 20.9639 29.8867C20.964 30.8794 21.769 31.6845 22.7617 31.6846H23.9854C24.9781 31.6846 25.7831 30.8795 25.7832 29.8867C25.783 28.8941 24.9781 28.0898 23.9854 28.0898H22.7617ZM29.5078 28.0898C28.5152 28.09 27.7102 28.8942 27.71 29.8867C27.7101 30.8794 28.5152 31.6844 29.5078 31.6846H30.7314C31.7242 31.6846 32.5292 30.8795 32.5293 29.8867C32.5291 28.8941 31.7242 28.0898 30.7314 28.0898H29.5078ZM9.26758 20.8984C8.27477 20.8985 7.46974 21.7035 7.46973 22.6963C7.46985 23.689 8.27484 24.4941 9.26758 24.4941H17.2383C18.231 24.4941 19.036 23.689 19.0361 22.6963C19.0361 21.7035 18.2311 20.8985 17.2383 20.8984H9.26758ZM22.7617 20.8984C21.7689 20.8985 20.9639 21.7035 20.9639 22.6963C20.964 23.689 21.769 24.4941 22.7617 24.4941H30.7324C31.7252 24.4941 32.5302 23.689 32.5303 22.6963C32.5303 21.7034 31.7253 20.8984 30.7324 20.8984H22.7617ZM9.26758 14.6064C8.27479 14.6065 7.46976 15.4115 7.46973 16.4043C7.46985 17.397 8.27484 18.2021 9.26758 18.2021H17.2383C18.231 18.2021 19.036 17.397 19.0361 16.4043C19.0361 15.4115 18.2311 14.6065 17.2383 14.6064H9.26758ZM22.7617 14.6064C21.7689 14.6065 20.9639 15.4115 20.9639 16.4043C20.964 17.397 21.769 18.2021 22.7617 18.2021H30.7324C31.7252 18.2021 32.5302 17.397 32.5303 16.4043C32.5302 15.4115 31.7253 14.6064 30.7324 14.6064H22.7617ZM9.26758 8.31445C8.27477 8.3145 7.46973 9.11948 7.46973 10.1123C7.46992 11.105 8.27489 11.9101 9.26758 11.9102H17.2383C18.231 11.9102 19.0359 11.105 19.0361 10.1123C19.0361 9.11946 18.2311 8.31446 17.2383 8.31445H9.26758ZM22.7617 8.31445C21.7689 8.3145 20.9639 9.11953 20.9639 10.1123C20.964 11.105 21.769 11.9101 22.7617 11.9102H30.7324C31.7252 11.9101 32.5302 11.105 32.5303 10.1123C32.5302 9.11953 31.7252 8.3145 30.7324 8.31445H22.7617Z" fill="#F1ECE7"/>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="/#work">Work</a>
+      <a href="/about">About</a>
+      <a href="mailto:ny.wilson.ma@gmail.com" class="nav-cta">Get in touch</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="tw-hero" aria-label="Treat Week">
+    <div class="tw-hero-card">
+      <div class="tw-hero-copy fade-up">
+        <h1 class="tw-hero-title">Treat Week</h1>
+        <p class="tw-hero-sub">A brand built for a sale.</p>
+        <p class="tw-hero-body">Workhuman&#8217;s fall Store Sale had no identity of its own. Every year it borrowed whatever campaign assets were lying around, and employees treated it like background noise instead of a moment worth opening an email for.</p>
+      </div>
+      <div class="hero-cards fade-up">
+        <div class="info-card">
+          <p class="info-card-label">Scope</p>
+          <p class="info-card-body">Brand identity and naming, campaign design, multi-channel rollout</p>
+        </div>
+        <div class="info-card">
+          <p class="info-card-label">Context</p>
+          <p class="info-card-body">Workhuman internal campaign</p>
+        </div>
+        <div class="info-card">
+          <p class="info-card-label">Delivery</p>
+          <p class="info-card-body">Logo system, color palette, digital + print + social</p>
+        </div>
+        <div class="info-card">
+          <p class="info-card-label">Status</p>
+          <p class="info-card-body">Launched September 2025</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHITE BODY -->
+  <main class="tw-body">
+
+    <!-- 01 — THE BRIEF -->
+    <div class="tw-section fade-up">
+      <h2 class="tw-section-title">01 &#8212; The Brief</h2>
+      <div class="tw-brief-row">
+        <div class="tw-brief-text">
+          <p class="tw-body-text">Each fall, Workhuman runs a store sale for US employees, a limited window where recognition awards stretch further across house, home, fashion, and electronics. Promoting it meant hitting every internal channel the company uses to reach its people.</p>
+          <br>
+          <p class="tw-body-text">What didn&#8217;t exist was a brand. The sale had a name, Treat Week, but no logotype, no color system, no illustration direction. Every prior year ran on borrowed Workhuman assets, which made it look like a company announcement rather than an event employees would actually anticipate.</p>
+        </div>
+        <div class="tw-constraint-box">
+          <h4>The Constraint</h4>
+          <ul>
+            <li>Must feel distinct from Workhuman brand</li>
+            <li>Must feel cohesive across digital + print</li>
+            <li>Must work for any customer&#8217;s store program</li>
+            <li>Must ship in 4 weeks</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tw-banner">
+        <img src="/assets/treat-week/tw-brief-banner.jpg" alt="Treat Week campaign overview">
+      </div>
+    </div>
+
+    <!-- 02 — IDENTITY EXPLORATION -->
+    <div class="tw-section fade-up">
+      <h2 class="tw-section-title">02 &#8212; Identity Exploration</h2>
+      <p class="tw-body-text">&#8220;Treat&#8221; and &#8220;week&#8221; together read as indulgent and time-limited, which is exactly the emotional territory the sale needed to occupy. The exploration started there:</p>
+      <div class="tw-quote-block">
+        <p class="tw-quote-text">What does a brand look like when its whole job is to make employees feel they&#8217;ve earned something?</p>
+      </div>
+      <div class="tw-logo-screenshot">
+        <img src="/assets/treat-week/tw-logo-explorations.jpg" alt="Logo exploration board — 30+ directions">
+      </div>
+      <p class="tw-body-text">Over 30 directions covered typeface pairings, palettes, and logotype approaches before the system locked. The key decision was splitting &#8220;treat&#8221; and &#8220;week&#8221; into distinct typographic voices rather than a unified wordmark: Archivo Black for &#8220;treat&#8221; (bold, grounded, confident) against a handwritten script for &#8220;week&#8221; (warm, informal, a little excited). The tension between them reads as both official program and genuine treat.</p>
+      <!-- 5 Logo thumbnails -->
+      <div class="tw-logo-thumbnails">
+        <div class="tw-logo-thumb" style="background: #fff;">
+          <div class="tw-logo-thumb-text" style="font-family: Georgia, serif;">
+            <span class="tw-logo-treat" style="color: #000; font-style: normal;">treat</span>
+            <span class="tw-logo-week" style="color: #000; font-style: italic;">week</span>
+          </div>
+        </div>
+        <div class="tw-logo-thumb" style="background: linear-gradient(135deg, #0a6736 8%, #135a2d 44%, #230904 135%);">
+          <div class="tw-logo-thumb-text">
+            <span class="tw-logo-treat" style="color: #fbd65d; font-weight: 900; letter-spacing: -0.5px;">TREAT</span>
+            <span class="tw-logo-week" style="color: #fbd65d; font-style: italic;">week</span>
+          </div>
+        </div>
+        <div class="tw-logo-thumb" style="background: #ff7c65;">
+          <div class="tw-logo-thumb-text" style="text-align: center; align-items: center;">
+            <span class="tw-logo-treat" style="color: #fff; font-style: italic; font-size: 26px;">Treat</span>
+            <span class="tw-logo-week" style="color: #fff; font-style: italic; font-size: 14px; margin-left: 0;">week</span>
+          </div>
+        </div>
+        <div class="tw-logo-thumb" style="background: #fff;">
+          <div class="tw-logo-thumb-text" style="letter-spacing: 1px;">
+            <span class="tw-logo-treat" style="color: #eb5e5e; font-weight: 700;">treat</span>
+            <span class="tw-logo-week" style="color: #0ca0d0; font-weight: 700;">week</span>
+          </div>
+        </div>
+        <div class="tw-logo-thumb" style="background: #fff;">
+          <div class="tw-logo-thumb-text">
+            <span class="tw-logo-treat" style="font-family: 'Archivo Black', sans-serif; color: #4535cd; font-size: 20px;">treat</span>
+            <span class="tw-logo-week" style="color: #4535cd; font-style: italic; font-size: 20px; margin-left: 10px;">week</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 — THE SYSTEM -->
+    <div class="tw-section fade-up">
+      <h2 class="tw-section-title">03 &#8212; The System</h2>
+      <p class="tw-body-text">The system is built for white-labeling: every template carries Program Logo and Company Logo placeholders, so any Workhuman customer running a store program can deploy it as their own. That constraint shaped everything. The confetti and shopping-bag illustrations feel bespoke without clashing inside unfamiliar brand contexts, and the palette runs light and dark modes off the same six-color accent set. Arial carries body copy because every touchpoint had to render without font installs, from email to intranet templates.</p>
+
+      <!-- Logo subsystem -->
+      <div class="tw-system-panel">
+        <p class="tw-system-label">Logo</p>
+        <div class="tw-logo-grid">
+          <!-- Light side -->
+          <div class="tw-logo-half">
+            <div class="tw-logo-cards-row">
+              <div class="tw-logo-card" style="background: #f8f4eb;">
+                <div class="tw-logo-card-inner">
+                  <img src="/assets/treat-week/tw-logo-light-main.svg" alt="Treat Week logo — light primary">
+                  <!-- Numbered magenta annotation badges -->
+                  <span class="tw-badge tw-badge-1" aria-label="annotation 1">1</span>
+                  <span class="tw-badge tw-badge-2" aria-label="annotation 2">2</span>
+                </div>
+              </div>
+              <div class="tw-logo-card" style="background: #f8f4eb;">
+                <div class="tw-logo-card-inner">
+                  <img src="/assets/treat-week/tw-logo-light-p1.svg" alt="Treat Week logo — light stacked">
+                </div>
+              </div>
+            </div>
+            <p class="tw-logo-mode-label">Light</p>
+          </div>
+          <!-- Dark side -->
+          <div class="tw-logo-half">
+            <div class="tw-logo-cards-row">
+              <div class="tw-logo-card" style="background: #2d335a;">
+                <div class="tw-logo-card-inner">
+                  <img src="/assets/treat-week/tw-logo-dark-main.svg" alt="Treat Week logo — dark primary">
+                </div>
+              </div>
+              <div class="tw-logo-card" style="background: #2d335a;">
+                <div class="tw-logo-card-inner">
+                  <img src="/assets/treat-week/tw-logo-dark-p1.svg" alt="Treat Week logo — dark stacked">
+                </div>
+              </div>
+            </div>
+            <p class="tw-logo-mode-label">Dark</p>
+          </div>
+        </div>
+        <div class="tw-divider-light"></div>
+      </div>
+
+      <!-- Typography subsystem -->
+      <div class="tw-system-panel">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between;">
+          <p class="tw-system-label" style="width: 160px; flex-shrink: 0;">Typography</p>
+          <div class="tw-type-row" style="flex: 1;">
+            <div class="tw-type-col">
+              <div class="tw-type-badge-row">
+                <div class="tw-type-badge">1</div>
+                <span class="tw-type-role-label">Heading</span>
+              </div>
+              <div class="tw-type-specimen">
+                <div class="tw-type-aa" style="font-family: 'Archivo Black', sans-serif;">Aa</div>
+                <div class="tw-type-name" style="font-family: 'Archivo Black', sans-serif;">Archivo Black</div>
+              </div>
+            </div>
+            <div class="tw-type-col">
+              <div class="tw-type-badge-row">
+                <div class="tw-type-badge">2</div>
+                <span class="tw-type-role-label">Accent</span>
+              </div>
+              <div class="tw-type-specimen">
+                <div class="tw-type-aa" style="font-style: italic;">Aa</div>
+                <div class="tw-type-name" style="font-style: italic;">Figma Hand</div>
+              </div>
+            </div>
+            <div class="tw-type-col">
+              <p class="tw-type-role-label" style="margin-bottom: 16px;">Body</p>
+              <div class="tw-type-specimen">
+                <div class="tw-type-aa" style="font-family: Arial, sans-serif; font-weight: 700;">Aa</div>
+                <div class="tw-type-name" style="font-family: Arial, sans-serif; font-weight: 700;">Arial</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tw-divider-light"></div>
+      </div>
+
+      <!-- Color palette subsystem -->
+      <div class="tw-system-panel">
+        <div class="tw-palette-layout">
+          <div class="tw-palette-label-col">
+            <p class="tw-system-label">Color Palette</p>
+          </div>
+          <div class="tw-palette-grid">
+            <!-- Row 1 -->
+            <div class="tw-palette-row">
+              <div class="tw-swatch" style="background: #f8f4eb;">
+                <div class="tw-swatch-top tw-on-light">
+                  <span class="tw-swatch-key">HEX:</span>
+                  <span class="tw-swatch-val">#F8F4EB</span>
+                </div>
+                <div class="tw-swatch-bot tw-on-light">
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Name:</span>
+                    <span class="tw-swatch-val">Ivory Mist</span>
+                  </div>
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Usage:</span>
+                    <span class="tw-swatch-val">bg-light</span>
+                  </div>
+                </div>
+              </div>
+              <div class="tw-swatch" style="background: #2d335a;">
+                <div class="tw-swatch-top tw-on-dark">
+                  <span class="tw-swatch-key">HEX:</span>
+                  <span class="tw-swatch-val">#2D335A</span>
+                </div>
+                <div class="tw-swatch-bot tw-on-dark">
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Name:</span>
+                    <span class="tw-swatch-val">Twilight Navy</span>
+                  </div>
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Usage:</span>
+                    <span class="tw-swatch-val">bg-dark</span>
+                  </div>
+                </div>
+              </div>
+              <div class="tw-swatch wide" style="background: #4535cd;">
+                <div class="tw-swatch-top tw-on-dark">
+                  <span class="tw-swatch-key">HEX:</span>
+                  <span class="tw-swatch-val">#4535CD</span>
+                </div>
+                <div class="tw-swatch-bot tw-on-dark">
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Name:</span>
+                    <span class="tw-swatch-val">Royal Indigo</span>
+                  </div>
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Usage:</span>
+                    <span class="tw-swatch-val">text-accent</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Row 2 -->
+            <div class="tw-palette-row">
+              <div class="tw-swatch" style="background: #a63860;">
+                <div class="tw-swatch-top tw-on-dark">
+                  <span class="tw-swatch-key">HEX:</span>
+                  <span class="tw-swatch-val">#A63860</span>
+                </div>
+                <div class="tw-swatch-bot tw-on-dark">
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Name:</span>
+                    <span class="tw-swatch-val">Mulberry Wine</span>
+                  </div>
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Usage:</span>
+                    <span class="tw-swatch-val">accent</span>
+                  </div>
+                </div>
+              </div>
+              <div class="tw-swatch" style="background: #d87e7f;">
+                <div class="tw-swatch-top tw-on-light">
+                  <span class="tw-swatch-key">HEX:</span>
+                  <span class="tw-swatch-val">#D87E7F</span>
+                </div>
+                <div class="tw-swatch-bot tw-on-light">
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Name:</span>
+                    <span class="tw-swatch-val">Rose Clay</span>
+                  </div>
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Usage:</span>
+                    <span class="tw-swatch-val">accent</span>
+                  </div>
+                </div>
+              </div>
+              <div class="tw-swatch" style="background: #eea362;">
+                <div class="tw-swatch-top tw-on-light">
+                  <span class="tw-swatch-key">HEX:</span>
+                  <span class="tw-swatch-val">#EEA362</span>
+                </div>
+                <div class="tw-swatch-bot tw-on-light">
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Name:</span>
+                    <span class="tw-swatch-val">Amber Dusk</span>
+                  </div>
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Usage:</span>
+                    <span class="tw-swatch-val">accent</span>
+                  </div>
+                </div>
+              </div>
+              <div class="tw-swatch" style="background: #ebccee;">
+                <div class="tw-swatch-top tw-on-light">
+                  <span class="tw-swatch-key">HEX:</span>
+                  <span class="tw-swatch-val">#EBCCEE</span>
+                </div>
+                <div class="tw-swatch-bot tw-on-light">
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Name:</span>
+                    <span class="tw-swatch-val">Orchid Veil</span>
+                  </div>
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Usage:</span>
+                    <span class="tw-swatch-val">accent</span>
+                  </div>
+                </div>
+              </div>
+              <div class="tw-swatch" style="background: #9ae6fa;">
+                <div class="tw-swatch-top tw-on-light">
+                  <span class="tw-swatch-key">HEX:</span>
+                  <span class="tw-swatch-val">#9AE6FA</span>
+                </div>
+                <div class="tw-swatch-bot tw-on-light">
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Name:</span>
+                    <span class="tw-swatch-val">Crystal Lagoon</span>
+                  </div>
+                  <div class="tw-swatch-field">
+                    <span class="tw-swatch-key">Usage:</span>
+                    <span class="tw-swatch-val">accent</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tw-divider-light"></div>
+      </div>
+
+      <!-- Graphical elements subsystem -->
+      <div class="tw-system-panel">
+        <div style="display: flex; align-items: flex-start; gap: 40px;">
+          <p class="tw-system-label" style="width: 160px; flex-shrink: 0;">Graphical Elements</p>
+          <div class="tw-illus-row" style="flex: 1;">
+            <div class="tw-illus-item">
+              <img src="/assets/treat-week/tw-illus-light.jpg" alt="Treat Week illustration set — light">
+            </div>
+            <div class="tw-illus-item">
+              <img src="/assets/treat-week/tw-illus-dark.jpg" alt="Treat Week illustration set — dark">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 — APPLIED FORMATS -->
+    <div class="tw-section fade-up">
+      <h2 class="tw-section-title">04 &#8212; Applied Formats</h2>
+      <div class="tw-delivery-row">
+        <div class="tw-delivery-text">
+          <p class="tw-body-text">The campaign ran across US employee communications for the sale window, September 22&#8211;26: digital signage, email, intranet, social, and the Workhuman Connect platform, all pulling from one system.</p>
+          <br>
+          <p class="tw-body-text">The same white-label templates ship to customers running their own store programs.</p>
+        </div>
+        <!-- Browser mockup -->
+        <div class="tw-browser-mock">
+          <div class="tw-browser-chrome">
+            <div class="tw-browser-dots">
+              <div class="tw-browser-dot"></div>
+              <div class="tw-browser-dot"></div>
+              <div class="tw-browser-dot"></div>
+            </div>
+            <div class="tw-browser-bar">workhuman.com/store</div>
+          </div>
+          <div class="tw-browser-body" style="height: 200px;">
+            <img src="/assets/treat-week/tw-email-bg.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: blur(2px);">
+            <div class="tw-browser-overlay">
+              <div class="tw-browser-logo">
+                <span class="tw-browser-treat">treat</span>
+                <span class="tw-browser-week" style="font-family: 'Inter', sans-serif; font-style: italic;">week</span>
+              </div>
+              <div class="tw-browser-notif">
+                <span class="tw-browser-notif-text">Treat Week is here &#8212; just for you</span>
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+                  <path d="M2 5.5H9M9 5.5L6 2.5M9 5.5L6 8.5" stroke="#3a2fc1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Campaign assets grid -->
+      <div class="tw-campaign-assets">
+        <div class="tw-asset-item wide">
+          <img src="/assets/treat-week/tw-desktop.jpg" alt="Treat Week desktop campaign" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 16/9;">
+        </div>
+        <div class="tw-asset-item tall">
+          <img src="/assets/treat-week/tw-poster.jpg" alt="Treat Week poster" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 3/4;">
+        </div>
+        <div class="tw-asset-item wide">
+          <img src="/assets/treat-week/tw-tablet.jpg" alt="Treat Week tablet" style="width: 100%; display: block; object-fit: cover; aspect-ratio: 16/7;">
+        </div>
+      </div>
+    </div>
+
+    <!-- SCOPE STATS -->
+    <div class="tw-section fade-up">
+      <div class="tw-scope-grid">
+        <div class="tw-scope-card">
+          <p class="tw-scope-number">6</p>
+          <p class="tw-scope-label">formats, one system</p>
+        </div>
+        <div class="tw-scope-card">
+          <p class="tw-scope-number" style="font-size: clamp(16px,1.5vw,20px);">White-label</p>
+          <p class="tw-scope-label">by design</p>
+        </div>
+        <div class="tw-scope-card">
+          <p class="tw-scope-number" style="font-size: clamp(16px,1.5vw,20px);">Zero-designer</p>
+          <p class="tw-scope-label">handoff</p>
+        </div>
+        <div class="tw-scope-card">
+          <p class="tw-scope-number">4 wks</p>
+          <p class="tw-scope-label">concept to delivery</p>
+        </div>
+        <div class="tw-scope-card">
+          <p class="tw-scope-number" style="font-size: clamp(16px,1.5vw,20px);">Light + dark</p>
+          <p class="tw-scope-label">one palette</p>
+        </div>
+        <div class="tw-scope-card">
+          <p class="tw-scope-number" style="font-size: clamp(16px,1.5vw,20px);">Named</p>
+          <p class="tw-scope-label">not just designed</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREV / NEXT NAV -->
+    <nav class="tw-page-nav fade-up" aria-label="Project navigation">
+      <div class="tw-nav-side">
+        <a href="/workhuman" class="tw-nav-icon" aria-label="Previous project">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 12L6 8L10 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="/workhuman" class="tw-nav-label">
+          <strong>Previous project:</strong> Workhuman
+        </a>
+      </div>
+      <div class="tw-nav-side">
+        <a href="/selected-works" class="tw-nav-label">
+          <strong>Next project:</strong> Selected Works
+        </a>
+        <a href="/selected-works" class="tw-nav-icon" aria-label="Next project">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M6 12L10 8L6 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-mark">
+        <div class="footer-brand">
+          <svg viewBox="0 0 40 39.999" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M32.7275 0C36.744 0.000144051 39.9999 3.25601 40 7.27246V32.7266C39.9999 36.743 36.744 39.9989 32.7275 39.999H7.27246C3.25602 39.9989 8.67142e-05 36.743 0 32.7266V7.27246C9.1388e-05 3.25601 3.25602 0.000144051 7.27246 0H32.7275ZM9.26758 28.0898C8.27491 28.0899 7.46995 28.8941 7.46973 29.8867C7.46985 30.8794 8.27484 31.6845 9.26758 31.6846H10.4912C11.484 31.6846 12.2889 30.8795 12.2891 29.8867C12.2888 28.8941 11.4839 28.0898 10.4912 28.0898H9.26758ZM16.0146 28.0898C15.022 28.0899 14.217 28.8941 14.2168 29.8867C14.2169 30.8794 15.0219 31.6845 16.0146 31.6846H17.2383C18.2311 31.6846 19.036 30.8795 19.0361 29.8867C19.0359 28.8941 18.231 28.0898 17.2383 28.0898H16.0146ZM22.7617 28.0898C21.7691 28.0899 20.9641 28.8941 20.9639 29.8867C20.964 30.8794 21.769 31.6845 22.7617 31.6846H23.9854C24.9781 31.6846 25.7831 30.8795 25.7832 29.8867C25.783 28.8941 24.9781 28.0898 23.9854 28.0898H22.7617ZM29.5078 28.0898C28.5152 28.09 27.7102 28.8942 27.71 29.8867C27.7101 30.8794 28.5152 31.6844 29.5078 31.6846H30.7314C31.7242 31.6846 32.5292 30.8795 32.5293 29.8867C32.5291 28.8941 31.7242 28.0898 30.7314 28.0898H29.5078ZM9.26758 20.8984C8.27477 20.8985 7.46974 21.7035 7.46973 22.6963C7.46985 23.689 8.27484 24.4941 9.26758 24.4941H17.2383C18.231 24.4941 19.036 23.689 19.0361 22.6963C19.0361 21.7035 18.2311 20.8985 17.2383 20.8984H9.26758ZM22.7617 20.8984C21.7689 20.8985 20.9639 21.7035 20.9639 22.6963C20.964 23.689 21.769 24.4941 22.7617 24.4941H30.7324C31.7252 24.4941 32.5302 23.689 32.5303 22.6963C32.5303 21.7034 31.7253 20.8984 30.7324 20.8984H22.7617ZM9.26758 14.6064C8.27479 14.6065 7.46976 15.4115 7.46973 16.4043C7.46985 17.397 8.27484 18.2021 9.26758 18.2021H17.2383C18.231 18.2021 19.036 17.397 19.0361 16.4043C19.0361 15.4115 18.2311 14.6065 17.2383 14.6064H9.26758ZM22.7617 14.6064C21.7689 14.6065 20.9639 15.4115 20.9639 16.4043C20.964 17.397 21.769 18.2021 22.7617 18.2021H30.7324C31.7252 18.2021 32.5302 17.397 32.5303 16.4043C32.5302 15.4115 31.7253 14.6064 30.7324 14.6064H22.7617ZM9.26758 8.31445C8.27477 8.3145 7.46973 9.11948 7.46973 10.1123C7.46992 11.105 8.27489 11.9101 9.26758 11.9102H17.2383C18.231 11.9102 19.0359 11.105 19.0361 10.1123C19.0361 9.11946 18.2311 8.31446 17.2383 8.31445H9.26758ZM22.7617 8.31445C21.7689 8.3145 20.9639 9.11953 20.9639 10.1123C20.964 11.105 21.769 11.9101 22.7617 11.9102H30.7324C31.7252 11.9101 32.5302 11.105 32.5303 10.1123C32.5302 9.11953 31.7252 8.3145 30.7324 8.31445H22.7617Z" fill="#F1ECE7"/>
+          </svg>
+          <span class="footer-brand-name">wma.nyc</span>
+        </div>
+        <p class="footer-tagline">Designer and creative technologist in New York.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/#work">Work</a>
+        <a href="/about">About</a>
+        <a href="https://www.linkedin.com/in/wilsonxma/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:ny.wilson.ma@gmail.com">Email</a>
+      </nav>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>&#169; 2026 Wilson Ma</p>
+      <p class="footer-tagline-hidden">Designed in Figma, shipped through the same pipeline as the ads.</p>
+    </div>
+  </footer>
+
+</div><!-- .page -->
+<script src="/js/site.js"></script>
+</body>
+</html>
