@@ -120,6 +120,20 @@ Build/fix one section at a time. Per section:
 `get_design_context` (section node) → `get_screenshot` (section node) → build →
 parity check → next. Never carry stale context between sections.
 
+### e. CD SIZE OVERRIDES — /marly
+These display widths supersede Figma node widths. Do not revert on rebuild.
+Gap and padding adjustments are co-committed with each override.
+
+| section        | comp element | Figma node px | **display px** | gap at set | notes |
+|----------------|--------------|---------------|----------------|------------|-------|
+| 02B row 3      | per-campaign comp (02b-03.png) | 552 | **635** | 45px | tier-row h-pad zeroed; gap 45px |
+| 02C            | anim-screens (02c-01.png)      | 486 | **559** | 7px  | gap below 40px floor; accepted |
+| 04 step 1      | brief comp (04-01.png)         | 533 | **613** | 0px  | gap collapses; accepted |
+| 04 step 2      | plan.md comp (04-02.png)       | 649 | **649** | 40px | already at column ceiling |
+
+Width rule for exports with a CD override: use the display px in this table,
+not intrinsic/2 and not the Figma node group width.
+
 ### d. PARITY GATE
 Playwright renders each section at 1440px headless and screenshots it. The
 rendered screenshot is placed next to the Figma section screenshot in a single
