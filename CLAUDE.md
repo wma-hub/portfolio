@@ -134,6 +134,9 @@ Gap and padding adjustments are co-committed with each override.
 Width rule for exports with a CD override: use the display px in this table,
 not intrinsic/2 and not the Figma node group width.
 
+### f. SITE CHROME PALETTE RULE
+Never use client or brand palette tokens — colors pulled from deliverable assets, brand guidelines, or campaign exports — as wma.nyc site chrome. Page backgrounds, section wrappers, and structural UI elements always use the site's own color system (white `#fff` body, `#15191f` hero dark, etc.), regardless of the brand being showcased. The brand palette belongs inside the exported compositions and tiles, not on the container holding them.
+
 ### d. PARITY GATE
 Playwright renders each section at 1440px headless and screenshots it. The
 rendered screenshot is placed next to the Figma section screenshot in a single
