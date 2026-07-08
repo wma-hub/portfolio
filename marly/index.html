@@ -121,8 +121,8 @@
     .anim-copy p + p { margin-top: 1.25em; }
 
     /* ── Brand Range ──────────────────────────────────────── */
-    .brand-logos { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; flex-wrap: wrap; gap: 24px; }
-    .brand-logo-cell { display: flex; align-items: center; justify-content: center; height: 72px; flex: 1; min-width: 80px; }
+    .brand-logos { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
+    .brand-logo-cell { display: flex; align-items: center; justify-content: center; height: 72px; width: 168px; flex-shrink: 0; }
     .brand-logo-cell img { max-height: 43px; max-width: 130px; object-fit: contain; }
     .brand-range-para { font-size: var(--text-18); color: #203f5b; line-height: 1.7; padding: 0 0 40px; }
     .ad-slots-col { display: flex; flex-direction: column; gap: 48px; align-items: center; }
@@ -278,7 +278,7 @@
 
             <div class="pipeline-phase">
               <div class="pipeline-phase-box dark">
-                <img src="/assets/marly/phase2-claude-icon.png" alt="Claude Code icon">
+                <img src="/assets/marly/phase2-claude-icon.png" alt="Claude Code icon" width="60" style="height:60px;">
                 <img src="/assets/marly/phase2-claude-wordmark.png" alt="Claude Code" class="wordmark" style="height:60px;">
               </div>
               <div style="display:flex;flex-direction:column;gap:12px;">
@@ -321,7 +321,7 @@
             <p>Ad size canvases, layout variants, component shells, animation specs, IAB spacing tokens: the skeleton every build inherits.</p>
           </div>
           <div class="tier-visuals">
-            <img src="/assets/marly/02b-01.png" alt="Foundation Figma library" style="width:100%;max-width:100%;display:block;">
+            <img src="/assets/marly/02b-01.png" alt="Foundation Figma library" width="567" style="max-width:100%;display:block;">
           </div>
         </div>
 
@@ -331,7 +331,7 @@
             <p>Foundation components with brand tokens swapped in: color styles, type styles, logo assets, imagery rules. Every client file inherits Foundation updates, which is why the second campaign for any client is faster than the first.</p>
           </div>
           <div class="tier-visuals">
-            <img src="/assets/marly/02b-02.png" alt="Per-client Figma layer" style="width:100%;max-width:100%;display:block;">
+            <img src="/assets/marly/02b-02.png" alt="Per-client Figma layer" width="533" style="max-width:100%;display:block;">
           </div>
         </div>
 
@@ -341,7 +341,7 @@
             <p>A <strong>CLAUDE.md</strong> spec that translates the brief into machine-readable production instructions, authored by Opus before Code starts Stage 1.</p>
           </div>
           <div class="tier-visuals">
-            <img src="/assets/marly/02b-03.png" alt="Per-campaign CLAUDE.md spec" style="width:100%;max-width:100%;display:block;">
+            <img src="/assets/marly/02b-03.png" alt="Per-campaign CLAUDE.md spec" width="780" style="max-width:100%;display:block;">
           </div>
         </div>
       </div>
@@ -354,7 +354,7 @@
         <p class="ml-text" style="margin-bottom:32px;">Animation intent is locked at the brief stage rather than discovered mid-build. Campaign type determines the sequence, and brand energy from the client <strong>CLAUDE.md</strong> selects which animation token executes inside it. Ghia&#8217;s retargeting campaign opens on a product that&#8217;s already in frame, a slow opacity fade, because retargeting assumes recognition, while Graza&#8217;s mayo launch leads with squeeze-bottle physics on the entrance, because a launch has to introduce the thing.</p>
         <div class="anim-layout">
           <div class="anim-screens">
-            <img src="/assets/marly/02c-01.png" alt="Animation and surface effects spec" class="anim-screen">
+            <img src="/assets/marly/02c-01.png" alt="Animation and surface effects spec" width="624" class="anim-screen">
           </div>
           <div class="anim-copy">
             <p>Surface effects sit on top of animation as a separate compositional layer: scrims that keep text readable over imagery, feathered edges that blend product into background, ambient glows, shimmer sweeps.</p>
@@ -379,12 +379,12 @@
           <div class="brand-logo-cell"><img src="/assets/marly/levis-logo.png" alt="Levi's"></div>
         </div>
 
-        <p class="brand-range-para">What changes per client lives entirely in the per-client layer; color tokens, motion pacing, type pairing, the texture of how a CTA should feel. Six logos in this range, six different answers to the same brief: make the product look inevitable in under three seconds.</p>
-
+        <div style="display:flex;gap:80px;align-items:center;padding:24px 40px;">
+          <p class="brand-range-para" style="flex:1 0 0;min-width:0;">What changes per client lives entirely in the per-client layer; color tokens, motion pacing, type pairing, the texture of how a CTA should feel. Six logos in this range, six different answers to the same brief: make the product look inevitable in under three seconds.</p>
         <!-- §8 NOTE: Only Tumblerware/fathers-day has /ads/ on disk (728x90, 300x250, 160x600).
              All other brands excluded from rotation (no /ads/ directory). Single unit per slot —
              rendered static per rotation amendment. -->
-        <div class="ad-slots-col" id="brand-range-slots">
+        <div class="ad-slots-col" id="brand-range-slots" style="flex-shrink:0;">
           <div class="ad-slot-wrap" data-slot="728x90">
             <div class="ad-slot" style="width:min(728px,100%);height:90px;" id="slot-728x90"></div>
             <p class="ad-slot-label">728&#215;90</p>
@@ -400,6 +400,7 @@
             </div>
           </div>
         </div>
+        </div><!-- /flex-row -->
       </div>
 
       <div class="ml-section-divider"></div>
@@ -421,7 +422,7 @@
             </div>
           </div>
           <div class="build-step-screens">
-            <img src="/assets/marly/04-01.png" alt="Tumblerware brief document" style="width:100%;max-width:100%;display:block;border-radius:6px;">
+            <img src="/assets/marly/04-01.png" alt="Tumblerware brief document" width="738" style="max-width:100%;display:block;border-radius:6px;">
           </div>
         </div>
 
@@ -440,7 +441,7 @@
             </div>
           </div>
           <div class="build-step-screens">
-            <img src="/assets/marly/04-02.png" alt="plan.md document" style="width:100%;max-width:100%;display:block;border-radius:6px;">
+            <img src="/assets/marly/04-02.png" alt="plan.md document" width="910" style="max-width:100%;display:block;border-radius:6px;">
           </div>
         </div>
 
@@ -459,7 +460,7 @@
             </div>
           </div>
           <div class="build-step-screens">
-            <img src="/assets/marly/04-03.png" alt="Lo-fi layout wireframes for Tumblerware" style="width:100%;max-width:100%;display:block;border-radius:6px;">
+            <img src="/assets/marly/04-03.png" alt="Lo-fi layout wireframes for Tumblerware" width="480" style="max-width:100%;display:block;border-radius:6px;">
           </div>
         </div>
 
@@ -477,7 +478,7 @@
             </div>
           </div>
           <div class="build-step-screens" style="width:100%;max-width:100%;">
-            <img src="/assets/marly/04-04.png" alt="CLAUDE.md spec" style="width:100%;max-width:100%;display:block;border-radius:6px;">
+            <img src="/assets/marly/04-06.png" alt="CLAUDE.md spec" width="1110" style="max-width:100%;display:block;border-radius:6px;">
           </div>
         </div>
 
@@ -496,7 +497,7 @@
             </div>
           </div>
           <div class="build-step-screens" style="width:100%;max-width:100%;">
-            <img src="/assets/marly/04-05.png" alt="verify-delivery output" style="width:100%;max-width:100%;display:block;border-radius:6px;">
+            <img src="/assets/marly/04-05.png" alt="verify-delivery output" width="1111" style="max-width:100%;display:block;border-radius:6px;">
           </div>
         </div>
 
@@ -537,7 +538,7 @@
         <p class="ml-section-heading">05 &#8212; Scope</p>
         <div class="scope-layout">
           <div class="scope-phase">
-            <img src="/assets/marly/05-01.png" alt="Phase I — Planning with Opus" class="scope-phase-img">
+            <img src="/assets/marly/05-01.png" alt="Phase I — Planning with Opus" width="500" class="scope-phase-img">
             <ul class="scope-bullets">
               <li>Reads Figma frames, authors plan.md</li>
               <li>Writes the CLAUDE.md Code builds from</li>
@@ -545,7 +546,7 @@
             </ul>
           </div>
           <div class="scope-phase">
-            <img src="/assets/marly/05-02.png" alt="Phase II — Execution with Claude Code" class="scope-phase-img">
+            <img src="/assets/marly/05-02.png" alt="Phase II — Execution with Claude Code" width="500" class="scope-phase-img">
             <ul class="scope-bullets">
               <li>Generates HTML, runs the build</li>
               <li>Runs /verify-delivery ground-truth check</li>
