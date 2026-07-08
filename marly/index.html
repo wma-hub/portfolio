@@ -12,9 +12,9 @@
     /* ── Marly hero ───────────────────────────────────────── */
     .ml-hero-section {
       background: var(--bg);
-      padding: var(--px-outer);
-      padding-top: 40px;
+      padding: 80px;
     }
+    .ml-hero-section .info-card-body { font-size: 14px; }
     .ml-hero-card {
       background: #202731;
       border: 0.951px solid var(--border-hero);
@@ -40,14 +40,14 @@
     /* ── White body ───────────────────────────────────────── */
     .ml-body-section {
       background: #fff;
-      padding: 80px clamp(24px, 6.94vw, 100px) 120px;
+      padding: 80px 180px 120px;
       display: flex;
       flex-direction: column;
       gap: 0;
     }
     .ml-section { padding: 40px 0; display: flex; flex-direction: column; gap: 40px; }
     .ml-section-divider { width: 80px; height: 2px; background: rgba(155,192,228,0.5); }
-    .ml-full-divider { width: 100%; height: 1px; background: rgba(155,192,228,0.3); margin: 8px 0; }
+    .ml-full-divider { width: 100%; height: 2px; background: rgba(155,192,228,0.5); margin: 0; }
     .ml-section-heading {
       font-size: clamp(24px, 3.33vw, 48px);
       font-weight: 600;
@@ -62,7 +62,7 @@
     .ml-text em { font-style: italic; }
 
     /* Stat callout */
-    .ml-stat-block { display: flex; gap: clamp(40px, 8.33vw, 120px); align-items: flex-start; }
+    .ml-stat-block { display: flex; gap: 120px; align-items: center; }
     .ml-stat-text { flex: 1; min-width: 0; }
     .ml-stat-callout { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding: 40px; text-align: center; }
     .ml-stat-num {
@@ -79,14 +79,14 @@
 
     /* ── Pipeline diagram ─────────────────────────────────── */
     .pipeline-diagram { background: #fff; border: 1px solid #d9d9d9; border-radius: 6px; padding: 24px; overflow-x: auto; }
-    .pipeline-inner { display: flex; gap: 0; align-items: flex-start; min-width: 780px; }
-    .pipeline-phase { flex: 0 0 280px; display: flex; flex-direction: column; gap: 24px; }
+    .pipeline-inner { display: flex; gap: 8px; align-items: flex-start; min-width: 780px; }
+    .pipeline-phase { flex: 0 0 300px; display: flex; flex-direction: column; gap: 24px; }
     .pipeline-phase-box { height: 108px; border-radius: 6px; display: flex; align-items: center; justify-content: center; padding: 24px; gap: 16px; }
     .pipeline-phase-box.light { background: #f5f0f0; }
     .pipeline-phase-box.dark  { background: #141414; }
     .pipeline-phase-box img   { height: 46px; width: auto; flex-shrink: 0; }
     .pipeline-phase-box img.wordmark { height: 31px; }
-    .pipeline-phase-label { font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; letter-spacing: 1.28px; color: #203f5b; line-height: 1.4; }
+    .pipeline-phase-label { font-family: 'Space Mono', monospace; font-size: 16px; font-weight: 700; letter-spacing: 1.28px; color: #203f5b; line-height: 1.4; }
     .pipeline-phase-body { font-size: 16px; color: #203f5b; line-height: 1.5; }
     .pipeline-chips { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
     .pipeline-chip { background: #f4f5f7; padding: 8px 14px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 12px; color: #333; white-space: nowrap; }
@@ -153,10 +153,10 @@
 
     /* ── 05 Scope ─────────────────────────────────────────── */
     .scope-layout { display: flex; gap: 80px; align-items: flex-start; }
-    .scope-phase { flex: 0 0 auto; display: flex; flex-direction: column; gap: 32px; }
-    .scope-phase-img { display: block; max-width: 100%; height: auto; border-radius: 6px; }
+    .scope-phase { flex: 1 0 0; display: flex; flex-direction: column; gap: 32px; }
+    .scope-phase-img { display: block; width: 100%; height: auto; border-radius: 6px; }
     .scope-bullets { list-style: disc; padding-left: 24px; display: flex; flex-direction: column; gap: 6px; }
-    .scope-bullets li { font-size: var(--text-18); color: #203f5b; line-height: 1.6; }
+    .scope-bullets li { font-size: var(--text-18); color: #203f5b; line-height: 24px; letter-spacing: 1.44px; }
 
     @media (max-width: 900px) {
       .ml-stat-block { flex-direction: column; }
@@ -168,7 +168,9 @@
       .build-step { flex-direction: column; }
       .build-step-screens { width: 100%; }
       .scope-layout { flex-direction: column; }
-      .ml-body-section { padding-left: clamp(16px, 4vw, 40px); padding-right: clamp(16px, 4vw, 40px); }
+      .ml-body-section { padding-left: clamp(16px, 5vw, 60px); padding-right: clamp(16px, 5vw, 60px); }
+      .ml-stat-block { gap: 40px; }
+      .scope-phase { flex: none; width: 100%; }
     }
   </style>
 </head>
@@ -224,9 +226,10 @@
     <section class="ml-body-section">
 
       <!-- 01 — The Problem -->
-      <div class="ml-section fade-up">
-        <p class="ml-section-heading">01 &#8212; The Problem</p>
-        <div class="ml-stat-block">
+      <div class="ml-section fade-up" style="gap: 16px; position: relative; overflow: visible;">
+        <img src="/assets/marly/s01-accent.png" alt="" aria-hidden="true" style="position:absolute;left:817px;top:97px;width:255px;height:157px;transform:rotate(79.75deg);transform-origin:center;pointer-events:none;z-index:0;">
+        <p class="ml-section-heading" style="position:relative;z-index:1;">01 &#8212; The Problem</p>
+        <div class="ml-stat-block" style="position:relative;z-index:1;">
           <div class="ml-stat-text ml-text">
             <p>Enterprise platforms like Celtra automate at scale but assume someone else is producing the creative. Agencies charge $350&#8211;1,500 per ad set and reset the file handoff with every campaign. DIY tools produce output that looks like Canva, because it is.</p>
             <p>D2C brands spend real money on type, palette, and a product with a shape worth showing, and still can&#8217;t get those choices honored downstream.</p>
@@ -251,7 +254,7 @@
             <div class="pipeline-phase">
               <div class="pipeline-phase-box light">
                 <img src="/assets/marly/phase1-opus-logo.png" alt="Claude Opus">
-                <img src="/assets/marly/phase1-opus-wordmark.png" alt="Anthropic" class="wordmark">
+                <img src="/assets/marly/phase1-opus-wordmark.svg" alt="Anthropic" class="wordmark">
               </div>
               <div style="display:flex;flex-direction:column;gap:12px;">
                 <div class="pipeline-phase-label">PHASE I&#8201;&#8212;&#8201;PLANNING &#183; OPUS</div>
@@ -369,10 +372,10 @@
 
         <div class="brand-logos">
           <div class="brand-logo-cell"><img src="/assets/marly/graza-logo.png" alt="Graza"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/byredo-logo.png" alt="Byredo"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/byredo-logo.svg" alt="Byredo"></div>
           <div class="brand-logo-cell"><img src="/assets/marly/tumblerware-logo.png" alt="Tumblerware"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/ritual-logo.png" alt="Ritual"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/ghia-logo.png" alt="Ghia"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/ritual-logo.svg" alt="Ritual"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/ghia-logo.svg" alt="Ghia"></div>
           <div class="brand-logo-cell"><img src="/assets/marly/levis-logo.png" alt="Levi's"></div>
         </div>
 
@@ -407,7 +410,7 @@
         <p class="ml-text">One campaign, from brief to deployed review portal: the Tumblerware Father&#8217;s Day set, three IAB sizes, taken from a lo-fi internal draft to client-facing V1 through a full change in creative direction mid-pipeline.</p>
 
         <!-- STEP 1 -->
-        <div class="build-step">
+        <div class="build-step" style="gap:80px;align-items:center;">
           <div class="build-step-copy">
             <div class="step-label">
               <span class="step-num">STEP 1 &#8212;</span>
@@ -425,7 +428,7 @@
         <div class="ml-full-divider"></div>
 
         <!-- STEP 2 -->
-        <div class="build-step">
+        <div class="build-step" style="gap:40px;align-items:center;">
           <div class="build-step-copy">
             <div class="step-label">
               <span class="step-num">STEP 2 &#8212;</span>
@@ -444,7 +447,7 @@
         <div class="ml-full-divider"></div>
 
         <!-- STEP 3 -->
-        <div class="build-step">
+        <div class="build-step" style="gap:100px;align-items:flex-start;padding:40px;">
           <div class="build-step-copy">
             <div class="step-label">
               <span class="step-num">STEP 3 &#8212;</span>
@@ -463,7 +466,7 @@
         <div class="ml-full-divider"></div>
 
         <!-- STEP 4 -->
-        <div class="build-step">
+        <div class="build-step" style="flex-direction:column;gap:40px;align-items:flex-start;">
           <div class="build-step-copy">
             <div class="step-label">
               <span class="step-num">STEP 4 &#8212;</span>
@@ -473,7 +476,7 @@
               <p><strong>CLAUDE.md</strong> is machine-readable creative direction: hex values mapped to semantic roles, animation classes assigned from the token library, layout variant IDs looked up from the Foundation index rather than inferred. The spec leaves nothing to interpretation, because interpretation is where builds diverge from design.</p>
             </div>
           </div>
-          <div class="build-step-screens">
+          <div class="build-step-screens" style="width:100%;max-width:100%;">
             <img src="/assets/marly/04-04.png" alt="CLAUDE.md spec" style="width:100%;max-width:100%;display:block;border-radius:6px;">
           </div>
         </div>
@@ -481,7 +484,7 @@
         <div class="ml-full-divider"></div>
 
         <!-- STEP 5 -->
-        <div class="build-step">
+        <div class="build-step" style="flex-direction:column;gap:40px;align-items:flex-start;">
           <div class="build-step-copy">
             <div class="step-label">
               <span class="step-num">STEP 5 &#8212;</span>
@@ -492,7 +495,7 @@
               <p>If any check fails, the build stops. The review page doesn&#8217;t build until the gate passes. This is how the pipeline catches the class of errors that only surface after a client clicks &#8220;play.&#8221;</p>
             </div>
           </div>
-          <div class="build-step-screens">
+          <div class="build-step-screens" style="width:100%;max-width:100%;">
             <img src="/assets/marly/04-05.png" alt="verify-delivery output" style="width:100%;max-width:100%;display:block;border-radius:6px;">
           </div>
         </div>
@@ -500,7 +503,7 @@
         <div class="ml-full-divider"></div>
 
         <!-- STEP 6 -->
-        <div class="build-step" style="align-items:center;">
+        <div class="build-step" style="gap:100px;align-items:center;">
           <div class="build-step-copy">
             <div class="step-label">
               <span class="step-num">STEP 6 &#8212;</span>

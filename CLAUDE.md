@@ -101,6 +101,33 @@ non-site files (README, LICENSE, .gitignore, vercel.json if present — read
 vercel.json before modifying anything in it). Git history retains V1;
 rollback is one revert.
 
+## 7. 1:1 Fidelity Protocol (site build standard — applies to all pages)
+
+### a. TRANSCRIPTION RULE
+`get_design_context` returns exact values (padding: 80px, gap: 60px, width: 360px,
+font sizes, line heights). Every layout value in built CSS must be traceable to a
+returned Figma value. Verbatim px. Forbidden: rounding, substituting site.css
+defaults, converting fixed spacing to fluid at desktop, "improving" alignment.
+
+### b. GRID RULE
+Design width 1440. At viewport ≥1440 the page renders as the Figma frame:
+centered, exact px spacing. Breakpoints 900/700 only restructure BELOW 1440.
+Remove all fluid stretching above 1000. `clamp()` is only valid if its max value
+equals the Figma px value exactly (i.e. the value is reached at or before 1440).
+
+### c. SECTION UNIT
+Build/fix one section at a time. Per section:
+`get_design_context` (section node) → `get_screenshot` (section node) → build →
+parity check → next. Never carry stale context between sections.
+
+### d. PARITY GATE
+Playwright renders each section at 1440px headless and screenshots it. The
+rendered screenshot is placed next to the Figma section screenshot in a single
+comparison strip at `/qa/{page}--{section}.png`. Fix visible spacing, sizing,
+placement, and alignment deltas BEFORE posting. Post every comparison strip with
+the review request. Gate script: `node qa/parity.js marly` (generated during
+first pass; rerun each section).
+
 ## 6. Verification gate (run before requesting review; paste raw output)
 1. `find . -name "index.html" | sort` — four routes present
 2. `grep -rn "figma.com" --include="*.html" --include="*.css" .` — empty
