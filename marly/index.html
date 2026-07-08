@@ -78,7 +78,7 @@
     }
 
     /* ── Pipeline diagram ─────────────────────────────────── */
-    .pipeline-diagram { background: #fff; border: 1px solid #d9d9d9; border-radius: 6px; padding: 24px; overflow-x: auto; }
+    .pipeline-diagram { background: #fff; border: 1px solid #d9d9d9; border-radius: 6px; padding: 24px; overflow-x: auto; max-width: 1080px; margin: 0 auto; }
     .pipeline-inner { display: flex; gap: 8px; align-items: flex-start; min-width: 780px; }
     .pipeline-phase { flex: 0 0 300px; display: flex; flex-direction: column; gap: 24px; }
     .pipeline-phase-box { height: 108px; border-radius: 6px; display: flex; align-items: center; justify-content: center; padding: 24px; gap: 16px; }
@@ -88,10 +88,10 @@
     .pipeline-phase-box img.wordmark { height: 31px; }
     .pipeline-phase-label { font-family: 'Space Mono', monospace; font-size: 16px; font-weight: 700; letter-spacing: 1.28px; color: #203f5b; line-height: 1.4; }
     .pipeline-phase-body { font-size: 16px; color: #203f5b; line-height: 1.5; }
-    .pipeline-chips { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .pipeline-chips { display: flex; gap: 8px; align-items: center; flex-wrap: nowrap; }
     .pipeline-chip { background: #f4f5f7; padding: 8px 14px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 12px; color: #333; white-space: nowrap; }
     .pipeline-chip-arrow { font-family: 'Space Mono', monospace; font-size: 13px; color: #9ca3af; }
-    .pipeline-connector { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 36px 24px 0; gap: 8px; }
+    .pipeline-connector { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 36px 0 0; gap: 8px; }
     .pipeline-connector-label { font-size: 10px; color: #6b7280; white-space: nowrap; }
     .pipeline-gate { display: flex; align-items: center; gap: 8px; }
     .pipeline-gate-arrow { font-family: 'Space Mono', monospace; font-size: 18px; color: #9ca3af; }
@@ -100,7 +100,7 @@
     .pipeline-deploy { background: #001d93; color: #fff; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; padding: 10px 18px; border-radius: 6px; white-space: nowrap; }
 
     /* ── Three-tier library ───────────────────────────────── */
-    .tier-row { display: flex; gap: 80px; align-items: center; padding: 40px 0; }
+    .tier-row { display: flex; gap: 80px; align-items: center; padding: 40px 24px; }
     .tier-copy { flex: 0 0 400px; font-size: var(--text-18); color: #203f5b; line-height: 1.7; }
     .tier-copy p + p { margin-top: 1em; }
     .tier-copy strong { font-weight: 700; }
@@ -113,7 +113,7 @@
     .campaign-card img { width: 100%; display: block; mask-image: linear-gradient(to bottom, rgba(255,255,255,1) 40%, rgba(255,255,255,0) 90%); }
 
     /* ── 02C Animation ────────────────────────────────────── */
-    .anim-layout { display: flex; gap: 80px; align-items: flex-start; padding-left: 60px; }
+    .anim-layout { display: flex; gap: 80px; align-items: center; padding-left: 60px; }
     .anim-screens { flex: 0 0 486px; width: 486px; display: flex; flex-direction: column; gap: 10px; }
     .anim-screen { display: block; width: 100%; }
     .anim-screen-magenta { border: 1px solid #ff00ee; }
@@ -123,7 +123,7 @@
     /* ── Brand Range ──────────────────────────────────────── */
     .brand-logos { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
     .brand-logo-cell { display: flex; align-items: center; justify-content: center; height: 72px; width: 168px; flex-shrink: 0; }
-    .brand-logo-cell img { max-height: 43px; max-width: 130px; object-fit: contain; }
+    .brand-logo-cell img { height: auto; max-width: 100%; object-fit: contain; display: block; }
     .brand-range-para { font-size: var(--text-18); color: #203f5b; line-height: 1.7; padding: 0 0 40px; }
     .ad-slots-col { display: flex; flex-direction: column; gap: 48px; align-items: center; }
     .ad-slot-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
@@ -147,7 +147,7 @@
     }
     .build-step-screens { flex-shrink: 0; width: clamp(220px, 32vw, 460px); display: flex; flex-direction: column; gap: 12px; }
     .build-step-screens img { width: 100%; display: block; }
-    img.export { background: none; padding: 0; border-radius: 0; box-shadow: none; display: block; }
+    img.export { background: none; padding: 0; border-radius: 0; box-shadow: none; display: block; max-width: 100%; }
     .img-card { background: #fff; border-radius: 6px; padding: 24px; box-shadow: 0 4px 7.5px rgba(0,0,0,0.25); }
     .img-card img { box-shadow: none; border-radius: 0; }
     .img-faded { opacity: 0.5; }
@@ -268,7 +268,7 @@
               </div>
             </div>
 
-            <div class="pipeline-connector">
+            <div class="pipeline-connector" style="flex:0 0 124px;">
               <span class="pipeline-connector-label">9 rows resolve</span>
               <div class="pipeline-gate">
                 <span class="pipeline-gate-arrow">&#8594;</span>
@@ -279,7 +279,7 @@
 
             <div class="pipeline-phase">
               <div class="pipeline-phase-box dark">
-                <img src="/assets/marly/phase2-claude-icon.png" alt="Claude Code icon" width="60" style="height:60px;">
+                <img src="/assets/marly/phase2-claude-icon.png" alt="Claude Code icon" style="height:60px;width:auto;">
                 <img src="/assets/marly/phase2-claude-wordmark.png" alt="Claude Code" class="wordmark" style="height:60px;">
               </div>
               <div style="display:flex;flex-direction:column;gap:12px;">
@@ -295,14 +295,14 @@
               </div>
             </div>
 
-            <div class="pipeline-connector">
+            <div class="pipeline-connector" style="flex:0 0 273px;">
               <span class="pipeline-connector-label">9-check ground truth</span>
               <div class="pipeline-gate">
                 <span class="pipeline-gate-arrow">&#8594;</span>
                 <span class="pipeline-gate-pill italic">/VERIFY-DELIVERY</span>
                 <span class="pipeline-gate-arrow">&#8594;</span>
+                <div class="pipeline-deploy">DEPLOY</div>
               </div>
-              <div class="pipeline-deploy" style="margin-top:16px;">DEPLOY</div>
             </div>
 
           </div>
@@ -322,7 +322,7 @@
             <p>Ad size canvases, layout variants, component shells, animation specs, IAB spacing tokens: the skeleton every build inherits.</p>
           </div>
           <div class="tier-visuals">
-            <img width="567" class="export" src="/assets/marly/02b-01.png" alt="Foundation Figma library" style="display:block;margin-left:auto">
+            <img width="567" class="export" src="/assets/marly/02b-01.png" alt="Foundation Figma library" style="display:block;">
           </div>
         </div>
 
@@ -332,7 +332,7 @@
             <p>Foundation components with brand tokens swapped in: color styles, type styles, logo assets, imagery rules. Every client file inherits Foundation updates, which is why the second campaign for any client is faster than the first.</p>
           </div>
           <div class="tier-visuals">
-            <img width="533" class="export" src="/assets/marly/02b-02.png" alt="Per-client Figma layer" style="display:block;margin-left:auto">
+            <img width="533" class="export" src="/assets/marly/02b-02.png" alt="Per-client Figma layer" style="display:block;">
           </div>
         </div>
 
@@ -342,7 +342,7 @@
             <p>A <strong>CLAUDE.md</strong> spec that translates the brief into machine-readable production instructions, authored by Opus before Code starts Stage 1.</p>
           </div>
           <div class="tier-visuals">
-            <img width="780" class="export" src="/assets/marly/02b-03.png" alt="Per-campaign CLAUDE.md spec" style="display:block;margin-left:auto">
+            <img width="780" class="export" src="/assets/marly/02b-03.png" alt="Per-campaign CLAUDE.md spec" style="display:block;">
           </div>
         </div>
       </div>
@@ -372,12 +372,12 @@
         <p class="ml-text">Every brand that comes through the pipeline gets the same ten stages and a different output. Ghia&#8217;s pastel restraint and Magic Spoon&#8217;s saturated maximalism run through identical infrastructure because the system encodes process, not aesthetic.</p>
 
         <div class="brand-logos">
-          <div class="brand-logo-cell"><img src="/assets/marly/graza-logo.png" alt="Graza"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/byredo-logo.svg" alt="Byredo"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/tumblerware-logo.png" alt="Tumblerware"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/ritual-logo.svg" alt="Ritual"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/ghia-logo.svg" alt="Ghia"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/levis-logo.png" alt="Levi's"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/graza-logo.png" alt="Graza" width="109" height="30"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/byredo-logo.svg" alt="Byredo" width="123" height="27"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/tumblerware-logo.png" alt="Tumblerware" width="131" height="36"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/ritual-logo.svg" alt="Ritual" width="97" height="43"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/ghia-logo.svg" alt="Ghia" width="98" height="41"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/levis-logo.png" alt="Levi's" width="91" height="39"></div>
         </div>
 
         <div style="display:flex;gap:80px;align-items:center;padding:24px 40px;">
@@ -385,7 +385,7 @@
         <!-- §8 NOTE: Only Tumblerware/fathers-day has /ads/ on disk (728x90, 300x250, 160x600).
              All other brands excluded from rotation (no /ads/ directory). Single unit per slot —
              rendered static per rotation amendment. -->
-        <div class="ad-slots-col" id="brand-range-slots" style="flex-shrink:0;">
+        <div class="ad-slots-col" id="brand-range-slots" style="flex:0 0 447px;">
           <div class="ad-slot-wrap" data-slot="728x90">
             <div class="ad-slot" style="width:447px;height:55px;" id="slot-728x90"></div>
             <p class="ad-slot-label">728&#215;90</p>
@@ -449,7 +449,7 @@
         <div class="ml-full-divider"></div>
 
         <!-- STEP 3 -->
-        <div class="build-step" style="gap:100px;align-items:flex-start;padding:40px;">
+        <div class="build-step" style="gap:100px;align-items:flex-start;">
           <div class="build-step-copy">
             <div class="step-label">
               <span class="step-num">STEP 3 &#8212;</span>
