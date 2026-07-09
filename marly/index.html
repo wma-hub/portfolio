@@ -175,26 +175,42 @@
     }
 
     /* ── Prev/Next nav ── */
-    .ml-page-nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 32px clamp(24px, 6vw, 80px);
-      border-top: 1px solid rgba(155,192,228,0.3);
+    .rb-page-nav-divider {
+      width: 100%;
+      height: 2px;
+      background: rgba(155, 192, 228, 0.5);
+      flex-shrink: 0;
     }
-    .ml-nav-side { display: flex; align-items: center; gap: 16px; }
-    .ml-nav-icon {
-      display: flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; border-radius: 50%;
-      border: 1.5px solid #212744; flex-shrink: 0;
-      text-decoration: none; transition: border-color 0.2s;
+    /* ml-body-section has gap:0 (sections self-space); match Runeberg's 80px container gap */
+    .ml-body-section .rb-page-nav-divider { margin-top: 80px; }
+    .rb-page-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
     }
-    .ml-nav-icon:hover { border-color: #9bc0e4; }
-    .ml-nav-label { font-size: 18px; color: #474747; line-height: 26px; white-space: nowrap; text-decoration: none; }
-    .ml-nav-label strong { font-weight: 700; color: #212744; }
-    .ml-nav-label:hover { color: #212744; }
-    @media (max-width: 700px) {
-      .ml-page-nav { flex-direction: column; gap: 20px; align-items: flex-start; }
-      .ml-nav-label { font-size: 15px; white-space: normal; }
+    .rb-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #474747;
+      font-size: 18px;
+      text-decoration: none;
+      line-height: 1.44;
     }
+    .rb-nav-item:hover .rb-nav-icon { border-color: #9bc0e4; }
+    .rb-nav-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid #e7e7e7;
+      border-radius: 4px;
+      flex-shrink: 0;
+      transition: border-color 0.2s;
+    }
+    .rb-nav-label strong { font-weight: 700; }
   </style>
 </head>
 <body>
@@ -579,31 +595,30 @@
         </div>
       </div>
 
-    </section>
+      <!-- Full-width divider before nav -->
+      <div class="rb-page-nav-divider"></div>
 
-    <!-- PREV / NEXT NAV -->
-    <nav class="ml-page-nav fade-up" aria-label="Project navigation">
-      <div class="ml-nav-side">
-        <a href="/runeberg" class="ml-nav-icon" aria-label="Previous: Runeberg">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M10 12L6 8L10 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+      <!-- Prev/Next nav -->
+      <nav class="rb-page-nav" aria-label="Project navigation">
+        <a href="/runeberg" class="rb-nav-item">
+          <div class="rb-nav-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 12L6 8L10 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="rb-nav-label"><strong>Previous project:</strong> Runeberg</span>
         </a>
-        <a href="/runeberg" class="ml-nav-label">
-          <strong>Previous project:</strong> Runeberg
+        <a href="/workhuman" class="rb-nav-item">
+          <span class="rb-nav-label"><strong>Next project:</strong> Workhuman</span>
+          <div class="rb-nav-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 4L10 8L6 12" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
         </a>
-      </div>
-      <div class="ml-nav-side">
-        <a href="/workhuman" class="ml-nav-label">
-          <strong>Next project:</strong> Workhuman
-        </a>
-        <a href="/workhuman" class="ml-nav-icon" aria-label="Next: Workhuman">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M6 12L10 8L6 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-    </nav>
+      </nav>
+
+    </section>
 
   </main>
 
