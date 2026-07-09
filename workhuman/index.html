@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: #15191f; min-width: 1440px; }
+    body { font-family: 'Inter', sans-serif; background: #15191f; }
     img { display: block; }
 
     /* ── Nav ── */
@@ -438,6 +438,42 @@
     }
     .footer-bottom { display: flex; justify-content: space-between; }
     .footer-copy { font-size: 12px; font-weight: 400; color: #a5b1b5; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .nav { padding: 20px 40px; height: auto; }
+      .hero { padding: 40px; }
+      .hero-feature { padding: 40px; }
+      .hero-title { font-size: clamp(36px, 6vw, 72px); }
+      .content { padding: 60px 40px 120px; gap: 60px; }
+      .ch-title { font-size: clamp(28px, 5vw, 48px); }
+      .two-col { flex-direction: column; gap: 40px; }
+      .two-col-right { width: 100%; }
+      .two-col-text { flex-direction: column !important; gap: 24px !important; }
+      .two-col-text > * { flex: unset !important; }
+      .surface-grid { grid-template-columns: 1fr !important; }
+      .surface-grid > [style*="grid-row"] { grid-row: auto !important; grid-column: auto !important; }
+      .viewer-well { display: block; width: 100%; }
+      .viewer-well img { max-width: 100%; height: auto; }
+      img.export { max-width: 100%; height: auto; }
+      .lp-email-row { flex-direction: column !important; }
+      .three-frames-row { flex-direction: column !important; }
+    }
+    @media (max-width: 700px) {
+      .nav { padding: 16px 24px; }
+      .hero { padding: 24px; }
+      .hero-feature { padding: 24px; }
+      .content { padding: 40px 24px 80px; gap: 40px; }
+      .hero-meta { flex-wrap: wrap; }
+      .hero-meta-card { flex: 1 0 calc(50% - 6px); }
+      .stat-row { flex-direction: column; }
+      .tab-bar { overflow-x: auto; width: 100%; box-sizing: border-box; flex-wrap: nowrap; }
+      .token-tier-row { flex-direction: column !important; }
+      .metric-row { flex-direction: column !important; }
+      .stepper-row { overflow-x: auto; }
+      .page-nav { flex-direction: column; gap: 24px; align-items: flex-start; }
+      .footer { padding: 40px 24px; }
+    }
   </style>
 </head>
 <body>
@@ -638,13 +674,13 @@
     </div>
 
     <!-- Two-column body text -->
-    <div style="display:flex;gap:24px;margin-top:40px;">
+    <div class="two-col-text" style="display:flex;gap:24px;margin-top:40px;">
       <p class="body-text" style="flex:1;min-width:0;">Workhuman's US and Ireland design teams had developed their component libraries independently. By the time I joined, the drift was visible everywhere — inconsistent spacing, divergent type scales, and a button component that had forked into fifteen variants across both codebases, none of them formally documented.</p>
       <p class="body-text" style="flex:1;min-width:0;">The work was less about building new components and more about establishing the conditions under which both teams could stop rebuilding the same things. That meant a token layer first: named decisions about color, spacing, and typography that could travel between Figma and code without re-interpretation at each handoff.</p>
     </div>
 
     <!-- 4-tier token architecture cards -->
-    <div style="display:flex;gap:16px;padding:40px 0;align-items:stretch;">
+    <div class="token-tier-row" style="display:flex;gap:16px;padding:40px 0;align-items:stretch;">
 
       <!-- Tier 1: Primitives -->
       <div style="flex:1;min-width:0;background:#ffebdd;border-radius:12px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;min-height:193px;">
@@ -713,7 +749,7 @@
     </div>
 
     <!-- 3 metric pills -->
-    <div style="display:flex;gap:16px;margin-top:0;">
+    <div class="metric-row" style="display:flex;gap:16px;margin-top:0;">
       <div style="flex:1;border:1px solid #d9d9d9;border-radius:10px;padding:16px 20px;display:flex;flex-direction:column;align-items:center;gap:6px;">
         <p style="font-size:20px;font-weight:700;color:#1e293b;white-space:nowrap;">2 wks → 3 days</p>
         <p style="font-size:12px;color:#203f5b;">new designer onboarding</p>
@@ -735,7 +771,7 @@
         <p style="font-size:12px;color:#203f5b;margin-top:4px;">Semantic versioning, changelog every release, 6-month deprecation notice, migration guides for breaking changes</p>
       </div>
       <!-- 6-step stepper -->
-      <div style="display:flex;align-items:flex-start;width:100%;">
+      <div class="stepper-row" style="display:flex;align-items:flex-start;width:100%;">
 
         <div style="display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;">
           <div style="width:32px;height:32px;border-radius:50%;background:#f1f4f8;border:1px solid #cbd5e1;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#203f5b;">1</div>
@@ -820,7 +856,7 @@
       <p style="font-size:16px;font-weight:700;color:#1e293b;margin-bottom:24px;">One campaign, four surfaces</p>
 
       <!-- 4-surface grid -->
-      <div style="display:grid;grid-template-columns:508px 508px;grid-template-rows:auto auto;gap:16px;">
+      <div class="surface-grid" style="display:grid;grid-template-columns:508px 508px;grid-template-rows:auto auto;gap:16px;">
 
         <!-- Landing page: spans both rows -->
         <div class="surf-well" style="grid-row:1/3;grid-column:1;">
@@ -861,7 +897,7 @@
     <img src="/workhuman/03-echo/webinar-ads-templates.png" class="export" alt="Echo DS — Webinar Library: Ad Templates" style="width:1080px;margin-top:16px;">
 
     <!-- LP + Email template wells -->
-    <div style="display:flex;gap:16px;margin-top:16px;">
+    <div class="lp-email-row" style="display:flex;gap:16px;margin-top:16px;">
 
       <div class="surf-well surf-well-alt" style="flex:1;min-width:0;align-items:flex-start;">
         <span class="surf-badge">LP</span>
@@ -909,7 +945,7 @@
     <!-- Three frames — wma-approved surf-well treatment; protected, do not remove -->
     <div style="margin-top:80px;">
       <p class="body-text" style="font-weight:600; color:#203f5b; margin-bottom:40px;">The system's whole life in three frames: from dev's sticky notes to a shippable vertical.</p>
-      <div style="display:flex; gap:16px; align-items:stretch;">
+      <div class="three-frames-row" style="display:flex; gap:16px; align-items:stretch;">
 
         <div style="flex:1; display:flex; flex-direction:column; gap:8px;">
           <div class="surf-well" style="flex:1; position:relative;">
