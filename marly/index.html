@@ -124,6 +124,9 @@
     .brand-logos { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
     .brand-logo-cell { display: flex; align-items: center; justify-content: center; height: 72px; width: 168px; flex-shrink: 0; }
     .brand-logo-cell img { height: auto; max-width: 100%; object-fit: contain; display: block; }
+    .brand-range-row { display: flex; gap: 80px; align-items: center; padding: 24px 40px; }
+    .brand-range-text { flex: 0 0 473px; }
+    .brand-range-slots-wrap { flex: 0 0 447px; }
     .brand-range-para { font-size: var(--text-18); color: #203f5b; line-height: 1.7; padding: 0 0 40px; }
     .ad-slots-col { display: flex; flex-direction: column; gap: 48px; align-items: center; }
     .ad-slot-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
@@ -160,18 +163,28 @@
     .scope-bullets li { font-size: var(--text-18); color: #203f5b; line-height: 24px; letter-spacing: 1.44px; }
 
     @media (max-width: 900px) {
-      .ml-stat-block { flex-direction: column; }
+      .ml-hero-section { padding: 40px; }
+      .ml-stat-block { flex-direction: column; gap: 40px; }
+      .ml-stat-text { flex: none; width: 100%; }
       .pipeline-inner { flex-wrap: nowrap; min-width: 760px; }
       .tier-row { flex-direction: column; }
       .tier-copy { flex: none; width: 100%; }
-      .anim-layout { flex-direction: column; }
-      .anim-screens { width: 100%; }
+      .anim-layout { flex-direction: column; padding-left: 0; }
+      .anim-screens { flex: none; width: 100%; }
+      .anim-copy { flex: none; width: 100%; }
+      .brand-logos { flex-wrap: wrap; justify-content: center; gap: 16px; }
+      .brand-logo-cell { width: auto; min-width: 120px; }
+      .brand-range-row { flex-direction: column; padding: 24px 0; gap: 40px; }
+      .brand-range-text { flex: none; width: 100%; }
+      .brand-range-slots-wrap { flex: none; width: 100%; overflow-x: auto; }
       .build-step { flex-direction: column; }
-      .build-step-screens { width: 100%; }
+      .build-step-screens { width: 100%; max-width: 100%; }
       .scope-layout { flex-direction: column; }
       .ml-body-section { padding-left: clamp(16px, 5vw, 60px); padding-right: clamp(16px, 5vw, 60px); }
-      .ml-stat-block { gap: 40px; }
       .scope-phase { flex: none; width: 100%; }
+    }
+    @media (max-width: 700px) {
+      .ml-hero-section { padding: 24px; }
     }
 
     /* ── Prev/Next nav ── */
@@ -418,12 +431,12 @@
           <div class="brand-logo-cell"><img src="/assets/marly/levis-logo.png" alt="Levi's" width="91" height="39"></div>
         </div>
 
-        <div style="display:flex;gap:80px;align-items:center;padding:24px 40px;">
-          <p class="brand-range-para" style="flex:0 0 473px;">What changes per client lives entirely in the per-client layer; color tokens, motion pacing, type pairing, the texture of how a CTA should feel. Six logos in this range, six different answers to the same brief: make the product look inevitable in under three seconds.</p>
+        <div class="brand-range-row">
+          <p class="brand-range-para brand-range-text">What changes per client lives entirely in the per-client layer; color tokens, motion pacing, type pairing, the texture of how a CTA should feel. Six logos in this range, six different answers to the same brief: make the product look inevitable in under three seconds.</p>
         <!-- §8 NOTE: Only Tumblerware/fathers-day has /ads/ on disk (728x90, 300x250, 160x600).
              All other brands excluded from rotation (no /ads/ directory). Single unit per slot —
              rendered static per rotation amendment. -->
-        <div class="ad-slots-col" id="brand-range-slots" style="flex:0 0 447px;">
+        <div class="ad-slots-col brand-range-slots-wrap" id="brand-range-slots">
           <div class="ad-slot-wrap" data-slot="728x90">
             <div class="ad-slot" style="width:447px;height:55px;" id="slot-728x90"></div>
             <p class="ad-slot-label">728&#215;90</p>
