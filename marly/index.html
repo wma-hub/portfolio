@@ -173,6 +173,28 @@
       .ml-stat-block { gap: 40px; }
       .scope-phase { flex: none; width: 100%; }
     }
+
+    /* ── Prev/Next nav ── */
+    .ml-page-nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 32px clamp(24px, 6vw, 80px);
+      border-top: 1px solid rgba(155,192,228,0.3);
+    }
+    .ml-nav-side { display: flex; align-items: center; gap: 16px; }
+    .ml-nav-icon {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1.5px solid #212744; flex-shrink: 0;
+      text-decoration: none; transition: border-color 0.2s;
+    }
+    .ml-nav-icon:hover { border-color: #9bc0e4; }
+    .ml-nav-label { font-size: 18px; color: #474747; line-height: 26px; white-space: nowrap; text-decoration: none; }
+    .ml-nav-label strong { font-weight: 700; color: #212744; }
+    .ml-nav-label:hover { color: #212744; }
+    @media (max-width: 700px) {
+      .ml-page-nav { flex-direction: column; gap: 20px; align-items: flex-start; }
+      .ml-nav-label { font-size: 15px; white-space: normal; }
+    }
   </style>
 </head>
 <body>
@@ -558,6 +580,30 @@
       </div>
 
     </section>
+
+    <!-- PREV / NEXT NAV -->
+    <nav class="ml-page-nav fade-up" aria-label="Project navigation">
+      <div class="ml-nav-side">
+        <a href="/runeberg" class="ml-nav-icon" aria-label="Previous: Runeberg">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 12L6 8L10 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="/runeberg" class="ml-nav-label">
+          <strong>Previous project:</strong> Runeberg
+        </a>
+      </div>
+      <div class="ml-nav-side">
+        <a href="/workhuman" class="ml-nav-label">
+          <strong>Next project:</strong> Workhuman
+        </a>
+        <a href="/workhuman" class="ml-nav-icon" aria-label="Next: Workhuman">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M6 12L10 8L6 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
 
   </main>
 
