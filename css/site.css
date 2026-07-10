@@ -385,3 +385,141 @@ a.project-row:hover .project-title {
   .footer-tagline-hidden { display: none; }
   .projects-section { gap: 48px; }
 }
+
+/* ---- CASE STUDY SHARED COMPONENTS ---- */
+
+/* ── CS Hero ─────────────────────────────────────────────── */
+.cs-hero-outer {
+  background: #15191f;
+  padding: 80px;
+}
+.cs-hero-feature {
+  background: #202731;
+  border: 0.951px solid #3c669a;
+  border-radius: 12px;
+  padding: 80px;
+}
+.cs-hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.cs-hero-title {
+  font-size: 72px;
+  font-weight: 600;
+  line-height: normal;
+  background: linear-gradient(72.11deg, #EE6868 18.86%, #F9A45F 91.729%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.cs-hero-subtitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #a5b1b5;
+  line-height: normal;
+}
+.cs-hero-body {
+  font-size: 18px;
+  font-weight: 400;
+  color: #a5b1b5;
+  line-height: 1.6;
+}
+.cs-hero-cards {
+  display: flex;
+  gap: 24px;
+}
+.cs-hero-card {
+  flex: 1;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid #9bc0e4;
+  border-radius: 6px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cs-hero-card-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  line-height: normal;
+}
+.cs-hero-card-value {
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.5;
+}
+
+/* ── CS Nav ──────────────────────────────────────────────── */
+.cs-nav-outer {
+  background: #fff;
+  padding: 80px 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+.cs-nav-divider {
+  height: 2px;
+  background: rgba(155,192,228,0.5);
+  width: 100%;
+}
+.cs-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cs-nav-side {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.cs-nav-side--right {
+  justify-content: flex-end;
+}
+.cs-nav-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cs-nav-direction {
+  font-size: 18px;
+  font-weight: 700;
+  color: #474747;
+  line-height: 26px;
+}
+.cs-nav-project {
+  font-size: 18px;
+  font-weight: 400;
+  color: #474747;
+  line-height: 26px;
+}
+.cs-nav-btn {
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.cs-nav-btn svg { width: 16px; height: 16px; display: block; color: #212744; }
+
+/* ── CS Hero responsive ──────────────────────────────────── */
+@media (max-width: 900px) {
+  .cs-hero-outer { padding: 40px; }
+  .cs-hero-feature { padding: 40px; }
+  .cs-hero-title { font-size: clamp(36px, 6vw, 72px); }
+  .cs-nav-outer { padding: 60px 40px; }
+}
+@media (max-width: 700px) {
+  .cs-hero-outer { padding: 24px; }
+  .cs-hero-feature { padding: 24px; }
+  .cs-hero-cards { flex-wrap: wrap; }
+  .cs-hero-card { flex: 1 0 calc(50% - 12px); }
+  .cs-nav-outer { padding: 40px 24px; }
+  .cs-nav-row { flex-direction: column; gap: 24px; align-items: flex-start; }
+}

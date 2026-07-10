@@ -9,38 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/site.css">
   <style>
-    /* ── Selected Works page ── */
-    .sw-hero {
-      background: var(--bg);
-      padding: var(--px-outer);
-      padding-top: 40px;
-    }
-    .sw-hero-card {
-      background: linear-gradient(80.45deg, #202731 52%, #2d3b4e 100%);
-      border: 0.951px solid var(--border-hero);
-      border-radius: 12px;
-      padding: var(--px-outer);
-    }
-    .sw-hero-copy { display: flex; flex-direction: column; gap: 16px; }
-    .sw-hero-title {
-      font-size: var(--text-48);
-      font-weight: 600;
-      background: linear-gradient(71.41deg, #ee6868 8.24%, #f9a45f 52.94%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1.1;
-    }
-    .sw-hero-sub {
-      font-size: clamp(18px, 1.67vw, 24px);
-      font-weight: 700;
-      color: var(--text-secondary);
-    }
-    .sw-hero-body {
-      font-size: var(--text-18);
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
+    /* ── Selected Works page (hero → site.css .cs-hero-*) ── */
 
     /* ── White body ── */
     .sw-body {
@@ -198,34 +167,6 @@
     }
     .sw-img-257 img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* ── Prev/Next nav ── */
-    .sw-page-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .sw-nav-side {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .sw-nav-icon {
-      border: 1px solid #e7e7e7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px;
-      border-radius: 4px;
-      flex-shrink: 0;
-    }
-    .sw-nav-label {
-      font-size: 18px;
-      color: #474747;
-      line-height: 26px;
-      white-space: nowrap;
-    }
-    .sw-nav-label strong { font-weight: 700; }
-
     /* ── Responsive ── */
     @media (max-width: 900px) {
       .sw-body { padding-left: 40px; padding-right: 40px; }
@@ -236,7 +177,6 @@
     }
     @media (max-width: 700px) {
       .sw-body { padding-left: 20px; padding-right: 20px; padding-bottom: 80px; }
-      .sw-page-nav { flex-direction: column; gap: 24px; align-items: flex-start; }
     }
   </style>
 </head>
@@ -258,12 +198,14 @@
   </nav>
 
   <!-- HERO -->
-  <section class="sw-hero" aria-label="Selected Works">
-    <div class="sw-hero-card">
-      <div class="sw-hero-copy fade-up">
-        <h1 class="sw-hero-title">Selected Works</h1>
-        <p class="sw-hero-sub">Volume work, before I had the vocabulary for it.</p>
-        <p class="sw-hero-body">Before Workhuman and Marly, I worked in commercial real estate and multi-brand retail, two environments where design happens at volume and the brand can't flinch. This page collects that work alongside a personal project that taught me how software gets made. None of it is precious. All of it shaped how I work now.</p>
+  <section class="cs-hero-outer" aria-label="Selected Works">
+    <div class="cs-hero-feature">
+      <div class="cs-hero-copy fade-up">
+        <div>
+          <h1 class="cs-hero-title">Selected Works</h1>
+          <p class="cs-hero-subtitle">Volume work, before I had the vocabulary for it.</p>
+          <p class="cs-hero-body">Before Workhuman and Marly, I worked in commercial real estate and multi-brand retail, two environments where design happens at volume and the brand can't flinch. This page collects that work alongside a personal project that taught me how software gets made. None of it is precious. All of it shaped how I work now.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -344,26 +286,31 @@
     <div class="sw-divider"></div>
 
     <!-- PREV / NEXT NAV -->
-    <nav class="sw-page-nav fade-up" aria-label="Project navigation">
-      <div class="sw-nav-side">
-        <a href="/treat-week" class="sw-nav-icon" aria-label="Previous project">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M10 12L6 8L10 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a href="/treat-week" class="sw-nav-label">
-          <strong>Previous project:</strong> Treat Week
-        </a>
-      </div>
-      <div class="sw-nav-side">
-        <a href="/runeberg" class="sw-nav-label">
-          <strong>Next project:</strong> Runeberg
-        </a>
-        <a href="/runeberg" class="sw-nav-icon" aria-label="Next project">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M6 12L10 8L6 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
+    <nav class="cs-nav-outer fade-up" aria-label="Project navigation">
+      <div class="cs-nav-divider"></div>
+      <div class="cs-nav-row">
+        <div class="cs-nav-side">
+          <a href="/treat-week" class="cs-nav-btn" aria-label="Previous project: Treat Week">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M10 12L6 8L10 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="cs-nav-label">
+            <span class="cs-nav-direction">Previous project:</span>
+            <span class="cs-nav-project">Treat Week</span>
+          </div>
+        </div>
+        <div class="cs-nav-side cs-nav-side--right">
+          <div class="cs-nav-label" style="text-align:right;">
+            <span class="cs-nav-direction">Next project:</span>
+            <span class="cs-nav-project">Runeberg</span>
+          </div>
+          <a href="/runeberg" class="cs-nav-btn" aria-label="Next project: Runeberg">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 12L10 8L6 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </nav>
 
