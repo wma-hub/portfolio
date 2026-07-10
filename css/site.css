@@ -404,6 +404,11 @@ a.project-row:hover .project-title {
   flex-direction: column;
   gap: 60px;
 }
+.cs-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 .cs-hero-title {
   font-size: 72px;
   font-weight: 600;
@@ -513,11 +518,13 @@ a.project-row:hover .project-title {
   .cs-hero-outer { padding: 40px; }
   .cs-hero-feature { padding: 40px; }
   .cs-hero-title { font-size: clamp(36px, 6vw, 72px); }
+  .cs-hero-text { gap: 12px; }
   .cs-nav-outer { padding: 60px 40px; }
 }
 @media (max-width: 700px) {
   .cs-hero-outer { padding: 24px; }
   .cs-hero-feature { padding: 24px; }
+  .cs-hero-text { gap: 8px; }
   .cs-hero-cards { flex-wrap: wrap; }
   .cs-hero-card { flex: 1 0 calc(50% - 12px); }
   .cs-nav-outer { padding: 40px 24px; }
