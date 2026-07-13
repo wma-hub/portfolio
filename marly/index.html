@@ -55,11 +55,8 @@
     .pipeline-diagram { background: #fff; border: 1px solid #d9d9d9; border-radius: 6px; padding: 24px; overflow-x: auto; max-width: 1080px; margin: 0 auto; }
     .pipeline-inner { display: flex; gap: 8px; align-items: flex-start; min-width: 780px; }
     .pipeline-phase { flex: 0 0 300px; display: flex; flex-direction: column; gap: 24px; }
-    .pipeline-phase-box { height: 108px; border-radius: 6px; display: flex; align-items: center; justify-content: center; padding: 24px; gap: 16px; }
-    .pipeline-phase-box.light { background: #f5f0f0; }
-    .pipeline-phase-box.dark  { background: #141414; }
-    .pipeline-phase-box img   { height: 46px; width: auto; flex-shrink: 0; }
-    .pipeline-phase-box img.wordmark { height: 31px; }
+    .pipeline-phase-box-frame { width: 100%; }
+    .pipeline-phase-img { width: 100%; height: auto; display: block; }
     .pipeline-phase-label { font-family: 'Space Mono', monospace; font-size: 16px; font-weight: 700; letter-spacing: 1.28px; color: #203f5b; line-height: 1.4; }
     .pipeline-phase-body { font-size: 16px; color: #203f5b; line-height: 1.5; }
     .pipeline-chips { display: flex; gap: 8px; align-items: center; flex-wrap: nowrap; }
@@ -244,9 +241,8 @@
           <div class="pipeline-inner">
 
             <div class="pipeline-phase">
-              <div class="pipeline-phase-box light">
-                <img src="/assets/marly/phase1-opus-logo.png" alt="Claude Opus">
-                <img src="/assets/marly/phase1-opus-wordmark.svg" alt="Anthropic" class="wordmark">
+              <div class="pipeline-phase-box-frame">
+                <img src="/assets/marly/02a-01.png" alt="Claude" class="export pipeline-phase-img">
               </div>
               <div style="display:flex;flex-direction:column;gap:12px;">
                 <div class="pipeline-phase-label">PHASE I&#8201;&#8212;&#8201;PLANNING &#183; OPUS</div>
@@ -269,9 +265,8 @@
             </div>
 
             <div class="pipeline-phase">
-              <div class="pipeline-phase-box dark">
-                <img src="/assets/marly/phase2-claude-icon.png" alt="Claude Code icon" style="height:60px;width:auto;">
-                <img src="/assets/marly/phase2-claude-wordmark.png" alt="Claude Code" class="wordmark" style="height:60px;">
+              <div class="pipeline-phase-box-frame">
+                <img src="/assets/marly/02a-02.png" alt="Claude Code" class="export pipeline-phase-img">
               </div>
               <div style="display:flex;flex-direction:column;gap:12px;">
                 <div class="pipeline-phase-label">PHASE II&#8201;&#8212;&#8201;EXECUTION &#183; CLAUDE CODE</div>
