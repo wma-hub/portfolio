@@ -612,20 +612,46 @@
    ─────────────────────────────────────────────────────────────────────────*/
 var ROTATE_MS = [3000, 5000];
 
-/* §8 NOTE — only Tumblerware/fathers-day has /ads/ on disk.
-   All three slots show a single Tumblerware unit → static render per amendment. */
+/* §8 NOTE — Ghia held pending file paths (no Ad Sets DB entry as of 2026-07-13).
+   Magic Spoon/Graza/Byredo review links resolve through the retired review.marly.cc
+   domain via the vercel.json 301 redirect — confirm these render before merge.
+   Magic Spoon has 2 ad-set variants (Promo, Product-Focused) sharing one review link;
+   defaulted to Promo below — swap if Product-Focused is the intended one.
+   Levi's has 4 variants (Meet Here, I Know You Know, Reclaim, Wear Who You Are)
+   sharing one review link; defaulted to Meet Here below — swap if another is intended. */
 var AD_SLOTS = [
   {
     id: 'slot-728x90',  nativeW: 728, nativeH: 90,  displayW: 447,
-    units: [{ src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/728x90.html', label: 'Tumblerware' }]
+    units: [
+      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/728x90.html', label: 'Tumblerware' },
+      { src: 'https://review.marly.cc/magic-spoon/summer-sampler-drop-v1/ads/728x90.html', label: 'Magic Spoon' },
+      { src: 'https://review.marly.cc/graza/mayo-launch-q2-2026-v1/ads/728x90.html', label: 'Graza' },
+      { src: 'https://review.marly.cc/byredo/mojave-ghost-discovery-v3/ads/728x90.html', label: 'Byredo' },
+      { src: 'https://www.marly.cc/review/levis/pride-2026/ads/728x90.html', label: "Levi's" },
+      { src: 'https://www.marly.cc/review/ghia/summer-spritz-series/ads/v2/728x90.html', label: 'Ghia' }
+    ]
   },
   {
     id: 'slot-300x250', nativeW: 300, nativeH: 250, displayW: 316,
-    units: [{ src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/300x250.html', label: 'Tumblerware' }]
+    units: [
+      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/300x250.html', label: 'Tumblerware' },
+      { src: 'https://review.marly.cc/magic-spoon/summer-sampler-drop-v1/ads/300x250.html', label: 'Magic Spoon' },
+      { src: 'https://review.marly.cc/graza/mayo-launch-q2-2026-v1/ads/300x250.html', label: 'Graza' },
+      { src: 'https://review.marly.cc/byredo/mojave-ghost-discovery-v3/ads/300x250.html', label: 'Byredo' },
+      { src: 'https://www.marly.cc/review/levis/pride-2026/ads/300x250.html', label: "Levi's" },
+      { src: 'https://www.marly.cc/review/ghia/summer-spritz-series/ads/v2/300x250.html', label: 'Ghia' }
+    ]
   },
   {
     id: 'slot-160x600', nativeW: 160, nativeH: 600, displayW: 98,
-    units: [{ src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/160x600.html', label: 'Tumblerware' }]
+    units: [
+      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/160x600.html', label: 'Tumblerware' },
+      { src: 'https://review.marly.cc/magic-spoon/summer-sampler-drop-v1/ads/160x600.html', label: 'Magic Spoon' },
+      { src: 'https://review.marly.cc/graza/mayo-launch-q2-2026-v1/ads/160x600.html', label: 'Graza' },
+      { src: 'https://review.marly.cc/byredo/mojave-ghost-discovery-v3/ads/160x600.html', label: 'Byredo' },
+      { src: 'https://www.marly.cc/review/levis/pride-2026/ads/160x600.html', label: "Levi's" },
+      { src: 'https://www.marly.cc/review/ghia/summer-spritz-series/ads/v2/160x600.html', label: 'Ghia' }
+    ]
   }
 ];
 
