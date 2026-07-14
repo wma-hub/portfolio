@@ -241,12 +241,25 @@
       width: 100%;
       padding: 40px;
     }
-    /* Tab 3 two-zone layout per Figma 3394:963 */
-    .tab3-cols { display: flex; gap: 24px; align-items: stretch; }
-    .tab3-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
-    .tab3-col .viewer-well { flex: 1; align-items: center; }
+    /* Tab 3 two-zone layout per Figma 3394:963 — 688:368 column ratio,
+       grid rows force both wells to identical height regardless of caption wrap */
+    .tab3-cols {
+      display: grid;
+      grid-template-columns: 688fr 368fr;
+      grid-template-rows: 1fr auto;
+      gap: 12px 24px;
+    }
+    .tab3-well-main { grid-column: 1; grid-row: 1; }
+    .tab3-well-rail { grid-column: 2; grid-row: 1; }
+    .tab3-cap-main  { grid-column: 1; grid-row: 2; }
+    .tab3-cap-rail  { grid-column: 2; grid-row: 2; }
+    .tab3-cols .viewer-well { align-items: center; height: 100%; }
     @media (max-width: 900px) {
-      .tab3-cols { flex-direction: column; }
+      .tab3-cols { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .tab3-well-main { grid-column: 1; grid-row: 1; }
+      .tab3-cap-main  { grid-column: 1; grid-row: 2; }
+      .tab3-well-rail { grid-column: 1; grid-row: 3; }
+      .tab3-cap-rail  { grid-column: 1; grid-row: 4; }
     }
     .panel-caption {
       font-size: 13px;
@@ -554,26 +567,22 @@
       <div class="tab-panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3">
         <p class="panel-label">Layer 3: The next job, before they ask.</p>
         <div class="tab3-cols">
-          <div class="tab3-col">
-            <div class="viewer-well">
-              <img class="export"
-                src="/workhuman/01-careers/tabs/tab03-1.png"
-                alt="Layer 3 — Job detail five-tab structure"
-                width="535" style="max-width:100%;height:auto;"
-              >
-            </div>
-            <p class="panel-caption">Five tabs, five candidate questions: role, team, culture, benefits, location.</p>
+          <div class="viewer-well tab3-well-main">
+            <img class="export"
+              src="/workhuman/01-careers/tabs/tab03-2.png"
+              alt="Layer 3 — Job detail five-tab structure"
+              width="535" style="max-width:100%;height:auto;"
+            >
           </div>
-          <div class="tab3-col">
-            <div class="viewer-well">
-              <img class="export"
-                src="/workhuman/01-careers/tabs/tab03-2.png"
-                alt="Layer 3 — Candidates Also Viewed right rail"
-                width="250" style="max-width:100%;height:auto;"
-              >
-            </div>
-            <p class="panel-caption">Three recommendations, persistent across every tab. This is where 1 job per session became 4.</p>
+          <div class="viewer-well tab3-well-rail">
+            <img class="export"
+              src="/workhuman/01-careers/tabs/tab03-1.png"
+              alt="Layer 3 — Candidates Also Viewed right rail"
+              width="250" style="max-width:100%;height:auto;"
+            >
           </div>
+          <p class="panel-caption tab3-cap-main">Five tabs, five candidate questions: role, team, culture, benefits, location.</p>
+          <p class="panel-caption tab3-cap-rail">Three recommendations, persistent across every tab. This is where 1 job per session became 4.</p>
         </div>
         <p class="panel-caption">Five tabs mapped to candidate questions, with "Candidates Also Viewed" persistent across all of them. Jobs viewed per session went from 1 to nearly 4.</p>
       </div>
