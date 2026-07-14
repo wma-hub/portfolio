@@ -152,6 +152,8 @@
       .build-step-screens { width: 100%; max-width: 100%; }
       .scope-layout { flex-direction: column; }
       .ml-body-section { padding-left: clamp(16px, 5vw, 60px); padding-right: clamp(16px, 5vw, 60px); }
+      .ml-step3-cols { flex-direction: column; padding: 0 !important; gap: 40px !important; }
+      .ml-step3-cols > div { max-width: 100% !important; }
       .scope-phase { flex: none; width: 100%; }
     }
     @media (max-width: 700px) {
@@ -434,20 +436,25 @@
 
         <div class="ml-full-divider"></div>
 
-        <!-- STEP 3 -->
-        <div class="build-step" style="gap:100px;align-items:flex-start;">
-          <div class="build-step-copy">
-            <div class="step-label">
-              <span class="step-num">STEP 3 &#8212;</span>
-              <span class="step-title">FIGMA LO-FI + CREATIVE DIRECTION PASS</span>
-            </div>
-            <div class="ml-text">
-              <p>Structural composition happens in Figma before brand is applied: Foundation layout variants assign zones, type hierarchy, and asset placement per size, with no color or product imagery to distract from the architecture.</p>
-              <p>The CD pass follows: color, type, product photography, negative space. Code reads the finished frames via <em>get_design_context</em> and executes them 1:1. For Tumblerware the CD pass replaced the brief&#8217;s dark product-demo direction with a light multi-product carousel, and because Figma is Source 1 after CD, the frames won.</p>
-            </div>
+        <!-- STEP 3 — two-col per Figma 3301:2619: lo-fi + caption | CD pass + caption -->
+        <div class="build-step" style="flex-direction:column;gap:40px;align-items:flex-start;">
+          <div class="step-label">
+            <span class="step-num">STEP 3 &#8212;</span>
+            <span class="step-title">FIGMA LO-FI + CREATIVE DIRECTION PASS</span>
           </div>
-          <div class="build-step-screens">
-            <img width="450" class="export" src="/assets/marly/04-03.png" alt="Lo-fi layout wireframes for Tumblerware" style="max-width:100%;display:block">
+          <div style="display:flex;gap:clamp(40px,9.26vw,100px);align-items:flex-start;width:100%;padding:0 40px;box-sizing:border-box;" class="ml-step3-cols">
+            <div style="flex:1 1 450px;min-width:0;max-width:450px;display:flex;flex-direction:column;gap:40px;">
+              <img width="450" class="export" src="/assets/marly/04-03.png" alt="Lo-fi layout wireframes for Tumblerware" style="width:100%;height:auto;display:block">
+              <div class="ml-text">
+                <p>Structural composition happens in Figma before brand is applied: Foundation layout variants assign zones, type hierarchy, and asset placement per size, with no color or product imagery to distract from the architecture.</p>
+              </div>
+            </div>
+            <div style="flex:1 1 450px;min-width:0;max-width:450px;display:flex;flex-direction:column;gap:40px;">
+              <img width="450" class="export" src="/assets/marly/04-04.png" alt="Creative direction pass — branded frames for Tumblerware" style="width:100%;height:auto;display:block">
+              <div class="ml-text">
+                <p>The CD pass follows: color, type, product photography, negative space. Code reads the finished frames via <em>get_design_context</em> and executes them 1:1. For Tumblerware the CD pass replaced the brief&#8217;s dark product-demo direction with a light multi-product carousel, and because Figma is Source 1 after CD, the frames won.</p>
+              </div>
+            </div>
           </div>
         </div>
 
