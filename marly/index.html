@@ -92,9 +92,9 @@
     .anim-copy p + p { margin-top: 1.25em; }
 
     /* ── Brand Range ──────────────────────────────────────── */
-    .brand-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding: 24px 0; }
-    .brand-logo-cell { display: flex; align-items: center; justify-content: center; height: 72px; width: 168px; flex-shrink: 0; }
-    .brand-logo-cell img { height: auto; max-width: 100%; object-fit: contain; display: block; }
+    .brand-logos { display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: clamp(12px, 2.2vw, 24px); padding: 24px 0; }
+    .brand-logo-cell { display: flex; align-items: center; justify-content: center; height: 72px; flex: 1 1 0; min-width: 0; max-width: 168px; }
+    .brand-logo-cell img { width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
     .brand-range-row { display: flex; gap: 80px; align-items: center; padding: 24px 40px; }
     .brand-range-text { flex: 0 0 473px; }
     .brand-range-slots-wrap { flex: 0 0 447px; }
@@ -143,9 +143,7 @@
       .anim-layout { flex-direction: column; padding-left: 0; }
       .anim-screens { flex: none; width: 100%; }
       .anim-copy { flex: none; width: 100%; }
-      .brand-logos { flex-wrap: wrap; justify-content: center; gap: 16px; }
-      .brand-logo-cell { width: auto; min-width: 120px; }
-      .brand-range-row { flex-direction: column; padding: 24px 0; gap: 40px; }
+.brand-range-row { flex-direction: column; padding: 24px 0; gap: 40px; }
       .brand-range-text { flex: none; width: 100%; }
       .brand-range-slots-wrap { flex: none; width: 100%; overflow-x: auto; }
       .build-step { flex-direction: column; }
