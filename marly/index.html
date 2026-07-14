@@ -37,8 +37,8 @@
 
     /* Stat callout */
     .ml-stat-block { display: flex; gap: 120px; align-items: center; }
-    .ml-stat-text { flex: 0 0 670px; }
-    .ml-stat-callout { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 290px; height: 182px; padding: 0; text-align: center; }
+    .ml-stat-text { flex: 1 1 670px; min-width: 0; max-width: 670px; }
+    .ml-stat-callout { flex: 1 1 290px; min-width: 0; max-width: 290px; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 182px; padding: 0; text-align: center; }
     .ml-stat-num {
       font-size: clamp(32px, 3.33vw, 48px); font-weight: 700;
       background: linear-gradient(94.13deg, #001d93 33.876%, #476bfe 113.48%);
@@ -92,7 +92,7 @@
     .anim-copy p + p { margin-top: 1.25em; }
 
     /* ── Brand Range ──────────────────────────────────────── */
-    .brand-logos { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; }
+    .brand-logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding: 24px 0; }
     .brand-logo-cell { display: flex; align-items: center; justify-content: center; height: 72px; width: 168px; flex-shrink: 0; }
     .brand-logo-cell img { height: auto; max-width: 100%; object-fit: contain; display: block; }
     .brand-range-row { display: flex; gap: 80px; align-items: center; padding: 24px 40px; }
