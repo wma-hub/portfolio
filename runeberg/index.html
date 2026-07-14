@@ -20,7 +20,7 @@
   02       | 02-2.png parchment   | 1080px (full col)      | 1080px     | untouched
   03 copy  | rb-override-copy     | flex-1                 | 400px      | 40:60 restructure
   03 image | rb-override-screens  | 390px                  | 600px      | 40:60, gap clamps 40–80px
-  05       | 05-1.png origin      | 591px                  | 739px      | ×1.25, under cap
+  05       | 05-1.png origin      | 591px                  | 600px      | 40:60 restructure (mirrors 03), clipped export 2026-07-14
   -->
 
   <style>
@@ -149,18 +149,19 @@
     /* ── 05 Origin — CD override: 591px → 739px ────────────────── */
     .rb-origin-row {
       display: flex;
-      gap: 80px;
+      gap: clamp(40px, 5.56vw, 80px);
       align-items: center;
     }
     .rb-origin-copy {
       flex: 1;
       min-width: 0;
     }
-    /* CD override: 591px × 1.25 = 739px (under 1080 cap) */
+    /* CD: mirrors 03's 40:60 restructure — copy ~400px, screens 600px at full col.
+       Flexible basis so both columns share shrink below 1080 (no rigid slot). */
     .rb-origin-screens {
-      flex-shrink: 0;
-      width: 739px;
-      max-width: 100%;
+      flex: 1 1 600px;
+      min-width: 0;
+      max-width: 600px;
     }
 
     /* ── Responsive ─────────────────────────────────────────────── */
