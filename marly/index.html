@@ -207,10 +207,9 @@
     <section class="ml-body-section">
 
       <!-- 01 — The Problem -->
-      <div class="ml-section fade-up" style="gap: 16px; position: relative; overflow: visible;">
-        <img src="/assets/marly/s01-accent.png" alt="" aria-hidden="true" style="position:absolute;left:817px;top:97px;width:255px;height:157px;transform:rotate(79.75deg);transform-origin:center;pointer-events:none;z-index:0;">
-        <p class="ml-section-heading" style="position:relative;z-index:1;">01 &#8212; The Problem</p>
-        <div class="ml-text" style="position:relative;z-index:1;max-width:780px;">
+      <div class="ml-section fade-up" style="gap: 16px;">
+        <p class="ml-section-heading">01 &#8212; The Problem</p>
+        <div class="ml-text" style="max-width:780px;">
           <p>Marly&#8217;s answer isn&#8217;t a faster version of the agency model &#8212; it&#8217;s removing the handoff entirely. I&#8217;m the only person between a Figma frame and a deployed ad, which is a constraint as much as a feature: every judgment call has to be encoded somewhere machine-readable, or the pipeline breaks the first time I&#8217;m not looking at it directly.</p>
         </div>
       </div>
@@ -268,10 +267,12 @@
             </div>
 
             <div class="pipeline-connector" style="flex:0 0 273px;">
-              <span class="pipeline-connector-label">9-check ground truth</span>
               <div class="pipeline-gate">
                 <span class="pipeline-gate-arrow">&#8594;</span>
-                <span class="pipeline-gate-pill italic">/VERIFY-DELIVERY</span>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <span class="pipeline-connector-label">9-check ground truth</span>
+                  <span class="pipeline-gate-pill italic">/VERIFY-DELIVERY</span>
+                </div>
                 <span class="pipeline-gate-arrow">&#8594;</span>
                 <div class="pipeline-deploy">DEPLOY</div>
               </div>
