@@ -95,9 +95,6 @@
     .brand-logos { display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: clamp(12px, 2.2vw, 24px); padding: 24px 0; }
     .brand-logo-cell { display: flex; align-items: center; justify-content: center; height: 72px; flex: 1 1 0; min-width: 0; max-width: 168px; }
     .brand-logo-cell img { height: auto; max-width: 100%; object-fit: contain; display: block; }
-    .brand-range-row { display: flex; gap: 80px; align-items: center; padding: 24px 40px; }
-    .brand-range-text { flex: 0 0 473px; }
-    .brand-range-slots-wrap { flex: 0 0 447px; }
     .brand-range-para { font-size: var(--text-18); color: #203f5b; line-height: 1.7; padding: 0 0 40px; }
     .ad-slots-col { display: flex; flex-direction: column; gap: 48px; align-items: center; }
     .ad-slot-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
@@ -143,9 +140,7 @@
       .anim-layout { flex-direction: column; padding-left: 0; }
       .anim-screens { flex: none; width: 100%; }
       .anim-copy { flex: none; width: 100%; }
-.brand-range-row { flex-direction: column; padding: 24px 0; gap: 40px; }
-      .brand-range-text { flex: none; width: 100%; }
-      .brand-range-slots-wrap { flex: none; width: 100%; overflow-x: auto; }
+.brand-range-slots-wrap { overflow-x: auto; }
       .build-step { flex-direction: column; }
       .build-step-screens { width: 100%; max-width: 100%; }
       .scope-layout { flex-direction: column; }
@@ -345,19 +340,17 @@
         <p class="ml-text">Every brand that comes through the pipeline gets the same ten stages and a different output. Ghia&#8217;s pastel restraint and Magic Spoon&#8217;s saturated maximalism run through identical infrastructure because the system encodes process, not aesthetic.</p>
 
         <div class="brand-logos">
+          <div class="brand-logo-cell"><img src="/assets/marly/levis-logo.png" alt="Levi's" width="91" height="39"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/magic-spoon-logo.svg" alt="Magic Spoon" width="108" height="48"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/ritual-logo.svg" alt="Ritual" width="97" height="43"></div>
           <div class="brand-logo-cell"><img src="/assets/marly/graza-logo.png" alt="Graza" width="109" height="30"></div>
           <div class="brand-logo-cell"><img src="/assets/marly/byredo-logo.svg" alt="Byredo" width="123" height="27"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/tumblerware-logo.png" alt="Tumblerware" width="131" height="36"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/ritual-logo.svg" alt="Ritual" width="97" height="43"></div>
           <div class="brand-logo-cell"><img src="/assets/marly/ghia-logo.svg" alt="Ghia" width="98" height="41"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/levis-logo.png" alt="Levi's" width="91" height="39"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/gorjana-logo.svg" alt="gorjana" width="40" height="40"></div>
+          <div class="brand-logo-cell"><img src="/assets/marly/tumblerware-logo.png" alt="Tumblerware" width="131" height="36"></div>
         </div>
 
-        <div class="brand-range-row">
-          <p class="brand-range-para brand-range-text">What changes per client lives entirely in the per-client layer; color tokens, motion pacing, type pairing, the texture of how a CTA should feel. Six logos in this range, six different answers to the same brief: make the product look inevitable in under three seconds.</p>
-        <!-- §8 NOTE: Only Tumblerware/fathers-day has /ads/ on disk (728x90, 300x250, 160x600).
-             All other brands excluded from rotation (no /ads/ directory). Single unit per slot —
-             rendered static per rotation amendment. -->
+        <p class="brand-range-para">What changes per client lives entirely in the per-client layer; color tokens, motion pacing, type pairing, the texture of how a CTA should feel. Eight logos in this range, eight different answers to the same brief: make the product look inevitable in under three seconds.</p>
         <div class="ad-slots-col brand-range-slots-wrap" id="brand-range-slots">
           <div class="ad-slot-wrap" data-slot="728x90">
             <div class="ad-slot" style="width:447px;height:55px;" id="slot-728x90"></div>
@@ -374,7 +367,6 @@
             </div>
           </div>
         </div>
-        </div><!-- /flex-row -->
       </div>
 
       <div class="ml-section-divider"></div>
@@ -623,34 +615,40 @@ var AD_SLOTS = [
   {
     id: 'slot-728x90',  nativeW: 728, nativeH: 90,  displayW: 447,
     units: [
-      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/728x90.html', label: 'Tumblerware' },
-      { src: 'https://review.marly.cc/magic-spoon/summer-sampler-drop-v1/ads/728x90.html', label: 'Magic Spoon' },
-      { src: 'https://review.marly.cc/graza/mayo-launch-q2-2026-v1/ads/728x90.html', label: 'Graza' },
-      { src: 'https://review.marly.cc/byredo/mojave-ghost-discovery-v3/ads/728x90.html', label: 'Byredo' },
-      { src: 'https://www.marly.cc/review/levis/pride-2026/ads/728x90.html', label: "Levi's" },
-      { src: 'https://www.marly.cc/review/ghia/summer-spritz-series/ads/v2/728x90.html', label: 'Ghia' }
+      { src: 'https://www.marly.cc/review/levis/pride-2026/units/set-2-meet-you-here/728x90.html', label: "Levi's" },
+      { src: 'https://www.marly.cc/review/magic-spoon/summer-sampler-drop/units/set1-728x90.html', label: 'Magic Spoon' },
+      { src: 'https://www.marly.cc/review/ritual/your-body-your-ritual/units/728x90.html', label: 'Ritual' },
+      { src: 'https://www.marly.cc/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_728x90.html', label: 'Graza' },
+      { src: 'https://www.marly.cc/review/byredo/mojave-ghost-discovery/units/728x90.html', label: 'Byredo' },
+      { src: 'https://www.marly.cc/review/ghia/summer-spritz-series/units/set1-728x90.html', label: 'Ghia' },
+      { src: 'https://www.marly.cc/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_728x90.html', label: 'gorjana' },
+      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/728x90.html', label: 'Tumblerware' }
     ]
   },
   {
     id: 'slot-300x250', nativeW: 300, nativeH: 250, displayW: 316,
     units: [
-      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/300x250.html', label: 'Tumblerware' },
-      { src: 'https://review.marly.cc/magic-spoon/summer-sampler-drop-v1/ads/300x250.html', label: 'Magic Spoon' },
-      { src: 'https://review.marly.cc/graza/mayo-launch-q2-2026-v1/ads/300x250.html', label: 'Graza' },
-      { src: 'https://review.marly.cc/byredo/mojave-ghost-discovery-v3/ads/300x250.html', label: 'Byredo' },
-      { src: 'https://www.marly.cc/review/levis/pride-2026/ads/300x250.html', label: "Levi's" },
-      { src: 'https://www.marly.cc/review/ghia/summer-spritz-series/ads/v2/300x250.html', label: 'Ghia' }
+      { src: 'https://www.marly.cc/review/levis/pride-2026/units/set-2-meet-you-here/300x250.html', label: "Levi's" },
+      { src: 'https://www.marly.cc/review/magic-spoon/summer-sampler-drop/units/set1-300x250.html', label: 'Magic Spoon' },
+      { src: 'https://www.marly.cc/review/ritual/your-body-your-ritual/units/300x250.html', label: 'Ritual' },
+      { src: 'https://www.marly.cc/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_300x250.html', label: 'Graza' },
+      { src: 'https://www.marly.cc/review/byredo/mojave-ghost-discovery/units/300x250.html', label: 'Byredo' },
+      { src: 'https://www.marly.cc/review/ghia/summer-spritz-series/units/set1-300x250.html', label: 'Ghia' },
+      { src: 'https://www.marly.cc/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_300x250.html', label: 'gorjana' },
+      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/300x250.html', label: 'Tumblerware' }
     ]
   },
   {
     id: 'slot-160x600', nativeW: 160, nativeH: 600, displayW: 98,
     units: [
-      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/160x600.html', label: 'Tumblerware' },
-      { src: 'https://review.marly.cc/magic-spoon/summer-sampler-drop-v1/ads/160x600.html', label: 'Magic Spoon' },
-      { src: 'https://review.marly.cc/graza/mayo-launch-q2-2026-v1/ads/160x600.html', label: 'Graza' },
-      { src: 'https://review.marly.cc/byredo/mojave-ghost-discovery-v3/ads/160x600.html', label: 'Byredo' },
-      { src: 'https://www.marly.cc/review/levis/pride-2026/ads/160x600.html', label: "Levi's" },
-      { src: 'https://www.marly.cc/review/ghia/summer-spritz-series/ads/v2/160x600.html', label: 'Ghia' }
+      { src: 'https://www.marly.cc/review/levis/pride-2026/units/set-2-meet-you-here/160x600.html', label: "Levi's" },
+      { src: 'https://www.marly.cc/review/magic-spoon/summer-sampler-drop/units/set1-160x600.html', label: 'Magic Spoon' },
+      { src: 'https://www.marly.cc/review/ritual/your-body-your-ritual/units/160x600.html', label: 'Ritual' },
+      { src: 'https://www.marly.cc/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_160x600.html', label: 'Graza' },
+      { src: 'https://www.marly.cc/review/byredo/mojave-ghost-discovery/units/160x600.html', label: 'Byredo' },
+      { src: 'https://www.marly.cc/review/ghia/summer-spritz-series/units/set1-160x600.html', label: 'Ghia' },
+      { src: 'https://www.marly.cc/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_160x600.html', label: 'gorjana' },
+      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/160x600.html', label: 'Tumblerware' }
     ]
   }
 ];
