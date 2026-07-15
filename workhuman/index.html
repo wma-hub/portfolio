@@ -939,37 +939,60 @@
 
     <div class="ch-header">
       <p class="ch-eyebrow">Interactive Tooling</p>
-      <h2 class="ch-title">05 — ROI <em>Calculator</em></h2>
+      <h2 class="ch-title">05 &#8212; ROI Calculator</h2>
       <p class="ch-subhead">The calculator had to earn the trust of prospects in three steps.</p>
     </div>
 
-    <!-- Top: left text + right calculator screenshot -->
-    <div class="two-col" style="gap:80px; align-items:center; padding:40px 0;">
-      <div class="two-col-left" style="display:flex; flex-direction:column; gap:40px;">
-        <p class="body-text">Workhuman needed a sales tool — something a rep could walk a prospect through that would produce a credible ROI estimate specific enough to feel real, not generic. The design problem wasn't the data model, it was pacing. <strong>The solution was a three-step progressive disclosure flow:</strong></p>
-        <div class="body-text" style="display:flex; flex-direction:column; gap:8px;">
-          <p style="margin:0;"><strong>Step 1:</strong><br>Gathers the minimum viable context: organization size and industry.</p>
-          <p style="margin:0; margin-top:8px;"><strong>Step 2:</strong><br>Surfaces a returns estimate calibrated to those inputs.</p>
-          <p style="margin:0; margin-top:8px;"><strong>Step 3:</strong><br>Unlocks the full analysis, including a competitive comparison showing how Workhuman's returns benchmark against peer platforms.</p>
+    <!-- Intro paragraph — full width -->
+    <div style="padding:40px 0 0;">
+      <p class="body-text">Workhuman needed a sales tool &#8212; something a rep could walk a prospect through that would produce a credible ROI estimate specific enough to feel real, not generic. The design problem wasn&#8217;t the data model, it was pacing. <strong>The solution was a three-step progressive disclosure flow:</strong></p>
+    </div>
+
+    <!-- Three-column step row -->
+    <div style="display:flex; gap:40px; align-items:flex-start; width:100%; margin-top:40px;">
+      <div style="flex:1 0 0; display:flex; flex-direction:column; gap:80px; align-items:flex-start;">
+        <div class="body-text">
+          <p style="margin:0; font-weight:700;">Step 1:</p>
+          <p style="margin:0;">Gathers the minimum viable context: organization size and industry.</p>
         </div>
-        <p class="body-text"><strong>Logic:</strong> Earn trust at each step before asking for more. A prospect who completes step one has already opted in. By step three, the output has enough specificity that it reads as analysis, not marketing.</p>
+        <img src="/workhuman/05-ROI/step1.png" class="export" style="width:252px; border-radius:6px; box-shadow:0 4px 15px 0 rgba(0,0,0,0.25);" alt="Step 1: organization size and industry inputs">
       </div>
-      <div class="two-col-right" style="flex-shrink:0;">
-        <img src="/workhuman/05-ROI/01.png" class="export" style="width:541px;" alt="">
+      <div style="flex:1 0 0; display:flex; flex-direction:column; gap:80px; align-items:flex-start;">
+        <div class="body-text">
+          <p style="margin:0; font-weight:700;">Step 2:</p>
+          <p style="margin:0;">Surfaces a returns estimate calibrated to those inputs.</p>
+        </div>
+        <img src="/workhuman/05-ROI/step2.png" class="export" style="width:252px; border-radius:6px; box-shadow:0 4px 15px 0 rgba(0,0,0,0.25);" alt="Step 2: returns estimate">
+      </div>
+      <div style="flex:1 0 0; display:flex; flex-direction:column; gap:80px; align-items:flex-start;">
+        <div class="body-text">
+          <p style="margin:0; font-weight:700;">Step 3:</p>
+          <p style="margin:0;">Unlocks the full analysis, including a competitive comparison showing how Workhuman&#8217;s returns benchmark against peer platforms.</p>
+        </div>
+        <img src="/workhuman/05-ROI/step3.png" class="export" style="width:252px; border-radius:6px; box-shadow:0 4px 15px 0 rgba(0,0,0,0.25);" alt="Step 3: full analysis and competitive comparison">
       </div>
     </div>
 
-    <!-- Bottom: leave-behind PDF + right text -->
-    <div class="two-col" style="gap:80px; align-items:center; padding:40px 0 80px;">
-      <div style="flex:0 0 auto;">
-        <img src="/workhuman/05-ROI/02.png" class="export" style="width:474px;" alt="">
-      </div>
-      <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:24px;">
-        <div>
-          <p class="body-text" style="font-weight:700; margin-bottom:4px;">The leave-behind:</p>
-          <p class="body-text" style="font-size:24px; font-weight:700; line-height:1.3; margin:0; color:#203f5b;">Workhuman Recognition Impact Report</p>
+    <!-- Logic row -->
+    <div style="display:flex; gap:80px; align-items:center; padding:0 80px; margin-top:40px;">
+      <p class="body-text" style="flex:1 0 0; min-width:0;"><strong>Logic:</strong> Earn trust at each step before asking for more. A prospect who completes step one has already opted in. By step three, the output has enough specificity that it reads as analysis, not marketing.</p>
+      <img src="/workhuman/05-ROI/logic-composite.png" class="export" style="width:451px; flex-shrink:0;" alt="ROI calculator multi-step view">
+    </div>
+
+    <!-- Leave-behind row -->
+    <div style="display:flex; gap:80px; align-items:center; margin-top:80px; padding-bottom:80px;">
+      <div style="position:relative; flex-shrink:0;">
+        <img src="/workhuman/05-ROI/leave-behind-composite.png" class="export" style="width:428px; border-radius:6px; box-shadow:0 4px 15px 0 rgba(0,0,0,0.25);" alt="Workhuman Recognition Impact Report PDF">
+        <div style="position:absolute; top:8px; left:8px; background:#7c5cfc; padding:4px 8px; border-radius:5px;">
+          <p style="margin:0; font-size:9px; font-weight:600; color:#fff; letter-spacing:0.27px; white-space:nowrap; line-height:normal;">PDF</p>
         </div>
-        <p class="body-text">Step three's unlock isn't a screen. The calculator generates a report designed at print dimensions: branded, paginated, and populated with the prospect's own numbers. The rep leaves something behind.</p>
+      </div>
+      <div style="flex:1 0 0; min-width:0; display:flex; flex-direction:column; gap:24px; color:#203f5b;">
+        <div>
+          <p class="body-text" style="font-weight:700; margin:0; line-height:normal;">The leave-behind:</p>
+          <p class="body-text" style="font-size:24px; font-weight:700; line-height:normal; margin:0;">Workhuman Recognition Impact Report</p>
+        </div>
+        <p class="body-text">Step three&#8217;s unlock isn&#8217;t a screen. The calculator generates a report designed at print dimensions: branded, paginated, and populated with the prospect&#8217;s own numbers. The rep leaves something behind.</p>
       </div>
     </div>
 
