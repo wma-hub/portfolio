@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Runeberg Terminal — Wilson Ma</title>
+  <title>GE Terminal — Wilson Ma</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/site.css">
 
   <!--
-  §7 CD SIZE OVERRIDES — /runeberg
+  §7 CD SIZE OVERRIDES — /ge-terminal
   Do not revert on rebuild. All widths are display px (exports are @2x → intrinsic÷2).
 
   section  | element              | natural / Figma width | display px | note
@@ -24,7 +24,7 @@
   -->
 
   <style>
-    /* ── Runeberg hero — see site.css .cs-hero-* ── */
+    /* ── GE Terminal hero — see site.css .cs-hero-* ── */
 
     /* ── Body section ──────────────────────────────────────────── */
     .rb-body-section {
@@ -204,9 +204,9 @@
       <div class="cs-hero-feature fade-up">
         <div class="cs-hero-copy">
           <div class="cs-hero-text">
-            <p class="cs-hero-title">Runeberg Terminal</p>
+            <p class="cs-hero-title">GE Terminal</p>
             <p class="cs-hero-subtitle">Bloomberg for a game economy.</p>
-            <p class="cs-hero-body">The Grand Exchange is Old School RuneScape&#8217;s player-driven commodities market: 3,000+ items, real volatility, visible volume, and nothing but a raw price API to read it with. Runeberg Terminal is the market intelligence terminal I built and run daily, with a layered signal engine, verdicts that explain themselves, and an override that keeps a human in the loop.</p>
+            <p class="cs-hero-body">The Grand Exchange is Old School RuneScape&#8217;s player-driven commodities market: 3,000+ items, real volatility, visible volume, and nothing but a raw price API to read it with. GE Terminal is the market intelligence terminal I built and run daily, with a layered signal engine, verdicts that explain themselves, and an override that keeps a human in the loop.</p>
           </div>
           <div class="cs-hero-cards">
             <div class="cs-hero-card">
@@ -239,7 +239,7 @@
         <div class="rb-section rb-section--first fade-up">
           <p class="rb-section-heading">01 &#8212; Problem</p>
           <p class="rb-text" style="max-width:708px;">Flipping items on the Grand Exchange is a decision-making problem under noisy data. Prices spike and crash hourly, some items dump on predictable cycles, and the wiki&#8217;s raw price API tells you what happened without telling you what it means.<br><br>Every trade came down to the same question:</p>
-          <img src="/assets/runeberg/01-1.png" alt="Runeberg signal overview" class="rb-problem-image">
+          <img src="/assets/ge-terminal/01-1.png" alt="GE Terminal signal overview" class="rb-problem-image">
         </div>
 
         <div class="rb-divider"></div>
@@ -247,11 +247,12 @@
         <!-- 02 — The Signal Engine | CD: 02-1.png 1080px (cap), parchment untouched, quote baked in -->
         <div class="rb-section fade-up">
           <p class="rb-section-heading">02 &#8212; The Signal Engine</p>
-          <p class="rb-text" style="max-width:780px;">Runeberg answers that with a layered signal engine. It pulls live and historical prices across four timeframes, scores movers on momentum and volume, then runs each candidate through graded buy and sell checklists before anything surfaces as an action.</p>
-          <img src="/assets/runeberg/02-1.png" alt="Signal engine — table, detail view, and item lookup" class="rb-img">
+          <p class="rb-text" style="max-width:780px;">GE Terminal answers that with a layered signal engine. It pulls live and historical prices across four timeframes, scores movers on momentum and volume, then runs each candidate through graded buy and sell checklists before anything surfaces as an action.</p>
+          <p class="rb-text" style="max-width:780px;">An early version treated any price in the bottom of its 7-day range as a buy signal, no questions asked. It didn&#8217;t take long working with real money to find out how often &#8220;lower than usual&#8221; and &#8220;still falling&#8221; look identical from that vantage point.</p>
+          <img src="/assets/ge-terminal/02-1.png" alt="Signal engine — table, detail view, and item lookup" class="rb-img">
           <div class="rb-signal-lower">
             <p class="rb-verdict-text">A verdict engine weighs <strong>7-day, 30-day,</strong> and <strong>90-day percentile position</strong> into plain-English calls, from <strong>SELL NOW</strong> to <strong>DON&#8217;T SELL</strong>, each with its reasoning attached. Nothing appears on screen without a letter-grade and a reason why.</p>
-            <img src="/assets/runeberg/02-2.png" alt="Verdict panel — parchment quote banner" class="rb-img">
+            <img src="/assets/ge-terminal/02-2.png" alt="Verdict panel — parchment quote banner" class="rb-img">
           </div>
         </div>
 
@@ -263,13 +264,13 @@
             <div class="rb-override-copy">
               <p class="rb-section-heading">03 &#8212; The Override Layer</p>
               <div class="rb-text">
-                <p>The most interesting engineering is the override layer. Momentum algorithms chase corrections they shouldn&#8217;t trust, so Runeberg runs a two-layer regime-break check.</p>
+                <p>It took a real trade to expose the gap. A position was sitting well underwater with an F trade grade &#8212; and the same row was still labeled ACCUMULATE, because the zone logic was pure percentile math: bottom 20% of the range, buy, with no concept of whether that range still meant anything. The question I asked myself looking at it was simple: why is the data telling me to accumulate.</p>
                 <p><strong>When longer-timeframe structure contradicts a short-term signal, the label gets hard-replaced and the grade takes a penalty.</strong></p>
                 <p>The machine still surfaces the signal, but it arrives demoted, with the disagreement visible. That pattern&#8202;&#8212;&#8202;letting a system flag its own uncertainty instead of hiding it&#8202;&#8212;&#8202;is the thing I keep taking into design work with AI systems.</p>
               </div>
             </div>
             <div class="rb-override-screens">
-              <img src="/assets/runeberg/03-1.png" alt="Override layer — dump detection and label demotion" class="rb-img">
+              <img src="/assets/ge-terminal/03-1.png" alt="Override layer — dump detection and label demotion" class="rb-img">
             </div>
           </div>
         </div>
@@ -280,7 +281,7 @@
         <div class="rb-section fade-up">
           <p class="rb-section-heading">04 &#8212; Daily Operation</p>
           <p class="rb-text">Running daily, positions, realized P&amp;L, and a full signal history persist all locally. A Discord webhook fires alerts only when a signal passes every metric gate, because an alert you learn to ignore is worse than no alert.</p>
-          <img src="/assets/runeberg/04-1.png" alt="Daily operation — signals table, P&amp;L tracking, Discord alert" class="rb-img">
+          <img src="/assets/ge-terminal/04-1.png" alt="Daily operation — signals table, P&amp;L tracking, Discord alert" class="rb-img">
         </div>
 
         <div class="rb-divider"></div>
@@ -291,13 +292,23 @@
           <div class="rb-origin-row">
             <div class="rb-origin-copy">
               <div class="rb-text">
-                <p>I started this with zero Python background. Runeberg Terminal became a way to learn by building something I&#8217;d actually use. 18+ versions later, it isn&#8217;t shipped software, but it&#8217;s built like it wants to be: cached API layers, state persistence, alert thresholds a user can trust.</p>
-                <p>It&#8217;s what happens when the barrier between an idea and a working tool gets low enough that a designer stops waiting for an engineer.</p>
+                <p>I started this with zero Python background. GE Terminal became a way to learn by building something I&#8217;d actually use.</p>
               </div>
             </div>
             <div class="rb-origin-screens">
-              <img src="/assets/runeberg/05-1.png" alt="Runeberg Terminal — full application view" class="rb-img">
+              <img src="/assets/ge-terminal/05-1.png" alt="GE Terminal — full application view" class="rb-img">
             </div>
+          </div>
+        </div>
+
+        <div class="rb-divider"></div>
+
+        <!-- 06 — What I'd Change -->
+        <div class="rb-section fade-up">
+          <p class="rb-section-heading">06 &#8212; What I&#8217;d Change</p>
+          <div class="rb-text">
+            <p>Almost nothing in this tool got specified in advance. The regime-break override exists because of one bad trade, not a design session. The fill-risk layer exists because a shown price and the price I could actually get were 30% apart on a real position, and I had to ask why before it got fixed. Even the one algorithm I&#8217;d call genuinely mine &#8212; dump-pattern recurrence detection &#8212; got built because I pushed back on my own decision to defer it, not because it was in an original plan.</p>
+            <p>That&#8217;s slower than writing requirements first would have been. It&#8217;s also probably the only way I&#8217;d have found half of these failure modes &#8212; I didn&#8217;t know a percentile score could tell me to buy into a position that was already broken until it happened to me, with real money on the line.</p>
           </div>
         </div>
 

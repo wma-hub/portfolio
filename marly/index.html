@@ -218,15 +218,8 @@
       <div class="ml-section fade-up" style="gap: 16px; position: relative; overflow: visible;">
         <img src="/assets/marly/s01-accent.png" alt="" aria-hidden="true" style="position:absolute;left:817px;top:97px;width:255px;height:157px;transform:rotate(79.75deg);transform-origin:center;pointer-events:none;z-index:0;">
         <p class="ml-section-heading" style="position:relative;z-index:1;">01 &#8212; The Problem</p>
-        <div class="ml-stat-block" style="position:relative;z-index:1;">
-          <div class="ml-stat-text ml-text">
-            <p>Enterprise platforms like Celtra automate at scale but assume someone else is producing the creative. Agencies charge $350&#8211;1,500 per ad set and reset the file handoff with every campaign. DIY tools produce output that looks like Canva, because it is.</p>
-            <p>D2C brands spend real money on type, palette, and a product with a shape worth showing, and still can&#8217;t get those choices honored downstream.</p>
-          </div>
-          <div class="ml-stat-callout">
-            <p class="ml-stat-num">~2x CTR</p>
-            <p class="ml-stat-label">lift for animated HTML5<br>vs. static display</p>
-          </div>
+        <div class="ml-text" style="position:relative;z-index:1;max-width:780px;">
+          <p>Marly&#8217;s answer isn&#8217;t a faster version of the agency model &#8212; it&#8217;s removing the handoff entirely. I&#8217;m the only person between a Figma frame and a deployed ad, which is a constraint as much as a feature: every judgment call has to be encoded somewhere machine-readable, or the pipeline breaks the first time I&#8217;m not looking at it directly.</p>
         </div>
       </div>
 
@@ -236,6 +229,7 @@
       <div class="ml-section fade-up">
         <p class="ml-section-heading">02A &#8212; The Pipeline</p>
         <p class="ml-text">Every Marly build runs through a two-phase gate architecture:</p>
+        <p class="ml-text">The two-phase split (Opus plans, Code executes) wasn&#8217;t the first version. I&#8217;d been experimenting with ad production at scale on a single pass, but drift was inevitable and it got more egregious the more campaigns ran through it. I needed a way to guarantee 1:1 accuracy between what Figma specified and what shipped, which is what split planning from execution in the first place.</p>
 
         <div class="pipeline-diagram" role="img" aria-label="Two-phase pipeline: Planning with Opus then Execution with Claude Code">
           <div class="pipeline-inner">
@@ -548,19 +542,27 @@
         </div>
       </div>
 
+      <div class="ml-section-divider"></div>
+      <div class="ml-section fade-up">
+        <p class="ml-section-heading">06 &#8212; What I&#8217;d Change</p>
+        <div class="ml-text">
+          <p>The two-phase gate architecture holds up. What I&#8217;d revisit is the per-client Figma layer: it assumes a client already has a design system to encode into it. It doesn&#8217;t have a good answer yet for a brand that doesn&#8217;t &#8212; which is most of the D2C prospect list, not the exception.</p>
+        </div>
+      </div>
+
       <!-- Prev/Next nav -->
       <nav class="cs-nav-outer" aria-label="Project navigation">
         <div class="cs-nav-divider"></div>
         <div class="cs-nav-row">
           <div class="cs-nav-side">
-            <a href="/runeberg" class="cs-nav-btn" aria-label="Previous project: Runeberg">
+            <a href="/ge-terminal" class="cs-nav-btn" aria-label="Previous project: GE Terminal">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10 12L6 8L10 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
             <div class="cs-nav-label">
               <span class="cs-nav-direction">Previous project:</span>
-              <span class="cs-nav-project">Runeberg</span>
+              <span class="cs-nav-project">GE Terminal</span>
             </div>
           </div>
           <div class="cs-nav-side cs-nav-side--right">
