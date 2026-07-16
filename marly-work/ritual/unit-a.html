@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{width:728px;height:90px;overflow:hidden;font-family:'Plus Jakarta Sans',Arial,sans-serif;}
+#ad{position:relative;width:728px;height:90px;overflow:hidden;border:1px solid #E0E0E0;}
+#bg{position:absolute;inset:0;background:#142B6F;z-index:0;}
+
+/* ── F1 ── */
+#s1{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:0 24px;z-index:2;}
+#s1-hl{font-size:22px;font-weight:700;color:#FFFFFF;text-align:center;white-space:nowrap;}
+
+/* ── F2 ── */
+#s2{position:absolute;inset:0;overflow:hidden;z-index:2;}
+/* Ceratiq: x=129, y=-19 → visible from top of ad, clips 19px at top */
+#s2-logo{position:absolute;left:24px;top:33px;width:73px;height:24px;overflow:hidden;}
+#s2-hl{position:absolute;left:413px;top:31px;width:291px;font-size:22px;font-weight:700;color:#142B6F;line-height:1.2;white-space:nowrap;}
+#s2-bar{position:absolute;left:413px;top:62px;width:200px;height:3px;background:#F5D547;transform-origin:left center;}
+
+/* ── F3 ── */
+#s3{position:absolute;inset:0;overflow:hidden;z-index:2;}
+#s3-logo{position:absolute;left:24px;top:33px;width:73px;height:24px;overflow:hidden;z-index:3;}
+#s3-hl{position:absolute;left:445px;top:31px;width:259px;font-size:22px;font-weight:700;color:#142B6F;line-height:1.2;white-space:nowrap;z-index:3;}
+
+/* ── F4 ── */
+#s4{position:absolute;inset:0;z-index:2;}
+#s4-logo{position:absolute;left:24px;top:50%;transform:translateY(-50%);width:73px;height:24px;overflow:hidden;}
+#s4-content{position:absolute;left:115px;top:50%;transform:translateY(-50%);width:613px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;}
+#s4-text{display:flex;align-items:center;width:379px;justify-content:space-between;}
+#s4-price{font-size:16px;font-weight:600;color:#142B6F;white-space:nowrap;}
+#s4-shipping{font-size:16px;font-weight:600;color:#142B6F;white-space:nowrap;}
+#s4-cancel{font-size:16px;font-weight:600;color:#142B6F;white-space:nowrap;}
+#s4-cta{flex-shrink:0;background:#F5D547;display:flex;align-items:center;justify-content:center;padding:8px 16px;}
+#s4-cta-label{font-family:'Inter',Arial,sans-serif;font-size:13px;font-weight:700;color:#142B6F;white-space:nowrap;}
+</style>
+</head>
+<body>
+<a href="%%CLICK_URL_UNESC%%" id="ad-link" style="display:block;width:728px;height:90px;text-decoration:none;">
+<div id="ad">
+  <div id="bg"></div>
+
+  <!-- F1: Hook — full-width navy, white headline, NO logo -->
+  <div id="s1">
+    <div id="s1-hl">What's in your vitamin?</div>
+  </div>
+
+  <!-- F2: Answer — white bg, ingredient images center, logo left, headline right -->
+  <div id="s2">
+    <div id="s2-img-ceratiq" class="img-wrap" style="position:absolute;left:129px;top:-19px;width:151px;height:129px;display:flex;align-items:center;justify-content:center;overflow:visible;">
+      <div style="flex-shrink:0;transform:rotate(0deg);">
+        <img src="/marly-work/ritual/media/PDP_HYA_Ingredients_Ceratiq.webp" style="width:151px;height:129px;object-fit:cover;display:block;" alt="">
+      </div>
+    </div>
+    <div id="s2-img-hyabest" class="img-wrap" style="position:absolute;left:280px;top:-19px;width:110px;height:129px;display:flex;align-items:center;justify-content:center;overflow:visible;">
+      <div style="flex-shrink:0;transform:rotate(-90deg);">
+        <img src="/marly-work/ritual/media/PDP_HYA_Ingredients_Hyabest.webp" style="width:129px;height:110px;object-fit:cover;display:block;" alt="">
+      </div>
+    </div>
+    <div id="s2-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 115.333" width="73" height="24" style="display:block;">
+        <path d="M83.784,109.63L62.117,77.18c13.142-6.564,20.489-18.159,20.489-32.511c0-21.472-16.011-37.617-44.441-37.617H5.232V109.63h18.426V82.282h20.054l17.986,27.348H83.784z M40.05,63.422H23.658V25.914H40.05c13.055,0,23.209,5.842,23.209,18.755C63.26,57.578,53.105,63.422,40.05,63.422 M329.012,7.052h18.422V109.63h-18.422V7.052z M146.311,52.728v34.023c0.293,4.523,2.319,6.639,6.316,6.639c3.992,0,6.968-1.756,9.386-3.688v17.351c-3.53,2.479-9.519,4.275-16.169,3.881c-4.423-0.264-9.607-2.161-13.243-5.9c-3.146-3.93-4.72-7.829-4.72-14.452V52.728h-9.421v-16.66h9.421V12.132h18.43v23.936h12.572v16.66H146.311z M237.831,109.615h-16.523l-1.71-8.384c-3.386,4.416-10.345,9.267-20.496,9.267c-18.24,0-30.638-10.736-30.638-30.301V36.069h18.231v37.983c0,12.944,5.784,18.535,16.379,18.535c10.589,0,16.523-7.649,16.523-18.535V36.069h18.233V109.615z M319.535,36.158v73.472h-14.747l-1.712-7.642c-3.085,3.968-11.164,8.522-21.011,8.522c-21.011,0-36.886-15.576-36.886-37.615c0-22.043,15.875-37.62,36.886-37.62c9.697,0,17.926,4.556,21.011,8.523l1.712-7.641H319.535z M282.628,52.676c-11.188,0-19.813,9.167-19.813,20.22c0,11.05,8.626,20.215,19.813,20.215c10.918,0,19.275-9.165,19.275-20.215C301.903,61.843,293.546,52.676,282.628,52.676 M91.493,36.066h18.425v73.562H91.493V36.066z M112.609,15.597c0,6.705-5.363,12.14-11.977,12.14c-6.615,0-11.978-5.435-11.978-12.14c0-6.703,5.362-12.138,11.978-12.138C107.246,3.459,112.609,8.894,112.609,15.597" fill="#142B6F"/>
+      </svg>
+    </div>
+    <div id="s2-hl">9 nutrients. Fully traceable.</div>
+    <div id="s2-bar"></div>
+  </div>
+
+  <!-- F3: Product — fog bg, capsule pills center, logo left, headline right -->
+  <div id="s3">
+    <div id="s3-img-clear" class="img-wrap" style="position:absolute;left:114px;top:-54px;width:200px;height:197px;display:flex;align-items:center;justify-content:center;overflow:visible;z-index:1;">
+      <div style="flex-shrink:0;transform:rotate(48.15deg);">
+        <img src="/marly-work/ritual/media/Screenshot 2026-04-13 at 17.29.25.png" style="width:123px;height:158px;object-fit:cover;display:block;" alt="">
+      </div>
+    </div>
+    <div id="s3-img-orange" class="img-wrap" style="position:absolute;left:271px;top:-59px;width:138px;height:142px;display:flex;align-items:center;justify-content:center;overflow:visible;z-index:2;">
+      <div style="flex-shrink:0;transform:rotate(-36.71deg);">
+        <img src="/marly-work/ritual/media/Screenshot 2026-04-13 at 17.29.03.png" style="width:89px;height:112px;object-fit:cover;display:block;" alt="">
+      </div>
+    </div>
+    <div id="s3-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 115.333" width="73" height="24" style="display:block;">
+        <path d="M83.784,109.63L62.117,77.18c13.142-6.564,20.489-18.159,20.489-32.511c0-21.472-16.011-37.617-44.441-37.617H5.232V109.63h18.426V82.282h20.054l17.986,27.348H83.784z M40.05,63.422H23.658V25.914H40.05c13.055,0,23.209,5.842,23.209,18.755C63.26,57.578,53.105,63.422,40.05,63.422 M329.012,7.052h18.422V109.63h-18.422V7.052z M146.311,52.728v34.023c0.293,4.523,2.319,6.639,6.316,6.639c3.992,0,6.968-1.756,9.386-3.688v17.351c-3.53,2.479-9.519,4.275-16.169,3.881c-4.423-0.264-9.607-2.161-13.243-5.9c-3.146-3.93-4.72-7.829-4.72-14.452V52.728h-9.421v-16.66h9.421V12.132h18.43v23.936h12.572v16.66H146.311z M237.831,109.615h-16.523l-1.71-8.384c-3.386,4.416-10.345,9.267-20.496,9.267c-18.24,0-30.638-10.736-30.638-30.301V36.069h18.231v37.983c0,12.944,5.784,18.535,16.379,18.535c10.589,0,16.523-7.649,16.523-18.535V36.069h18.233V109.615z M319.535,36.158v73.472h-14.747l-1.712-7.642c-3.085,3.968-11.164,8.522-21.011,8.522c-21.011,0-36.886-15.576-36.886-37.615c0-22.043,15.875-37.62,36.886-37.62c9.697,0,17.926,4.556,21.011,8.523l1.712-7.641H319.535z M282.628,52.676c-11.188,0-19.813,9.167-19.813,20.22c0,11.05,8.626,20.215,19.813,20.215c10.918,0,19.275-9.165,19.275-20.215C301.903,61.843,293.546,52.676,282.628,52.676 M91.493,36.066h18.425v73.562H91.493V36.066z M112.609,15.597c0,6.705-5.363,12.14-11.977,12.14c-6.615,0-11.978-5.435-11.978-12.14c0-6.703,5.362-12.138,11.978-12.138C107.246,3.459,112.609,8.894,112.609,15.597" fill="#142B6F"/>
+      </svg>
+    </div>
+    <div id="s3-hl">Essential for Women 18+</div>
+  </div>
+
+  <!-- F4: CTA — light bg, logo left, pricing row, CTA button right -->
+  <div id="s4">
+    <div id="s4-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 115.333" width="73" height="24" style="display:block;">
+        <path d="M83.784,109.63L62.117,77.18c13.142-6.564,20.489-18.159,20.489-32.511c0-21.472-16.011-37.617-44.441-37.617H5.232V109.63h18.426V82.282h20.054l17.986,27.348H83.784z M40.05,63.422H23.658V25.914H40.05c13.055,0,23.209,5.842,23.209,18.755C63.26,57.578,53.105,63.422,40.05,63.422 M329.012,7.052h18.422V109.63h-18.422V7.052z M146.311,52.728v34.023c0.293,4.523,2.319,6.639,6.316,6.639c3.992,0,6.968-1.756,9.386-3.688v17.351c-3.53,2.479-9.519,4.275-16.169,3.881c-4.423-0.264-9.607-2.161-13.243-5.9c-3.146-3.93-4.72-7.829-4.72-14.452V52.728h-9.421v-16.66h9.421V12.132h18.43v23.936h12.572v16.66H146.311z M237.831,109.615h-16.523l-1.71-8.384c-3.386,4.416-10.345,9.267-20.496,9.267c-18.24,0-30.638-10.736-30.638-30.301V36.069h18.231v37.983c0,12.944,5.784,18.535,16.379,18.535c10.589,0,16.523-7.649,16.523-18.535V36.069h18.233V109.615z M319.535,36.158v73.472h-14.747l-1.712-7.642c-3.085,3.968-11.164,8.522-21.011,8.522c-21.011,0-36.886-15.576-36.886-37.615c0-22.043,15.875-37.62,36.886-37.62c9.697,0,17.926,4.556,21.011,8.523l1.712-7.641H319.535z M282.628,52.676c-11.188,0-19.813,9.167-19.813,20.22c0,11.05,8.626,20.215,19.813,20.215c10.918,0,19.275-9.165,19.275-20.215C301.903,61.843,293.546,52.676,282.628,52.676 M91.493,36.066h18.425v73.562H91.493V36.066z M112.609,15.597c0,6.705-5.363,12.14-11.977,12.14c-6.615,0-11.978-5.435-11.978-12.14c0-6.703,5.362-12.138,11.978-12.138C107.246,3.459,112.609,8.894,112.609,15.597" fill="#142B6F"/>
+      </svg>
+    </div>
+    <div id="s4-content">
+      <div id="s4-text">
+        <div id="s4-price">$33/mo</div>
+        <div id="s4-shipping">Free shipping</div>
+        <div id="s4-cancel">Cancel anytime</div>
+      </div>
+      <div id="s4-cta"><span id="s4-cta-label">Start Your Ritual →</span></div>
+    </div>
+  </div>
+</div>
+</a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+var clickTag = "%%CLICK_URL_UNESC%%";
+document.getElementById('ad-link').href = clickTag;
+
+var HOLD = 2.7;
+var tl = gsap.timeline({repeat:-1, defaults:{ease:'power2.out'}});
+
+tl.set('#s2,#s3,#s4', {autoAlpha:0})
+  .set('#s1', {autoAlpha:1})
+  .set('#bg', {backgroundColor:'#142B6F'})
+  .set('#s1-hl', {clipPath:'inset(100% 0 0 0)', opacity:1})
+  .set('#s2-img-ceratiq,#s2-img-hyabest', {opacity:0})
+  .set('#s2-logo,#s2-hl', {opacity:0, x:-12})
+  .set('#s2-bar', {scaleX:0, transformOrigin:'left center'})
+  .set('#s3-img-clear,#s3-img-orange', {opacity:0})
+  .set('#s3-logo,#s3-hl', {opacity:0, x:-10})
+  .set('#s4-logo', {opacity:0, x:-10})
+  .set('#s4-price,#s4-shipping,#s4-cancel', {opacity:0, x:10})
+  .set('#s4-cta', {opacity:0, scale:0.9})
+
+// — F1: Hook —
+  .to('#s1-hl', {clipPath:'inset(0% 0 0 0)', duration:0.6})
+  .to({}, {duration:HOLD})
+
+// — F1 → F2 —
+  .addLabel('toF2')
+  .to('#s1-hl', {opacity:0, y:-10, duration:0.35, ease:'power2.in'}, 'toF2')
+  .to('#bg', {backgroundColor:'#F2F1F6', duration:0.3, ease:'power2.inOut'}, 'toF2')
+  .set('#s2', {autoAlpha:1}, 'toF2+=0.28')
+
+// — F2: Answer —
+  .to('#s2-img-ceratiq,#s2-img-hyabest', {opacity:1, duration:0.6}, 'toF2+=0.3')
+  .to('#s2-logo', {opacity:1, x:0, duration:0.4}, 'toF2+=0.35')
+  .to('#s2-hl', {opacity:1, x:0, duration:0.45}, 'toF2+=0.48')
+  .to('#s2-bar', {scaleX:1, duration:0.4}, 'toF2+=0.65')
+  .to({}, {duration:HOLD})
+
+// — F2 → F3 —
+  .addLabel('toF3')
+  .to('#s2', {autoAlpha:0, duration:0.35, ease:'power2.in'}, 'toF3')
+  .to('#bg', {backgroundColor:'#FAF5F7', duration:0.3, ease:'power2.inOut'}, 'toF3')
+  .set('#s3', {autoAlpha:1}, 'toF3+=0.22')
+
+// — F3: Product —
+  .to('#s3-img-clear', {opacity:1, duration:0.7}, 'toF3+=0.28')
+  .to('#s3-img-orange', {opacity:1, duration:0.6}, 'toF3+=0.38')
+  .to('#s3-logo', {opacity:1, x:0, duration:0.4}, 'toF3+=0.42')
+  .to('#s3-hl', {opacity:1, x:0, duration:0.5}, 'toF3+=0.55')
+  .to({}, {duration:HOLD})
+
+// — F3 → F4 —
+  .addLabel('toF4')
+  .to('#s3', {autoAlpha:0, duration:0.35, ease:'power2.in'}, 'toF4')
+  .to('#bg', {backgroundColor:'#FAF5F7', duration:0.3, ease:'power2.inOut'}, 'toF4')
+  .set('#s4', {autoAlpha:1}, 'toF4+=0.28')
+
+// — F4: CTA —
+  .to('#s4-logo', {opacity:1, x:0, duration:0.4}, 'toF4+=0.32')
+  .to('#s4-price', {opacity:1, x:0, duration:0.4}, 'toF4+=0.42')
+  .to('#s4-shipping', {opacity:0.8, x:0, duration:0.4}, 'toF4+=0.52')
+  .to('#s4-cancel', {opacity:0.6, x:0, duration:0.4}, 'toF4+=0.62')
+  .to('#s4-cta', {opacity:1, scale:1, duration:0.45}, 'toF4+=0.78')
+  .to({}, {duration:HOLD});
+</script>
+</body>
+</html>

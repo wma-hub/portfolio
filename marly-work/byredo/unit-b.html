@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 300px; height: 250px; overflow: hidden; background: #FFFFFF; }
+
+a.ad {
+  display: block;
+  width: 300px;
+  height: 250px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 4px solid #FBF9F7;
+}
+
+/* V3 — initial states for spatial animation */
+#product  { will-change: transform, opacity; transform: scale(0.97); }
+#headline { will-change: transform, opacity; transform: translateY(12px); }
+#subhead  { will-change: transform, opacity; transform: translateY(8px); }
+#glow, #logo, #cta { will-change: opacity; }
+</style>
+</head>
+<body>
+
+<a class="ad" href="https://byredo.com/mojave-ghost" target="_blank">
+
+  <!-- Warm radial gradient — bottom-left corner, scaleY(-1) -->
+  <div id="glow" style="
+    position: absolute; left: 0; bottom: 0;
+    width: 166px; height: 111px;
+    transform: scaleY(-1);
+    background: radial-gradient(ellipse at center, rgba(200,184,154,0.12), transparent);
+    pointer-events: none; z-index: 0; opacity: 0;
+  "></div>
+
+  <!-- Product image — right side, bleeds 34px past right edge -->
+  <div id="product" style="
+    position: absolute; left: 85px; top: 0;
+    width: 249px; height: 249px;
+    overflow: hidden; z-index: 1; opacity: 0;
+  ">
+    <img src="/marly-work/byredo/media/hero.jpg"
+      width="249" height="249"
+      style="display: block; object-fit: cover; width: 249px; height: 249px;"
+      alt="">
+  </div>
+
+  <!-- BYREDO logo wordmark — dark version for light background -->
+  <div id="logo" style="
+    position: absolute; left: 26px; top: 26px;
+    width: 55px; height: 12px;
+    z-index: 10; opacity: 0;
+  ">
+    <img src="/marly-work/byredo/media/logo-dark.svg" width="55" height="12"
+      style="display: block; width: 100%; height: 100%;" alt="Byredo">
+  </div>
+
+  <!-- Text frame — left-aligned, 118px wide -->
+  <div style="position: absolute; left: 26px; top: 75px; width: 118px; z-index: 2;">
+
+    <!-- Headline — wraps naturally to MOJAVE / GHOST within 118px -->
+    <div id="headline" style="
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-weight: 500; font-size: 24px; color: #000;
+      letter-spacing: 0.02em; line-height: 1.1;
+      text-align: left; opacity: 0;
+    ">MOJAVE GHOST</div>
+
+    <!-- Subhead — no explicit line breaks on this size, wraps naturally -->
+    <div id="subhead" style="
+      margin-top: 6px;
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-weight: 400; font-size: 10px; color: #928E86;
+      letter-spacing: 0.03em; line-height: 1.4;
+      text-align: left; opacity: 0;
+    ">A fragrance born where nothing blooms.</div>
+
+  </div>
+
+  <!-- CTA frame -->
+  <div id="cta" style="
+    position: absolute; left: 26px; top: 195px;
+    width: 97px; height: 25px;
+    border: 1px solid #C9C7C3;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2; opacity: 0;
+  ">
+    <span style="
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 11px; font-weight: 500; color: #000;
+      letter-spacing: 0.12em; text-transform: uppercase;
+    ">DISCOVER</span>
+  </div>
+
+
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(function () {
+  // V3 — staggered sequence with spatial movement
+  var tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+
+  tl.to('#glow',     { opacity: 1,   duration: 1.5, ease: 'power1.out' },   0)
+    .to('#logo',     { opacity: 1,   duration: 0.6 },                        0.3)
+    .to('#product',  { opacity: 1,   scale: 1, duration: 1.2 },              0.8)
+    .to('#headline', { opacity: 1,   y: 0, duration: 0.8, ease: 'power3.out' }, 1.8)
+    .to('#subhead',  { opacity: 1,   y: 0, duration: 0.7, ease: 'power3.out' }, 2.3)
+    .to('#cta',      { opacity: 0.5, duration: 0.5, ease: 'power2.inOut' },  3.0)
+    .to('#cta',      { opacity: 1,   duration: 0.5, ease: 'power2.inOut' },  3.8);
+}());
+</script>
+</body>
+</html>

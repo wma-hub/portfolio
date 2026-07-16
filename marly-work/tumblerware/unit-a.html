@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=728,initial-scale=1">
+<title>Tumblerware — Father's Day — 728×90</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{width:728px;height:90px;overflow:hidden;background:transparent;}
+#ad{position:relative;width:728px;height:90px;background:#EBEBEB;border:1px solid #cccccc;overflow:hidden;cursor:pointer;}
+/* Static: logo left, CTA right */
+#logo{position:absolute;left:24px;top:50%;transform:translateY(-50%);width:116px;height:32px;z-index:20;}
+#logo img{display:block;width:116px;height:32px;object-fit:contain;}
+#cta{position:absolute;left:619px;top:31px;background:#F15A29;padding:8px 14px;display:flex;align-items:center;justify-content:center;z-index:20;}
+#cta span{font-family:system-ui,-apple-system,'Helvetica Neue',sans-serif;font-weight:700;font-size:11px;color:#fff;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;}
+/* Content zone: between logo zone and CTA */
+#content-zone{position:absolute;left:180px;top:0;width:439px;height:90px;overflow:hidden;}
+.cframe{position:absolute;top:0;left:0;width:439px;height:90px;opacity:0;transition:opacity 0.4s ease-in-out;display:flex;align-items:center;}
+.cframe.active{opacity:1;}
+/* F1-F3 shared child styles */
+.cf-img{display:block;width:90px;height:90px;object-fit:cover;flex-shrink:0;}
+.cf-details{display:flex;flex-direction:column;gap:4px;flex-shrink:0;}
+/* F4 */
+#cf4{justify-content:space-between;width:411px;}
+.cf4-img{display:block;width:90px;height:90px;object-fit:cover;flex-shrink:0;}
+</style>
+</head>
+<body>
+<div id="ad" onclick="window.open('%%CLICK_URL_ESC%%','_blank')">
+
+  <div id="logo">
+    <img src="/marly-work/tumblerware/media/svg/logo-wide.png" alt="Tumblerware" width="116" height="32">
+  </div>
+
+  <div id="content-zone">
+
+    <!-- F1: Starter Set — 25% OFF -->
+    <div class="cframe active" id="cf1" style="gap:24px;">
+      <img src="/marly-work/tumblerware/media/svg/type/a-f1-discount.svg" width="66" height="12" alt="" style="flex-shrink:0;">
+      <img class="cf-img" src="/marly-work/tumblerware/media/images/starter-set.jpg" alt="Starter Set">
+      <div class="cf-details">
+        <img src="/marly-work/tumblerware/media/svg/rating-stars.png" width="48" height="8" alt="" style="display:block;">
+        <img src="/marly-work/tumblerware/media/svg/type/a-f1-name.svg" width="87" height="10" alt="" style="display:block;margin-top:4px;">
+        <img src="/marly-work/tumblerware/media/svg/type/a-f1-prices.svg" width="91" height="19" alt="" style="display:block;margin-top:4px;">
+      </div>
+    </div>
+
+    <!-- F2: Gift Bundle — 15% OFF -->
+    <div class="cframe" id="cf2" style="gap:24px;">
+      <img src="/marly-work/tumblerware/media/svg/type/a-f2-discount.svg" width="63" height="12" alt="" style="flex-shrink:0;">
+      <img class="cf-img" src="/marly-work/tumblerware/media/images/gift-bundle.jpg" alt="Gift Bundle">
+      <div class="cf-details">
+        <img src="/marly-work/tumblerware/media/svg/rating-stars.png" width="48" height="8" alt="" style="display:block;">
+        <img src="/marly-work/tumblerware/media/svg/type/a-f2-name.svg" width="152" height="10" alt="" style="display:block;margin-top:4px;">
+        <img src="/marly-work/tumblerware/media/svg/type/a-f2-prices.svg" width="153" height="19" alt="" style="display:block;margin-top:4px;">
+      </div>
+    </div>
+
+    <!-- F3: Original Tumbler 2PK — 15% OFF -->
+    <div class="cframe" id="cf3" style="gap:18px;">
+      <img src="/marly-work/tumblerware/media/svg/type/a-f3-discount.svg" width="63" height="12" alt="" style="flex-shrink:0;">
+      <img class="cf-img" src="/marly-work/tumblerware/media/images/original-tumbler-2pk.jpg" alt="Original Tumbler 2-Pack">
+      <div class="cf-details">
+        <img src="/marly-work/tumblerware/media/svg/rating-stars.png" width="48" height="8" alt="" style="display:block;">
+        <img src="/marly-work/tumblerware/media/svg/type/a-f3-name.svg" width="197" height="13" alt="" style="display:block;margin-top:4px;">
+        <img src="/marly-work/tumblerware/media/svg/type/a-f3-prices.svg" width="198" height="19" alt="" style="display:block;margin-top:4px;">
+      </div>
+    </div>
+
+    <!-- F4: Multi-product endframe — 4 images spread -->
+    <div class="cframe" id="cf4">
+      <img class="cf4-img" src="/marly-work/tumblerware/media/images/starter-set.jpg" alt="Starter Set">
+      <img class="cf4-img" src="/marly-work/tumblerware/media/images/knife-set.jpg" alt="Knife Set">
+      <img class="cf4-img" src="/marly-work/tumblerware/media/images/gift-bundle.jpg" alt="Gift Bundle">
+      <img class="cf4-img" src="/marly-work/tumblerware/media/images/original-tumbler.jpg" alt="Original Tumbler">
+    </div>
+
+  </div>
+
+  <div id="cta"><span>SHOP NOW</span></div>
+
+</div>
+<script>
+(function(){
+  var frames = [
+    document.getElementById('cf1'),
+    document.getElementById('cf2'),
+    document.getElementById('cf3'),
+    document.getElementById('cf4')
+  ];
+  var HOLD = 2500, TRANS = 400;
+  var cur = 0, tick = 0, timer;
+
+  timer = setInterval(function() {
+    tick++;
+    var prev = cur;
+    var next = tick % 4;
+    frames[prev].classList.remove('active');
+    frames[next].classList.add('active');
+    cur = next;
+    if (tick >= 7) clearInterval(timer); // 2 full cycles (7 advances), hold on F4
+  }, HOLD + TRANS);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Graza — Mayo Launch — 300×250</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:300px;height:250px;overflow:hidden;}
+
+.ad{
+  position:relative;width:300px;height:250px;
+  background:#B4DB01;
+  overflow:hidden;cursor:pointer;
+}
+
+/* ── Background tile grid ── */
+/* Outer wrapper: bounding box for rotated tile */
+.bt{
+  position:absolute;
+  width:130.066px;height:130.066px;
+  overflow:visible;
+  /* rotation applied inline per Figma */
+}
+/* Inner: rotation + filter applied together */
+.bt-inner{
+  width:130.066px;height:130.066px;
+  transform:rotate(-8.11deg);
+  filter:blur(1.5px);
+  display:flex;align-items:center;justify-content:center;
+}
+.bt-inner img{
+  width:115px;height:115px;
+  object-fit:cover;display:block;
+  flex-shrink:0;
+}
+
+/* ── Cream card ── */
+.card{
+  position:absolute;
+  left:13px;top:13px;
+  width:275px;height:223px;
+  background:#F2E9D8;
+  border-radius:2px;
+}
+
+/* ── Wordmark small (F1/F2, bottom-right of card) ── */
+.wm-sm{
+  position:absolute;
+  left:232px;top:212px;
+  width:44px;height:12px;
+  z-index:20;
+}
+.wm-sm img{width:44px;height:12px;object-fit:contain;display:block;}
+
+/* ── Mayo illustration (F1/F2, top-right of card) ── */
+.mayo-illust{
+  position:absolute;
+  left:206px;top:42px;
+  width:82px;height:56px;
+  z-index:25;
+}
+.mayo-illust img{width:82px;height:56px;object-fit:contain;display:block;}
+
+/* ─────── FRAME 1 ─────── */
+.f1-text{
+  position:absolute;
+  left:25px;top:36px;
+  width:249px;height:132px;
+  z-index:15;
+}
+.f1-big{
+  font-family:'DM Serif Display',serif;
+  font-size:48px;color:#000;
+  line-height:1;display:block;
+}
+.f1-med{
+  font-family:'DM Serif Display',serif;
+  font-size:24px;color:#000;
+  line-height:1.2;display:block;
+}
+
+/* ─────── FRAME 2 ─────── */
+.f2-text{
+  position:absolute;
+  left:26px;top:58px;
+  width:248px;height:115px;
+  z-index:15;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.f2-line1{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:18px;color:#000;
+  line-height:24px;
+  max-width:181px;
+  text-align:left;display:block;
+}
+.f2-line2{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:18px;color:#000;
+  line-height:24px;
+  width:248px;
+  text-align:right;display:block;
+}
+/* ─────── FRAME 3 ─────── */
+.f3-wm{
+  position:absolute;
+  left:121px;top:21px;
+  width:58px;height:16px;
+  z-index:30;
+}
+.f3-wm img{width:58px;height:16px;object-fit:contain;display:block;}
+
+.f3-product-outer{
+  position:absolute;
+  left:12px;top:-7px;
+  width:276px;height:276px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:visible;
+  z-index:20;
+}
+.f3-product-inner{
+  flex-shrink:0;
+  transform:rotate(8.61deg);
+  transform-origin:center center;
+}
+.f3-product-inner img{
+  width:276px;height:276px;
+  object-fit:contain;display:block;
+}
+
+.f3-cta{
+  position:absolute;
+  left:67px;top:198px;
+  width:167px;height:37px;
+  background:#3C422E;
+  display:flex;align-items:center;justify-content:center;
+  padding:8px 16px;
+  z-index:35;
+}
+.f3-cta span{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:16px;color:#fff;white-space:nowrap;
+}
+</style>
+</head>
+<body>
+<div class="ad" onclick="window.open('%%CLICK_URL_UNESC%%')">
+
+  <!-- ── Background tile grid (9 tiles, staircase positions) ── -->
+  <!-- Row 1: staircase top -65.19, -83.09, -101 -->
+  <div class="bt" id="t1" style="left:-58px;top:-65.19px;">
+    <div class="bt-inner"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  </div>
+  <div class="bt" id="t2" style="left:67.73px;top:-83.09px;">
+    <div class="bt-inner"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  </div>
+  <div class="bt" id="t3" style="left:193.46px;top:-101px;">
+    <div class="bt-inner"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  </div>
+  <!-- Row 2: staircase top 53.61, 35.71, 17.8 -->
+  <div class="bt" id="t4" style="left:-41.08px;top:53.61px;">
+    <div class="bt-inner"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  </div>
+  <div class="bt" id="t5" style="left:84.65px;top:35.71px;">
+    <div class="bt-inner"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  </div>
+  <div class="bt" id="t6" style="left:210.38px;top:17.8px;">
+    <div class="bt-inner"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  </div>
+  <!-- Row 3: staircase top 172.42, 154.51, 136.6 -->
+  <div class="bt" id="t7" style="left:-24.16px;top:172.42px;">
+    <div class="bt-inner"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  </div>
+  <div class="bt" id="t8" style="left:101.57px;top:154.51px;">
+    <div class="bt-inner"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  </div>
+  <div class="bt" id="t9" style="left:227.3px;top:136.6px;">
+    <div class="bt-inner"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  </div>
+
+  <!-- ── Cream card (F1/F2) ── -->
+  <div class="card" id="cream-card"></div>
+
+  <!-- ── Wordmark small (F1/F2) ── -->
+  <div class="wm-sm" id="wm-sm">
+    <img src="/marly-work/graza/media/logo-wordmark-graza.png" alt="Graza">
+  </div>
+
+  <!-- ── Mayo illustration (F1/F2) ── -->
+  <div class="mayo-illust" id="mayo-illust">
+    <img src="/marly-work/graza/media/graza_orignal_mayo_illustration.svg" alt="">
+  </div>
+
+  <!-- ── Frame 1 ── -->
+  <div class="f1-text" id="f1-text">
+    <span class="f1-big">Mayo,</span>
+    <span class="f1-med">but make it</span>
+    <span class="f1-med">olive oil.</span>
+  </div>
+
+  <!-- ── Frame 2 ── -->
+  <div class="f2-text" id="f2-text">
+    <span class="f2-line1">Made with 100%<br>oil from olives.</span>
+    <span class="f2-line2">Richer and creamier.</span>
+  </div>
+  <!-- ── Frame 3 ── -->
+  <div class="f3-wm" id="f3-wm">
+    <img src="/marly-work/graza/media/logo-wordmark-graza.png" alt="Graza">
+  </div>
+  <div class="f3-product-outer" id="f3-product">
+    <div class="f3-product-inner">
+      <img src="/marly-work/graza/media/img-graza.webp" alt="Graza Mayo">
+    </div>
+  </div>
+  <div class="f3-cta" id="f3-cta">
+    <span>Try Graza Mayo</span>
+  </div>
+
+</div>
+<script>
+// ── Initial states ──
+gsap.set('.bt', {opacity:0});
+gsap.set('#cream-card', {opacity:0, scale:0.95, transformOrigin:'center center'});
+gsap.set(['#wm-sm','#mayo-illust'], {opacity:0});
+gsap.set('#f1-text', {opacity:0, clipPath:'inset(100% 0 0 0)'});
+gsap.set('#f2-text', {opacity:0});
+gsap.set('.f2-line1,.f2-line2', {opacity:0, y:8});
+gsap.set(['#f3-wm','#f3-cta'], {opacity:0});
+gsap.set('#f3-product', {opacity:0, scale:0.88, transformOrigin:'center center'});
+
+var tl = gsap.timeline();
+
+// ── BG grid fades in ──
+tl.to('.bt', {opacity:0.25, duration:0.8, stagger:0.04, ease:'power1.out'});
+
+// ── F1 entrance ──
+tl.to('#cream-card', {opacity:1, scale:1, duration:0.5, ease:'back.out(1.2)'}, '-=0.5');
+tl.to(['#wm-sm','#mayo-illust'], {opacity:1, duration:0.5, stagger:0.1}, '-=0.2');
+tl.to('#f1-text', {opacity:1, clipPath:'inset(0% 0 0 0)', duration:0.6, ease:'power2.out'}, '-=0.2');
+
+// Hold F1
+tl.to({}, {duration:2});
+
+// ── F1 → F2 ──
+tl.to('#f1-text', {opacity:0, duration:0.2});
+tl.to('#f2-text', {opacity:1, duration:0.35}, '<');
+tl.to('.f2-line1', {opacity:1, y:0, duration:0.35, ease:'power2.out'}, '<');
+tl.to('.f2-line2', {opacity:1, y:0, duration:0.35, ease:'power2.out'}, '-=0.15');
+
+// Hold F2
+tl.to({}, {duration:2});
+
+// ── F2 → F3 ──
+tl.to(['#f2-text','#cream-card','#wm-sm','#mayo-illust'], {opacity:0, duration:0.35});
+tl.to('#f3-product', {opacity:1, scale:1, duration:0.55, ease:'back.out(1.3)'}, '-=0.1');
+tl.to('#f3-wm', {opacity:1, duration:0.3}, '-=0.2');
+tl.to('#f3-cta', {opacity:1, duration:0.35, ease:'back.out(1.7)'}, '-=0.05');
+// Hold F3
+</script>
+</body>
+</html>

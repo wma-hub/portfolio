@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="ad.size" content="width=160,height=600">
+  <title>Levi's Pride 2026 — Meet You Here — 160×600</title>
+  <style>
+    @font-face{font-family:'Anton';src:url('/marly-work/levis/media/fonts/Anton-Regular.woff2')format('woff2');font-weight:400;font-display:swap;}
+    @font-face{font-family:'Inter';src:url('/marly-work/levis/media/fonts/Inter-Regular.woff2')format('woff2');font-weight:400;font-display:swap;}
+    @font-face{font-family:'Inter';src:url('/marly-work/levis/media/fonts/Inter-SemiBold.woff2')format('woff2');font-weight:600;font-display:swap;}
+    @font-face{font-family:'Inter';src:url('/marly-work/levis/media/fonts/Inter-Medium.woff2')format('woff2');font-weight:500;font-display:swap;}
+    @font-face{font-family:'Inter';src:url('/marly-work/levis/media/fonts/Inter-Black.woff2')format('woff2');font-weight:900;font-display:swap;}
+    @font-face{font-family:'Inter';src:url('/marly-work/levis/media/fonts/Inter-Bold.woff2')format('woff2');font-weight:700;font-display:swap;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{width:160px;height:600px;overflow:hidden;cursor:pointer;}
+    .ad{position:relative;width:160px;height:600px;background:#fff;overflow:hidden;border:1px solid #ddd;}
+    #f1,#f2,#cta{position:absolute;left:0;top:0;width:160px;height:600px;pointer-events:none;z-index:5;}
+  </style>
+</head>
+<body>
+  <div class="ad">
+    <!-- img-zone: flat Figma structure, bottom-anchored, shifted right per Figma -->
+    <div style="position:absolute;transform:translateX(-50%);bottom:0;height:600px;left:calc(50% + 120px);width:714px;z-index:1;">
+      <img src="/marly-work/levis/media/images/pride-2.webp" alt="" style="position:absolute;inset:0;max-width:none;object-fit:cover;pointer-events:none;width:100%;height:100%;">
+    </div>
+
+    <!-- Logo -->
+    <img src="/marly-work/levis/media/images/logo.png" alt="Levi's" style="position:absolute;transform:translateX(-50%);left:calc(50% + 0.5px);top:21px;width:71px;height:29px;z-index:10;object-fit:contain;">
+    <p style="position:absolute;transform:translateX(-50%);left:calc(50% + 0.5px);top:455px;font-family:'Inter',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#fff;line-height:normal;text-align:center;white-space:nowrap;z-index:10;"><span style="font-weight:900">PRIDE</span> <span style="font-weight:500">2026</span></p>
+
+    <!-- F1: Meet / you here. -->
+    <div id="f1">
+      <div style="position:absolute;transform:translateX(-50%);left:50%;top:474px;font-family:'Anton',sans-serif;font-weight:400;font-size:32px;letter-spacing:-0.02em;color:#fff;line-height:0;text-align:center;white-space:nowrap;">
+        <p style="line-height:normal;margin-bottom:0;">Meet</p>
+        <p style="line-height:normal;">you here.</p>
+      </div>
+    </div>
+
+    <!-- F2: Wherever / you are. -->
+    <div id="f2">
+      <div style="position:absolute;transform:translateX(-50%);left:calc(50% + 0.5px);top:474px;font-family:'Anton',sans-serif;font-weight:400;font-size:32px;letter-spacing:-0.02em;color:#fff;line-height:0;text-align:center;white-space:nowrap;">
+        <p style="line-height:normal;margin-bottom:0;">Wherever</p>
+        <p style="line-height:normal;">you are.</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div id="cta">
+      <div style="position:absolute;transform:translateX(-50%);left:calc(50% - 0.5px);top:496px;width:113px;background:#c8102e;display:flex;align-items:center;justify-content:center;padding:8px 16px;">
+        <div style="font-family:'Inter',sans-serif;font-weight:700;font-size:13px;text-align:center;color:#fff;line-height:0;white-space:nowrap;">
+          <p style="line-height:normal;margin-bottom:0;">Shop the</p>
+          <p style="line-height:normal;">Collection</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    window.clickTag="https://www.levi.com/US/en_US/lgbt-pride-collection/c/levi_clothing_pride_us";
+    document.addEventListener('click',function(){window.open(window.clickTag,'_blank');});
+    gsap.set(['#f1','#f2','#cta'],{autoAlpha:0});
+    const tl=gsap.timeline({repeat:-1,onRepeat:function(){gsap.set(['#f1','#f2','#cta'],{autoAlpha:0});}});
+    tl.to('#f1',{autoAlpha:1,duration:0.4})
+      .to('#f1',{autoAlpha:0,duration:0.4},'+=2.5')
+      .to('#f2',{autoAlpha:1,duration:0.4})
+      .to('#f2',{autoAlpha:0,duration:0.4},'+=2.5')
+      .to('#cta',{autoAlpha:1,duration:0.4})
+      .to('#cta',{autoAlpha:0,duration:0.4},'+=2.5');
+  </script>
+</body>
+</html>

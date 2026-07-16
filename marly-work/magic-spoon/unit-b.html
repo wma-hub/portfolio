@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Magic Spoon — Summer Sampler Drop — Set 1 — 300×250</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{margin:0}
+a{color:inherit;text-decoration:none}
+
+.ad{
+  position:relative;
+  width:300px;height:250px;
+  overflow:hidden;
+  background:#c0f0fd;
+  cursor:pointer;display:block;
+}
+
+/* Ambient glow */
+.glow{
+  position:absolute;
+  left:139px;top:82px;
+  width:140px;height:140px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,0.12) 0%,transparent 70%);
+  pointer-events:none;
+  z-index:1;
+}
+
+/* Decorative circles */
+.c{position:absolute;border-radius:50%;pointer-events:none;z-index:1;}
+
+/* Logo wrapper */
+.logo-wrap{
+  position:absolute;
+  left:50%;top:24px;
+  transform:translateX(-50%);
+  width:54px;height:24px;
+  z-index:5;
+}
+.logo-wrap svg{display:block;overflow:visible;}
+
+/* Text frames — all start hidden via JS */
+.frame{
+  position:absolute;
+  left:0;right:0;
+  top:50%;transform:translateY(-50%);
+  text-align:center;
+  font-family:'Poppins',Arial,sans-serif;
+  color:#ff6b6b;
+  line-height:1.1;
+  z-index:2;
+  opacity:0;
+}
+.f1{font-size:32px;font-weight:800;text-transform:uppercase;}
+.f2{font-size:32px;font-weight:700;}
+.f3{font-size:24px;font-weight:700;}
+
+/* Product image — F3 */
+.product-f3{
+  position:absolute;
+  left:-4px;top:-32px;
+  width:308px;height:308px;
+  z-index:3;
+  opacity:0;
+}
+.product-f3 img{width:308px;height:308px;object-fit:cover;display:block;}
+
+/* CTA — Frame 3 only */
+.cta-btn{
+  position:absolute;
+  left:102px;top:194px;
+  display:inline-block;
+  padding:8px 24px;
+  background:#fff;
+  border-radius:100px;
+  font-family:'Poppins',Arial,sans-serif;
+  font-size:16px;font-weight:700;
+  color:#1b1464;
+  white-space:nowrap;
+  z-index:4;
+  opacity:0;
+}
+
+/* Border */
+.boundary{position:absolute;inset:0;border:1px solid rgba(255,255,255,0.18);pointer-events:none;z-index:6;}
+</style>
+</head>
+<body>
+<a class="ad" href="https://magicspoon.com/summer" target="_blank">
+
+  <!-- Ambient glow -->
+  <div class="glow"></div>
+
+  <!-- Decorative circles -->
+  <div class="c" style="width:36px;height:36px;left:-24px;top:-26px;background:#FFD700;"></div>
+  <div class="c" style="width:18px;height:18px;left:21px;top:11px;background:#1B1464;"></div>
+  <div class="c" style="width:44px;height:44px;left:286px;top:-32px;background:#4CAF50;"></div>
+  <div class="c" style="width:20px;height:20px;left:264px;top:10px;background:#4A90D9;"></div>
+  <div class="c" style="width:30px;height:30px;left:-1px;top:241px;background:#FFD700;"></div>
+  <div class="c" style="width:16px;height:16px;left:36px;top:222px;background:rgba(255,255,255,0.8);"></div>
+  <div class="c" style="width:38px;height:38px;left:285px;top:239px;background:#4A90D9;"></div>
+  <div class="c" style="width:38px;height:38px;left:104px;top:5px;background:#4A90D9;"></div>
+  <div class="c" style="width:38px;height:38px;left:-6px;top:122px;background:#4A90D9;"></div>
+  <div class="c" style="width:22px;height:22px;left:257px;top:221px;background:#FFD700;"></div>
+
+  <!-- Logo (Magic Spoon wordmark, navy) -->
+  <div class="logo-wrap">
+    <img src="/marly-work/magic-spoon/media/logo-magic-spoon.svg" width="54" height="24" alt="Magic Spoon">
+  </div>
+
+  <!-- Frame 1 -->
+  <div class="frame f1">Cereal That<br>Doesn't Suck</div>
+
+  <!-- Frame 2 -->
+  <div class="frame f2">High Protein.<br>Zero Sugar.</div>
+
+  <!-- Frame 3 — product image replaces text -->
+  <div class="product-f3">
+    <img src="/marly-work/magic-spoon/media/product-focused-coral.avif" width="308" height="308" alt="">
+  </div>
+
+  <!-- CTA (Frame 3 only) -->
+  <div class="cta-btn">TRY IT</div>
+
+  <!-- Border -->
+  <div class="boundary"></div>
+
+</a>
+<script>
+(function(){
+  if(typeof gsap==='undefined') return;
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+
+  /* — Circle pop-in + float — */
+  var circles=Array.from(document.querySelectorAll('.c'));
+  var sorted=circles.slice().sort(function(a,b){return parseFloat(a.style.width)-parseFloat(b.style.width);});
+  gsap.set(sorted,{scale:0,opacity:0,transformOrigin:'center center'});
+  gsap.to(sorted,{
+    scale:1,opacity:1,duration:0.5,ease:'back.out(1.7)',
+    stagger:0.1,delay:0.2,
+    onComplete:function(){
+      sorted.forEach(function(el,i){
+        var sz=parseFloat(el.style.width);
+        var dy=sz<25?5:sz<50?4:3;
+        var dx=sz<25?2:1;
+        var dur=2.5+Math.random()*1.5;
+        gsap.to(el,{y:dy,duration:dur,ease:'sine.inOut',repeat:-1,yoyo:true,delay:i*0.15});
+        gsap.to(el,{x:dx,duration:dur*0.7,ease:'sine.inOut',repeat:-1,yoyo:true,delay:i*0.1});
+      });
+    }
+  });
+
+  /* — Frame sequence — */
+  var tl=gsap.timeline({delay:0.3});
+  tl.to('.f1',{opacity:1,duration:0.4,ease:'power2.out'})
+    .to('.f1',{opacity:0,duration:0.35,ease:'power2.in'},'+=1.5')
+    .to('.f2',{opacity:1,duration:0.4,ease:'power2.out'})
+    .to('.f2',{opacity:0,duration:0.35,ease:'power2.in'},'+=1.5')
+    .to('.product-f3',{opacity:1,duration:0.5,ease:'power2.out'})
+    .to('.cta-btn',{opacity:1,duration:0.4,ease:'power2.out'},'-=0.15');
+})();
+</script>
+</body>
+</html>

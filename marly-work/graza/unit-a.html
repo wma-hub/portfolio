@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Graza — Mayo Launch — 728×90</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:728px;height:90px;overflow:hidden;}
+
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes panel-from-left{from{opacity:1;transform:translateX(-96px)}to{opacity:1;transform:translateX(0)}}
+@keyframes panel-from-right{from{opacity:1;transform:translateX(542px)}to{opacity:1;transform:translateX(0)}}
+@keyframes prod-in{from{opacity:0;transform:rotate(-2deg) scale(0.9)}to{opacity:1;transform:rotate(-4.6deg) scale(1)}}
+@keyframes clip-reveal{from{opacity:1;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0 0% 0 0)}}
+@keyframes scale-in{from{opacity:0;transform:scale(0.8)}to{opacity:1;transform:scale(1)}}
+
+.ad{
+  position:relative;width:728px;height:90px;
+  background:#BFE512;
+  overflow:hidden;cursor:pointer;
+}
+
+/* ── Left cream panel ── */
+.panel-l{
+  position:absolute;
+  left:0;top:0;
+  width:96px;height:90px;
+  background:#F2E9D8;
+  animation:panel-from-left 0.4s ease-out 0.2s both;
+}
+
+/* ── Right cream panel ── */
+.panel-r{
+  position:absolute;
+  left:186px;top:0;
+  width:542px;height:90px;
+  background:#F2E9D8;
+  animation:panel-from-right 0.4s ease-out 0.2s both;
+}
+
+/* ── Wordmark (in left panel) ── */
+.wordmark{
+  position:absolute;
+  left:19px;top:37px;
+  width:58px;height:16px;
+  z-index:10;
+  opacity:0;
+  animation:fade-in 0.3s ease-out 0.7s both;
+}
+.wordmark img{width:58px;height:16px;object-fit:contain;display:block;}
+
+/* ── Product image (gap between panels, bleeds top/bottom) ── */
+.product-outer{
+  position:absolute;
+  left:84px;top:-13px;
+  width:106.62px;height:106.62px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:visible;
+  z-index:20;
+  opacity:0;
+  animation:prod-in 0.5s cubic-bezier(0.34,1.1,0.64,1) 0.4s both;
+}
+.product-outer img{
+  width:106.62px;height:106.62px;
+  object-fit:contain;display:block;
+  flex-shrink:0;
+}
+
+/* ── Headline block ── */
+.headline-block{
+  position:absolute;
+  left:206px;top:20px;
+  width:317px;height:49px;
+  z-index:10;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.hl{
+  font-family:'DM Serif Display',serif;
+  font-size:24px;color:#000;
+  line-height:1.1;display:block;white-space:nowrap;
+  opacity:0;
+  clip-path:inset(0 100% 0 0);
+  animation:clip-reveal 0.5s ease-out 0.9s both;
+}
+.sub{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;color:#000;
+  line-height:16px;display:block;
+  opacity:0;
+  animation:fade-in 0.4s ease-out 1.3s both;
+}
+
+/* ── CTA ── */
+.cta{
+  position:absolute;
+  left:534px;top:36px;
+  width:84px;height:18px;
+  background:#3C422E;
+  display:flex;align-items:center;justify-content:center;
+  padding:4px 8px;
+  z-index:10;
+  opacity:0;
+  animation:scale-in 0.4s cubic-bezier(0.34,1.4,0.64,1) 2.1s both;
+}
+.cta span{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:8px;color:#fff;white-space:nowrap;
+}
+
+/* ── Mayo illustration ── */
+.mayo-illust{
+  position:absolute;
+  left:635px;top:13px;
+  width:93px;height:63px;
+  z-index:10;
+  opacity:0;
+  animation:fade-in 0.4s ease-out 1.7s both;
+}
+.mayo-illust img{width:93px;height:63px;object-fit:contain;display:block;}
+</style>
+</head>
+<body>
+<div class="ad" onclick="window.open('%%CLICK_URL_UNESC%%')">
+
+  <!-- Left cream panel -->
+  <div class="panel-l"></div>
+
+  <!-- Right cream panel -->
+  <div class="panel-r"></div>
+
+  <!-- Wordmark -->
+  <div class="wordmark">
+    <img src="/marly-work/graza/media/logo-wordmark-graza.png" alt="Graza">
+  </div>
+
+  <!-- Product image (bleeds top/bottom, sits in gap) -->
+  <div class="product-outer">
+    <img src="/marly-work/graza/media/img-graza.webp" alt="Graza Mayo">
+  </div>
+
+  <!-- Headline + subhead -->
+  <div class="headline-block">
+    <span class="hl">Mayo, but make it olive oil.</span>
+    <span class="sub">Made with 100% oil from olives. Richer and creamier.</span>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <span>Try Graza Mayo</span>
+  </div>
+
+  <!-- Mayo illustration -->
+  <div class="mayo-illust">
+    <img src="/marly-work/graza/media/graza_orignal_mayo_illustration.svg" alt="">
+  </div>
+
+</div>
+</body>
+</html>

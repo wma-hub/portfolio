@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=300,initial-scale=1">
+<title>Tumblerware — Father's Day — 300×250</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{width:300px;height:250px;overflow:hidden;background:transparent;}
+#ad{position:relative;width:300px;height:250px;background:#EBEBEB;border:1px solid #cccccc;overflow:hidden;cursor:pointer;}
+#logo{position:absolute;left:20px;top:16px;width:80px;height:22px;z-index:20;}
+#logo img{display:block;width:80px;height:22px;object-fit:contain;}
+/* Carousel clip — 341px wide, clipped by ad overflow:hidden */
+#car-clip{position:absolute;left:20px;top:58px;width:341px;height:110px;overflow:hidden;}
+#car-track{position:absolute;top:0;left:0;height:110px;display:flex;gap:7px;will-change:transform;}
+.img-slot{width:109px;height:110px;flex-shrink:0;overflow:hidden;position:relative;}
+.img-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+/* Details zone */
+#details{position:absolute;left:20px;top:178px;width:260px;height:72px;}
+.det{position:absolute;top:0;left:0;width:260px;opacity:0;transition:opacity 0.4s ease-in-out;pointer-events:none;}
+.det.active{opacity:1;}
+/* F4 CTA — self-contained SVG button (orange bg + white text) */
+#f4-cta{position:absolute;left:195px;top:12px;opacity:0;transition:opacity 0.4s ease-in-out;z-index:10;}
+</style>
+</head>
+<body>
+<div id="ad" onclick="window.open('%%CLICK_URL_ESC%%','_blank')">
+
+  <div id="logo">
+    <img src="/marly-work/tumblerware/media/svg/logo.png" alt="Tumblerware" width="80" height="22">
+  </div>
+
+  <!-- 3 slots — no seamless clone needed (finite 2-cycle loop) -->
+  <div id="car-clip">
+    <div id="car-track" style="width:349px;">
+      <div class="img-slot" id="s0" style="opacity:1;">
+        <img src="/marly-work/tumblerware/media/images/gift-bundle.jpg" alt="Gift Bundle" width="109" height="110">
+      </div>
+      <div class="img-slot" id="s1" style="opacity:0.15;">
+        <img src="/marly-work/tumblerware/media/images/starter-set.jpg" alt="Starter Set" width="109" height="110">
+      </div>
+      <div class="img-slot" id="s2" style="opacity:0.15;">
+        <img src="/marly-work/tumblerware/media/images/original-tumbler.jpg" alt="Original Tumbler" width="109" height="110">
+      </div>
+    </div>
+  </div>
+
+  <div id="details">
+    <!-- F1: Gift Bundle -->
+    <div class="det active" id="det0">
+      <img src="/marly-work/tumblerware/media/svg/rating-stars.png" width="48" height="8" alt="" style="display:block;">
+      <img src="/marly-work/tumblerware/media/svg/type/b-f1-name.svg" width="174" height="12" alt="" style="display:block;margin-top:4px;">
+      <img src="/marly-work/tumblerware/media/svg/type/b-f1-prices.svg" width="88" height="19" alt="" style="display:block;margin-top:4px;">
+    </div>
+    <!-- F2: Starter Set -->
+    <div class="det" id="det1">
+      <img src="/marly-work/tumblerware/media/svg/rating-stars.png" width="48" height="8" alt="" style="display:block;">
+      <img src="/marly-work/tumblerware/media/svg/type/b-f2-name.svg" width="100" height="12" alt="" style="display:block;margin-top:4px;">
+      <img src="/marly-work/tumblerware/media/svg/type/b-f2-prices.svg" width="260" height="19" alt="" style="display:block;margin-top:4px;">
+    </div>
+    <!-- F3: Original Tumbler -->
+    <div class="det" id="det2">
+      <img src="/marly-work/tumblerware/media/svg/rating-stars.png" width="48" height="8" alt="" style="display:block;">
+      <img src="/marly-work/tumblerware/media/svg/type/b-f3-name.svg" width="181" height="12" alt="" style="display:block;margin-top:4px;">
+      <img src="/marly-work/tumblerware/media/svg/type/b-f3-price.svg" width="34" height="14" alt="" style="display:block;margin-top:4px;">
+    </div>
+    <!-- F4: Sale endframe details -->
+    <div class="det" id="det3">
+      <img src="/marly-work/tumblerware/media/svg/type/b-f4-details.svg" width="260" height="43" alt="" style="display:block;margin-top:9px;">
+    </div>
+  </div>
+
+  <!-- F4 CTA: SVG includes orange rect + white SHOP NOW text -->
+  <div id="f4-cta">
+    <img src="/marly-work/tumblerware/media/svg/type/b-f4-cta.svg" width="85" height="29" alt="Shop Now" style="display:block;">
+  </div>
+
+</div>
+<script>
+(function(){
+  var track  = document.getElementById('car-track');
+  var slots  = [
+    document.getElementById('s0'),
+    document.getElementById('s1'),
+    document.getElementById('s2')
+  ];
+  var dets   = [
+    document.getElementById('det0'),
+    document.getElementById('det1'),
+    document.getElementById('det2'),
+    document.getElementById('det3')
+  ];
+  var f4cta  = document.getElementById('f4-cta');
+  var SLOT_W = 116; // 109px slot + 7px gap
+  var HOLD   = 2500, TRANS = 600, DTRANS = 300;
+  var cur    = 0, tick = 0, timer;
+
+  // Initial track position (no transition)
+  track.style.transition = 'none';
+  track.style.transform  = 'translateX(0)';
+
+  timer = setInterval(function() {
+    tick++;
+    var prev = cur;
+    var next = tick % 4;
+
+    // Track slide — special case: F4(3)→F1(0) snaps invisibly
+    if (prev === 3 && next === 0) {
+      track.style.transition = 'none';
+      track.style.transform  = 'translateX(0)';
+      void track.offsetWidth; // force reflow before re-enabling transitions
+    } else if (next < 3) {
+      track.style.transition = 'transform ' + (TRANS / 1000) + 's ease-in-out';
+      track.style.transform  = 'translateX(' + (-next * SLOT_W) + 'px)';
+    }
+    // F4 (next===3): track stays at -232px, no movement
+
+    // Slot opacities — F4 reveals all; others highlight only the featured slot
+    slots.forEach(function(sl, i) {
+      sl.style.opacity = (next === 3 || i === next) ? '1' : '0.15';
+    });
+
+    // Details crossfade
+    dets[prev].classList.remove('active');
+    setTimeout(function() {
+      dets[next].classList.add('active');
+      f4cta.style.opacity = (next === 3) ? '1' : '0';
+    }, DTRANS);
+
+    cur = next;
+    if (tick >= 7) clearInterval(timer); // 2 full F1→F4 cycles (7 advances), hold on F4
+  }, HOLD + TRANS);
+})();
+</script>
+</body>
+</html>

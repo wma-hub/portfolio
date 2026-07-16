@@ -611,47 +611,46 @@ var ROTATE_MS = [3000, 5000];
    defaulted to Promo below — swap if Product-Focused is the intended one.
    Levi's has 4 variants (Meet Here, I Know You Know, Reclaim, Wear Who You Are)
    sharing one review link; defaulted to Meet Here below — swap if another is intended. */
-/* URLs manually derived from marly.cc/data/case-studies.js — if marly.cc
-   review paths change (campaign slug rename, set subfolder added, etc.),
-   update the matching entries here too. */
+/* Local snapshots of shipped marly.cc spec work — frozen copies,
+   source of truth for revisions remains the marly repo. */
 var AD_SLOTS = [
   {
     id: 'slot-728x90',  nativeW: 728, nativeH: 90,  displayW: 447,
     units: [
-      { src: 'https://www.marly.cc/review/levis/pride-2026/units/set-2-meet-you-here/728x90.html', label: "Levi's" },
-      { src: 'https://www.marly.cc/review/magic-spoon/summer-sampler-drop/units/set1-728x90.html', label: 'Magic Spoon' },
-      { src: 'https://www.marly.cc/review/ritual/your-body-your-ritual/units/728x90.html', label: 'Ritual' },
-      { src: 'https://www.marly.cc/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_728x90.html', label: 'Graza' },
-      { src: 'https://www.marly.cc/review/byredo/mojave-ghost-discovery/units/728x90.html', label: 'Byredo' },
-      { src: 'https://www.marly.cc/review/ghia/summer-spritz-series/units/set1-728x90.html', label: 'Ghia' },
-      { src: 'https://www.marly.cc/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_728x90.html', label: 'gorjana' },
-      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/728x90.html', label: 'Tumblerware' }
+      { src: '/marly-work/levis/unit-a.html',      label: "Levi's" },
+      { src: '/marly-work/magic-spoon/unit-a.html', label: 'Magic Spoon' },
+      { src: '/marly-work/ritual/unit-a.html',      label: 'Ritual' },
+      { src: '/marly-work/graza/unit-a.html',       label: 'Graza' },
+      { src: '/marly-work/byredo/unit-a.html',      label: 'Byredo' },
+      { src: '/marly-work/ghia/unit-a.html',        label: 'Ghia' },
+      { src: '/marly-work/gorjana/unit-a.html',     label: 'gorjana' },
+      { src: '/marly-work/tumblerware/unit-a.html', label: 'Tumblerware' }
     ]
   },
   {
     id: 'slot-300x250', nativeW: 300, nativeH: 250, displayW: 316,
     units: [
-      { src: 'https://www.marly.cc/review/levis/pride-2026/units/set-2-meet-you-here/300x250.html', label: "Levi's" },
-      { src: 'https://www.marly.cc/review/magic-spoon/summer-sampler-drop/units/set1-300x250.html', label: 'Magic Spoon' },
-      { src: 'https://www.marly.cc/review/ritual/your-body-your-ritual/units/300x250.html', label: 'Ritual' },
-      { src: 'https://www.marly.cc/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_300x250.html', label: 'Graza' },
-      { src: 'https://www.marly.cc/review/byredo/mojave-ghost-discovery/units/300x250.html', label: 'Byredo' },
-      { src: 'https://www.marly.cc/review/ghia/summer-spritz-series/units/set1-300x250.html', label: 'Ghia' },
-      { src: 'https://www.marly.cc/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_300x250.html', label: 'gorjana' },
-      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/300x250.html', label: 'Tumblerware' }
+      { src: '/marly-work/levis/unit-b.html',      label: "Levi's" },
+      { src: '/marly-work/magic-spoon/unit-b.html', label: 'Magic Spoon' },
+      { src: '/marly-work/ritual/unit-b.html',      label: 'Ritual' },
+      { src: '/marly-work/graza/unit-b.html',       label: 'Graza' },
+      { src: '/marly-work/byredo/unit-b.html',      label: 'Byredo' },
+      { src: '/marly-work/ghia/unit-b.html',        label: 'Ghia' },
+      { src: '/marly-work/gorjana/unit-b.html',     label: 'gorjana' },
+      { src: '/marly-work/tumblerware/unit-b.html', label: 'Tumblerware' }
     ]
   },
   {
     id: 'slot-160x600', nativeW: 160, nativeH: 600, displayW: 98,
     units: [
-      { src: 'https://www.marly.cc/review/levis/pride-2026/units/set-2-meet-you-here/160x600.html', label: "Levi's" },
-      { src: 'https://www.marly.cc/review/magic-spoon/summer-sampler-drop/units/set1-160x600.html', label: 'Magic Spoon' },
-      { src: 'https://www.marly.cc/review/ritual/your-body-your-ritual/units/160x600.html', label: 'Ritual' },
-      { src: 'https://www.marly.cc/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_160x600.html', label: 'Graza' },
-      { src: 'https://www.marly.cc/review/byredo/mojave-ghost-discovery/units/160x600.html', label: 'Byredo' },
-      { src: 'https://www.marly.cc/review/ghia/summer-spritz-series/units/set1-160x600.html', label: 'Ghia' },
-      { src: 'https://www.marly.cc/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_160x600.html', label: 'gorjana' },
-      { src: 'https://www.marly.cc/review/tumblerware/fathers-day/ads/160x600.html', label: 'Tumblerware' }
+      { src: '/marly-work/levis/unit-c.html',      label: "Levi's" },
+      { src: '/marly-work/magic-spoon/unit-c.html', label: 'Magic Spoon' },
+      { src: '/marly-work/ritual/unit-c.html',      label: 'Ritual' },
+      { src: '/marly-work/graza/unit-c.html',       label: 'Graza' },
+      { src: '/marly-work/byredo/unit-c.html',      label: 'Byredo' },
+      { src: '/marly-work/ghia/unit-c.html',        label: 'Ghia' },
+      { src: '/marly-work/gorjana/unit-c.html',     label: 'gorjana' },
+      { src: '/marly-work/tumblerware/unit-c.html', label: 'Tumblerware' }
     ]
   }
 ];

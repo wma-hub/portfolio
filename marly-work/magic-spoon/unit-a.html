@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Magic Spoon — Summer Sampler Drop — Set 1 — 728×90</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{margin:0}
+a{color:inherit;text-decoration:none}
+
+.ad{
+  position:relative;
+  width:728px;height:90px;
+  overflow:hidden;
+  background:#c0f0fd;
+  cursor:pointer;display:block;
+}
+
+/* Decorative circles */
+.c{position:absolute;border-radius:50%;pointer-events:none;z-index:1;}
+
+/* Logo wrapper */
+.logo-wrap{
+  position:absolute;
+  left:24px;top:25px;
+  width:90px;height:40px;
+  z-index:5;
+}
+.logo-wrap svg{display:block;overflow:visible;}
+
+/* Headline */
+.headline{
+  position:absolute;
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  font-family:'Poppins',Arial,sans-serif;
+  font-size:24px;font-weight:600;
+  color:#ff6b6b;
+  white-space:nowrap;
+  z-index:2;
+}
+
+/* CTA */
+.cta-btn{
+  position:absolute;
+  left:588px;top:50%;transform:translateY(-50%);
+  width:97px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  background:#fff;
+  border-radius:100px;
+  font-family:'Poppins',Arial,sans-serif;
+  font-size:16px;font-weight:700;
+  color:#1b1464;
+  white-space:nowrap;
+  z-index:4;
+}
+
+/* Border */
+.boundary{position:absolute;inset:0;border:1px solid rgba(255,255,255,0.20);pointer-events:none;z-index:6;}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;}
+}
+</style>
+</head>
+<body>
+<a class="ad" href="https://magicspoon.com/summer" target="_blank">
+
+  <!-- Decorative circles -->
+  <div class="c" style="width:52px;height:52px;left:310px;top:-40px;background:#FFD700;"></div>
+  <div class="c" style="width:30px;height:30px;left:475px;top:48px;background:#4CAF50;"></div>
+  <div class="c" style="width:22px;height:22px;left:500px;top:-19px;background:#4A90D9;"></div>
+  <div class="c" style="width:16px;height:16px;left:370px;top:49px;background:rgba(255,255,255,0.8);"></div>
+  <div class="c" style="width:56px;height:56px;left:-32px;top:63px;background:#1B1464;"></div>
+  <div class="c" style="width:56px;height:56px;left:707px;top:-31px;background:#1B1464;"></div>
+
+  <!-- Logo (Magic Spoon wordmark, navy) -->
+  <div class="logo-wrap">
+    <img src="/marly-work/magic-spoon/media/logo-magic-spoon.svg" width="90" height="40" alt="Magic Spoon">
+  </div>
+
+  <!-- Headlines F1 / F2 / F3 -->
+  <div class="headline">CEREAL THAT DOESN'T SUCK</div>
+  <div class="headline">High Protein. Zero Sugar.</div>
+  <div class="headline">Try all 4 summer flavors.</div>
+
+  <!-- CTA -->
+  <div class="cta-btn">TRY IT</div>
+
+  <!-- Border -->
+  <div class="boundary"></div>
+
+</a>
+<script>
+(function(){
+  if(typeof gsap==='undefined') return;
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+
+  /* — Circle pop-in + float — */
+  var circles=Array.from(document.querySelectorAll('.c'));
+  var sorted=circles.slice().sort(function(a,b){return parseFloat(a.style.width)-parseFloat(b.style.width);});
+  gsap.set(sorted,{scale:0,opacity:0,transformOrigin:'center center'});
+  gsap.to(sorted,{
+    scale:1,opacity:1,duration:0.5,ease:'back.out(1.7)',
+    stagger:0.1,delay:0.2,
+    onComplete:function(){
+      sorted.forEach(function(el,i){
+        var sz=parseFloat(el.style.width);
+        var dy=sz<25?5:sz<50?4:3;
+        var dx=sz<25?2:1;
+        var dur=2.5+Math.random()*1.5;
+        gsap.to(el,{y:dy,duration:dur,ease:'sine.inOut',repeat:-1,yoyo:true,delay:i*0.15});
+        gsap.to(el,{x:dx,duration:dur*0.7,ease:'sine.inOut',repeat:-1,yoyo:true,delay:i*0.1});
+      });
+    }
+  });
+
+  /* — Frame sequence F1 → F2 → F3 — */
+  var hl=Array.from(document.querySelectorAll('.headline'));
+  gsap.set([hl,'.cta-btn'],{opacity:0});
+  var tl=gsap.timeline({delay:0.3});
+  tl.to('.cta-btn',{opacity:1,duration:0.5,ease:'power2.out'})
+    .to(hl[0],{opacity:1,duration:0.5,ease:'power2.out'},'<')
+    .to(hl[0],{opacity:0,duration:0.3,ease:'power2.in'},'+=2.0')
+    .to(hl[1],{opacity:1,duration:0.5,ease:'power2.out'},'<+=0.1')
+    .to(hl[1],{opacity:0,duration:0.3,ease:'power2.in'},'+=2.0')
+    .to(hl[2],{opacity:1,duration:0.5,ease:'power2.out'},'<+=0.1');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Graza — Mayo Launch — 160×600</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{width:160px;height:600px;overflow:hidden;}
+
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes fade-in-tile{from{opacity:0}to{opacity:0.12}}
+@keyframes slide-up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scale-in{from{opacity:0;transform:scale(0.82)}to{opacity:1;transform:scale(1)}}
+@keyframes prod-in{from{opacity:0;transform:rotate(-2deg) scale(0.93)}to{opacity:1;transform:rotate(0deg) scale(1)}}
+@keyframes cta-up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+.ad{
+  position:relative;width:160px;height:600px;
+  background:#BFE512;
+  overflow:hidden;cursor:pointer;
+}
+
+/* ── Background tile grid (18 tiles, 3 cols × 6 rows, NO rotation) ── */
+.bt{
+  position:absolute;
+  width:115px;height:115px;
+  filter:blur(1.5px);
+  opacity:0;
+  animation:fade-in-tile 0.8s ease-out 0s both;
+}
+.bt img{width:115px;height:115px;object-fit:cover;display:block;}
+
+/* ── Cream content card ── */
+.card{
+  position:absolute;
+  left:12px;top:55px;
+  width:136px;height:449px;
+  background:#F2E9D8;
+  border-radius:2px;
+  opacity:0;
+  animation:slide-up 0.5s cubic-bezier(0.34,1.1,0.64,1) 0.2s both;
+}
+
+/* ── Wordmark ── */
+.wordmark{
+  position:absolute;
+  left:37px;top:89px;
+  width:87px;height:24px;
+  z-index:10;
+  opacity:0;
+  animation:fade-in 0.4s ease-out 0.7s both;
+}
+.wordmark img{width:87px;height:24px;object-fit:contain;display:block;}
+
+/* ── Headline ── */
+.hl-big{
+  position:absolute;
+  left:25px;top:143px;
+  width:108px;
+  font-family:'DM Serif Display',serif;
+  font-size:28px;color:#000;
+  line-height:1.1;text-align:center;
+  z-index:10;
+  opacity:0;
+  animation:scale-in 0.6s cubic-bezier(0.34,1.2,0.64,1) 1.0s both;
+}
+.hl-small{
+  position:absolute;
+  left:25px;top:177px;
+  width:108px;
+  font-family:'DM Serif Display',serif;
+  font-size:16px;color:#000;
+  line-height:1.2;text-align:center;
+  z-index:10;
+  opacity:0;
+  animation:fade-in 0.4s ease-out 1.3s both;
+}
+
+/* ── Mayo illustration (top area, bleeds right) ── */
+.mayo-illust{
+  position:absolute;
+  left:79px;top:27px;
+  width:82px;height:56px;
+  z-index:30;
+  opacity:0;
+  animation:fade-in 0.4s ease-out 1.6s both;
+}
+.mayo-illust img{width:82px;height:56px;object-fit:contain;display:block;}
+
+/* ── Hero product image (bleeds both sides) ── */
+.product{
+  position:absolute;
+  left:-27px;top:212px;
+  width:211px;height:211px;
+  z-index:20;
+  opacity:0;
+  animation:prod-in 0.7s cubic-bezier(0.34,1.1,0.64,1) 1.8s both;
+}
+.product img{width:211px;height:211px;object-fit:contain;display:block;}
+
+/* ── Body copy ── */
+.body-line1{
+  position:absolute;
+  left:31px;top:432px;
+  width:96px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:8px;color:#000;
+  line-height:16px;text-align:center;
+  z-index:10;
+  opacity:0;
+  animation:fade-in 0.4s ease-out 2.4s both;
+}
+.body-line2{
+  position:absolute;
+  left:31px;top:480px;
+  width:96px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:8px;color:#000;
+  line-height:16px;text-align:center;
+  z-index:10;
+  opacity:0;
+  animation:fade-in 0.4s ease-out 2.7s both;
+}
+
+/* ── CTA ── */
+.cta{
+  position:absolute;
+  left:12px;top:504px;
+  width:136px;height:47px;
+  background:#3C422E;
+  display:flex;align-items:center;justify-content:center;
+  padding:8px 16px;
+  border-radius:2px;
+  z-index:10;
+  opacity:0;
+  animation:cta-up 0.5s cubic-bezier(0.34,1.1,0.64,1) 2.9s both;
+}
+.cta span{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;color:#fff;
+  text-align:center;white-space:nowrap;
+}
+</style>
+</head>
+<body>
+<div class="ad" onclick="window.open('%%CLICK_URL_UNESC%%')">
+
+  <!-- Background tile grid: 3 cols (left:-48, 79, 206) × 6 rows (top:-60,60,180,295,415,535) -->
+  <!-- No rotation per Figma spec -->
+  <div class="bt" style="left:-48px;top:-60px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  <div class="bt" style="left:79px;top:-60px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  <div class="bt" style="left:206px;top:-60px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+
+  <div class="bt" style="left:-48px;top:60px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  <div class="bt" style="left:79px;top:60px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  <div class="bt" style="left:206px;top:60px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+
+  <div class="bt" style="left:-48px;top:180px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  <div class="bt" style="left:79px;top:180px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  <div class="bt" style="left:206px;top:180px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+
+  <div class="bt" style="left:-48px;top:295px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  <div class="bt" style="left:79px;top:295px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  <div class="bt" style="left:206px;top:295px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+
+  <div class="bt" style="left:-48px;top:415px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  <div class="bt" style="left:79px;top:415px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  <div class="bt" style="left:206px;top:415px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+
+  <div class="bt" style="left:-48px;top:535px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  <div class="bt" style="left:79px;top:535px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+  <div class="bt" style="left:206px;top:535px;"><img src="/marly-work/graza/media/img-graza.webp" alt=""></div>
+
+  <!-- Cream card -->
+  <div class="card"></div>
+
+  <!-- Wordmark -->
+  <div class="wordmark">
+    <img src="/marly-work/graza/media/logo-wordmark-graza.png" alt="Graza">
+  </div>
+
+  <!-- Headline -->
+  <span class="hl-big">Mayo,</span>
+  <span class="hl-small">but make it<br>olive oil.</span>
+
+  <!-- Mayo illustration -->
+  <div class="mayo-illust">
+    <img src="/marly-work/graza/media/graza_orignal_mayo_illustration.svg" alt="">
+  </div>
+
+  <!-- Hero product image -->
+  <div class="product">
+    <img src="/marly-work/graza/media/img-graza.webp" alt="Graza Mayo">
+  </div>
+
+  <!-- Body copy -->
+  <span class="body-line1">Made with 100%<br>oil from olives.</span>
+  <span class="body-line2">Richer and creamier.</span>
+
+  <!-- CTA -->
+  <div class="cta">
+    <span>Try Graza Mayo</span>
+  </div>
+
+</div>
+</body>
+</html>
