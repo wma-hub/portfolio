@@ -53,6 +53,7 @@ ul, ol { list-style: none; }
   /* ---- Palette — INVERTED from V2. Light theme. ---- */
   --color-ink:            #1A1714;
   --color-ink-muted:      rgba(26, 23, 20, 0.75);
+  --color-ink-subtle:     rgba(26, 23, 20, 0.50);
   --color-accent:         #1B3BD4;
   --color-surface:        #FFFFFF;
   --color-rule:           #E7E7E7;
@@ -69,10 +70,7 @@ ul, ol { list-style: none; }
   --border-card:    var(--color-rule);
   --border-divider: var(--color-rule);
 
-  /* NOT a V3 token — V2 had three text tiers, V3's palette has two.
-     Either add a third to Figma or collapse .text-muted usages
-     into --text-secondary. Provisional value, flagged for decision. */
-  --text-muted:     rgba(26, 23, 20, 0.50);
+  --text-muted:       var(--color-ink-subtle);
 
   /* Retired in V3: --bg-hero-from, --bg-hero-to, --border-hero,
      --gradient-hero. The V3 hero is ink type on background, no
