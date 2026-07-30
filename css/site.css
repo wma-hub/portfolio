@@ -276,12 +276,6 @@ ul, ol { list-style: none; }
   height: auto;
   flex-shrink: 0;
 }
-.hero-portrait--placeholder {
-  height: 256px;
-  border-radius: 50%;
-  background: var(--color-background-acc);
-  border: 1px solid var(--color-rule);
-}
 
 /* ------------------------------------------------------------
    WORK — two labelled rows, each with a trailing hairline
@@ -501,6 +495,89 @@ a.card:hover .card-title {
 @media (max-width: 700px) {
   .brand-logos { flex-wrap: wrap; justify-content: flex-start; gap: var(--space-24); }
   .brand-logo-cell { flex: 0 0 calc(33.333% - var(--space-16)); }
+}
+
+
+/* ------------------------------------------------------------
+   PLACEHOLDER SYSTEM — every un-exported asset, site-wide.
+   Merge gate: grep -rc 'class="[^"]*ph' --include="*.html" .
+   must return 0 before v3-restyle merges to main.
+   ------------------------------------------------------------ */
+.ph {
+  display: block;
+  width: 100%;
+  position: relative;
+  background: var(--color-background-acc);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-sm);
+}
+.ph::after {
+  content: attr(data-asset);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--type-micro);
+  color: var(--color-ink-subtle);
+  letter-spacing: var(--tracking-snug);
+  text-align: center;
+  padding: var(--space-8);
+}
+.ph--circle { border-radius: 50%; }
+.hero-portrait.ph { height: 256px; }
+
+/* ------------------------------------------------------------
+   GE TERMINAL — numbered sections
+   ------------------------------------------------------------ */
+.ge-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-120);
+}
+.ge-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-40);
+}
+.ge-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  max-width: 1032px;
+}
+.ge-num { color: var(--color-ink-muted); }
+.ge-title { color: var(--color-ink); }
+.ge-body { color: var(--color-ink-muted); max-width: 720px; }
+.ge-body + .ge-body { margin-top: var(--space-16); }
+
+.ge-quote {
+  margin: 0;
+  color: var(--color-ink);
+  max-width: 720px;
+}
+.ge-callout {
+  margin: 0;
+  padding: var(--space-32);
+  border-left: 2px solid var(--color-accent);
+  background: var(--color-background-acc);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink);
+}
+.ge-caption { color: var(--color-ink-muted); }
+
+.ge-split {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-80);
+}
+.ge-split-copy { flex: 1 1 409px; max-width: 409px; }
+.ge-split-visual { flex: 1 1 591px; max-width: 591px; }
+
+@media (max-width: 900px) {
+  .ge-sections { gap: var(--space-80); }
+  .ge-split { flex-direction: column; gap: var(--space-40); }
+  .ge-split-copy, .ge-split-visual { max-width: none; flex: 1 1 auto; width: 100%; }
 }
 
 /* ---- CASE STUDY SHARED COMPONENTS ---- */
