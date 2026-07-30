@@ -6,153 +6,6 @@
   <title>MARLY Creative Concepts — Wilson Ma</title>
   <link rel="preload" href="/assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/site.css">
-  <style>
-    /* ── Marly hero — see site.css .cs-hero-* ── */
-
-    /* ── White body ───────────────────────────────────────── */
-    .ml-body-section {
-      background: #fff;
-      padding: 80px max(calc((100% - 1080px) / 2), clamp(24px, 5vw, 60px)) 120px;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .ml-section { padding: 40px 0; display: flex; flex-direction: column; gap: 40px; }
-    .ml-section-divider { width: 80px; height: 2px; background: rgba(155,192,228,0.5); }
-    .ml-full-divider { width: 100%; height: 2px; background: rgba(155,192,228,0.5); margin: 0; }
-    .ml-section-heading {
-      font-size: clamp(24px, 3.33vw, 48px);
-      font-weight: 600;
-      background: linear-gradient(111.21deg, #001d93 33.876%, #476bfe 113.48%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .ml-text { font-size: var(--text-18); color: #203f5b; line-height: 1.7; }
-    .ml-text p + p { margin-top: 1em; }
-    .ml-text strong { font-weight: 700; }
-    .ml-text em { font-style: italic; }
-
-    /* Stat callout */
-    .ml-stat-block { display: flex; gap: 120px; align-items: center; }
-    .ml-stat-text { flex: 1 1 670px; min-width: 0; max-width: 670px; }
-    .ml-stat-callout { flex: 1 1 290px; min-width: 0; max-width: 290px; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 182px; padding: 0; text-align: center; }
-    .ml-stat-num {
-      font-size: clamp(32px, 3.33vw, 48px); font-weight: 700;
-      background: linear-gradient(94.13deg, #001d93 33.876%, #476bfe 113.48%);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .ml-stat-label {
-      font-size: var(--text-18); font-weight: 600;
-      background: linear-gradient(95.68deg, #001d93 33.876%, #476bfe 113.48%);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-      text-align: center; line-height: 1.4;
-    }
-
-    /* ── Pipeline diagram ─────────────────────────────────── */
-    .pipeline-diagram { background: #fff; border: 1px solid #d9d9d9; border-radius: 6px; padding: 24px; overflow-x: auto; max-width: 1080px; margin: 0 auto; }
-    .pipeline-inner { display: flex; gap: 8px; align-items: flex-start; min-width: 780px; }
-    .pipeline-phase { flex: 0 0 300px; display: flex; flex-direction: column; gap: 24px; }
-    .pipeline-phase-box-frame { width: 100%; }
-    .pipeline-phase-img { width: 100%; height: auto; display: block; }
-    .pipeline-phase-label { font-family: 'Space Mono', monospace; font-size: 16px; font-weight: 700; letter-spacing: 1.28px; color: #203f5b; line-height: 1.4; }
-    .pipeline-phase-body { font-size: 16px; color: #203f5b; line-height: 1.5; }
-    .pipeline-chips { display: flex; gap: 8px; align-items: center; flex-wrap: nowrap; }
-    .pipeline-chip { background: #f4f5f7; padding: 8px 14px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 12px; color: #333; white-space: nowrap; }
-    .pipeline-chip-arrow { font-family: 'Space Mono', monospace; font-size: 13px; color: #9ca3af; }
-    .pipeline-connector { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 36px 0 0; gap: 8px; }
-    .pipeline-connector-label { font-size: 10px; color: #6b7280; white-space: nowrap; }
-    .pipeline-gate { display: flex; align-items: center; gap: 8px; }
-    .pipeline-gate-arrow { font-family: 'Space Mono', monospace; font-size: 18px; color: #9ca3af; }
-    .pipeline-gate-pill { background: #476bfe; color: #fff; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; padding: 8px 18px; border-radius: 200px; white-space: nowrap; }
-    .pipeline-gate-pill.italic { font-style: italic; }
-    .pipeline-deploy { background: #001d93; color: #fff; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; padding: 10px 18px; border-radius: 6px; white-space: nowrap; }
-
-    /* ── Three-tier library ───────────────────────────────── */
-    .tier-row { display: flex; gap: 80px; align-items: center; padding: 40px 24px; }
-    .tier-copy { flex: 0 0 400px; font-size: var(--text-18); color: #203f5b; line-height: 1.7; }
-    .tier-copy p + p { margin-top: 1em; }
-    .tier-copy strong { font-weight: 700; }
-    .tier-visuals { flex: 1; min-width: 0; position: relative; }
-    .tier-img { width: 100%; border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.25); display: block; }
-    .tier-img-sm { width: 61%; margin-left: 21%; margin-bottom: 8px; border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.25); display: block; }
-    .tier-img-md { width: 62%; margin-left: 38%; border-radius: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.25); display: block; }
-    .campaign-stack { position: relative; width: 100%; }
-    .campaign-card { background: #fff; border: 2px solid #d9d9d9; border-radius: 6px; padding: 16px; box-shadow: 0 4px 7.5px rgba(0,0,0,0.25); }
-    .campaign-card img { width: 100%; display: block; mask-image: linear-gradient(to bottom, rgba(255,255,255,1) 40%, rgba(255,255,255,0) 90%); }
-
-    /* ── 02C Animation ────────────────────────────────────── */
-    .anim-layout { display: flex; gap: 80px; align-items: center; padding-left: 60px; }
-    .anim-screens { flex: 0 0 486px; width: 486px; display: flex; flex-direction: column; gap: 10px; }
-    .anim-screen { display: block; width: 100%; }
-    .anim-screen-magenta { border: 1px solid #ff00ee; }
-    .anim-copy { flex: 0 0 454px; font-size: var(--text-18); color: #203f5b; line-height: 1.7; }
-    .anim-copy p + p { margin-top: 1.25em; }
-
-    /* ── Brand Range ──────────────────────────────────────── */
-    .brand-logos { display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: clamp(12px, 2.2vw, 24px); padding: 24px 0; }
-    .brand-logo-cell { display: flex; align-items: center; justify-content: center; height: 72px; flex: 1 1 0; min-width: 0; max-width: 168px; }
-    .brand-logo-cell img { height: auto; max-width: 100%; object-fit: contain; display: block; }
-    .brand-range-para { font-size: var(--text-18); color: #203f5b; line-height: 1.7; padding: 0 0 40px; }
-    .ad-slots-col { display: flex; flex-direction: column; gap: 48px; align-items: center; }
-    .ad-slot-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-    .ad-slot-label { font-size: 10px; color: #888; text-align: center; }
-    .ad-slot { position: relative; overflow: hidden; background: #f5f5f5; flex-shrink: 0; }
-    .ad-slot iframe { position: absolute; top: 0; left: 0; border: 0; display: block; }
-
-    /* ── 04 Build Traced ──────────────────────────────────── */
-    .build-step { display: flex; gap: 80px; align-items: flex-start; padding: 40px 0; }
-    .build-step-copy { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 24px; }
-    .step-label { display: flex; flex-direction: column; gap: 6px; }
-    .step-num {
-      font-size: 10px; font-weight: 600; letter-spacing: 0.5px;
-      background: linear-gradient(117.53deg, #001d93 33.876%, #476bfe 113.48%);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .step-title {
-      font-size: clamp(18px, 1.67vw, 24px); font-weight: 600; font-style: italic;
-      background: linear-gradient(102.17deg, #001d93 33.876%, #476bfe 113.48%);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .build-step-screens { flex-shrink: 0; width: clamp(220px, 32vw, 460px); display: flex; flex-direction: column; gap: 12px; }
-    .build-step-screens img { width: 100%; display: block; }
-    img.export { background: none; padding: 0; border-radius: 0; box-shadow: none; display: block; max-width: 100%; }
-    .img-card { background: #fff; border-radius: 6px; padding: 24px; box-shadow: 0 4px 7.5px rgba(0,0,0,0.25); }
-    .img-card img { box-shadow: none; border-radius: 0; }
-    .img-faded { opacity: 0.5; }
-
-    /* ── 05 Scope ─────────────────────────────────────────── */
-    .scope-layout { display: flex; gap: 80px; align-items: flex-start; }
-    .scope-phase { flex: 1 0 0; display: flex; flex-direction: column; gap: 32px; }
-    .scope-phase-img { display: block; width: 100%; height: auto; }
-    .scope-bullets { list-style: disc; padding-left: 24px; display: flex; flex-direction: column; gap: 6px; }
-    .scope-bullets li { font-size: var(--text-18); color: #203f5b; line-height: 24px; letter-spacing: 1.44px; }
-
-    @media (max-width: 900px) {
-      .ml-hero-section { padding: 40px; }
-      .ml-stat-block { flex-direction: column; gap: 40px; }
-      .ml-stat-text { flex: none; width: 100%; }
-      .pipeline-inner { flex-wrap: nowrap; min-width: 760px; }
-      .tier-row { flex-direction: column; }
-      .tier-copy { flex: none; width: 100%; }
-      .anim-layout { flex-direction: column; padding-left: 0; }
-      .anim-screens { flex: none; width: 100%; }
-      .anim-copy { flex: none; width: 100%; }
-.brand-range-slots-wrap { overflow-x: auto; }
-      .build-step { flex-direction: column; }
-      .build-step-screens { width: 100%; max-width: 100%; }
-      .scope-layout { flex-direction: column; }
-      .ml-body-section { padding-left: clamp(16px, 5vw, 60px); padding-right: clamp(16px, 5vw, 60px); }
-      .ml-step3-cols { flex-direction: column; padding: 0 !important; gap: 40px !important; }
-      .ml-step3-cols > div { max-width: 100% !important; }
-      .scope-phase { flex: none; width: 100%; }
-    }
-    @media (max-width: 700px) {
-      .ml-hero-section { padding: 24px; }
-    }
-
-    /* ── Prev/Next nav — see site.css .cs-nav-* ── */
-  </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3KK0FQDE6"></script>
   <script>
@@ -165,409 +18,89 @@
 <body>
 <div class="page">
 
-  <!-- NAV -->
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-wordmark">wilson ma</a>
     <div class="nav-links">
-      <a href="/#work" class="ui-nav">projects</a>
+      <a href="/#work" class="ui-nav" aria-current="page">projects</a>
       <a href="/about" class="ui-nav">about</a>
     </div>
   </nav>
 
   <main>
 
-    <!-- HERO -->
-    <section class="cs-hero-outer">
-      <div class="cs-hero-feature fade-up">
-        <div class="cs-hero-copy">
-          <div class="cs-hero-text">
-            <p class="cs-hero-title">MARLY Creative Concepts</p>
-            <p class="cs-hero-subtitle">Animated HTML5 display, built like a system.</p>
-            <p class="cs-hero-body">Marly is the solo studio I founded and run: a Figma-to-production pipeline that turns brand design systems into animated ad sets. I'm the creative director, the pipeline architect, and the final QA gate, which is why the system below exists at all.</p>
-          </div>
-          <div class="cs-hero-cards">
-            <div class="cs-hero-card">
-              <p class="cs-hero-card-label">Output</p>
-              <p class="cs-hero-card-value">Animated HTML5 display</p>
-            </div>
-            <div class="cs-hero-card">
-              <p class="cs-hero-card-label">Stack</p>
-              <p class="cs-hero-card-value">Figma &#8594; Claude Opus &#8594; Claude Code &#8594; Vercel</p>
-            </div>
-          </div>
+    <section class="hero" aria-label="MARLY Creative Concepts">
+      <div class="hero-inner">
+        <div class="hero-copy hero-copy--narrow fade-up">
+          <h1 class="display-hero">MARLY Creative Concepts</h1>
+          <p class="heading-subhead hero-sub">Animated HTML5 display, built like a system.</p>
+          <p class="body-default hero-intro">Marly is the solo studio I founded and run: a Figma-to-production pipeline that turns brand design systems into animated ad sets. I&#8217;m the creative director, the pipeline architect, and the final QA gate, which is why the system below exists at all.</p>
         </div>
+        <div class="hero-portrait hero-portrait--placeholder fade-up" aria-hidden="true"></div>
       </div>
     </section>
 
-    <!-- WHITE BODY -->
-    <section class="ml-body-section">
+    <section class="cs-body" aria-label="Brand range">
+      <div class="cs-body-inner">
 
-      <!-- 01 — The Problem -->
-      <div class="ml-section fade-up" style="gap: 16px;">
-        <p class="ml-section-heading">01 &#8212; The Problem</p>
-        <div class="ml-text" style="max-width:780px;">
-          <p>Marly&#8217;s answer isn&#8217;t a faster version of the agency model &#8212; it&#8217;s removing the handoff entirely. I&#8217;m the only person between a Figma frame and a deployed ad, which is a constraint as much as a feature: every judgment call has to be encoded somewhere machine-readable, or the pipeline breaks the first time I&#8217;m not looking at it directly.</p>
+        <div class="fade-up">
+  <div class="brand-logos">
+            <div class="brand-logo-cell"><img src="/assets/marly/magic-spoon-logo.svg" alt="Magic Spoon" width="108" height="48"></div>
+            <div class="brand-logo-cell"><img src="/assets/marly/ritual-logo.png" alt="Ritual" width="114" height="36"></div>
+            <div class="brand-logo-cell"><img src="/assets/marly/graza-logo.png" alt="Graza" width="109" height="30"></div>
+            <div class="brand-logo-cell"><img src="/assets/marly/byredo-logo.svg" alt="Byredo" width="123" height="27"></div>
+            <div class="brand-logo-cell"><img src="/assets/marly/ghia-logo.svg" alt="Ghia" width="98" height="41"></div>
+            <div class="brand-logo-cell"><img src="/assets/marly/tumblerware-logo.png" alt="Tumblerware" width="131" height="36"></div>
+          </div>
         </div>
+
+        <div class="problem-row fade-up">
+          <div class="problem-copy">
+            <p class="body-default">Enterprise platforms like Celtra automate at scale but assume someone else is producing the creative. Agencies charge $350&#8211;1,500 per ad set and reset the file handoff with every campaign. DIY tools produce output that looks like Canva, because it is.</p>
+            <p class="body-default">D2C brands spend real money on type, palette, and a product with a shape worth showing, and still can&#8217;t get those choices honored downstream.</p>
+          </div>
+  <div class="ad-slots-col brand-range-slots-wrap" id="brand-range-slots">
+            <div class="ad-slot-wrap" data-slot="728x90">
+              <div class="ad-slot" style="width:447px;height:55px;" id="slot-728x90"></div>
+              <p class="ad-slot-label">728&#215;90</p>
+            </div>
+            <div style="display:flex;gap:40px;align-items:flex-start;">
+              <div class="ad-slot-wrap" data-slot="300x250">
+                <div class="ad-slot" style="width:316px;height:263px;" id="slot-300x250"></div>
+                <p class="ad-slot-label">300&#215;250</p>
+              </div>
+              <div class="ad-slot-wrap" data-slot="160x600">
+                <div class="ad-slot" style="width:98px;height:367px;" id="slot-160x600"></div>
+                <p class="ad-slot-label">160&#215;600</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-
-      <div class="ml-section-divider"></div>
-
-      <!-- 02A — The Pipeline -->
-      <div class="ml-section fade-up">
-        <p class="ml-section-heading">02A &#8212; The Pipeline</p>
-        <p class="ml-text">Every Marly build runs through a two-phase gate architecture:</p>
-        <p class="ml-text">The two-phase split (Opus plans, Code executes) wasn&#8217;t the first version. I&#8217;d been experimenting with ad production at scale on a single pass, but drift was inevitable and it got more egregious the more campaigns ran through it. I needed a way to guarantee 1:1 accuracy between what Figma specified and what shipped, which is what split planning from execution in the first place.</p>
-
-        <div class="pipeline-diagram" role="img" aria-label="Two-phase pipeline: Planning with Opus then Execution with Claude Code">
-          <div class="pipeline-inner">
-
-            <div class="pipeline-phase">
-              <div class="pipeline-phase-box-frame">
-                <img src="/assets/marly/02a-01.png" alt="Claude" class="export pipeline-phase-img">
-              </div>
-              <div style="display:flex;flex-direction:column;gap:12px;">
-                <div class="pipeline-phase-label">PHASE I&#8201;&#8212;&#8201;PLANNING &#183; OPUS</div>
-                <p class="pipeline-phase-body">Opus authors a <em>plan.md</em> before Code touches a file, and no build starts until the <em>&#167;7 coverage table</em> is fully resolved.</p>
-              </div>
-              <div class="pipeline-chips">
-                <span class="pipeline-chip">brief.md</span>
-                <span class="pipeline-chip-arrow">&#8594;</span>
-                <span class="pipeline-chip">plan.md &#167;1&#8211;&#167;8</span>
-              </div>
-            </div>
-
-            <div class="pipeline-connector" style="flex:0 0 124px;">
-              <span class="pipeline-connector-label">9 rows resolve</span>
-              <div class="pipeline-gate">
-                <span class="pipeline-gate-arrow">&#8594;</span>
-                <span class="pipeline-gate-pill">&#167;7 GATE</span>
-                <span class="pipeline-gate-arrow">&#8594;</span>
-              </div>
-            </div>
-
-            <div class="pipeline-phase">
-              <div class="pipeline-phase-box-frame">
-                <img src="/assets/marly/02a-02.png" alt="Claude Code" class="export pipeline-phase-img">
-              </div>
-              <div style="display:flex;flex-direction:column;gap:12px;">
-                <div class="pipeline-phase-label">PHASE II&#8201;&#8212;&#8201;EXECUTION &#183; CLAUDE CODE</div>
-                <p class="pipeline-phase-body">Claude Code generates HTML, deploys the review portal, and syncs the Notion workspace, while <strong>/verify-delivery</strong> runs a ground-truth file-system check before the review page goes live.</p>
-              </div>
-              <div class="pipeline-chips">
-                <span class="pipeline-chip">build</span>
-                <span class="pipeline-chip-arrow">&#8594;</span>
-                <span class="pipeline-chip">statics</span>
-                <span class="pipeline-chip-arrow">&#8594;</span>
-                <span class="pipeline-chip">review page</span>
-              </div>
-            </div>
-
-            <div class="pipeline-connector" style="flex:0 0 273px;">
-              <div class="pipeline-gate">
-                <span class="pipeline-gate-arrow">&#8594;</span>
-                <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
-                  <span class="pipeline-connector-label">9-check ground truth</span>
-                  <span class="pipeline-gate-pill italic">/VERIFY-DELIVERY</span>
-                </div>
-                <span class="pipeline-gate-arrow">&#8594;</span>
-                <div class="pipeline-deploy">DEPLOY</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="ml-section-divider"></div>
-
-      <!-- 02B — Three-Tier Library -->
-      <div class="ml-section fade-up">
-        <p class="ml-section-heading">02B &#8212; Three-Tier Library</p>
-        <p class="ml-text">The pipeline runs on a three-tier Figma library structure, where each layer compounds the one below it.</p>
-
-        <div class="tier-row">
-          <div class="tier-copy">
-            <p>The Foundation layer is <strong>client-agnostic.</strong></p>
-            <p>Ad size canvases, layout variants, component shells, animation specs, IAB spacing tokens: the skeleton every build inherits.</p>
-          </div>
-          <div class="tier-visuals">
-            <img width="552" class="export" src="/assets/marly/02b-01.png" alt="Foundation Figma library" style="display:block;">
-          </div>
-        </div>
-
-        <div class="tier-row" style="padding-top:60px;">
-          <div class="tier-copy">
-            <p>The second layer is <strong>per-client.</strong></p>
-            <p>Foundation components with brand tokens swapped in: color styles, type styles, logo assets, imagery rules. Every client file inherits Foundation updates, which is why the second campaign for any client is faster than the first.</p>
-          </div>
-          <div class="tier-visuals">
-            <img width="533" class="export" src="/assets/marly/02b-02.png" alt="Per-client Figma layer" style="display:block;">
-          </div>
-        </div>
-
-        <div class="tier-row" style="padding-top:24px;padding-left:0;padding-right:0;gap:45px;">
-          <div class="tier-copy">
-            <p>The third layer is <strong>per-campaign.</strong></p>
-            <p>A <strong>CLAUDE.md</strong> spec that translates the brief into machine-readable production instructions, authored by Opus before Code starts Stage 1.</p>
-          </div>
-          <div class="tier-visuals">
-            <img width="635" class="export" src="/assets/marly/02b-03.png" alt="Per-campaign CLAUDE.md spec" style="display:block;">
-          </div>
-        </div>
-      </div>
-
-      <div class="ml-section-divider"></div>
-
-      <!-- 02C — Animation + Surface Effects -->
-      <div class="ml-section fade-up">
-        <p class="ml-section-heading">02C &#8212; Animation + Surface Effects</p>
-        <p class="ml-text" style="margin-bottom:32px;">Animation intent is locked at the brief stage rather than discovered mid-build. Campaign type determines the sequence, and brand energy from the client <strong>CLAUDE.md</strong> selects which animation token executes inside it. Ghia&#8217;s retargeting campaign opens on a product that&#8217;s already in frame, a slow opacity fade, because retargeting assumes recognition, while Graza&#8217;s mayo launch leads with squeeze-bottle physics on the entrance, because a launch has to introduce the thing.</p>
-        <div class="anim-layout">
-          <div class="anim-screens">
-            <img width="559" src="/assets/marly/02c-01.png" alt="Animation and surface effects spec" class="export anim-screen">
-          </div>
-          <div class="anim-copy">
-            <p>Surface effects sit on top of animation as a separate compositional layer: scrims that keep text readable over imagery, feathered edges that blend product into background, ambient glows, shimmer sweeps.</p>
-            <p>Gorjana gets a warm gold shimmer because the product is brass, while Graza gets none at all, because nothing about a matte squeeze bottle on flat color wants atmosphere.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="ml-section-divider"></div>
-
-      <!-- 03 — Brand Range -->
-      <div class="ml-section fade-up">
-        <p class="ml-section-heading">03 &#8212; Brand Range</p>
-        <p class="ml-text">Every brand that comes through the pipeline gets the same ten stages and a different output. Ghia&#8217;s pastel restraint and Magic Spoon&#8217;s saturated maximalism run through identical infrastructure because the system encodes process, not aesthetic.</p>
-
-        <div class="brand-logos">
-          <div class="brand-logo-cell"><img src="/assets/marly/magic-spoon-logo.svg" alt="Magic Spoon" width="108" height="48"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/ritual-logo.png" alt="Ritual" width="114" height="36"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/graza-logo.png" alt="Graza" width="109" height="30"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/byredo-logo.svg" alt="Byredo" width="123" height="27"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/ghia-logo.svg" alt="Ghia" width="98" height="41"></div>
-          <div class="brand-logo-cell"><img src="/assets/marly/tumblerware-logo.png" alt="Tumblerware" width="131" height="36"></div>
-        </div>
-
-        <p class="brand-range-para">What changes per client lives entirely in the per-client layer; color tokens, motion pacing, type pairing, the texture of how a CTA should feel. Six logos in this range, six different answers to the same brief: make the product look inevitable in under three seconds.</p>
-        <div class="ad-slots-col brand-range-slots-wrap" id="brand-range-slots">
-          <div class="ad-slot-wrap" data-slot="728x90">
-            <div class="ad-slot" style="width:447px;height:55px;" id="slot-728x90"></div>
-            <p class="ad-slot-label">728&#215;90</p>
-          </div>
-          <div style="display:flex;gap:40px;align-items:flex-start;">
-            <div class="ad-slot-wrap" data-slot="300x250">
-              <div class="ad-slot" style="width:316px;height:263px;" id="slot-300x250"></div>
-              <p class="ad-slot-label">300&#215;250</p>
-            </div>
-            <div class="ad-slot-wrap" data-slot="160x600">
-              <div class="ad-slot" style="width:98px;height:367px;" id="slot-160x600"></div>
-              <p class="ad-slot-label">160&#215;600</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ml-section-divider"></div>
-
-      <!-- 04 — A Build, Traced -->
-      <div class="ml-section fade-up">
-        <p class="ml-section-heading">04 &#8212; A Build, Traced</p>
-        <p class="ml-text">One campaign, from brief to deployed review portal: the Tumblerware Father&#8217;s Day set, three IAB sizes, taken from a lo-fi internal draft to client-facing V1 through a full change in creative direction mid-pipeline.</p>
-
-        <!-- STEP 1 -->
-        <div class="build-step" style="gap:0;align-items:center;">
-          <div class="build-step-copy" style="flex:1 1 467px;min-width:0;max-width:467px;">
-            <div class="step-label">
-              <span class="step-num">STEP 1 &#8212;</span>
-              <span class="step-title">BRIEF</span>
-            </div>
-            <div class="ml-text">
-              <p>The brief is the contract, captured in full before Opus touches a <strong>CLAUDE.md.</strong> Tumblerware&#8217;s declared Architecture B: motion carried by CSS token classes and vanilla JS, no GSAP, no external runtime. That constraint survived a mid-pipeline change in creative direction into the shipped units, where <strong>/verify-delivery</strong> still checks for it.</p>
-            </div>
-          </div>
-          <div class="build-step-screens" style="flex:1 1 613px;min-width:0;max-width:613px;width:auto;">
-            <img width="613" class="export" src="/assets/marly/04-01.png" alt="Tumblerware brief document" style="max-width:100%;display:block">
-          </div>
-        </div>
-
-        <div class="ml-full-divider"></div>
-
-        <!-- STEP 2 -->
-        <div class="build-step" style="gap:40px;align-items:center;">
-          <div class="build-step-copy" style="flex:1 1 391px;min-width:0;max-width:391px;">
-            <div class="step-label">
-              <span class="step-num">STEP 2 &#8212;</span>
-              <span class="step-title">PLAN.MD</span>
-            </div>
-            <div class="ml-text">
-              <p>Before Code reads a brief, Opus authors a <strong>plan.md:</strong> brief synthesis, gap audit with explicit resolutions, a diff against deployed state for V2+ builds, and the &#167;7 coverage table, a row for every pipeline stage with a status on every row.</p>
-              <p>Code cannot start Stage 1 until every row resolves.</p>
-            </div>
-          </div>
-          <div class="build-step-screens" style="flex:1 1 649px;min-width:0;max-width:649px;width:auto;">
-            <img width="649" class="export" src="/assets/marly/04-02.png" alt="plan.md document" style="max-width:100%;display:block">
-          </div>
-        </div>
-
-        <div class="ml-full-divider"></div>
-
-        <!-- STEP 3 — two-col per Figma 3301:2619: lo-fi + caption | CD pass + caption -->
-        <div class="build-step" style="flex-direction:column;gap:40px;align-items:flex-start;">
-          <div class="step-label">
-            <span class="step-num">STEP 3 &#8212;</span>
-            <span class="step-title">FIGMA LO-FI + CREATIVE DIRECTION PASS</span>
-          </div>
-          <div style="display:flex;gap:clamp(40px,9.26vw,100px);align-items:flex-start;width:100%;padding:0 40px;box-sizing:border-box;" class="ml-step3-cols">
-            <div style="flex:1 1 450px;min-width:0;max-width:450px;display:flex;flex-direction:column;gap:40px;">
-              <img width="450" class="export" src="/assets/marly/04-03.png" alt="Lo-fi layout wireframes for Tumblerware" style="width:100%;height:auto;display:block">
-              <div class="ml-text">
-                <p>Structural composition happens in Figma before brand is applied: Foundation layout variants assign zones, type hierarchy, and asset placement per size, with no color or product imagery to distract from the architecture.</p>
-              </div>
-            </div>
-            <div style="flex:1 1 450px;min-width:0;max-width:450px;display:flex;flex-direction:column;gap:40px;">
-              <img width="450" class="export" src="/assets/marly/04-04.png" alt="Creative direction pass — branded frames for Tumblerware" style="width:100%;height:auto;display:block">
-              <div class="ml-text">
-                <p>The CD pass follows: color, type, product photography, negative space. Code reads the finished frames via <em>get_design_context</em> and executes them 1:1. For Tumblerware the CD pass replaced the brief&#8217;s dark product-demo direction with a light multi-product carousel, and because Figma is Source 1 after CD, the frames won.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="ml-full-divider"></div>
-
-        <!-- STEP 4 -->
-        <div class="build-step" style="flex-direction:column;gap:40px;align-items:flex-start;">
-          <div class="build-step-copy">
-            <div class="step-label">
-              <span class="step-num">STEP 4 &#8212;</span>
-              <span class="step-title">CLAUDE.MD</span>
-            </div>
-            <div class="ml-text">
-              <p><strong>CLAUDE.md</strong> is machine-readable creative direction: hex values mapped to semantic roles, animation classes assigned from the token library, layout variant IDs looked up from the Foundation index rather than inferred. The spec leaves nothing to interpretation, because interpretation is where builds diverge from design.</p>
-            </div>
-          </div>
-          <div class="build-step-screens" style="width:100%;max-width:100%;">
-            <img width="1080" class="export" src="/assets/marly/04-05.png" alt="CLAUDE.md spec" style="max-width:100%;display:block">
-          </div>
-        </div>
-
-        <div class="ml-full-divider"></div>
-
-        <!-- STEP 5 -->
-        <div class="build-step" style="flex-direction:column;gap:40px;align-items:flex-start;">
-          <div class="build-step-copy">
-            <div class="step-label">
-              <span class="step-num">STEP 5 &#8212;</span>
-              <span class="step-title">/VERIFY-DELIVERY</span>
-            </div>
-            <div class="ml-text">
-              <p>Before the review page builds, <strong>/verify-delivery</strong> runs a ground-truth check against the deployed file state rather than a self-report from Code: paths resolving, file weights, IAB compliance, animation tokens per spec.</p>
-              <p>If any check fails, the build stops. The review page doesn&#8217;t build until the gate passes. This is how the pipeline catches the class of errors that only surface after a client clicks &#8220;play.&#8221;</p>
-            </div>
-          </div>
-          <div class="build-step-screens" style="width:100%;max-width:100%;">
-            <img width="1080" class="export" src="/assets/marly/04-06.png" alt="verify-delivery output" style="max-width:100%;display:block">
-          </div>
-        </div>
-
-        <div class="ml-full-divider"></div>
-
-        <!-- STEP 6 -->
-        <div class="build-step" style="gap:100px;align-items:center;">
-          <div class="build-step-copy">
-            <div class="step-label">
-              <span class="step-num">STEP 6 &#8212;</span>
-              <span class="step-title">DELIVERED</span>
-            </div>
-            <div class="ml-text">
-              <p>Production-ready HTML5, deployed to the review portal at:<br>
-              <a href="https://www.marly.cc/review/tumblerware/fathers-day" target="_blank" rel="noopener noreferrer" style="color:#001d93;font-weight:700;text-underline-offset:3px;text-decoration:underline;">marly.cc/review/tumblerware/fathers-day</a>.</p>
-              <p>IAB-compliant weights, click-tags in place, and a playback interface with per-ad replay for client review.</p>
-            </div>
-          </div>
-          <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:8px;">
-            <iframe
-              src="https://www.marly.cc/review/tumblerware/fathers-day/ads/300x250.html"
-              width="300"
-              height="250"
-              scrolling="no"
-              title="Tumblerware Father's Day — 300x250 display ad"
-              loading="lazy"
-              style="display:block;border:0;"
-            ></iframe>
-            <p style="font-size:10px;color:#888;">300&#215;250</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="ml-section-divider"></div>
-
-      <!-- 05 — Scope -->
-      <div class="ml-section fade-up">
-        <p class="ml-section-heading">05 &#8212; Scope</p>
-        <div class="scope-layout">
-          <div class="scope-phase">
-            <img width="500" src="/assets/marly/05-01.png" alt="Phase I — Planning with Opus" class="export scope-phase-img">
-            <ul class="scope-bullets">
-              <li>Reads Figma frames, authors plan.md</li>
-              <li>Writes the CLAUDE.md Code builds from</li>
-              <li>Creative judgment, before a file is touched</li>
-            </ul>
-          </div>
-          <div class="scope-phase">
-            <img width="500" src="/assets/marly/05-02.png" alt="Phase II — Execution with Claude Code" class="export scope-phase-img">
-            <ul class="scope-bullets">
-              <li>Generates HTML, runs the build</li>
-              <li>Runs /verify-delivery ground-truth check</li>
-              <li>Deploys to Vercel, syncs Notion</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="ml-section-divider"></div>
-      <div class="ml-section fade-up">
-        <p class="ml-section-heading">06 &#8212; What I&#8217;d Change</p>
-        <div class="ml-text">
-          <p>The two-phase gate architecture holds up. What I&#8217;d revisit is the per-client Figma layer: it assumes a client already has a design system to encode into it. It doesn&#8217;t have a good answer yet for a brand that doesn&#8217;t &#8212; which is most of the D2C prospect list, not the exception.</p>
-        </div>
-      </div>
-
-      <!-- Prev/Next nav -->
-      <nav class="cs-nav-outer" aria-label="Project navigation">
-        <div class="cs-nav-divider"></div>
-        <div class="cs-nav-row">
-          <div class="cs-nav-side">
-            <a href="/ge-terminal" class="cs-nav-btn" aria-label="Previous project: GE Terminal">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 12L6 8L10 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-            <div class="cs-nav-label">
-              <span class="cs-nav-direction">Previous project:</span>
-              <span class="cs-nav-project">GE Terminal</span>
-            </div>
-          </div>
-          <div class="cs-nav-side cs-nav-side--right">
-            <div class="cs-nav-label" style="text-align:right;">
-              <span class="cs-nav-direction">Next project:</span>
-              <span class="cs-nav-project">Workhuman</span>
-            </div>
-            <a href="/workhuman" class="cs-nav-btn" aria-label="Next project: Workhuman">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 4L10 8L6 12" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </nav>
-
     </section>
+
+    <nav class="cs-nav-outer" aria-label="Project navigation">
+      <div class="cs-nav-divider"></div>
+      <div class="cs-nav-row">
+        <div class="cs-nav-side cs-nav-side--left">
+          <a href="/ge-terminal" class="cs-nav-btn" aria-label="Previous project: GE Terminal"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/ge-terminal" class="cs-nav-label">
+            <span class="cs-nav-direction">Previous project:</span>
+            <span class="cs-nav-project">GE Terminal</span>
+          </a>
+        </div>
+        <div class="cs-nav-side cs-nav-side--right">
+          <a href="/workhuman" class="cs-nav-label" style="text-align:right;">
+            <span class="cs-nav-direction">Next project:</span>
+            <span class="cs-nav-project">Workhuman</span>
+          </a>
+          <a href="/workhuman" class="cs-nav-btn" aria-label="Next project: Workhuman"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </nav>
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-mark">
@@ -583,7 +116,7 @@
     </div>
   </footer>
 
-</div>
+</div><!-- .page -->
 <script src="/js/site.js"></script>
 <script>
 /* ── Brand Range rotating showcase ─────────────────────────────────────────
