@@ -1,55 +1,152 @@
 /* ============================================================
-   WMA.NYC V2 — site.css
-   Design width: 1440px  |  Breakpoints: 900, 700
+   WMA.NYC V3 — token layer
+   Replaces site.css from the top through the TYPOGRAPHY UTILITIES
+   block (roughly lines 1–70). Everything below PAGE WRAPPER is
+   untouched by this patch.
+
+   Source: Figma collection `wma.nyc` (45 vars) + 14 text styles.
+   V2's clamp() pattern is preserved throughout — V3's Figma values
+   become the MAX of each clamp, min ratios follow V2's own curve,
+   and the vw term stays max/14.4 (the 1440px design width).
    ============================================================ */
 
 /* ------------------------------------------------------------
-   RESET
+   RESET  (unchanged except font-family)
    ------------------------------------------------------------ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { -webkit-font-smoothing: antialiased; text-size-adjust: 100%; }
-body { background: #15191f; color: #f0f3ff; font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.5; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--type-body);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-snug);
+}
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; }
 
 /* ------------------------------------------------------------
-   TOKENS
+   TYPEFACE
    ------------------------------------------------------------ */
-:root {
-  /* Palette */
-  --bg:           #15191f;
-  --bg-card:      rgba(255, 255, 255, 0.10);
-  --bg-hero-from: #202a36;
-  --bg-hero-to:   #394c61;
-
-  --text-primary:   #f0f3ff;
-  --text-mark:      #f1ece7;
-  --text-secondary: #a5b1b5;
-  --text-muted:     rgba(240, 243, 255, 0.50);
-
-  --border-card:    #9bc0e4;
-  --border-hero:    #3c669a;
-  --border-divider: rgba(155, 192, 228, 0.25);
-
-  --gradient-hero:  linear-gradient(80.45deg, #ee6868 8.24%, #f9a45f 52.94%);
-
-  /* Type scale */
-  --text-48: clamp(30px, 3.33vw, 48px);
-  --text-32: clamp(22px, 2.22vw, 32px);
-  --text-20: clamp(17px, 1.39vw, 20px);
-  --text-18: clamp(15px, 1.25vw, 18px);
-  --text-16: clamp(14px, 1.11vw, 16px);
-  --text-14: clamp(12px, 0.97vw, 14px);
-  --text-12: clamp(11px, 0.83vw, 12px);
-
-  /* Spacing */
-  --px-outer: clamp(24px, 5.56vw, 80px);
-  --py-section: clamp(48px, 6.94vw, 100px);
+@font-face {
+  font-family: "Switzer";
+  src: url("/assets/fonts/Switzer-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Switzer";
+  src: url("/assets/fonts/Switzer-VariableItalic.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
 }
 
 /* ------------------------------------------------------------
-   TYPOGRAPHY UTILITIES
+   TOKENS
+   ------------------------------------------------------------ */
+:root {
+
+  /* ---- Palette — INVERTED from V2. Light theme. ---- */
+  --color-ink:            #1A1714;
+  --color-ink-muted:      rgba(26, 23, 20, 0.75);
+  --color-accent:         #1B3BD4;
+  --color-surface:        #FFFFFF;
+  --color-rule:           #E7E7E7;
+  --color-border-strong:  #4A453E;
+  --color-background:     #FAF8F5;
+  --color-background-acc: #EFEAE3;
+
+  /* V2 names kept as aliases so existing markup keeps working */
+  --bg:             var(--color-background);
+  --bg-card:        var(--color-background-acc);
+  --text-primary:   var(--color-ink);
+  --text-mark:      var(--color-ink);
+  --text-secondary: var(--color-ink-muted);
+  --border-card:    var(--color-rule);
+  --border-divider: var(--color-rule);
+
+  /* NOT a V3 token — V2 had three text tiers, V3's palette has two.
+     Either add a third to Figma or collapse .text-muted usages
+     into --text-secondary. Provisional value, flagged for decision. */
+  --text-muted:     rgba(26, 23, 20, 0.50);
+
+  /* Retired in V3: --bg-hero-from, --bg-hero-to, --border-hero,
+     --gradient-hero. The V3 hero is ink type on background, no
+     gradient card. Left undefined so any surviving usage fails
+     loudly in review rather than silently rendering wrong. */
+
+  /* ---- Type ---- */
+  --font-sans: "Switzer", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  --type-hero:    clamp(34px, 3.89vw, 56px);
+  --type-display: clamp(30px, 3.33vw, 48px);
+  --type-subhead: clamp(19px, 1.67vw, 24px);
+  --type-section: clamp(17px, 1.39vw, 20px);
+  --type-body:    clamp(15px, 1.25vw, 18px);
+  --type-body-sm: clamp(14px, 1.11vw, 16px);
+  --type-caption: clamp(12px, 0.97vw, 14px);
+  --type-meta:    clamp(11px, 0.83vw, 12px);
+  --type-micro:   clamp(9px,  0.69vw, 10px);
+
+  --leading-normal: 1.5;
+  --tracking-tight: -0.045em;
+  --tracking-snug:  -0.025em;
+
+  /* V2 size-named aliases — .t-48, .t-32 etc. keep working */
+  --text-48: var(--type-display);
+  --text-32: var(--type-subhead);
+  --text-20: var(--type-section);
+  --text-18: var(--type-body);
+  --text-16: var(--type-body-sm);
+  --text-14: var(--type-caption);
+  --text-12: var(--type-meta);
+
+  /* ---- Space ---- */
+  --space-2: 2px;   --space-4: 4px;   --space-6: 6px;
+  --space-8: 8px;   --space-10: 10px; --space-12: 12px;
+  --space-14: 14px; --space-16: 16px; --space-20: 20px;
+  --space-24: 24px; --space-32: 32px; --space-40: 40px;
+  --space-80: 80px; --space-120: 120px; --space-160: 160px;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+
+  /* V3 column is 1080 inside 1440 — a 180px gutter, up from V2's 80.
+     This NARROWS the content column. Most visible layout change here. */
+  --px-outer:   clamp(24px, 12.5vw, 180px);
+  --py-section: clamp(48px, 6.94vw, 100px);
+  --content-width: 1080px;
+}
+
+/* ------------------------------------------------------------
+   TEXT STYLES — 1:1 with the Figma styles of the same name
+   ------------------------------------------------------------ */
+.display-hero     { font-size: var(--type-hero);    font-weight: var(--font-weight-semibold); letter-spacing: var(--tracking-tight); }
+.display-page     { font-size: var(--type-display); font-weight: var(--font-weight-semibold); letter-spacing: var(--tracking-tight); }
+.heading-section  { font-size: var(--type-subhead); font-weight: var(--font-weight-semibold); letter-spacing: var(--tracking-tight); }
+.heading-card     { font-size: var(--type-subhead); font-weight: var(--font-weight-medium);   letter-spacing: var(--tracking-tight); }
+.heading-subhead  { font-size: var(--type-subhead); font-weight: var(--font-weight-medium);   letter-spacing: var(--tracking-snug); }
+.heading-wordmark { font-size: var(--type-section); font-weight: var(--font-weight-semibold); letter-spacing: var(--tracking-tight); }
+.body-default     { font-size: var(--type-body);    font-weight: var(--font-weight-regular);  letter-spacing: var(--tracking-snug); }
+.body-tight       { font-size: var(--type-body);    font-weight: var(--font-weight-regular);  letter-spacing: var(--tracking-tight); }
+.body-strong      { font-size: var(--type-body);    font-weight: var(--font-weight-semibold); letter-spacing: var(--tracking-tight); }
+.ui-nav           { font-size: var(--type-body-sm); font-weight: var(--font-weight-regular);  letter-spacing: var(--tracking-tight); }
+.ui-nav-active    { font-size: var(--type-body);    font-weight: var(--font-weight-bold);     letter-spacing: var(--tracking-tight); }
+.meta-caption     { font-size: var(--type-caption); font-weight: var(--font-weight-regular);  letter-spacing: var(--tracking-tight); }
+.meta-small       { font-size: var(--type-meta);    font-weight: var(--font-weight-regular);  letter-spacing: var(--tracking-tight); }
+.meta-micro       { font-size: var(--type-micro);   font-weight: var(--font-weight-regular);  letter-spacing: var(--tracking-snug); }
+
+/* ------------------------------------------------------------
+   V2 UTILITIES — retained, now resolving to V3 values
    ------------------------------------------------------------ */
 .t-48 { font-size: var(--text-48); }
 .t-32 { font-size: var(--text-32); }
@@ -57,12 +154,12 @@ ul, ol { list-style: none; }
 .t-16 { font-size: var(--text-16); }
 .t-14 { font-size: var(--text-14); }
 .t-12 { font-size: var(--text-12); }
-.fw-600 { font-weight: 600; }
-.fw-700 { font-weight: 700; }
-.fw-400 { font-weight: 400; }
+.fw-400 { font-weight: var(--font-weight-regular); }
+.fw-600 { font-weight: var(--font-weight-semibold); }
+.fw-700 { font-weight: var(--font-weight-bold); }
 .text-secondary { color: var(--text-secondary); }
-.text-muted { color: var(--text-muted); }
-.text-mark { color: var(--text-mark); }
+.text-muted     { color: var(--text-muted); }
+.text-mark      { color: var(--text-mark); }
 
 /* ------------------------------------------------------------
    PAGE WRAPPER
