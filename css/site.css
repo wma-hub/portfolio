@@ -239,12 +239,6 @@ ul, ol { list-style: none; }
   gap: var(--space-24);
 }
 .nav-links a { color: var(--color-ink-muted); transition: color 0.2s; }
-.nav-links a:hover { color: var(--color-ink); }
-.nav-links a[aria-current="page"] {
-  color: var(--color-accent);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--type-body);
-}
 
 /* ------------------------------------------------------------
    HERO — no card, no gradient. Copy left, portrait right.
@@ -837,6 +831,38 @@ a.card:hover .card-title {
   .wh-tiles { grid-template-columns: 1fr; gap: var(--space-40); }
   .wh-split { grid-template-columns: 1fr; gap: var(--space-32); }
 }
+
+
+/* ---- link states: ink regular by default, accent bold on hover/current ---- */
+.nav-links a,
+.footer-links a { color: var(--color-ink); }
+.nav-links a:hover,
+.footer-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+}
+.cs-nav-side .cs-nav-direction,
+.cs-nav-side .cs-nav-project { color: var(--color-ink); }
+.cs-nav-side a:hover .cs-nav-direction,
+.cs-nav-side a:hover .cs-nav-project {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+}
+.cs-nav-side .cs-nav-btn svg { color: var(--color-ink); }
+.cs-nav-side a:hover ~ .cs-nav-btn svg,
+.cs-nav-btn:hover svg { color: var(--color-accent); }
+a.card:hover .card-title,
+a.card:hover .card-desc { color: var(--color-accent); }
+a.card:hover .card-title { font-weight: var(--font-weight-bold); }
+
+.nav-cta {
+  padding: var(--space-8) var(--space-16);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-sm);
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-cta:hover { border-color: var(--color-accent); }
 
 /* ---- CASE STUDY SHARED COMPONENTS ---- */
 
