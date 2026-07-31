@@ -966,3 +966,34 @@ a.card:hover .card-title { font-weight: var(--font-weight-bold); }
   .cs-nav-row { flex-direction: column; gap: var(--space-24); align-items: flex-start; }
 }
 
+/* ============================================================
+   RESPONSIVE SAFETY NET
+   Images scale by ratio, not by attribute. Flex/grid children are
+   allowed to shrink. Horizontal galleries stay scrollable but stop
+   dominating small screens.
+   ============================================================ */
+img, svg, video, iframe { max-width: 100%; }
+img, svg, video { height: auto; }
+
+.hero-portrait          { width: min(380px, 100%); }
+.hero-portrait--home    { width: min(284px, 100%); }
+.hero-portrait--about   { width: min(341px, 100%); }
+
+/* let flex and grid children actually shrink */
+.hero-inner > *, .problem-row > *, .ge-split > *, .wh-zones > *,
+.wh-tiles > *, .wh-surfaces > *, .card-row > *, .footer-inner > *,
+.cs-nav-row > *, .wh-grid-2 > *, .wh-grid-3 > * { min-width: 0; }
+
+.wh-well img, .wh-tile img, .wh-surface img,
+.ge-split img, .wh-figure img, .problem-row img { height: auto; }
+
+@media (max-width: 900px) {
+  .hero-inner { flex-direction: column-reverse; align-items: flex-start; }
+  .wh-gallery > img, .wh-gallery--tall > img { max-height: 340px; }
+}
+@media (max-width: 700px) {
+  .wh-gallery > img, .wh-gallery--tall > img { max-height: 240px; }
+  .cs-strip > .ph, .cs-strip > img { min-width: 0; }
+  .wh-tablist { gap: var(--space-4); }
+  .wh-tab { padding: var(--space-8) var(--space-12); font-size: var(--type-body-sm); }
+}
