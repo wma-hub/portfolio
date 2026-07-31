@@ -78,10 +78,11 @@ def git(*a): return subprocess.run(["git","-C",str(REPO)]+list(a),
                                    capture_output=True, text=True).stdout.strip()
 
 print("=" * 64); print("PRECONDITIONS"); print("=" * 64)
-b, d = git("rev-parse","--abbrev-ref","HEAD"), git("status","--porcelain")
-print(f"  branch : {b}\n  tree   : {'clean' if not d else 'DIRTY'}")
+b = git("rev-parse","--abbrev-ref","HEAD")
+d = git("status","--porcelain","--untracked-files=no")
+print(f"  branch : {b}\n  tracked changes: {'none' if not d else 'DIRTY'}")
 if b != BRANCH: fail(f"expected branch {BRANCH}, found {b}")
-if d: fail("uncommitted changes — commit or stash first")
+if d: fail("uncommitted tracked changes — commit or stash first")
 
 missing = [p for p,_,_ in EXPORTS if not (REPO/"assets"/(p+".png")).exists()]
 if missing:
