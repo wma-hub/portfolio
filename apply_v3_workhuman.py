@@ -185,6 +185,9 @@ note(f"footer swapped ({n})"); n == 1 or fail(f"expected 1 footer, got {n}")
 
 out, ng = re.subn(r'[ \t]*<link rel="preconnect" href="https://fonts\.[^>]*>\n|[ \t]*<link href="https://fonts\.googleapis\.com[^>]*>\n', "", out)
 note(f"google fonts links removed ({ng})")
+# strip orphaned CSS rules for classes that lived only in the old chrome
+out, nd = re.subn(r'\s*\.nav-cta\s*\{[^}]*\}|\s*\.footer-tagline\s*\{[^}]*\}', "", out)
+note(f"orphaned chrome CSS rules stripped ({nd})")
 if "Switzer-Variable.woff2" not in out:
     out = out.replace('  <link rel="stylesheet" href="/css/site.css">',
         '  <link rel="preload" href="/assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin>\n  <link rel="stylesheet" href="/css/site.css">', 1)
