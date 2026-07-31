@@ -178,9 +178,9 @@ FOOTER = '''  <footer class="site-footer" role="contentinfo">
     </div>
   </footer>'''
 
-out, n = re.subn(r'<nav class="site-nav".*?</nav>', NAV.strip(), out, flags=re.S)
+out, n = re.subn(r'<nav class="nav".*?</nav>', NAV.strip(), out, flags=re.S)
 note(f"nav swapped ({n})");  n == 1 or fail(f"expected 1 nav, got {n}")
-out, n = re.subn(r'<footer class="site-footer".*?</footer>', FOOTER.strip(), out, flags=re.S)
+out, n = re.subn(r'<footer class="footer".*?</footer>', FOOTER.strip(), out, flags=re.S)
 note(f"footer swapped ({n})"); n == 1 or fail(f"expected 1 footer, got {n}")
 
 out, ng = re.subn(r'[ \t]*<link rel="preconnect" href="https://fonts\.[^>]*>\n|[ \t]*<link href="https://fonts\.googleapis\.com[^>]*>\n', "", out)
