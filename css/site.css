@@ -272,19 +272,17 @@ ul, ol { list-style: none; }
 .hero-sub { color: var(--color-ink-muted); }
 
 .hero-portrait {
-  width: 256px;
-  height: auto;
   flex-shrink: 0;
+  width: 380px;
 }
-/* portrait images — circular crop after .ph is replaced */
-.hero-portrait > img {
+.hero-portrait--home  { width: 284px; }
+.hero-portrait--about { width: 341px; }
+.hero-portrait img {
   display: block;
-  width: 256px;
-  height: 256px;
-  object-fit: cover;
-  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
 }
-
 
 /* ------------------------------------------------------------
    WORK — two labelled rows, each with a trailing hairline
@@ -534,7 +532,6 @@ a.card:hover .card-title {
   padding: var(--space-8);
 }
 .ph--circle { border-radius: 50%; }
-.hero-portrait.ph { height: 256px; }
 
 /* ------------------------------------------------------------
    GE TERMINAL — numbered sections
