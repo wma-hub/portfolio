@@ -242,7 +242,7 @@ function initSlot(cfg) {
     if (running) return;
     running = true;
     if (!active) showUnit(idx);
-    if (!prefersReducedMotion) timer = setTimeout(advance, randMs());
+    if (!prefersReducedMotion) timer = setTimeout(advance, cfg.firstMs != null ? cfg.firstMs : randMs());
   }
 
   function stop() {
@@ -256,7 +256,7 @@ function initSlot(cfg) {
   io.observe(el);
 }
 
-initSlot({ id: 'slot-hero', nativeW: 300, nativeH: 250, displayW: 300,
+initSlot({ id: 'slot-hero', nativeW: 300, nativeH: 250, displayW: 300, firstMs: 9000,
   units: [
     { src: '/marly-work/tumblerware/unit-b.html', label: 'Tumblerware' },
     { src: '/marly-work/ghia/unit-b.html',        label: 'Ghia' },
