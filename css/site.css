@@ -864,6 +864,9 @@ a.card:hover .card-title { font-weight: var(--font-weight-bold); }
 }
 .nav-cta:hover { border-color: var(--color-accent); }
 
+/* callout screengrab renders at its native width, never upscaled */
+.ge-figure--inline img { max-width: 700px; width: 100%; height: auto; }
+
 /* ---- CASE STUDY SHARED COMPONENTS ---- */
 
 /* ── CS Nav — prev/next, matching the nav-page component ─────── */
@@ -900,9 +903,7 @@ a.card:hover .card-title { font-weight: var(--font-weight-bold); }
   line-height: var(--leading-normal);
 }
 .cs-nav-side a { color: inherit; }
-.cs-nav-side--left  .cs-nav-direction { color: var(--color-accent); }
 .cs-nav-side--left  .cs-nav-project   { color: var(--color-accent); }
-.cs-nav-side--right .cs-nav-direction { color: var(--color-ink); }
 .cs-nav-side--right .cs-nav-project   { color: var(--color-ink-muted); }
 .cs-nav-btn {
   border: 1px solid var(--color-rule);
@@ -916,8 +917,6 @@ a.card:hover .card-title { font-weight: var(--font-weight-bold); }
   flex-shrink: 0;
 }
 .cs-nav-btn svg { width: 16px; height: 16px; display: block; }
-.cs-nav-side--left  .cs-nav-btn svg { color: var(--color-accent); }
-.cs-nav-side--right .cs-nav-btn svg { color: var(--color-ink-muted); }
 
 @media (max-width: 700px) {
   .cs-nav-outer { padding: var(--space-40) var(--px-outer); }
