@@ -276,6 +276,15 @@ ul, ol { list-style: none; }
   height: auto;
   flex-shrink: 0;
 }
+/* portrait images — circular crop after .ph is replaced */
+.hero-portrait > img {
+  display: block;
+  width: 256px;
+  height: 256px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 
 /* ------------------------------------------------------------
    WORK — two labelled rows, each with a trailing hairline
@@ -594,8 +603,8 @@ a.card:hover .card-title {
 .brand-sys-label { color: var(--color-ink); }
 
 /* Wide horizontal strips that overflow the 1080 column */
-.cs-strip { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: var(--space-8); }
-.cs-strip > .ph { min-width: 1600px; }
+.cs-strip { display: flex; gap: var(--space-4); overflow-x: auto; -webkit-overflow-scrolling: touch; align-items: flex-start; }
+.cs-strip > img { flex-shrink: 0; height: auto; }
 
 @media (max-width: 900px) {
   .cs-stack { gap: var(--space-60); }
