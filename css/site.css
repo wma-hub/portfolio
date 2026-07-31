@@ -747,6 +747,53 @@ a.card:hover .card-title {
   .wh-quote { padding-left: var(--space-20); }
 }
 
+
+/* ---- Echo: campaign surfaces + wide galleries ---- */
+.wh-surfaces {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-24);
+  align-items: end;
+}
+.wh-surface { display: flex; flex-direction: column; gap: var(--space-12); }
+.wh-surface img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-rule);
+}
+.wh-surface-label { color: var(--color-ink); }
+.wh-surface .ph { aspect-ratio: 3 / 4; }
+
+/* wide galleries scroll inside the 1080 column */
+.wh-gallery {
+  display: flex;
+  gap: var(--space-16);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: var(--space-12);
+}
+.wh-gallery > img {
+  flex-shrink: 0;
+  height: 450px;
+  width: auto;
+  scroll-snap-align: start;
+  border-radius: var(--radius-sm);
+}
+.wh-gallery--tall > img { height: 563px; }
+.wh-scroll-hint { color: var(--color-ink-subtle); }
+
+@media (max-width: 900px) {
+  .wh-surfaces { grid-template-columns: repeat(2, 1fr); gap: var(--space-16); }
+  .wh-gallery > img { height: 320px; }
+  .wh-gallery--tall > img { height: 380px; }
+}
+@media (max-width: 700px) {
+  .wh-surfaces { grid-template-columns: 1fr; }
+}
+
 /* ---- CASE STUDY SHARED COMPONENTS ---- */
 
 /* ── CS Hero — Workhuman only (all other pages rebuilt) ──── */
