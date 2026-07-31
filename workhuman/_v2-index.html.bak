@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workhuman — Wilson Ma</title>
+  <link rel="preload" href="/assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--color-ink); }
+    img { display: block; }
+/* ── Main content ── */
+    .content {
+      background: var(--color-surface);
+      padding: 80px max(calc((100% - 1080px) / 2), clamp(24px, 5vw, 60px)) 180px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-80);
+    }
+
+    /* ── Chapter header ── */
+    .ch-header {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-12);
+    }
+    .ch-eyebrow {
+      font-size: var(--type-caption);
+      font-weight: 700;
+      color: var(--color-ink-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .ch-title {
+      font-size: var(--type-display);
+      font-weight: 600;
+      line-height: normal;
+      background: linear-gradient(105.55deg, rgb(0,29,147) 33.876%, rgb(71,107,254) 113.48%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .ch-subhead {
+      font-size: var(--type-subhead);
+      font-weight: 700;
+      color: var(--color-ink);
+      line-height: 1.4;
+      margin-top: var(--space-4);
+    }
+
+    /* ── Stat cards ── */
+    .stat-row {
+      background: var(--color-background-acc);
+      border-radius: var(--radius-md);
+      padding: var(--space-24);
+      display: flex;
+      gap: var(--space-16);
+    }
+    .stat-card {
+      flex: 1;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--color-rule);
+      border-radius: var(--radius-md);
+      padding: var(--space-20);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+    }
+    .stat-label {
+      font-size: var(--type-meta);
+      font-weight: 700;
+      color: var(--color-ink);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .stat-value {
+      font-size: var(--type-caption);
+      font-weight: 400;
+      color: var(--color-ink);
+      line-height: 1.5;
+    }
+    .stat-value strong { font-weight: 700; }
+    .stat-caption {
+      font-size: var(--type-caption);
+      font-style: italic;
+      color: var(--color-ink-muted);
+      margin-top: var(--space-8);
+    }
+
+    /* ── Body text ── */
+    .body-text {
+      font-size: var(--type-body);
+      font-weight: 400;
+      color: var(--color-ink);
+      line-height: 1.65;
+    }
+
+    /* ── Two-column intro ── */
+    .two-col {
+      display: flex;
+      gap: var(--space-60);
+      align-items: flex-start;
+      padding: var(--space-8) 0;
+    }
+    .two-col-left {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-24);
+    }
+    .two-col-right { flex-shrink: 0; }
+
+    /* ── Callout box ── */
+    .callout-box {
+      background: linear-gradient(135deg, var(--color-ink) 0%, var(--color-ink) 100%);
+      border: 2px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius-md);
+      padding: var(--space-32) var(--space-40);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-10);
+    }
+    .callout-stat {
+      font-size: var(--type-subhead);
+      font-weight: 700;
+      color: var(--color-surface);
+      line-height: 1.2;
+    }
+    .callout-body {
+      font-size: var(--type-body-sm);
+      font-weight: 400;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.55;
+    }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      font-size: var(--type-subhead);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--color-ink);
+      line-height: 1.45;
+      text-align: center;
+      padding: var(--space-16) 0;
+      border-top: 2px solid rgba(155,192,228,0.4);
+      border-bottom: 2px solid rgba(155,192,228,0.4);
+    }
+
+    /* ── Tab system ── */
+    .tab-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-24);
+    }
+    .tab-bar {
+      display: flex;
+      gap: var(--space-6);
+      background: var(--color-background-acc);
+      padding: var(--space-6);
+      border-radius: var(--radius-md);
+      width: fit-content;
+    }
+    .tab-btn {
+      background: none;
+      border: 1.5px solid transparent;
+      border-radius: var(--radius-md);
+      padding: var(--space-8) var(--space-20);
+      font-size: var(--type-caption);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: var(--color-ink);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .tab-btn[aria-selected="true"] {
+      background: var(--color-surface);
+      border-color: var(--color-accent);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-16);
+    }
+    .panel-label {
+      font-size: var(--type-body-sm);
+      font-weight: 600;
+      color: var(--color-ink);
+    }
+    .viewer-well {
+      border: 1px dashed var(--color-rule);
+      background: rgba(236,241,246,0.25);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: inline-block;
+      max-width: 100%;
+    }
+    /* Tab-system wells: uniform padding, centered content, full width */
+    .tab-panel .viewer-well {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      padding: var(--space-40);
+    }
+    /* Tab 3 two-zone layout per Figma 3394:963 — 688:368 column ratio,
+       grid rows force both wells to identical height regardless of caption wrap */
+    .tab3-cols {
+      display: grid;
+      grid-template-columns: 688fr 368fr;
+      grid-template-rows: 1fr auto;
+      gap: var(--space-12) var(--space-24);
+    }
+    .tab3-well-main { grid-column: 1; grid-row: 1; }
+    .tab3-well-rail { grid-column: 2; grid-row: 1; }
+    .tab3-cap-main  { grid-column: 1; grid-row: 2; }
+    .tab3-cap-rail  { grid-column: 2; grid-row: 2; }
+    .tab3-cols .viewer-well { align-items: center; height: 100%; }
+    @media (max-width: 900px) {
+      .tab3-cols { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .tab3-well-main { grid-column: 1; grid-row: 1; }
+      .tab3-cap-main  { grid-column: 1; grid-row: 2; }
+      .tab3-well-rail { grid-column: 1; grid-row: 3; }
+      .tab3-cap-rail  { grid-column: 1; grid-row: 4; }
+    }
+    .panel-caption {
+      font-size: var(--type-caption);
+      font-weight: 400;
+      color: var(--color-ink-muted);
+      line-height: 1.55;
+    }
+
+    /* ── Surface wells (Ch03) ── */
+    .surf-well {
+      background: var(--color-background-acc);
+      border: 1px dashed var(--color-rule);
+      border-radius: var(--radius-md);
+      padding: var(--space-24);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-16);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .surf-well-alt { background: var(--color-background-acc); }
+    .surf-badge {
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      background: var(--color-accent);
+      border-radius: var(--radius-sm);
+      padding: var(--space-4) var(--space-8);
+      font-size: var(--type-micro);
+      font-weight: 600;
+      color: var(--color-surface);
+      letter-spacing: 0.03em;
+      z-index: 1;
+    }
+    .surf-title {
+      font-size: var(--type-caption);
+      font-weight: 700;
+      color: var(--color-ink);
+      text-align: center;
+    }
+    .surf-caption {
+      font-size: var(--type-meta);
+      font-weight: 400;
+      color: var(--color-ink);
+      line-height: 1.55;
+      width: 100%;
+    }
+
+    /* ── Export images ── */
+    img.export { display: block; max-width: 100%; height: auto; }
+
+    /* ── Divider ── */
+    .divider {
+      background: rgba(155,192,228,0.5);
+      height: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── Prev / Next nav — see site.css .cs-nav-* ── */
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--color-ink);
+      padding: var(--space-80);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-40);
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .footer-mark {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-12);
+    }
+    .footer-wordmark-row {
+      display: flex;
+      gap: var(--space-24);
+      align-items: center;
+    }
+    .footer-logo { width: 40px; height: 40px; }
+    .footer-wordmark {
+      font-size: var(--type-section);
+      font-weight: 600;
+      color: var(--color-ink);
+    }
+    .footer-links {
+      display: flex;
+      gap: var(--space-32);
+    }
+    .footer-links a {
+      font-size: var(--type-body-sm);
+      font-weight: 400;
+      color: var(--color-ink-muted);
+      text-decoration: none;
+    }
+    .footer-rule {
+      background: rgba(155,192,228,0.25);
+      height: 1px;
+    }
+    .footer-bottom { display: flex; justify-content: space-between; }
+    .footer-copy { font-size: var(--type-meta); font-weight: 400; color: var(--color-ink-muted); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .nav { padding: var(--space-20) var(--space-40); height: auto; }
+      .content { padding: var(--space-60) var(--space-40) var(--space-120); gap: var(--space-60); }
+      .ch-title { font-size: clamp(28px, 5vw, 48px); }
+      .two-col { flex-direction: column; gap: var(--space-40); }
+      .two-col-right { width: 100%; }
+      .two-col-text { flex-direction: column !important; gap: var(--space-24) !important; }
+      .two-col-text > * { flex: unset !important; }
+      .surface-grid { grid-template-columns: 1fr !important; }
+      .surface-grid > [style*="grid-row"] { grid-row: auto !important; grid-column: auto !important; }
+      .viewer-well { display: block; width: 100%; }
+      .viewer-well img { max-width: 100%; height: auto; }
+      img.export { max-width: 100%; height: auto; }
+      .lp-email-row { flex-direction: column !important; }
+      .three-frames-row { flex-direction: column !important; }
+    }
+    @media (max-width: 700px) {
+      .nav { padding: var(--space-16) var(--space-24); }
+      .content { padding: var(--space-40) var(--space-24) var(--space-80); gap: var(--space-40); }
+      .stat-row { flex-direction: column; }
+      .tab-bar { overflow-x: auto; width: 100%; box-sizing: border-box; flex-wrap: nowrap; }
+      .token-tier-row { flex-direction: column !important; }
+      .metric-row { flex-direction: column !important; }
+      .stepper-row { overflow-x: auto; }
+      .page-nav { flex-direction: column; gap: var(--space-24); align-items: flex-start; }
+      .footer { padding: var(--space-40) var(--space-24); }
+    }
+  
+/* V3 alignment: the design has no hero card and no stat cards */
+.stat-card { display: none; }
+  
+/* V3 alignment: Workhuman's private heading classes resolve to the shared
+   scale. Defined last so they win on source order, no markup re-classing. */
+.ch-eyebrow {
+  font-size: var(--type-section);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-normal);
+  color: var(--color-ink-muted);
+}
+.ch-title {
+  font-size: var(--type-display);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-normal);
+  color: var(--color-ink);
+}
+.ch-subhead {
+  font-size: var(--type-subhead);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-normal);
+  color: var(--color-ink);
+}
+.ch-header { display: flex; flex-direction: column; gap: var(--space-16); }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3KK0FQDE6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L3KK0FQDE6');
+  </script>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-wordmark">wilson ma</a>
+    <div class="nav-links">
+      <a href="/#work" class="ui-nav" aria-current="page">projects</a>
+      <a href="/about" class="ui-nav">about</a>
+    </div>
+  </nav>
+
+<!-- Hero -->
+    <section class="hero" aria-label="Workhuman">
+      <div class="hero-inner">
+        <div class="hero-copy hero-copy--narrow fade-up">
+          <h1 class="display-hero">Workhuman</h1>
+          <p class="heading-card hero-sub">Same instinct, five layers.</p>
+          <p class="body-default hero-intro">Workhuman is a B2B SaaS platform for employee recognition. Over four years I worked across conversion design, product systems, production infrastructure, creative technology, and interactive tooling &#8212; different problems at different scales, but the same underlying move: identify the problem, build the solution.</p>
+        </div>
+        <div class="hero-portrait fade-up">
+          <img src="/assets/workhuman/hero.png" alt="" loading="eager" decoding="async">
+        </div>
+      </div>
+    </section>
+
+<!-- Content -->
+<main class="content">
+
+  <!-- ── Chapter 01: Careers Experience ── -->
+  <div id="ch01">
+
+    <!-- Header -->
+    <div class="ch-header">
+      <p class="ch-eyebrow">Conversion Design</p>
+      <h2 class="ch-title">01 — Careers Experience Refresh</h2>
+      <p class="ch-subhead">97 of 100 visitors never explored a single job.</p>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="stat-row" style="margin-top: var(--space-40);">
+      <div class="stat-card">
+        <p class="stat-label">Output</p>
+        <p class="stat-value"><strong>2.7% → 64.6%</strong> homepage-to-jobs conversion</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Delivery</p>
+        <p class="stat-value"><strong>↓59%</strong> exit rate on the new experience</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Portfolio</p>
+        <p class="stat-value"><strong>1 → 3–4 jobs viewed</strong> per session</p>
+      </div>
+    </div>
+    <p class="stat-caption" style="margin-top: var(--space-12);">Measured in Heap Analytics; Oct–Dec, 3 months post-launch</p>
+
+    <!-- Two-column: copy left, composition right -->
+    <div class="two-col" style="margin-top: var(--space-40); gap:var(--space-60);">
+      <div class="two-col-left" style="flex:0 0 420px;">
+        <p class="body-text">The Careers page was losing nearly everyone. 97 percent of homepage visitors never clicked through to browse a single job listing. When we dug into Heap, the reason was structural: the page led with an award badge and a company description — the kind of content that answers "Is this a good company?" before a candidate had any reason to ask. The jobs were buried.</p>
+        <div class="callout-box">
+          <p class="callout-stat">Only 3 out of 100</p>
+          <p class="callout-body">candidates viewing the careers homepage clicked through to browse job listings.</p>
+        </div>
+      </div>
+      <div class="two-col-right">
+        <img src="/workhuman/01-careers/01.png" class="export" alt="Careers page analysis" style="width:596px;">
+      </div>
+    </div>
+
+    <!-- Lead-in -->
+    <p class="body-text" style="margin-top: var(--space-40);">The redesign worked from the drop-off data outward:</p>
+
+    <!-- Pull quote -->
+    <div class="pull-quote" style="margin-top: var(--space-32);">
+      What were people looking for when they arrived, and where did the page fail to deliver?
+    </div>
+
+    <!-- Body -->
+    <p class="body-text" style="margin-top: var(--space-32);">The structural answer was sequencing: lead with what Workhuman actually is as a place to work — the teams, the culture, the values — before asking anyone to browse jobs. Then make browsing effortless. Then, once someone finds a role, pull them toward a second one. Conversion compounded: 55.3% the first month, 73.7% the second, 77.6% the third.</p>
+
+    <!-- Tab system -->
+    <div class="tab-container" style="margin-top: var(--space-40);" role="tablist" aria-label="Careers experience layers">
+
+      <div class="tab-bar">
+        <button
+          class="tab-btn"
+          role="tab"
+          aria-selected="true"
+          aria-controls="panel-1"
+          id="tab-1"
+        >Why Workhuman?</button>
+        <button
+          class="tab-btn"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-2"
+          id="tab-2"
+        >What roles exist?</button>
+        <button
+          class="tab-btn"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-3"
+          id="tab-3"
+        >Is this role for me?</button>
+      </div>
+
+      <!-- Tab 1: Why Workhuman? -->
+      <div class="tab-panel active" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
+        <p class="panel-label">Layer 1: The "why" before the "what."</p>
+        <div class="viewer-well">
+          <img class="export"
+            src="/workhuman/01-careers/tabs/tab01.png"
+            alt="Layer 1 — Why Workhuman careers homepage"
+            width="1080" style="max-width:100%;height:auto;"
+          >
+        </div>
+        <p class="panel-caption">Culture-first homepage: testimonial video up top, values in action, regional benefits, ten teams.</p>
+      </div>
+
+      <!-- Tab 2: What roles exist? -->
+      <div class="tab-panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2">
+        <p class="panel-label">Layer 2: Browse without friction.</p>
+        <div class="viewer-well">
+          <img class="export"
+            src="/workhuman/01-careers/tabs/tab02.png"
+            alt="Layer 2 — Job detail five-tab mock with Candidates Also Viewed rail"
+            width="950" style="max-width:100%;height:auto;"
+          >
+        </div>
+        <p class="panel-caption">Filters stay optional while the tags do the scanning. Ex.: Product roles are pink everywhere they appear.</p>
+        <div class="viewer-well">
+          <img class="export"
+            src="/workhuman/01-careers/tabs/tab02-2.png"
+            alt="Layer 2 — Color-coded department tag system strip"
+            width="760" style="max-width:100%;height:auto;"
+          >
+        </div>
+        <p class="panel-caption">Color-coded department tags for instant scanning; filters kept optional so casual browsers and targeted searchers both find their footing. 13.1% bounce on the browse page.</p>
+      </div>
+
+      <!-- Tab 3: Is this role for me? -->
+      <div class="tab-panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3">
+        <p class="panel-label">Layer 3: The next job, before they ask.</p>
+        <div class="tab3-cols">
+          <div class="viewer-well tab3-well-main">
+            <img class="export"
+              src="/workhuman/01-careers/tabs/tab03-2.png"
+              alt="Layer 3 — Job detail five-tab structure"
+              style="width:100%;height:auto;"
+            >
+          </div>
+          <div class="viewer-well tab3-well-rail">
+            <img class="export"
+              src="/workhuman/01-careers/tabs/tab03-1.png"
+              alt="Layer 3 — Candidates Also Viewed right rail"
+              style="width:100%;height:auto;"
+            >
+          </div>
+          <p class="panel-caption tab3-cap-main">Five tabs, five candidate questions: role, team, culture, benefits, location.</p>
+          <p class="panel-caption tab3-cap-rail">Three recommendations, persistent across every tab. This is where 1 job per session became 4.</p>
+        </div>
+      </div>
+
+    </div><!-- /tab-container -->
+
+    <!-- Closing -->
+    <p class="body-text" style="margin-top: var(--space-40);">The system underneath: three layers, each answering one question. Why Workhuman → what roles exist → is this role for me. The right-rail recommendations on Layer 3 took jobs viewed per session from 1 to nearly 4.</p>
+
+  </div><!-- /ch01 -->
+
+  <div class="divider"></div>
+
+  <!-- ── Chapter 02: Web Design System, Aura ── -->
+  <div id="ch02">
+
+    <!-- Header -->
+    <div class="ch-header">
+      <p class="ch-eyebrow">Product Systems</p>
+      <h2 class="ch-title">02 — Web Design System, <em>Aura</em></h2>
+      <p class="ch-subhead">Fifteen button variants. Two offices. No shared language.</p>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="stat-row" style="margin-top:var(--space-40);">
+      <div class="stat-card">
+        <p class="stat-label">Output</p>
+        <p class="stat-value"><strong>15+ → 1</strong> button variants consolidated</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Delivery</p>
+        <p class="stat-value"><strong>~60%</strong> dev cycle reduction</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Portfolio</p>
+        <p class="stat-value"><strong>2 offices</strong> one token system</p>
+      </div>
+    </div>
+
+    <!-- Two-column body text -->
+    <div class="two-col-text" style="display:flex;gap:var(--space-24);margin-top:var(--space-40);">
+      <p class="body-text" style="flex:1;min-width:0;">Workhuman's US and Ireland design teams had developed their component libraries independently. By the time I joined, the drift was visible everywhere — inconsistent spacing, divergent type scales, and a button component that had forked into fifteen variants across both codebases, none of them formally documented.</p>
+      <p class="body-text" style="flex:1;min-width:0;">The work was less about building new components and more about establishing the conditions under which both teams could stop rebuilding the same things. That meant a token layer first: named decisions about color, spacing, and typography that could travel between Figma and code without re-interpretation at each handoff.</p>
+    </div>
+
+    <!-- 4-tier token architecture cards -->
+    <div class="token-tier-row" style="display:flex;gap:var(--space-16);padding:var(--space-40) 0;align-items:stretch;">
+
+      <!-- Tier 1: Primitives -->
+      <div style="flex:1;min-width:0;background:#ffebdd;border-radius:var(--radius-md);padding:var(--space-16);display:flex;flex-direction:column;justify-content:space-between;min-height:193px;">
+        <div>
+          <p style="font-size:var(--type-micro);font-weight:600;color:var(--color-ink);opacity:0.5;text-transform:capitalize;">Tier 1:</p>
+          <p style="font-size:var(--type-body-sm);font-weight:600;color:var(--color-ink);margin-top:var(--space-2);">Primitives</p>
+        </div>
+        <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:var(--space-10);background:var(--color-background-acc);border:0.9px solid rgba(0,0,0,0.15);border-radius:var(--radius-md);padding:var(--space-6);">
+          <div style="width:16px;height:16px;background:var(--color-accent);border:0.5px solid var(--color-rule);flex-shrink:0;"></div>
+          <span style="font-size:var(--type-meta);font-weight:700;color:var(--color-ink);white-space:nowrap;">#5B63E4</span>
+        </div>
+        <p style="font-size:var(--type-caption);font-style:italic;color:var(--color-ink);line-height:1.4;">Ex.: humanity-60, spacing-4, font-16</p>
+      </div>
+
+      <!-- Tier 2: Aliases -->
+      <div style="flex:1;min-width:0;background:rgba(255,235,221,0.8);border-radius:var(--radius-md);padding:var(--space-16);display:flex;flex-direction:column;justify-content:space-between;min-height:193px;">
+        <div>
+          <p style="font-size:var(--type-micro);font-weight:600;color:var(--color-ink);opacity:0.5;text-transform:capitalize;">Tier 2:</p>
+          <p style="font-size:var(--type-body-sm);font-weight:600;color:var(--color-ink);margin-top:var(--space-2);">Aliases</p>
+        </div>
+        <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:var(--space-10);background:var(--color-background-acc);border:0.9px solid rgba(0,0,0,0.15);border-radius:var(--radius-md);padding:var(--space-6);">
+          <div style="width:16px;height:16px;background:var(--color-accent);border:0.5px solid var(--color-rule);flex-shrink:0;"></div>
+          <span style="font-size:var(--type-meta);font-weight:700;color:var(--color-ink);">humanity/60</span>
+        </div>
+        <p style="font-size:var(--type-caption);font-style:italic;color:var(--color-ink);line-height:1.4;">Ex.: brand-primary = humanity-60</p>
+      </div>
+
+      <!-- Tier 3: Semantic Tokens -->
+      <div style="flex:1;min-width:0;background:rgba(255,235,221,0.6);border-radius:var(--radius-md);padding:var(--space-16);display:flex;flex-direction:column;justify-content:space-between;min-height:193px;">
+        <div>
+          <p style="font-size:var(--type-micro);font-weight:600;color:var(--color-ink);opacity:0.5;text-transform:capitalize;">Tier 3:</p>
+          <p style="font-size:var(--type-body-sm);font-weight:600;color:var(--color-ink);margin-top:var(--space-2);">Semantic Tokens</p>
+        </div>
+        <div style="display:flex;gap:var(--space-16);align-items:center;">
+          <div style="display:flex;align-items:center;justify-content:center;width:100px;height:33px;background:var(--color-accent);border:0.9px solid rgba(196,242,255,0.25);border-radius:var(--radius-md);opacity:0.25;font-size:var(--type-meta);color:var(--color-surface);font-weight:400;">brandPrimary</div>
+          <div style="display:flex;align-items:center;justify-content:center;width:100px;height:33px;background:var(--color-accent);border:1px dashed #f18bff;border-radius:var(--radius-md);font-size:var(--type-meta);color:var(--color-surface);font-weight:400;">buttonPrimary</div>
+        </div>
+        <p style="font-size:var(--type-caption);font-style:italic;color:var(--color-ink);line-height:1.4;">Ex.: surface-primary, text-default</p>
+      </div>
+
+      <!-- Tier 4: Component Tokens -->
+      <div style="flex:1;min-width:0;background:rgba(255,235,221,0.4);border-radius:var(--radius-md);padding:var(--space-16);display:flex;flex-direction:column;justify-content:space-between;min-height:193px;">
+        <div>
+          <p style="font-size:var(--type-micro);font-weight:600;color:var(--color-ink);opacity:0.5;text-transform:capitalize;">Tier 4:</p>
+          <p style="font-size:var(--type-body-sm);font-weight:600;color:var(--color-ink);margin-top:var(--space-2);">Component Tokens</p>
+        </div>
+        <button style="display:inline-flex;align-self:flex-start;align-items:center;gap:var(--space-8);background:var(--color-accent);border:none;border-radius:var(--radius-md);padding:var(--space-8) var(--space-16);cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,0.05);">
+          <span style="font-size:var(--type-caption);font-weight:500;color:var(--color-surface);">Get Started</span>
+          <span style="font-size:var(--type-meta);color:var(--color-surface);">→</span>
+        </button>
+        <p style="font-size:var(--type-caption);font-style:italic;color:var(--color-ink);line-height:1.4;">Ex.: button-bg-primary, input-border-focus</p>
+      </div>
+
+    </div><!-- /4-tier cards -->
+
+    <!-- Button annotation diagram -->
+    <div class="viewer-well" style="margin-top:0;width:100%;padding:var(--space-40);display:flex;flex-direction:column;align-items:center;gap:var(--space-24);">
+      <img src="/workhuman/02-aura/button-demo.png" class="export" alt="Button component token annotation" style="width:877px;max-width:100%;height:auto;">
+      <p style="font-size:var(--type-meta);color:var(--color-ink);line-height:normal;text-align:center;width:100%;">White variant, focus state. The ring resolves to humanity-60 — the same primitive in Tier 1 above. That's the cascade, on one component.</p>
+    </div>
+
+    <!-- Block quote -->
+    <div style="padding:var(--space-40) var(--space-40) 0;text-align:center;margin-top:var(--space-40);">
+      <p style="font-size:var(--type-subhead);font-weight:600;font-style:italic;color:var(--color-ink);line-height:24px;">"We spend 60% of our time answering the same design questions."</p>
+      <p style="font-size:var(--type-meta);font-style:italic;color:var(--color-ink);line-height:24px;margin-top:0;">(Engineering, discovery interviews)</p>
+    </div>
+
+    <!-- 3 metric pills -->
+    <div class="metric-row" style="display:flex;gap:var(--space-16);margin-top:var(--space-40);">
+      <div style="flex:1;border:1px solid var(--color-rule);border-radius:var(--radius-md);padding:var(--space-16) var(--space-20);display:flex;flex-direction:column;align-items:center;gap:var(--space-6);">
+        <p style="font-size:var(--type-section);font-weight:700;color:var(--color-ink);white-space:nowrap;">2 wks → 3 days</p>
+        <p style="font-size:var(--type-meta);color:var(--color-ink);">new designer onboarding</p>
+      </div>
+      <div style="flex:1;border:1px solid var(--color-rule);border-radius:var(--radius-md);padding:var(--space-16) var(--space-20);display:flex;flex-direction:column;align-items:center;gap:var(--space-6);">
+        <p style="font-size:var(--type-section);font-weight:700;color:var(--color-ink);">↓60%</p>
+        <p style="font-size:var(--type-meta);color:var(--color-ink);">engineer questions after docs</p>
+      </div>
+      <div style="flex:1;border:1px solid var(--color-rule);border-radius:var(--radius-md);padding:var(--space-16) var(--space-20);display:flex;flex-direction:column;align-items:center;gap:var(--space-6);">
+        <p style="font-size:var(--type-section);font-weight:700;color:var(--color-ink);">95%</p>
+        <p style="font-size:var(--type-meta);color:var(--color-ink);">implementation adherence</p>
+      </div>
+    </div>
+
+    <!-- Contribution pipeline -->
+    <div style="padding:var(--space-80) var(--space-40);display:flex;flex-direction:column;align-items:center;gap:var(--space-40);margin-top:0;">
+      <div style="width:100%;">
+        <p style="font-size:var(--type-body);font-weight:600;color:var(--color-ink);">Contribution pipeline: How new components are added to Aura</p>
+        <p style="font-size:var(--type-meta);color:var(--color-ink);margin-top:var(--space-4);">Semantic versioning, changelog every release, 6-month deprecation notice, migration guides for breaking changes</p>
+      </div>
+      <!-- 6-step stepper -->
+      <div class="stepper-row" style="display:flex;align-items:flex-start;width:100%;">
+
+        <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-10);flex-shrink:0;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-background-acc);border:1px solid var(--color-rule);display:flex;align-items:center;justify-content:center;font-size:var(--type-caption);font-weight:600;color:var(--color-ink);">1</div>
+          <p style="font-size:var(--type-meta);color:var(--color-ink);text-align:center;">Request</p>
+        </div>
+        <div style="flex:1;height:2px;background:var(--color-background-acc);margin-top:var(--space-14);"></div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-10);flex-shrink:0;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-background-acc);border:1px solid var(--color-rule);display:flex;align-items:center;justify-content:center;font-size:var(--type-caption);font-weight:600;color:var(--color-ink);">2</div>
+          <p style="font-size:var(--type-meta);color:var(--color-ink);text-align:center;">Validate need<br>3+ use cases</p>
+        </div>
+        <div style="flex:1;height:2px;background:var(--color-background-acc);margin-top:var(--space-14);"></div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-10);flex-shrink:0;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-background-acc);border:1px solid var(--color-rule);display:flex;align-items:center;justify-content:center;font-size:var(--type-caption);font-weight:600;color:var(--color-ink);">3</div>
+          <p style="font-size:var(--type-meta);color:var(--color-ink);text-align:center;">Design<br>review</p>
+        </div>
+        <div style="flex:1;height:2px;background:var(--color-background-acc);margin-top:var(--space-14);"></div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-10);flex-shrink:0;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-background-acc);border:1px solid var(--color-rule);display:flex;align-items:center;justify-content:center;font-size:var(--type-caption);font-weight:600;color:var(--color-ink);">4</div>
+          <p style="font-size:var(--type-meta);color:var(--color-ink);text-align:center;">Engineering<br>feasibility</p>
+        </div>
+        <div style="flex:1;height:2px;background:var(--color-background-acc);margin-top:var(--space-14);"></div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-10);flex-shrink:0;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-background-acc);border:1px solid var(--color-rule);display:flex;align-items:center;justify-content:center;font-size:var(--type-caption);font-weight:600;color:var(--color-ink);">5</div>
+          <p style="font-size:var(--type-meta);color:var(--color-ink);text-align:center;">Docs<br>required</p>
+        </div>
+        <div style="flex:1;height:2px;background:var(--color-background-acc);margin-top:var(--space-14);"></div>
+
+        <div style="display:flex;flex-direction:column;align-items:center;gap:var(--space-10);flex-shrink:0;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-accent);display:flex;align-items:center;justify-content:center;font-size:var(--type-caption);font-weight:800;color:var(--color-surface);">6</div>
+          <p style="font-size:var(--type-meta);font-weight:700;color:var(--color-ink);text-align:center;">Ship</p>
+        </div>
+
+      </div>
+      <p style="font-size:var(--type-meta);color:var(--color-ink);width:100%;">Compromise: Token naming took three iterations before the semantics made sense to engineers; this causes early confusion but establishes long-term clarity.</p>
+    </div>
+
+    <!-- Button spread composition -->
+    <img src="/workhuman/02-aura/button-spread.png" class="export" alt="Aura design system — button component library" style="width:1080px;">
+
+    <!-- Tagline -->
+    <p style="font-size:var(--type-caption);font-weight:600;color:var(--color-ink);letter-spacing:0.02em;margin-top:var(--space-24);">150+ components · 200+ icons · 8pt grid · 6-size type scale · WCAG AA baked in</p>
+
+  </div><!-- /ch02 -->
+
+  <div class="divider"></div>
+
+  <!-- ── Chapter 03: Marketing Design System, Echo ── -->
+  <div id="ch03">
+
+    <!-- Header -->
+    <div class="ch-header">
+      <p class="ch-eyebrow">Production Infrastructure</p>
+      <h2 class="ch-title">03 — Marketing Design System, <em>Echo</em></h2>
+      <p class="ch-subhead">Thirty deliverables a month. Starting each campaign from scratch became the bottleneck.</p>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="stat-row" style="margin-top:var(--space-40);">
+      <div class="stat-card">
+        <p class="stat-label">Output</p>
+        <p class="stat-value"><strong>30x</strong> deliverables per month, systematized</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Delivery</p>
+        <p class="stat-value"><strong>6 channels</strong> one component library</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Portfolio</p>
+        <p class="stat-value"><strong>NA + EMEA</strong> multi-vertical rollout</p>
+      </div>
+    </div>
+
+    <!-- Body text -->
+    <p class="body-text" style="margin-top:var(--space-40);">Workhuman's marketing team ran a monthly webinar program across six channels: Social, email, display ads, organic social, landing pages, and on-brand event promotion. Every month, the same visual problem needed to be solved again. There was no system for it. Echo DS was the system — a purpose-built component library structured as two parallel tracks: a <strong>Webinar Library</strong> (ads, landing pages, and email) and an <strong>Organic Social Library</strong> (award badges).</p>
+
+    <!-- One campaign, four surfaces -->
+    <div style="margin-top:var(--space-40);">
+      <p style="font-size:var(--type-body-sm);font-weight:700;color:var(--color-ink);margin-bottom:var(--space-24);">One campaign, four surfaces</p>
+
+      <!-- 4-surface grid -->
+      <div class="surface-grid" style="display:grid;grid-template-columns:508px 508px;grid-template-rows:auto auto;gap:var(--space-16);">
+
+        <!-- Landing page: spans both rows -->
+        <div class="surf-well" style="grid-row:1/3;grid-column:1;">
+          <span class="surf-badge">LP</span>
+          <p class="surf-title">Landing page</p>
+          <img src="/workhuman/03-echo/landingpage.png" class="export" alt="Webinar landing page" style="width:460px;">
+        </div>
+
+        <!-- Display ads: right top -->
+        <div class="surf-well" style="grid-row:1;grid-column:2;">
+          <span class="surf-badge">AD</span>
+          <p class="surf-title">Display ads</p>
+          <img src="/workhuman/03-echo/displayads.png" class="export" alt="Display ads" style="width:451px;">
+        </div>
+
+        <!-- Email + Social: right bottom -->
+        <div style="grid-row:2;grid-column:2;display:flex;gap:var(--space-16);">
+          <div class="surf-well" style="flex:1;min-width:0;">
+            <span class="surf-badge">EML</span>
+            <p class="surf-title">Email</p>
+            <img src="/workhuman/03-echo/email.png" class="export" alt="Webinar email" style="width:198px;">
+          </div>
+          <div class="surf-well" style="flex:1;min-width:0;">
+            <span class="surf-badge">SOC</span>
+            <p class="surf-title">Social post</p>
+            <img src="/workhuman/03-echo/socialads.png" class="export" alt="Social post" style="width:198px;">
+          </div>
+        </div>
+
+      </div><!-- /4-surface grid -->
+
+      <p class="surf-caption" style="margin-top:var(--space-16);">Campaigns should be a configuration problem, not a production problem. May 2026: one webinar, every surface, configured from Echo DS.</p>
+    </div>
+
+    <!-- Component library strips -->
+    <img src="/workhuman/03-echo/webinar-ads-components.png" class="export" alt="Echo DS — Webinar Library: Ad Components" style="width:1080px;margin-top:var(--space-40);">
+
+    <img src="/workhuman/03-echo/webinar-ads-templates.png" class="export" alt="Echo DS — Webinar Library: Ad Templates" style="width:1080px;margin-top:var(--space-16);">
+
+    <!-- LP + Email template wells -->
+    <div class="lp-email-row" style="display:flex;gap:var(--space-16);margin-top:var(--space-16);">
+
+      <div class="surf-well surf-well-alt" style="flex:1;min-width:0;align-items:flex-start;">
+        <span class="surf-badge">LP</span>
+        <p class="surf-title" style="text-align:left;padding-top:var(--space-8);">Landing page template</p>
+        <img src="/workhuman/03-echo/LP%20-%20Templates.png" class="export" alt="LP template" style="width:484px;">
+        <p class="surf-caption">Accessibility and compliance copy ship inside the components, not on a checklist.</p>
+      </div>
+
+      <div class="surf-well" style="flex:1;min-width:0;align-items:flex-start;">
+        <span class="surf-badge">EML</span>
+        <p class="surf-title" style="text-align:left;padding-top:var(--space-8);">Email template</p>
+        <img src="/workhuman/03-echo/EML%20-%20Templates.png" class="export" alt="Email template" style="width:484px;">
+        <p class="surf-caption">Even the follow-up is componentized: Attended and No-show variants from one template.</p>
+      </div>
+
+    </div>
+
+    <!-- Award badge carousel -->
+    <div style="border:1px solid rgba(155,192,228,0.5);border-radius:var(--radius-md);overflow:hidden;margin-top:var(--space-16);height:239px;">
+      <img src="/workhuman/03-echo/Award%20Badge%20-%20Templates%20(Carousel).png" class="export" alt="Organic Social Library — Award Badge Templates" style="width:1080px;height:239px;">
+    </div>
+
+    <!-- Closing paragraph -->
+    <p class="body-text" style="margin-top:var(--space-40);">Once the component layer existed, each month's deliverables became an assembly question rather than a design question.</p>
+
+  </div><!-- /ch03 -->
+
+  <div class="divider"></div>
+
+  <!-- Ch04: Ceros x Figma ─────────────────────────────────────────── -->
+  <div id="ch04">
+
+    <div class="ch-header">
+      <p class="ch-eyebrow">Creative Technology</p>
+      <h2 class="ch-title">04 — Ceros x <em>Figma</em></h2>
+      <p class="ch-subhead">Every vertical deserves its own look, but the structure underneath never changes.</p>
+    </div>
+
+    <!-- Two-column body text -->
+    <div class="two-col" style="gap:var(--space-80); margin-top:var(--space-40);">
+      <p class="body-text" style="flex:1;">The same instinct was running in the other direction, outward into the sales motion. Workhuman's Ceros-based ABM program powered microsites across North America and EMEA markets.</p>
+      <p class="body-text" style="flex:1;">Each vertical needed its own look, but the underlying structure was the same: hero, value prop, case study, CTA. Ceros RFP+ gave the team a modular block library configured per vertical rather than rebuilt per program — and the blocks were shaped in wireframes with dev before anything reached high fidelity.</p>
+    </div>
+
+    <!-- Three frames — wma-approved surf-well treatment; protected, do not remove -->
+    <div style="margin-top:var(--space-80);">
+      <p class="body-text" style="font-weight:600; color:var(--color-ink); margin-bottom:var(--space-40);">The system's whole life in three frames: from dev's sticky notes to a shippable vertical.</p>
+      <div class="three-frames-row" style="display:flex; gap:var(--space-16); align-items:stretch;">
+
+        <div style="flex:1; display:flex; flex-direction:column; gap:var(--space-8);">
+          <div class="surf-well" style="flex:1; position:relative;">
+            <div class="surf-badge">WF</div>
+            <p class="surf-title">Wireframe + dev sticky</p>
+            <img src="/workhuman/04-ceros/LP.png" class="export" style="width:100%;" alt="">
+          </div>
+          <p class="surf-caption">Blocks negotiated in wireframes with dev before building.</p>
+        </div>
+
+        <div style="flex:1; display:flex; flex-direction:column; gap:var(--space-8);">
+          <div class="surf-well" style="flex:1; position:relative;">
+            <div class="surf-badge">LIB</div>
+            <p class="surf-title">Block library</p>
+            <img src="/workhuman/04-ceros/LIB.png" class="export" style="width:100%;" alt="">
+          </div>
+          <p class="surf-caption">Every block componentized; case study options in three flavors.</p>
+        </div>
+
+        <div style="flex:1; display:flex; flex-direction:column; gap:var(--space-8);">
+          <div class="surf-well" style="flex:1; position:relative;">
+            <div class="surf-badge">HIFI</div>
+            <p class="surf-title">Vertical instance</p>
+            <img src="/workhuman/04-ceros/HIFI.png" class="export" style="width:100%;" alt="">
+          </div>
+          <p class="surf-caption">One vertical configured, wireframe to HiFi.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom collage -->
+    <div style="padding:var(--space-80) 0 var(--space-40);">
+      <img src="/workhuman/04-ceros/collage.png" class="export" style="width:1080px;" alt="">
+    </div>
+
+  </div><!-- /ch04 -->
+
+  <div class="divider"></div>
+
+  <!-- Ch05: ROI Calculator ─────────────────────────────────────────── -->
+  <div id="ch05">
+
+    <div class="ch-header">
+      <p class="ch-eyebrow">Interactive Tooling</p>
+      <h2 class="ch-title">05 &#8212; ROI Calculator</h2>
+      <p class="ch-subhead">The calculator had to earn the trust of prospects in three steps.</p>
+    </div>
+
+    <!-- Intro paragraph — full width -->
+    <div style="padding:var(--space-40) 0 0;">
+      <p class="body-text">Workhuman needed a sales tool &#8212; something a rep could walk a prospect through that would produce a credible ROI estimate specific enough to feel real, not generic. The design problem wasn&#8217;t the data model, it was pacing. <strong>The solution was a three-step progressive disclosure flow:</strong></p>
+    </div>
+
+    <!-- Three-column step row -->
+    <div style="display:flex; gap:var(--space-40); align-items:flex-start; width:100%; margin-top:var(--space-40);">
+      <div style="flex:1 0 0; display:flex; flex-direction:column; gap:var(--space-80); align-items:flex-start;">
+        <div class="body-text">
+          <p style="margin:0; font-weight:700;">Step 1:</p>
+          <p style="margin:0;">Gathers the minimum viable context: organization size and industry.</p>
+        </div>
+        <img src="/workhuman/05-ROI/step1.png" class="export" style="width:100%; height:auto; display:block;" alt="Step 1: organization size and industry inputs">
+      </div>
+      <div style="flex:1 0 0; display:flex; flex-direction:column; gap:var(--space-80); align-items:flex-start;">
+        <div class="body-text">
+          <p style="margin:0; font-weight:700;">Step 2:</p>
+          <p style="margin:0;">Surfaces a returns estimate calibrated to those inputs.</p>
+        </div>
+        <img src="/workhuman/05-ROI/step2.png" class="export" style="width:100%; height:auto; display:block;" alt="Step 2: returns estimate">
+      </div>
+      <div style="flex:1 0 0; display:flex; flex-direction:column; gap:var(--space-80); align-items:flex-start;">
+        <div class="body-text">
+          <p style="margin:0; font-weight:700;">Step 3:</p>
+          <p style="margin:0;">Unlocks the full analysis, including a competitive comparison showing how Workhuman&#8217;s returns benchmark against peer platforms.</p>
+        </div>
+        <img src="/workhuman/05-ROI/step3.png" class="export" style="width:100%; height:auto; display:block;" alt="Step 3: full analysis and competitive comparison">
+      </div>
+    </div>
+
+    <!-- Logic row -->
+    <div style="display:flex; gap:var(--space-80); align-items:center; padding:0 var(--space-80); margin-top:var(--space-40);">
+      <p class="body-text" style="flex:1 0 0; min-width:0;"><strong>Logic:</strong> Earn trust at each step before asking for more. A prospect who completes step one has already opted in. By step three, the output has enough specificity that it reads as analysis, not marketing.</p>
+      <img src="/workhuman/05-ROI/logic-composite.png" class="export" style="width:451px; flex-shrink:0;" alt="ROI calculator multi-step view">
+    </div>
+
+    <!-- Leave-behind row -->
+    <div style="display:flex; gap:var(--space-80); align-items:center; margin-top:var(--space-80); padding-bottom:var(--space-80);">
+      <div style="position:relative; flex-shrink:0;">
+        <img src="/workhuman/05-ROI/02.png" class="export" style="width:520px; height:auto;" alt="Workhuman Recognition Impact Report PDF">
+      </div>
+      <div style="flex:1 0 0; min-width:0; display:flex; flex-direction:column; gap:var(--space-24); color:var(--color-ink);">
+        <div>
+          <p class="body-text" style="font-weight:700; margin:0; line-height:normal;">The leave-behind:</p>
+          <p class="body-text" style="font-size:var(--type-subhead); font-weight:700; line-height:normal; margin:0;">Workhuman Recognition Impact Report</p>
+        </div>
+        <p class="body-text">Step three&#8217;s unlock isn&#8217;t a screen. The calculator generates a report designed at print dimensions: branded, paginated, and populated with the prospect&#8217;s own numbers. The rep leaves something behind.</p>
+      </div>
+    </div>
+
+  </div><!-- /ch05 -->
+
+  <!-- Prev / Next nav -->
+  <nav class="cs-nav-outer" aria-label="Project navigation">
+    <div class="cs-nav-divider"></div>
+    <div class="cs-nav-row">
+      <div class="cs-nav-side">
+        <a href="/marly" class="cs-nav-btn" aria-label="Previous project: MARLY Creative Concepts">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 12L6 8L10 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <div class="cs-nav-label">
+          <span class="cs-nav-direction">Previous project:</span>
+          <span class="cs-nav-project">MARLY Creative Concepts</span>
+        </div>
+      </div>
+      <div class="cs-nav-side cs-nav-side--right">
+        <div class="cs-nav-label" style="text-align:right;">
+          <span class="cs-nav-direction">Next project:</span>
+          <span class="cs-nav-project">Treat Week</span>
+        </div>
+        <a href="/treat-week" class="cs-nav-btn" aria-label="Next project: Treat Week">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 4L10 8L6 12" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-mark">
+        <span class="heading-wordmark">wma.nyc</span>
+        <p class="footer-copy meta-small">&#169; 2026 Wilson Ma</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/#work" class="ui-nav">projects</a>
+        <a href="/about" class="ui-nav">about</a>
+        <a href="https://www.linkedin.com/in/wilsonxma/" target="_blank" rel="noopener noreferrer" class="ui-nav">linkedin</a>
+        <a href="mailto:ny.wilson.ma@gmail.com" class="ui-nav">email</a>
+      </nav>
+    </div>
+  </footer>
+
+<script>
+  (function () {
+    var tabs = document.querySelectorAll('.tab-btn');
+    var panels = document.querySelectorAll('.tab-panel');
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var target = document.getElementById(tab.getAttribute('aria-controls'));
+
+        tabs.forEach(function (t) {
+          t.setAttribute('aria-selected', 'false');
+        });
+        panels.forEach(function (p) {
+          p.classList.remove('active');
+        });
+
+        tab.setAttribute('aria-selected', 'true');
+        target.classList.add('active');
+      });
+
+      tab.addEventListener('keydown', function (e) {
+        var idx = Array.prototype.indexOf.call(tabs, tab);
+        if (e.key === 'ArrowRight') {
+          tabs[(idx + 1) % tabs.length].focus();
+          tabs[(idx + 1) % tabs.length].click();
+        } else if (e.key === 'ArrowLeft') {
+          tabs[(idx - 1 + tabs.length) % tabs.length].focus();
+          tabs[(idx - 1 + tabs.length) % tabs.length].click();
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
