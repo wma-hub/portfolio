@@ -882,14 +882,6 @@ a.card:hover .card-title { font-weight: var(--font-weight-bold); }
   color: var(--color-surface);
   font-weight: var(--font-weight-semibold);
 }
-.wh-well {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-24);
-  padding-bottom: var(--space-24);
-  border-bottom: 2px solid var(--color-rule);
-}
-.wh-well img { display: block; width: 100%; max-width: 900px; height: auto; }
 .wh-tile img { border: 0; }
 .wh-tile-n {
   color: var(--color-ink-muted);
@@ -900,6 +892,26 @@ a.card:hover .card-title { font-weight: var(--font-weight-bold); }
   letter-spacing: var(--tracking-tight);
 }
 .wh-gallery--tall > img { height: auto; width: auto; max-height: 560px; }
+
+
+/* ---- tab wells: images at natural width, panel-level divider ---- */
+.wh-well {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+.wh-well img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+.wh-well--tight { gap: var(--space-6); }
+.wh-panel { padding-bottom: var(--space-24); border-bottom: 2px solid var(--color-rule); }
+.wh-zones { display: grid; grid-template-columns: 688fr 368fr; gap: var(--space-24); align-items: start; }
+@media (max-width: 900px) {
+  .wh-zones { grid-template-columns: 1fr; gap: var(--space-40); }
+}
 
 /* ---- CASE STUDY SHARED COMPONENTS ---- */
 
