@@ -4,18 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Workhuman — Wilson Ma</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/site.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: #15191f; }
+    body { font-family: 'Inter', sans-serif; background: var(--color-ink); }
     img { display: block; }
 
     /* ── Nav ── */
     .nav {
-      background: #15191f;
+      background: var(--color-ink);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -25,19 +23,9 @@
     .nav-logo { width: 40px; height: 40px; }
     .nav-links { display: flex; gap: 32px; align-items: center; }
     .nav-links a {
-      color: #a5b1b5;
+      color: var(--color-ink-muted);
       font-size: 16px;
       font-weight: 400;
-      text-decoration: none;
-    }
-    .nav-cta {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid #9bc0e4;
-      border-radius: 6px;
-      padding: 10px 18px;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 700;
       text-decoration: none;
     }
 
@@ -45,7 +33,7 @@
 
     /* ── Main content ── */
     .content {
-      background: #fff;
+      background: var(--color-surface);
       padding: 80px max(calc((100% - 1080px) / 2), clamp(24px, 5vw, 60px)) 180px;
       display: flex;
       flex-direction: column;
@@ -61,7 +49,7 @@
     .ch-eyebrow {
       font-size: 14px;
       font-weight: 700;
-      color: #474747;
+      color: var(--color-ink-muted);
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
@@ -77,14 +65,14 @@
     .ch-subhead {
       font-size: 22px;
       font-weight: 700;
-      color: #1e293b;
+      color: var(--color-ink);
       line-height: 1.4;
       margin-top: 4px;
     }
 
     /* ── Stat cards ── */
     .stat-row {
-      background: #eef3f9;
+      background: var(--color-background-acc);
       border-radius: 16px;
       padding: 24px;
       display: flex;
@@ -93,7 +81,7 @@
     .stat-card {
       flex: 1;
       background: rgba(255,255,255,0.8);
-      border: 1px solid #9bc0e4;
+      border: 1px solid var(--color-rule);
       border-radius: 12px;
       padding: 20px;
       display: flex;
@@ -103,21 +91,21 @@
     .stat-label {
       font-size: 11px;
       font-weight: 700;
-      color: #333e6a;
+      color: var(--color-ink);
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
     .stat-value {
       font-size: 14px;
       font-weight: 400;
-      color: #333e6a;
+      color: var(--color-ink);
       line-height: 1.5;
     }
     .stat-value strong { font-weight: 700; }
     .stat-caption {
       font-size: 13px;
       font-style: italic;
-      color: #6b7a9a;
+      color: var(--color-ink-muted);
       margin-top: 8px;
     }
 
@@ -125,7 +113,7 @@
     .body-text {
       font-size: 18px;
       font-weight: 400;
-      color: #203f5b;
+      color: var(--color-ink);
       line-height: 1.65;
     }
 
@@ -147,7 +135,7 @@
 
     /* ── Callout box ── */
     .callout-box {
-      background: linear-gradient(135deg, #0e1f45 0%, #1a3570 100%);
+      background: linear-gradient(135deg, var(--color-ink) 0%, var(--color-ink) 100%);
       border: 2px solid rgba(255,255,255,0.25);
       border-radius: 8px;
       padding: 32px 40px;
@@ -158,7 +146,7 @@
     .callout-stat {
       font-size: 28px;
       font-weight: 700;
-      color: #fff;
+      color: var(--color-surface);
       line-height: 1.2;
     }
     .callout-body {
@@ -173,7 +161,7 @@
       font-size: 24px;
       font-weight: 700;
       font-style: italic;
-      color: #1e293b;
+      color: var(--color-ink);
       line-height: 1.45;
       text-align: center;
       padding: 16px 0;
@@ -190,7 +178,7 @@
     .tab-bar {
       display: flex;
       gap: 6px;
-      background: #f1f4f8;
+      background: var(--color-background-acc);
       padding: 6px;
       border-radius: 12px;
       width: fit-content;
@@ -203,17 +191,17 @@
       font-size: 14px;
       font-family: 'Inter', sans-serif;
       font-weight: 400;
-      color: #203f5b;
+      color: var(--color-ink);
       cursor: pointer;
       white-space: nowrap;
       transition: background 0.15s, border-color 0.15s, color 0.15s;
     }
     .tab-btn[aria-selected="true"] {
-      background: #fff;
-      border-color: #295ce6;
+      background: var(--color-surface);
+      border-color: var(--color-accent);
       box-shadow: 0 1px 4px rgba(0,0,0,0.10);
       font-weight: 600;
-      color: #295ce6;
+      color: var(--color-accent);
     }
     .tab-panel { display: none; }
     .tab-panel.active {
@@ -224,10 +212,10 @@
     .panel-label {
       font-size: 15px;
       font-weight: 600;
-      color: #1e293b;
+      color: var(--color-ink);
     }
     .viewer-well {
-      border: 1px dashed #b8c4d6;
+      border: 1px dashed var(--color-rule);
       background: rgba(236,241,246,0.25);
       border-radius: 12px;
       overflow: hidden;
@@ -264,14 +252,14 @@
     .panel-caption {
       font-size: 13px;
       font-weight: 400;
-      color: #4e6b88;
+      color: var(--color-ink-muted);
       line-height: 1.55;
     }
 
     /* ── Surface wells (Ch03) ── */
     .surf-well {
-      background: #f1f4f8;
-      border: 1px dashed #cbd5e1;
+      background: var(--color-background-acc);
+      border: 1px dashed var(--color-rule);
       border-radius: 10px;
       padding: 24px;
       display: flex;
@@ -281,30 +269,30 @@
       position: relative;
       overflow: hidden;
     }
-    .surf-well-alt { background: #f5f5f5; }
+    .surf-well-alt { background: var(--color-background-acc); }
     .surf-badge {
       position: absolute;
       top: 7px;
       left: 7px;
-      background: #7c5cfc;
+      background: var(--color-accent);
       border-radius: 5px;
       padding: 4px 8px;
       font-size: 9px;
       font-weight: 600;
-      color: #fff;
+      color: var(--color-surface);
       letter-spacing: 0.03em;
       z-index: 1;
     }
     .surf-title {
       font-size: 14px;
       font-weight: 700;
-      color: #1e293b;
+      color: var(--color-ink);
       text-align: center;
     }
     .surf-caption {
       font-size: 12px;
       font-weight: 400;
-      color: #203f5b;
+      color: var(--color-ink);
       line-height: 1.55;
       width: 100%;
     }
@@ -323,7 +311,7 @@
 
     /* ── Footer ── */
     .footer {
-      background: #15191f;
+      background: var(--color-ink);
       padding: 80px;
       display: flex;
       flex-direction: column;
@@ -348,12 +336,7 @@
     .footer-wordmark {
       font-size: 20px;
       font-weight: 600;
-      color: #f1ece7;
-    }
-    .footer-tagline {
-      font-size: 14px;
-      font-weight: 400;
-      color: #a5b1b5;
+      color: var(--color-ink);
     }
     .footer-links {
       display: flex;
@@ -362,7 +345,7 @@
     .footer-links a {
       font-size: 16px;
       font-weight: 400;
-      color: #a5b1b5;
+      color: var(--color-ink-muted);
       text-decoration: none;
     }
     .footer-rule {
@@ -370,7 +353,7 @@
       height: 1px;
     }
     .footer-bottom { display: flex; justify-content: space-between; }
-    .footer-copy { font-size: 12px; font-weight: 400; color: #a5b1b5; }
+    .footer-copy { font-size: 12px; font-weight: 400; color: var(--color-ink-muted); }
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
@@ -413,16 +396,13 @@
 <body>
 
 <!-- Nav -->
-<nav class="nav">
-  <a href="/" aria-label="wma.nyc home">
-    <img class="nav-logo" src="/assets/shared/wordmark.svg" alt="wma.nyc">
-  </a>
-  <div class="nav-links">
-    <a href="/#work">Work</a>
-    <a href="/about">About</a>
-    <a href="mailto:ny.wilson.ma@gmail.com" class="nav-cta">Get in touch</a>
-  </div>
-</nav>
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-wordmark">wilson ma</a>
+    <div class="nav-links">
+      <a href="/#work" class="ui-nav" aria-current="page">projects</a>
+      <a href="/about" class="ui-nav">about</a>
+    </div>
+  </nav>
 
 <!-- Hero -->
 <section class="cs-hero-outer">
@@ -641,53 +621,53 @@
       <!-- Tier 1: Primitives -->
       <div style="flex:1;min-width:0;background:#ffebdd;border-radius:12px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;min-height:193px;">
         <div>
-          <p style="font-size:10px;font-weight:600;color:#212744;opacity:0.5;text-transform:capitalize;">Tier 1:</p>
-          <p style="font-size:16px;font-weight:600;color:#212744;margin-top:2px;">Primitives</p>
+          <p style="font-size:10px;font-weight:600;color:var(--color-ink);opacity:0.5;text-transform:capitalize;">Tier 1:</p>
+          <p style="font-size:16px;font-weight:600;color:var(--color-ink);margin-top:2px;">Primitives</p>
         </div>
-        <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:10px;background:#f4f5f7;border:0.9px solid rgba(0,0,0,0.15);border-radius:6px;padding:7px;">
-          <div style="width:16px;height:16px;background:#5b63e4;border:0.5px solid #9bc0e4;flex-shrink:0;"></div>
-          <span style="font-size:12px;font-weight:700;color:#212744;white-space:nowrap;">#5B63E4</span>
+        <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:10px;background:var(--color-background-acc);border:0.9px solid rgba(0,0,0,0.15);border-radius:6px;padding:7px;">
+          <div style="width:16px;height:16px;background:var(--color-accent);border:0.5px solid var(--color-rule);flex-shrink:0;"></div>
+          <span style="font-size:12px;font-weight:700;color:var(--color-ink);white-space:nowrap;">#5B63E4</span>
         </div>
-        <p style="font-size:14px;font-style:italic;color:#212744;line-height:1.4;">Ex.: humanity-60, spacing-4, font-16</p>
+        <p style="font-size:14px;font-style:italic;color:var(--color-ink);line-height:1.4;">Ex.: humanity-60, spacing-4, font-16</p>
       </div>
 
       <!-- Tier 2: Aliases -->
       <div style="flex:1;min-width:0;background:rgba(255,235,221,0.8);border-radius:12px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;min-height:193px;">
         <div>
-          <p style="font-size:10px;font-weight:600;color:#212744;opacity:0.5;text-transform:capitalize;">Tier 2:</p>
-          <p style="font-size:16px;font-weight:600;color:#212744;margin-top:2px;">Aliases</p>
+          <p style="font-size:10px;font-weight:600;color:var(--color-ink);opacity:0.5;text-transform:capitalize;">Tier 2:</p>
+          <p style="font-size:16px;font-weight:600;color:var(--color-ink);margin-top:2px;">Aliases</p>
         </div>
-        <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:10px;background:#f4f5f7;border:0.9px solid rgba(0,0,0,0.15);border-radius:6px;padding:7px;">
-          <div style="width:16px;height:16px;background:#5b63e4;border:0.5px solid #9bc0e4;flex-shrink:0;"></div>
-          <span style="font-size:12px;font-weight:700;color:#212744;">humanity/60</span>
+        <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:10px;background:var(--color-background-acc);border:0.9px solid rgba(0,0,0,0.15);border-radius:6px;padding:7px;">
+          <div style="width:16px;height:16px;background:var(--color-accent);border:0.5px solid var(--color-rule);flex-shrink:0;"></div>
+          <span style="font-size:12px;font-weight:700;color:var(--color-ink);">humanity/60</span>
         </div>
-        <p style="font-size:14px;font-style:italic;color:#212744;line-height:1.4;">Ex.: brand-primary = humanity-60</p>
+        <p style="font-size:14px;font-style:italic;color:var(--color-ink);line-height:1.4;">Ex.: brand-primary = humanity-60</p>
       </div>
 
       <!-- Tier 3: Semantic Tokens -->
       <div style="flex:1;min-width:0;background:rgba(255,235,221,0.6);border-radius:12px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;min-height:193px;">
         <div>
-          <p style="font-size:10px;font-weight:600;color:#212744;opacity:0.5;text-transform:capitalize;">Tier 3:</p>
-          <p style="font-size:16px;font-weight:600;color:#212744;margin-top:2px;">Semantic Tokens</p>
+          <p style="font-size:10px;font-weight:600;color:var(--color-ink);opacity:0.5;text-transform:capitalize;">Tier 3:</p>
+          <p style="font-size:16px;font-weight:600;color:var(--color-ink);margin-top:2px;">Semantic Tokens</p>
         </div>
         <div style="display:flex;gap:16px;align-items:center;">
-          <div style="display:flex;align-items:center;justify-content:center;width:100px;height:33px;background:#5b63e4;border:0.9px solid rgba(196,242,255,0.25);border-radius:6px;opacity:0.25;font-size:11px;color:#fff;font-weight:400;">brandPrimary</div>
-          <div style="display:flex;align-items:center;justify-content:center;width:100px;height:33px;background:#5b63e4;border:1px dashed #f18bff;border-radius:6px;font-size:11px;color:#fff;font-weight:400;">buttonPrimary</div>
+          <div style="display:flex;align-items:center;justify-content:center;width:100px;height:33px;background:var(--color-accent);border:0.9px solid rgba(196,242,255,0.25);border-radius:6px;opacity:0.25;font-size:11px;color:var(--color-surface);font-weight:400;">brandPrimary</div>
+          <div style="display:flex;align-items:center;justify-content:center;width:100px;height:33px;background:var(--color-accent);border:1px dashed #f18bff;border-radius:6px;font-size:11px;color:var(--color-surface);font-weight:400;">buttonPrimary</div>
         </div>
-        <p style="font-size:14px;font-style:italic;color:#212744;line-height:1.4;">Ex.: surface-primary, text-default</p>
+        <p style="font-size:14px;font-style:italic;color:var(--color-ink);line-height:1.4;">Ex.: surface-primary, text-default</p>
       </div>
 
       <!-- Tier 4: Component Tokens -->
       <div style="flex:1;min-width:0;background:rgba(255,235,221,0.4);border-radius:12px;padding:16px;display:flex;flex-direction:column;justify-content:space-between;min-height:193px;">
         <div>
-          <p style="font-size:10px;font-weight:600;color:#212744;opacity:0.5;text-transform:capitalize;">Tier 4:</p>
-          <p style="font-size:16px;font-weight:600;color:#212744;margin-top:2px;">Component Tokens</p>
+          <p style="font-size:10px;font-weight:600;color:var(--color-ink);opacity:0.5;text-transform:capitalize;">Tier 4:</p>
+          <p style="font-size:16px;font-weight:600;color:var(--color-ink);margin-top:2px;">Component Tokens</p>
         </div>
-        <button style="display:inline-flex;align-self:flex-start;align-items:center;gap:8px;background:#5b63e4;border:none;border-radius:6px;padding:8px 16px;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,0.05);">
-          <span style="font-size:14px;font-weight:500;color:#fff;">Get Started</span>
-          <span style="font-size:12px;color:#fff;">→</span>
+        <button style="display:inline-flex;align-self:flex-start;align-items:center;gap:8px;background:var(--color-accent);border:none;border-radius:6px;padding:8px 16px;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,0.05);">
+          <span style="font-size:14px;font-weight:500;color:var(--color-surface);">Get Started</span>
+          <span style="font-size:12px;color:var(--color-surface);">→</span>
         </button>
-        <p style="font-size:14px;font-style:italic;color:#212744;line-height:1.4;">Ex.: button-bg-primary, input-border-focus</p>
+        <p style="font-size:14px;font-style:italic;color:var(--color-ink);line-height:1.4;">Ex.: button-bg-primary, input-border-focus</p>
       </div>
 
     </div><!-- /4-tier cards -->
@@ -695,84 +675,84 @@
     <!-- Button annotation diagram -->
     <div class="viewer-well" style="margin-top:0;width:100%;padding:40px;display:flex;flex-direction:column;align-items:center;gap:24px;">
       <img src="/workhuman/02-aura/button-demo.png" class="export" alt="Button component token annotation" style="width:877px;max-width:100%;height:auto;">
-      <p style="font-size:12px;color:#203f5b;line-height:normal;text-align:center;width:100%;">White variant, focus state. The ring resolves to humanity-60 — the same primitive in Tier 1 above. That's the cascade, on one component.</p>
+      <p style="font-size:12px;color:var(--color-ink);line-height:normal;text-align:center;width:100%;">White variant, focus state. The ring resolves to humanity-60 — the same primitive in Tier 1 above. That's the cascade, on one component.</p>
     </div>
 
     <!-- Block quote -->
     <div style="padding:40px 40px 0;text-align:center;margin-top:40px;">
-      <p style="font-size:24px;font-weight:600;font-style:italic;color:#1e293b;line-height:24px;">"We spend 60% of our time answering the same design questions."</p>
-      <p style="font-size:12px;font-style:italic;color:#1e293b;line-height:24px;margin-top:0;">(Engineering, discovery interviews)</p>
+      <p style="font-size:24px;font-weight:600;font-style:italic;color:var(--color-ink);line-height:24px;">"We spend 60% of our time answering the same design questions."</p>
+      <p style="font-size:12px;font-style:italic;color:var(--color-ink);line-height:24px;margin-top:0;">(Engineering, discovery interviews)</p>
     </div>
 
     <!-- 3 metric pills -->
     <div class="metric-row" style="display:flex;gap:16px;margin-top:40px;">
-      <div style="flex:1;border:1px solid #d9d9d9;border-radius:10px;padding:16px 20px;display:flex;flex-direction:column;align-items:center;gap:6px;">
-        <p style="font-size:20px;font-weight:700;color:#1e293b;white-space:nowrap;">2 wks → 3 days</p>
-        <p style="font-size:12px;color:#203f5b;">new designer onboarding</p>
+      <div style="flex:1;border:1px solid var(--color-rule);border-radius:10px;padding:16px 20px;display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <p style="font-size:20px;font-weight:700;color:var(--color-ink);white-space:nowrap;">2 wks → 3 days</p>
+        <p style="font-size:12px;color:var(--color-ink);">new designer onboarding</p>
       </div>
-      <div style="flex:1;border:1px solid #d9d9d9;border-radius:10px;padding:16px 20px;display:flex;flex-direction:column;align-items:center;gap:6px;">
-        <p style="font-size:20px;font-weight:700;color:#1e293b;">↓60%</p>
-        <p style="font-size:12px;color:#203f5b;">engineer questions after docs</p>
+      <div style="flex:1;border:1px solid var(--color-rule);border-radius:10px;padding:16px 20px;display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <p style="font-size:20px;font-weight:700;color:var(--color-ink);">↓60%</p>
+        <p style="font-size:12px;color:var(--color-ink);">engineer questions after docs</p>
       </div>
-      <div style="flex:1;border:1px solid #d9d9d9;border-radius:10px;padding:16px 20px;display:flex;flex-direction:column;align-items:center;gap:6px;">
-        <p style="font-size:20px;font-weight:700;color:#1e293b;">95%</p>
-        <p style="font-size:12px;color:#203f5b;">implementation adherence</p>
+      <div style="flex:1;border:1px solid var(--color-rule);border-radius:10px;padding:16px 20px;display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <p style="font-size:20px;font-weight:700;color:var(--color-ink);">95%</p>
+        <p style="font-size:12px;color:var(--color-ink);">implementation adherence</p>
       </div>
     </div>
 
     <!-- Contribution pipeline -->
     <div style="padding:80px 40px;display:flex;flex-direction:column;align-items:center;gap:40px;margin-top:0;">
       <div style="width:100%;">
-        <p style="font-size:18px;font-weight:600;color:#1e293b;">Contribution pipeline: How new components are added to Aura</p>
-        <p style="font-size:12px;color:#203f5b;margin-top:4px;">Semantic versioning, changelog every release, 6-month deprecation notice, migration guides for breaking changes</p>
+        <p style="font-size:18px;font-weight:600;color:var(--color-ink);">Contribution pipeline: How new components are added to Aura</p>
+        <p style="font-size:12px;color:var(--color-ink);margin-top:4px;">Semantic versioning, changelog every release, 6-month deprecation notice, migration guides for breaking changes</p>
       </div>
       <!-- 6-step stepper -->
       <div class="stepper-row" style="display:flex;align-items:flex-start;width:100%;">
 
         <div style="display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;">
-          <div style="width:32px;height:32px;border-radius:50%;background:#f1f4f8;border:1px solid #cbd5e1;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#203f5b;">1</div>
-          <p style="font-size:12px;color:#1e293b;text-align:center;">Request</p>
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-background-acc);border:1px solid var(--color-rule);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--color-ink);">1</div>
+          <p style="font-size:12px;color:var(--color-ink);text-align:center;">Request</p>
         </div>
-        <div style="flex:1;height:2px;background:#cbd5e1;margin-top:15px;"></div>
+        <div style="flex:1;height:2px;background:var(--color-background-acc);margin-top:15px;"></div>
 
         <div style="display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;">
-          <div style="width:32px;height:32px;border-radius:50%;background:#f1f4f8;border:1px solid #cbd5e1;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#203f5b;">2</div>
-          <p style="font-size:12px;color:#1e293b;text-align:center;">Validate need<br>3+ use cases</p>
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-background-acc);border:1px solid var(--color-rule);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--color-ink);">2</div>
+          <p style="font-size:12px;color:var(--color-ink);text-align:center;">Validate need<br>3+ use cases</p>
         </div>
-        <div style="flex:1;height:2px;background:#cbd5e1;margin-top:15px;"></div>
+        <div style="flex:1;height:2px;background:var(--color-background-acc);margin-top:15px;"></div>
 
         <div style="display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;">
-          <div style="width:32px;height:32px;border-radius:50%;background:#f1f4f8;border:1px solid #cbd5e1;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#203f5b;">3</div>
-          <p style="font-size:12px;color:#1e293b;text-align:center;">Design<br>review</p>
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-background-acc);border:1px solid var(--color-rule);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--color-ink);">3</div>
+          <p style="font-size:12px;color:var(--color-ink);text-align:center;">Design<br>review</p>
         </div>
-        <div style="flex:1;height:2px;background:#cbd5e1;margin-top:15px;"></div>
+        <div style="flex:1;height:2px;background:var(--color-background-acc);margin-top:15px;"></div>
 
         <div style="display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;">
-          <div style="width:32px;height:32px;border-radius:50%;background:#f1f4f8;border:1px solid #cbd5e1;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#203f5b;">4</div>
-          <p style="font-size:12px;color:#1e293b;text-align:center;">Engineering<br>feasibility</p>
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-background-acc);border:1px solid var(--color-rule);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--color-ink);">4</div>
+          <p style="font-size:12px;color:var(--color-ink);text-align:center;">Engineering<br>feasibility</p>
         </div>
-        <div style="flex:1;height:2px;background:#cbd5e1;margin-top:15px;"></div>
+        <div style="flex:1;height:2px;background:var(--color-background-acc);margin-top:15px;"></div>
 
         <div style="display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;">
-          <div style="width:32px;height:32px;border-radius:50%;background:#f1f4f8;border:1px solid #cbd5e1;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#203f5b;">5</div>
-          <p style="font-size:12px;color:#1e293b;text-align:center;">Docs<br>required</p>
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-background-acc);border:1px solid var(--color-rule);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--color-ink);">5</div>
+          <p style="font-size:12px;color:var(--color-ink);text-align:center;">Docs<br>required</p>
         </div>
-        <div style="flex:1;height:2px;background:#cbd5e1;margin-top:15px;"></div>
+        <div style="flex:1;height:2px;background:var(--color-background-acc);margin-top:15px;"></div>
 
         <div style="display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0;">
-          <div style="width:32px;height:32px;border-radius:50%;background:#295ce6;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;">6</div>
-          <p style="font-size:12px;font-weight:700;color:#1e293b;text-align:center;">Ship</p>
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--color-accent);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--color-surface);">6</div>
+          <p style="font-size:12px;font-weight:700;color:var(--color-ink);text-align:center;">Ship</p>
         </div>
 
       </div>
-      <p style="font-size:12px;color:#203f5b;width:100%;">Compromise: Token naming took three iterations before the semantics made sense to engineers; this causes early confusion but establishes long-term clarity.</p>
+      <p style="font-size:12px;color:var(--color-ink);width:100%;">Compromise: Token naming took three iterations before the semantics made sense to engineers; this causes early confusion but establishes long-term clarity.</p>
     </div>
 
     <!-- Button spread composition -->
     <img src="/workhuman/02-aura/button-spread.png" class="export" alt="Aura design system — button component library" style="width:1080px;">
 
     <!-- Tagline -->
-    <p style="font-size:13px;font-weight:600;color:#1e293b;letter-spacing:0.02em;margin-top:24px;">150+ components · 200+ icons · 8pt grid · 6-size type scale · WCAG AA baked in</p>
+    <p style="font-size:13px;font-weight:600;color:var(--color-ink);letter-spacing:0.02em;margin-top:24px;">150+ components · 200+ icons · 8pt grid · 6-size type scale · WCAG AA baked in</p>
 
   </div><!-- /ch02 -->
 
@@ -809,7 +789,7 @@
 
     <!-- One campaign, four surfaces -->
     <div style="margin-top:48px;">
-      <p style="font-size:16px;font-weight:700;color:#1e293b;margin-bottom:24px;">One campaign, four surfaces</p>
+      <p style="font-size:16px;font-weight:700;color:var(--color-ink);margin-bottom:24px;">One campaign, four surfaces</p>
 
       <!-- 4-surface grid -->
       <div class="surface-grid" style="display:grid;grid-template-columns:508px 508px;grid-template-rows:auto auto;gap:16px;">
@@ -900,7 +880,7 @@
 
     <!-- Three frames — wma-approved surf-well treatment; protected, do not remove -->
     <div style="margin-top:80px;">
-      <p class="body-text" style="font-weight:600; color:#203f5b; margin-bottom:40px;">The system's whole life in three frames: from dev's sticky notes to a shippable vertical.</p>
+      <p class="body-text" style="font-weight:600; color:var(--color-ink); margin-bottom:40px;">The system's whole life in three frames: from dev's sticky notes to a shippable vertical.</p>
       <div class="three-frames-row" style="display:flex; gap:16px; align-items:stretch;">
 
         <div style="flex:1; display:flex; flex-direction:column; gap:8px;">
@@ -992,7 +972,7 @@
       <div style="position:relative; flex-shrink:0;">
         <img src="/workhuman/05-ROI/02.png" class="export" style="width:520px; height:auto;" alt="Workhuman Recognition Impact Report PDF">
       </div>
-      <div style="flex:1 0 0; min-width:0; display:flex; flex-direction:column; gap:24px; color:#203f5b;">
+      <div style="flex:1 0 0; min-width:0; display:flex; flex-direction:column; gap:24px; color:var(--color-ink);">
         <div>
           <p class="body-text" style="font-weight:700; margin:0; line-height:normal;">The leave-behind:</p>
           <p class="body-text" style="font-size:24px; font-weight:700; line-height:normal; margin:0;">Workhuman Recognition Impact Report</p>
@@ -1035,27 +1015,20 @@
 </main>
 
 <!-- Footer -->
-<footer class="footer">
-  <div class="footer-top">
-    <div class="footer-mark">
-      <div class="footer-wordmark-row">
-        <img class="footer-logo" src="/assets/shared/wordmark.svg" alt="wma.nyc">
-        <span class="footer-wordmark">wma.nyc</span>
+<footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-mark">
+        <span class="heading-wordmark">wma.nyc</span>
+        <p class="footer-copy meta-small">&#169; 2026 Wilson Ma</p>
       </div>
-      <p class="footer-tagline">Designer and creative technologist in New York.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/#work" class="ui-nav">projects</a>
+        <a href="/about" class="ui-nav">about</a>
+        <a href="https://www.linkedin.com/in/wilsonxma/" target="_blank" rel="noopener noreferrer" class="ui-nav">linkedin</a>
+        <a href="mailto:ny.wilson.ma@gmail.com" class="ui-nav">email</a>
+      </nav>
     </div>
-    <div class="footer-links">
-      <a href="/#work">Work</a>
-      <a href="/about">About</a>
-      <a href="https://www.linkedin.com/in/wilsonxma/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:ny.wilson.ma@gmail.com">Email</a>
-    </div>
-  </div>
-  <div class="footer-rule"></div>
-  <div class="footer-bottom">
-    <p class="footer-copy">© 2026 Wilson Ma</p>
-  </div>
-</footer>
+  </footer>
 
 <script>
   (function () {
