@@ -83,7 +83,7 @@ else:
     notes.append("V3 hero written (copy left, portrait circle right)")
 
     # strip orphaned CSS referencing the old hero classes
-    src, nc = re.subn(r'\s*/\*[^*]*cs-hero-[^*]*\*/\s*', "\n", src)
+    src, nc = re.subn(r'\s*/\*.*?cs-hero-.*?\*/\s*', "\n", src, flags=re.S)
     src, nr = re.subn(r'\s*\.cs-hero-[a-z-]+\s*\{[^}]*\}\s*', "\n", src)
     if nc + nr: notes.append(f"removed {nc} comment(s) + {nr} orphaned CSS rule(s) for cs-hero-*")
 
