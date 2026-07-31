@@ -997,3 +997,14 @@ img, svg, video { height: auto; }
   .wh-tablist { gap: var(--space-4); }
   .wh-tab { padding: var(--space-8) var(--space-12); font-size: var(--type-body-sm); }
 }
+
+/* ---- prev/next: alignment lives in CSS so mobile can override it ---- */
+.cs-nav-side--right .cs-nav-label { text-align: right; }
+
+@media (max-width: 700px) {
+  .cs-nav-row { flex-direction: column; align-items: stretch; gap: var(--space-32); }
+  .cs-nav-side { justify-content: flex-start; }
+  .cs-nav-side--right { flex-direction: row-reverse; justify-content: flex-start; }
+  .cs-nav-side--right .cs-nav-label { text-align: left; }
+  .cs-nav-label { min-width: 0; }
+}
