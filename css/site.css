@@ -802,7 +802,6 @@ a.card:hover .card-title {
   width: 100%;
   height: auto;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--color-rule);
 }
 .wh-tile-label { color: var(--color-ink); }
 .wh-tile-note  { color: var(--color-ink-muted); }
@@ -867,6 +866,41 @@ a.card:hover .card-title { font-weight: var(--font-weight-bold); }
 /* callout screengrab renders at its native width, never upscaled */
 .ge-figure--inline img { max-width: 700px; width: 100%; height: auto; }
 
+
+/* ---- round 3: tab pills, wells, tile + step treatment ---- */
+.wh-tablist { border-bottom: 0; gap: var(--space-6); flex-wrap: wrap; }
+.wh-tab {
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-sm);
+  padding: var(--space-12) var(--space-20);
+  margin-bottom: 0;
+  color: var(--color-ink-muted);
+}
+.wh-tab[aria-selected="true"] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-surface);
+  font-weight: var(--font-weight-semibold);
+}
+.wh-well {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  padding-bottom: var(--space-24);
+  border-bottom: 2px solid var(--color-rule);
+}
+.wh-well img { display: block; width: 100%; max-width: 900px; height: auto; }
+.wh-tile img { border: 0; }
+.wh-tile-n {
+  color: var(--color-ink-muted);
+  border-bottom: 0;
+  padding-bottom: 0;
+  font-size: var(--type-section);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-tight);
+}
+.wh-gallery--tall > img { height: auto; width: auto; max-height: 560px; }
+
 /* ---- CASE STUDY SHARED COMPONENTS ---- */
 
 /* ── CS Nav — prev/next, matching the nav-page component ─────── */
@@ -888,7 +922,6 @@ a.card:hover .card-title { font-weight: var(--font-weight-bold); }
   gap: var(--space-24);
 }
 .cs-nav-side { display: flex; gap: var(--space-16); align-items: center; }
-.cs-nav-side--right { justify-content: flex-end; }
 .cs-nav-label { display: flex; flex-direction: column; gap: var(--space-4); }
 .cs-nav-direction {
   font-size: var(--type-body);
@@ -903,8 +936,6 @@ a.card:hover .card-title { font-weight: var(--font-weight-bold); }
   line-height: var(--leading-normal);
 }
 .cs-nav-side a { color: inherit; }
-.cs-nav-side--left  .cs-nav-project   { color: var(--color-accent); }
-.cs-nav-side--right .cs-nav-project   { color: var(--color-ink-muted); }
 .cs-nav-btn {
   border: 1px solid var(--color-rule);
   border-radius: var(--radius-sm);
