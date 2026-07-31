@@ -10,28 +10,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: var(--color-ink); }
     img { display: block; }
-
-    /* ── Nav ── */
-    .nav {
-      background: var(--color-ink);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 120px;
-      padding: var(--space-24) var(--space-80);
-    }
-    .nav-logo { width: 40px; height: 40px; }
-    .nav-links { display: flex; gap: var(--space-32); align-items: center; }
-    .nav-links a {
-      color: var(--color-ink-muted);
-      font-size: var(--type-body-sm);
-      font-weight: 400;
-      text-decoration: none;
-    }
-
-    /* ── Hero — see site.css .cs-hero-* ── */
-
-    /* ── Main content ── */
+/* ── Main content ── */
     .content {
       background: var(--color-surface);
       padding: 80px max(calc((100% - 1080px) / 2), clamp(24px, 5vw, 60px)) 180px;
@@ -385,8 +364,32 @@
     }
   
 /* V3 alignment: the design has no hero card and no stat cards */
-.cs-hero-feature { background: none; border: 0; padding: 0; border-radius: 0; }
 .stat-card { display: none; }
+  
+/* V3 alignment: Workhuman's private heading classes resolve to the shared
+   scale. Defined last so they win on source order, no markup re-classing. */
+.ch-eyebrow {
+  font-size: var(--type-section);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-normal);
+  color: var(--color-ink-muted);
+}
+.ch-title {
+  font-size: var(--type-display);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-normal);
+  color: var(--color-ink);
+}
+.ch-subhead {
+  font-size: var(--type-subhead);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-normal);
+  color: var(--color-ink);
+}
+.ch-header { display: flex; flex-direction: column; gap: var(--space-16); }
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3KK0FQDE6"></script>
@@ -409,35 +412,16 @@
   </nav>
 
 <!-- Hero -->
-<section class="cs-hero-outer">
-  <div class="cs-hero-feature">
-    <div class="cs-hero-copy">
-      <div class="cs-hero-text">
-        <h1 class="cs-hero-title">Workhuman</h1>
-        <p class="cs-hero-subtitle">Same instinct, five layers.</p>
-        <p class="cs-hero-body">Workhuman is a B2B SaaS platform for employee recognition. Over four years I worked across conversion design, product systems, production infrastructure, creative technology, and interactive tooling — different problems at different scales, but the same underlying move: identify the problem, build the solution.</p>
+    <section class="hero" aria-label="Workhuman">
+      <div class="hero-inner">
+        <div class="hero-copy hero-copy--narrow fade-up">
+          <h1 class="display-hero">Workhuman</h1>
+          <p class="heading-card hero-sub">Same instinct, five layers.</p>
+          <p class="body-default hero-intro">Workhuman is a B2B SaaS platform for employee recognition. Over four years I worked across conversion design, product systems, production infrastructure, creative technology, and interactive tooling &#8212; different problems at different scales, but the same underlying move: identify the problem, build the solution.</p>
+        </div>
+        <div class="hero-portrait ph ph--circle fade-up" data-asset="workhuman/hero.png" aria-hidden="true"></div>
       </div>
-      <div class="cs-hero-cards">
-        <div class="cs-hero-card">
-          <p class="cs-hero-card-label">Scope</p>
-          <p class="cs-hero-card-value">Conversion design, two design systems, interactive sales tooling</p>
-        </div>
-        <div class="cs-hero-card">
-          <p class="cs-hero-card-label">Context</p>
-          <p class="cs-hero-card-value">B2B SaaS, in-house, US + Ireland design org</p>
-        </div>
-        <div class="cs-hero-card">
-          <p class="cs-hero-card-label">Delivery</p>
-          <p class="cs-hero-card-value">Careers experience, Aura DS, Echo DS, Ceros ABM, ROI calculator</p>
-        </div>
-        <div class="cs-hero-card">
-          <p class="cs-hero-card-label">Status</p>
-          <p class="cs-hero-card-value">Four years, shipped and measured</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 <!-- Content -->
 <main class="content">
