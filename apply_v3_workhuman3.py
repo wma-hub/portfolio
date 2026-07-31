@@ -82,6 +82,11 @@ else:
     src = src.replace(before, HERO + "\n\n", 1)
     notes.append("V3 hero written (copy left, portrait circle right)")
 
+    # strip orphaned CSS referencing the old hero classes
+    src, nc = re.subn(r'\s*/\*[^*]*cs-hero-[^*]*\*/\s*', "\n", src)
+    src, nr = re.subn(r'\s*\.cs-hero-[a-z-]+\s*\{[^}]*\}\s*', "\n", src)
+    if nc + nr: notes.append(f"removed {nc} comment(s) + {nr} orphaned CSS rule(s) for cs-hero-*")
+
 n_rem = src.count("cs-hero-")
 if n_rem: fail("cs-hero-* remnants survive in markup: %d" % n_rem)
 
