@@ -580,6 +580,31 @@ a.card:hover .card-title {
   .ge-split-copy, .ge-split-visual { max-width: none; flex: 1 1 auto; width: 100%; }
 }
 
+
+/* ------------------------------------------------------------
+   CASE STUDY — gallery blocks (Treat Week, RIPCO, West Elm)
+   ------------------------------------------------------------ */
+.cs-stack { display: flex; flex-direction: column; gap: var(--space-80); }
+
+/* Five logo lockup explorations across */
+.lockup-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-24); }
+
+/* Labelled brand-system subsection */
+.brand-sys { display: flex; flex-direction: column; gap: var(--space-24); }
+.brand-sys-label { color: var(--color-ink); }
+
+/* Wide horizontal strips that overflow the 1080 column */
+.cs-strip { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: var(--space-8); }
+.cs-strip > .ph { min-width: 1600px; }
+
+@media (max-width: 900px) {
+  .cs-stack { gap: var(--space-60); }
+  .lockup-row { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 700px) {
+  .lockup-row { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ---- CASE STUDY SHARED COMPONENTS ---- */
 
 /* ── CS Hero ─────────────────────────────────────────────── */

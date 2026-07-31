@@ -3,215 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Treat Week — Wilson Ma</title>
+  <title>Treat Week &#8212; Wilson Ma</title>
   <link rel="preload" href="/assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/site.css">
-  <style>
-    /* ── Treat Week page styles ── */
-
-    /* HERO — see site.css .cs-hero-* */
-
-    /* CONTENT AREA */
-    .tw-body {
-      background: #fff;
-      padding-top: 80px;
-      padding-bottom: 180px;
-      overflow-x: clip;
-    }
-    .tw-col {
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-
-    /* SECTION SEPARATOR */
-    .tw-sep {
-      width: 80px;
-      height: 2px;
-      background: rgba(155, 192, 228, 0.5);
-      margin: 80px 0;
-    }
-
-    /* SECTION BASE */
-    .tw-section {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-    .tw-s-header {
-      font-family: 'Inter', sans-serif;
-      font-size: 48px;
-      font-weight: 600;
-      font-style: normal;
-      line-height: 1.2;
-      background: linear-gradient(96.9467deg, #001d93 33.876%, #476bfe 113.48%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .tw-body-text {
-      font-family: 'Inter', sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      color: #203f5b;
-      line-height: 1.6;
-    }
-
-    /* 01 — BRIEF */
-    .tw-01-row {
-      display: flex;
-      gap: 80px;
-      align-items: flex-start;
-    }
-    .tw-01-copy {
-      flex: 1 1 532px;
-      min-width: 0;
-      max-width: 532px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .tw-01-box {
-      flex: 1 1 468px;
-      min-width: 0;
-      max-width: 468px;
-      background: #fff;
-      border: 1px solid #d9d9d9;
-      border-radius: 12px;
-      padding: 24px 32px;
-      box-sizing: border-box;
-    }
-    .tw-01-box h4 {
-      font-family: 'Inter', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: #203f5b;
-      margin-bottom: 8px;
-    }
-    .tw-01-box ul {
-      list-style: disc;
-      padding-left: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .tw-01-box li {
-      font-family: 'Inter', sans-serif;
-      font-size: 18px;
-      color: #203f5b;
-      line-height: 1.5;
-    }
-
-    /* 02 — EXPLORATION */
-    .tw-02-lead {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    .tw-02-quote {
-      padding: 16px 24px;
-      border-radius: 12px;
-      background: rgba(155, 192, 228, 0.08);
-      border: 1px solid rgba(155, 192, 228, 0.25);
-    }
-    .tw-02-quote p {
-      font-family: 'Inter', sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      font-style: italic;
-      color: #203f5b;
-      line-height: 1.5;
-      text-align: center;
-    }
-
-    /* 04 — APPLIED FORMATS */
-    /* content frame: p-[40px], gap-[100px], items-center — from Figma 3319:4191 */
-    .tw-04-content {
-      display: flex;
-      flex-direction: column;
-      gap: 100px;
-      align-items: center;
-      padding: 40px;
-      box-sizing: border-box;
-    }
-    /* block1: flex gap-[100px] items-center w-full — from Figma 3323:6687 */
-    .tw-04-block1 {
-      display: flex;
-      gap: 80px;
-      align-items: center;
-      width: 100%;
-    }
-    /* text: flex-[1_0_0] — fills 356px after 80px gap + 564px cluster (Figma 3323:6687) */
-    .tw-04-copy {
-      flex: 1 0 0;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    /* bare imgs: row right (04-1) + bottom (04-2) */
-    .tw-04-block1 > img {
-      display: block;
-      flex-shrink: 0;
-    }
-    /* 04-2: intrinsic 1x width (1235px); glow overflow clips via .tw-body overflow-x:clip */
-    .tw-04-content > img {
-      display: block;
-      max-width: none;
-    }
-
-    /* 05 — IMPACT */
-    .tw-05-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .tw-05-card {
-      background: #f4f5f7;
-      border-radius: 6px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      box-sizing: border-box;
-      height: 118px;
-    }
-    .tw-05-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: #000;
-      line-height: 1.2;
-    }
-    .tw-05-body {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      color: #000;
-      line-height: 1.5;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 1080px) {
-      .tw-col { padding: 0 clamp(20px, 4vw, 60px); }
-    }
-    @media (max-width: 900px) {
-      .tw-s-header { font-size: clamp(28px, 5vw, 48px); }
-      .tw-01-row { flex-direction: column; gap: 32px; }
-      .tw-01-copy, .tw-01-box { width: 100%; }
-      .tw-02-quote p { font-size: 18px; }
-      .tw-04-content { padding: 0; }
-      .tw-04-block1 { flex-direction: column; gap: 32px; }
-      .tw-04-copy { width: 100%; }
-      .tw-04-block1 > img,
-      .tw-04-content > img { width: 100%; height: auto; }
-      .tw-05-grid { grid-template-columns: repeat(2, 1fr); }
-      .tw-05-card { height: auto; min-height: 90px; }
-    }
-    @media (max-width: 700px) {
-      .tw-05-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3KK0FQDE6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -223,151 +17,63 @@
 <body>
 <div class="page">
 
-  <!-- NAV -->
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-wordmark">wilson ma</a>
     <div class="nav-links">
-      <a href="/#work" class="ui-nav">projects</a>
+      <a href="/#work" class="ui-nav" aria-current="page">projects</a>
       <a href="/about" class="ui-nav">about</a>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="cs-hero-outer" aria-label="Treat Week">
-    <div class="cs-hero-feature">
-      <div class="cs-hero-copy fade-up">
-        <div class="cs-hero-text">
-          <h1 class="cs-hero-title" style="font-style:italic;">Treat Week</h1>
-          <p class="cs-hero-subtitle">A brand built for a sale.</p>
-          <p class="cs-hero-body">Workhuman&#8217;s fall Store Sale had no identity of its own. Every year it borrowed whatever campaign assets were lying around, and employees treated it like background noise instead of a moment worth opening an email for.</p>
+  <main>
+
+    <section class="hero" aria-label="Treat Week">
+      <div class="hero-inner">
+        <div class="hero-copy hero-copy--narrow fade-up">
+          <h1 class="display-hero">Treat Week</h1>
+          <p class="heading-subhead hero-sub">A brand built for a sale.</p>
+          <p class="body-default hero-intro">Workhuman&#8217;s fall Store Sale had no identity of its own. Every year it borrowed whatever campaign assets were lying around, and employees treated it like background noise instead of a moment worth opening an email for.</p>
         </div>
-        <div class="cs-hero-cards fade-up">
-          <div class="cs-hero-card">
-            <p class="cs-hero-card-label">Scope</p>
-            <p class="cs-hero-card-value">Brand identity and naming, campaign design, multi-channel rollout</p>
-          </div>
-          <div class="cs-hero-card">
-            <p class="cs-hero-card-label">Context</p>
-            <p class="cs-hero-card-value">Workhuman internal campaign</p>
-          </div>
-          <div class="cs-hero-card">
-            <p class="cs-hero-card-label">Delivery</p>
-            <p class="cs-hero-card-value">Logo system, color palette, digital + print + social</p>
-          </div>
-          <div class="cs-hero-card">
-            <p class="cs-hero-card-label">Status</p>
-            <p class="cs-hero-card-value">Launched September 2025</p>
-          </div>
-        </div>
+        <div class="hero-portrait ph ph--circle fade-up" data-asset="treatweek/hero.png" aria-hidden="true"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTENT -->
-  <div class="tw-body">
-    <div class="tw-col">
-
-      <!-- 01 — THE BRIEF -->
-      <section class="tw-section fade-up" aria-labelledby="s01-head">
-        <h2 class="tw-s-header" id="s01-head">01 &#8212; The Brief</h2>
-        <div class="tw-01-row">
-          <div class="tw-01-copy">
-            <p class="tw-body-text">Each fall, Workhuman runs a store sale for US employees, a limited window where recognition awards stretch further across house, home, fashion, and electronics. Promoting it meant hitting every internal channel the company uses to reach its people.</p>
-            <p class="tw-body-text">What didn&#8217;t exist was a brand. The sale had a name, Treat Week, but no logotype, no color system, no illustration direction. Every prior year ran on borrowed Workhuman assets, which made it look like a company announcement rather than an event employees would actually anticipate.</p>
-          </div>
-          <div class="tw-01-box">
-            <h4>The Constraint</h4>
-            <ul>
-              <li>Must feel distinct from Workhuman brand</li>
-              <li>Must feel cohesive across digital + print</li>
-              <li>Must work for any customer&#8217;s store program</li>
-              <li>Must ship in 4 weeks</li>
-            </ul>
-          </div>
+    <section class="cs-body" aria-label="Gallery">
+      <div class="cs-body-inner cs-stack">
+        <div class="fade-up"><div class="ph" style="aspect-ratio:1080/479" data-asset="treatweek/01-campaign.png"></div></div>
+        <div class="lockup-row fade-up">
+          <div class="ph" style="aspect-ratio:159/159" data-asset="treatweek/lockup-1.png"></div>
+          <div class="ph" style="aspect-ratio:159/159" data-asset="treatweek/lockup-2.png"></div>
+          <div class="ph" style="aspect-ratio:159/159" data-asset="treatweek/lockup-3.png"></div>
+          <div class="ph" style="aspect-ratio:159/159" data-asset="treatweek/lockup-4.png"></div>
+          <div class="ph" style="aspect-ratio:159/159" data-asset="treatweek/lockup-5.png"></div>
         </div>
-        <img width="1080" src="/assets/treatweek/01.png" height="280" alt="Treat Week campaign overview" style="width: 100%; height: auto; display: block; border-radius: 6px;">
-      </section>
-
-      <div class="tw-sep"></div>
-
-      <!-- 02 — IDENTITY EXPLORATION -->
-      <section class="tw-section fade-up" aria-labelledby="s02-head">
-        <h2 class="tw-s-header" id="s02-head">02 &#8212; Identity Exploration</h2>
-        <div class="tw-02-lead">
-          <p class="tw-body-text">&#8220;Treat&#8221; and &#8220;week&#8221; together read as indulgent and time-limited, which is exactly the emotional territory the sale needed to occupy. The exploration started there:</p>
-          <div class="tw-02-quote">
-            <p>What does a brand look like when its whole job is to make employees feel they&#8217;ve earned something?</p>
-          </div>
+        <div class="fade-up"><div class="ph" style="aspect-ratio:1080/200" data-asset="treatweek/02-band.png"></div></div>
+        <div class="brand-sys fade-up">
+          <p class="brand-sys-label body-strong">Logo</p>
+          <div class="ph" style="aspect-ratio:1080/249" data-asset="treatweek/system-logo.png"></div>
         </div>
-        <img width="1080" src="/assets/treatweek/02-1.png" height="506" alt="Identity exploration board &#8212; 30+ directions" style="width: 1080px; max-width: 100%; height: auto; display: block;">
-        <p class="tw-body-text">Over 30 directions covered typeface pairings, palettes, and logotype approaches before the system locked. The key decision was splitting &#8220;treat&#8221; and &#8220;week&#8221; into distinct typographic voices rather than a unified wordmark: Archivo Black for &#8220;treat&#8221; (bold, grounded, confident) against a handwritten script for &#8220;week&#8221; (warm, informal, a little excited). The tension between them reads as both official program and genuine treat.</p>
-        <img width="1080" src="/assets/treatweek/02-2.png" height="208" alt="Final logo directions &#8212; 5 sticker variants" style="width: 1080px; max-width: 100%; height: auto; display: block;">
-      </section>
-
-      <div class="tw-sep"></div>
-
-      <!-- 03 — THE SYSTEM -->
-      <section class="tw-section fade-up" aria-labelledby="s03-head">
-        <h2 class="tw-s-header" id="s03-head">03 &#8212; The System</h2>
-        <p class="tw-body-text">The system is built for white-labeling: every template carries Program Logo and Company Logo placeholders, so any Workhuman customer running a store program can deploy it as their own. That constraint shaped everything. The confetti and shopping-bag illustrations feel bespoke without clashing inside unfamiliar brand contexts, and the palette runs light and dark modes off the same six-color accent set. Arial carries body copy because every touchpoint had to render without font installs, from email to intranet templates.</p>
-        <img width="1080" src="/assets/treatweek/03-1.png" height="1242" alt="Design system panel &#8212; logo, typography, color palette, graphical elements" style="width: 1080px; max-width: 100%; height: auto; display: block;">
-      </section>
-
-      <div class="tw-sep"></div>
-
-      <!-- 04 — APPLIED FORMATS -->
-      <section class="tw-section fade-up" aria-labelledby="s04-head">
-        <h2 class="tw-s-header" id="s04-head">04 &#8212; Applied Formats</h2>
-        <div class="tw-04-content">
-          <div class="tw-04-block1">
-            <div class="tw-04-copy">
-              <p class="tw-body-text">The campaign ran across US employee communications for the sale window, September 22&#8211;26: digital signage, email, intranet, social, and the Workhuman Connect platform, all pulling from one system.</p>
-              <p class="tw-body-text">The same white-label templates ship to customers running their own store programs.</p>
-            </div>
-            <img src="/assets/treatweek/04-1.png" width="564" style="max-width:100%;height:auto;" alt="Email and marketing application">
-          </div>
-          <img src="/assets/treatweek/04-2.png" width="1235" alt="Applied formats spread">
+        <div class="brand-sys fade-up">
+          <p class="brand-sys-label body-strong">Typography</p>
+          <div class="ph" style="aspect-ratio:1080/129" data-asset="treatweek/system-type.png"></div>
         </div>
-      </section>
-
-      <div class="tw-sep"></div>
-
-      <!-- 05 — IMPACT -->
-      <section class="tw-section fade-up" aria-labelledby="s05-head">
-        <h2 class="tw-s-header" id="s05-head">05 &#8212; Impact</h2>
-        <p class="tw-body-text">One brand, built once, running across six surfaces and any client context &#8212; without a single designer on the deployment side.</p>
-        <div class="tw-05-grid">
-          <div class="tw-05-card">
-            <p class="tw-05-title">6 formats, one system</p>
-            <p class="tw-05-body">Every employee touchpoint, digital and print, pulled from the same modular kit</p>
-          </div>
-          <div class="tw-05-card">
-            <p class="tw-05-title">White-label by design</p>
-            <p class="tw-05-body">Logo placeholders ship in every template, so the system deploys into any client brand</p>
-          </div>
-          <div class="tw-05-card">
-            <p class="tw-05-title">Zero-designer handoff</p>
-            <p class="tw-05-body">Templates the People team extends without design support</p>
-          </div>
-          <div class="tw-05-card">
-            <p class="tw-05-title">4 weeks</p>
-            <p class="tw-05-body">Concept to launch, sole designer</p>
-          </div>
-          <div class="tw-05-card">
-            <p class="tw-05-title">Light + dark, one palette</p>
-            <p class="tw-05-body">Two primary surfaces sharing one six-color accent set</p>
-          </div>
-          <div class="tw-05-card">
-            <p class="tw-05-title">Named, not just designed</p>
-            <p class="tw-05-body">Treat Week replaced a label with a brand employees anticipate</p>
-          </div>
+        <div class="brand-sys fade-up">
+          <p class="brand-sys-label body-strong">Graphical Elements</p>
+          <div class="ph" style="aspect-ratio:1080/253" data-asset="treatweek/system-graphics.png"></div>
         </div>
-      </section>
+        <div class="brand-sys fade-up">
+          <p class="brand-sys-label body-strong">Color Palette</p>
+          <div class="ph" style="aspect-ratio:1080/474" data-asset="treatweek/system-color.png"></div>
+        </div>
+        <div class="fade-up"><div class="ph" style="aspect-ratio:1080/511" data-asset="treatweek/03-applications.png"></div></div>
+        <div class="fade-up"><div class="ph" style="aspect-ratio:966/591" data-asset="treatweek/04-email.png"></div></div>
+        <div class="fade-up"><div class="ph" style="aspect-ratio:1080/500" data-asset="treatweek/05-devices.png"></div></div>
+      </div>
+    </section>
 
-      <!-- PREV/NEXT NAV -->
-      <nav class="cs-nav-outer fade-up" aria-label="Project navigation">
-        <div class="cs-nav-divider"></div>
-        <div class="cs-nav-row">
+    <nav class="cs-nav-outer" aria-label="Project navigation">
+      <div class="cs-nav-divider"></div>
+      <div class="cs-nav-row">
         <div class="cs-nav-side cs-nav-side--left">
           <a href="/workhuman" class="cs-nav-btn" aria-label="Previous project: Workhuman"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="/workhuman" class="cs-nav-label">
@@ -376,12 +82,22 @@
           </a>
         </div>
         <div class="cs-nav-side cs-nav-side--right">
-          <a href="/ge-terminal" class="cs-nav-label" style="text-align:right;">
+          <a href="/ripco" class="cs-nav-label" style="text-align:right;">
             <span class="cs-nav-direction">Next project:</span>
-            <span class="cs-nav-project">GE Terminal</span>
+            <span class="cs-nav-project">RIPCO Real Estate</span>
           </a>
-          <a href="/ge-terminal" class="cs-nav-btn" aria-label="Next project: GE Terminal"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/ripco" class="cs-nav-btn" aria-label="Next project: RIPCO Real Estate"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
+      </div>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-mark">
+        <span class="heading-wordmark">wma.nyc</span>
+        <p class="footer-copy meta-small">&#169; 2026 Wilson Ma</p>
       </div>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="/#work" class="ui-nav">projects</a>
