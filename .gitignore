@@ -2,3 +2,5 @@
 .claude/
 node_modules/
 package-lock.json
+qa/
+_unsorted/

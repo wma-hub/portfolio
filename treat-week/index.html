@@ -3,217 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Treat Week — Wilson Ma</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Space+Mono:wght@400;700&family=Archivo+Black&display=swap" rel="stylesheet">
+  <title>Treat Week &#8212; Wilson Ma</title>
+  <link rel="preload" href="/assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/site.css">
-  <style>
-    /* ── Treat Week page styles ── */
-
-    /* HERO — see site.css .cs-hero-* */
-
-    /* CONTENT AREA */
-    .tw-body {
-      background: #fff;
-      padding-top: 80px;
-      padding-bottom: 180px;
-      overflow-x: clip;
-    }
-    .tw-col {
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-
-    /* SECTION SEPARATOR */
-    .tw-sep {
-      width: 80px;
-      height: 2px;
-      background: rgba(155, 192, 228, 0.5);
-      margin: 80px 0;
-    }
-
-    /* SECTION BASE */
-    .tw-section {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-    .tw-s-header {
-      font-family: 'Inter', sans-serif;
-      font-size: 48px;
-      font-weight: 600;
-      font-style: normal;
-      line-height: 1.2;
-      background: linear-gradient(96.9467deg, #001d93 33.876%, #476bfe 113.48%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .tw-body-text {
-      font-family: 'Inter', sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      color: #203f5b;
-      line-height: 1.6;
-    }
-
-    /* 01 — BRIEF */
-    .tw-01-row {
-      display: flex;
-      gap: 80px;
-      align-items: flex-start;
-    }
-    .tw-01-copy {
-      flex: 1 1 532px;
-      min-width: 0;
-      max-width: 532px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .tw-01-box {
-      flex: 1 1 468px;
-      min-width: 0;
-      max-width: 468px;
-      background: #fff;
-      border: 1px solid #d9d9d9;
-      border-radius: 12px;
-      padding: 24px 32px;
-      box-sizing: border-box;
-    }
-    .tw-01-box h4 {
-      font-family: 'Inter', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: #203f5b;
-      margin-bottom: 8px;
-    }
-    .tw-01-box ul {
-      list-style: disc;
-      padding-left: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .tw-01-box li {
-      font-family: 'Inter', sans-serif;
-      font-size: 18px;
-      color: #203f5b;
-      line-height: 1.5;
-    }
-
-    /* 02 — EXPLORATION */
-    .tw-02-lead {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-    .tw-02-quote {
-      padding: 16px 24px;
-      border-radius: 12px;
-      background: rgba(155, 192, 228, 0.08);
-      border: 1px solid rgba(155, 192, 228, 0.25);
-    }
-    .tw-02-quote p {
-      font-family: 'Inter', sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      font-style: italic;
-      color: #203f5b;
-      line-height: 1.5;
-      text-align: center;
-    }
-
-    /* 04 — APPLIED FORMATS */
-    /* content frame: p-[40px], gap-[100px], items-center — from Figma 3319:4191 */
-    .tw-04-content {
-      display: flex;
-      flex-direction: column;
-      gap: 100px;
-      align-items: center;
-      padding: 40px;
-      box-sizing: border-box;
-    }
-    /* block1: flex gap-[100px] items-center w-full — from Figma 3323:6687 */
-    .tw-04-block1 {
-      display: flex;
-      gap: 80px;
-      align-items: center;
-      width: 100%;
-    }
-    /* text: flex-[1_0_0] — fills 356px after 80px gap + 564px cluster (Figma 3323:6687) */
-    .tw-04-copy {
-      flex: 1 0 0;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    /* bare imgs: row right (04-1) + bottom (04-2) */
-    .tw-04-block1 > img {
-      display: block;
-      flex-shrink: 0;
-    }
-    /* 04-2: intrinsic 1x width (1235px); glow overflow clips via .tw-body overflow-x:clip */
-    .tw-04-content > img {
-      display: block;
-      max-width: none;
-    }
-
-    /* 05 — IMPACT */
-    .tw-05-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .tw-05-card {
-      background: #f4f5f7;
-      border-radius: 6px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      box-sizing: border-box;
-      height: 118px;
-    }
-    .tw-05-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: #000;
-      line-height: 1.2;
-    }
-    .tw-05-body {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      color: #000;
-      line-height: 1.5;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 1080px) {
-      .tw-col { padding: 0 clamp(20px, 4vw, 60px); }
-    }
-    @media (max-width: 900px) {
-      .tw-s-header { font-size: clamp(28px, 5vw, 48px); }
-      .tw-01-row { flex-direction: column; gap: 32px; }
-      .tw-01-copy, .tw-01-box { width: 100%; }
-      .tw-02-quote p { font-size: 18px; }
-      .tw-04-content { padding: 0; }
-      .tw-04-block1 { flex-direction: column; gap: 32px; }
-      .tw-04-copy { width: 100%; }
-      .tw-04-block1 > img,
-      .tw-04-content > img { width: 100%; height: auto; }
-      .tw-05-grid { grid-template-columns: repeat(2, 1fr); }
-      .tw-05-card { height: auto; min-height: 90px; }
-    }
-    @media (max-width: 700px) {
-      .tw-05-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3KK0FQDE6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -225,207 +17,93 @@
 <body>
 <div class="page">
 
-  <!-- NAV -->
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <a href="/" class="nav-wordmark" aria-label="wma.nyc home">
-      <svg viewBox="0 0 40 39.999" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M32.7275 0C36.744 0.000144051 39.9999 3.25601 40 7.27246V32.7266C39.9999 36.743 36.744 39.9989 32.7275 39.999H7.27246C3.25602 39.9989 8.67142e-05 36.743 0 32.7266V7.27246C9.1388e-05 3.25601 3.25602 0.000144051 7.27246 0H32.7275ZM9.26758 28.0898C8.27491 28.0899 7.46995 28.8941 7.46973 29.8867C7.46985 30.8794 8.27484 31.6845 9.26758 31.6846H10.4912C11.484 31.6846 12.2889 30.8795 12.2891 29.8867C12.2888 28.8941 11.4839 28.0898 10.4912 28.0898H9.26758ZM16.0146 28.0898C15.022 28.0899 14.217 28.8941 14.2168 29.8867C14.2169 30.8794 15.0219 31.6845 16.0146 31.6846H17.2383C18.2311 31.6846 19.036 30.8795 19.0361 29.8867C19.0359 28.8941 18.231 28.0898 17.2383 28.0898H16.0146ZM22.7617 28.0898C21.7691 28.0899 20.9641 28.8941 20.9639 29.8867C20.964 30.8794 21.769 31.6845 22.7617 31.6846H23.9854C24.9781 31.6846 25.7831 30.8795 25.7832 29.8867C25.783 28.8941 24.9781 28.0898 23.9854 28.0898H22.7617ZM29.5078 28.0898C28.5152 28.09 27.7102 28.8942 27.71 29.8867C27.7101 30.8794 28.5152 31.6844 29.5078 31.6846H30.7314C31.7242 31.6846 32.5292 30.8795 32.5293 29.8867C32.5291 28.8941 31.7242 28.0898 30.7314 28.0898H29.5078ZM9.26758 20.8984C8.27477 20.8985 7.46974 21.7035 7.46973 22.6963C7.46985 23.689 8.27484 24.4941 9.26758 24.4941H17.2383C18.231 24.4941 19.036 23.689 19.0361 22.6963C19.0361 21.7035 18.2311 20.8985 17.2383 20.8984H9.26758ZM22.7617 20.8984C21.7689 20.8985 20.9639 21.7035 20.9639 22.6963C20.964 23.689 21.769 24.4941 22.7617 24.4941H30.7324C31.7252 24.4941 32.5302 23.689 32.5303 22.6963C32.5303 21.7034 31.7253 20.8984 30.7324 20.8984H22.7617ZM9.26758 14.6064C8.27479 14.6065 7.46976 15.4115 7.46973 16.4043C7.46985 17.397 8.27484 18.2021 9.26758 18.2021H17.2383C18.231 18.2021 19.036 17.397 19.0361 16.4043C19.0361 15.4115 18.2311 14.6065 17.2383 14.6064H9.26758ZM22.7617 14.6064C21.7689 14.6065 20.9639 15.4115 20.9639 16.4043C20.964 17.397 21.769 18.2021 22.7617 18.2021H30.7324C31.7252 18.2021 32.5302 17.397 32.5303 16.4043C32.5302 15.4115 31.7253 14.6064 30.7324 14.6064H22.7617ZM9.26758 8.31445C8.27477 8.3145 7.46973 9.11948 7.46973 10.1123C7.46992 11.105 8.27489 11.9101 9.26758 11.9102H17.2383C18.231 11.9102 19.0359 11.105 19.0361 10.1123C19.0361 9.11946 18.2311 8.31446 17.2383 8.31445H9.26758ZM22.7617 8.31445C21.7689 8.3145 20.9639 9.11953 20.9639 10.1123C20.964 11.105 21.769 11.9101 22.7617 11.9102H30.7324C31.7252 11.9101 32.5302 11.105 32.5303 10.1123C32.5302 9.11953 31.7252 8.3145 30.7324 8.31445H22.7617Z" fill="#F1ECE7"/>
-      </svg>
-    </a>
+    <a href="/" class="nav-wordmark">wilson ma</a>
     <div class="nav-links">
-      <a href="/#work">Work</a>
-      <a href="/about">About</a>
-      <a href="mailto:ny.wilson.ma@gmail.com" class="nav-cta">Get in touch</a>
+      <a href="/#work" class="ui-nav" aria-current="page">projects</a>
+      <a href="/about" class="ui-nav">about</a>
+      <a href="mailto:ny.wilson.ma@gmail.com" class="ui-nav nav-cta">Get in touch</a>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="cs-hero-outer" aria-label="Treat Week">
-    <div class="cs-hero-feature">
-      <div class="cs-hero-copy fade-up">
-        <div class="cs-hero-text">
-          <h1 class="cs-hero-title" style="font-style:italic;">Treat Week</h1>
-          <p class="cs-hero-subtitle">A brand built for a sale.</p>
-          <p class="cs-hero-body">Workhuman&#8217;s fall Store Sale had no identity of its own. Every year it borrowed whatever campaign assets were lying around, and employees treated it like background noise instead of a moment worth opening an email for.</p>
+  <main>
+
+    <section class="hero" aria-label="Treat Week">
+      <div class="hero-inner">
+        <div class="hero-copy hero-copy--narrow fade-up">
+          <h1 class="display-hero">Treat Week</h1>
+          <p class="heading-subhead hero-sub">A brand built for a sale.</p>
+          <p class="body-default hero-intro">Workhuman&#8217;s fall Store Sale had no identity of its own. Every year it borrowed whatever campaign assets were lying around, and employees treated it like background noise instead of a moment worth opening an email for.</p>
         </div>
-        <div class="cs-hero-cards fade-up">
-          <div class="cs-hero-card">
-            <p class="cs-hero-card-label">Scope</p>
-            <p class="cs-hero-card-value">Brand identity and naming, campaign design, multi-channel rollout</p>
-          </div>
-          <div class="cs-hero-card">
-            <p class="cs-hero-card-label">Context</p>
-            <p class="cs-hero-card-value">Workhuman internal campaign</p>
-          </div>
-          <div class="cs-hero-card">
-            <p class="cs-hero-card-label">Delivery</p>
-            <p class="cs-hero-card-value">Logo system, color palette, digital + print + social</p>
-          </div>
-          <div class="cs-hero-card">
-            <p class="cs-hero-card-label">Status</p>
-            <p class="cs-hero-card-value">Launched September 2025</p>
-          </div>
+        <div class="hero-portrait fade-up">
+          <img src="/assets/treatweek/hero.png" width="380" height="242" alt="" loading="eager">
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTENT -->
-  <div class="tw-body">
-    <div class="tw-col">
-
-      <!-- 01 — THE BRIEF -->
-      <section class="tw-section fade-up" aria-labelledby="s01-head">
-        <h2 class="tw-s-header" id="s01-head">01 &#8212; The Brief</h2>
-        <div class="tw-01-row">
-          <div class="tw-01-copy">
-            <p class="tw-body-text">Each fall, Workhuman runs a store sale for US employees, a limited window where recognition awards stretch further across house, home, fashion, and electronics. Promoting it meant hitting every internal channel the company uses to reach its people.</p>
-            <p class="tw-body-text">What didn&#8217;t exist was a brand. The sale had a name, Treat Week, but no logotype, no color system, no illustration direction. Every prior year ran on borrowed Workhuman assets, which made it look like a company announcement rather than an event employees would actually anticipate.</p>
-          </div>
-          <div class="tw-01-box">
-            <h4>The Constraint</h4>
-            <ul>
-              <li>Must feel distinct from Workhuman brand</li>
-              <li>Must feel cohesive across digital + print</li>
-              <li>Must work for any customer&#8217;s store program</li>
-              <li>Must ship in 4 weeks</li>
-            </ul>
-          </div>
+    <section class="cs-body" aria-label="Gallery">
+      <div class="cs-body-inner cs-stack">
+        <div class="fade-up"><img src="/assets/treatweek/01-campaign.png" width="1080" height="479" alt="" loading="lazy"></div>
+        <div class="lockup-row fade-up">
+          <img src="/assets/treatweek/02-lockup-1.png" width="160" height="160" alt="" loading="lazy">
+          <img src="/assets/treatweek/02-lockup-2.png" width="160" height="160" alt="" loading="lazy">
+          <img src="/assets/treatweek/02-lockup-3.png" width="160" height="160" alt="" loading="lazy">
+          <img src="/assets/treatweek/02-lockup-4.png" width="160" height="160" alt="" loading="lazy">
+          <img src="/assets/treatweek/02-lockup-5.png" width="160" height="160" alt="" loading="lazy">
         </div>
-        <img width="1080" src="/assets/treatweek/01.png" height="280" alt="Treat Week campaign overview" style="width: 100%; height: auto; display: block; border-radius: 6px;">
-      </section>
-
-      <div class="tw-sep"></div>
-
-      <!-- 02 — IDENTITY EXPLORATION -->
-      <section class="tw-section fade-up" aria-labelledby="s02-head">
-        <h2 class="tw-s-header" id="s02-head">02 &#8212; Identity Exploration</h2>
-        <div class="tw-02-lead">
-          <p class="tw-body-text">&#8220;Treat&#8221; and &#8220;week&#8221; together read as indulgent and time-limited, which is exactly the emotional territory the sale needed to occupy. The exploration started there:</p>
-          <div class="tw-02-quote">
-            <p>What does a brand look like when its whole job is to make employees feel they&#8217;ve earned something?</p>
-          </div>
+        <div class="fade-up"><img src="/assets/treatweek/03-band.png" width="1080" height="200" alt="" loading="lazy"></div>
+        <div class="brand-sys fade-up">
+          <img src="/assets/treatweek/04-system-logo.png" width="1080" height="239" alt="" loading="lazy">
         </div>
-        <img width="1080" src="/assets/treatweek/02-1.png" height="506" alt="Identity exploration board &#8212; 30+ directions" style="width: 1080px; max-width: 100%; height: auto; display: block;">
-        <p class="tw-body-text">Over 30 directions covered typeface pairings, palettes, and logotype approaches before the system locked. The key decision was splitting &#8220;treat&#8221; and &#8220;week&#8221; into distinct typographic voices rather than a unified wordmark: Archivo Black for &#8220;treat&#8221; (bold, grounded, confident) against a handwritten script for &#8220;week&#8221; (warm, informal, a little excited). The tension between them reads as both official program and genuine treat.</p>
-        <img width="1080" src="/assets/treatweek/02-2.png" height="208" alt="Final logo directions &#8212; 5 sticker variants" style="width: 1080px; max-width: 100%; height: auto; display: block;">
-      </section>
-
-      <div class="tw-sep"></div>
-
-      <!-- 03 — THE SYSTEM -->
-      <section class="tw-section fade-up" aria-labelledby="s03-head">
-        <h2 class="tw-s-header" id="s03-head">03 &#8212; The System</h2>
-        <p class="tw-body-text">The system is built for white-labeling: every template carries Program Logo and Company Logo placeholders, so any Workhuman customer running a store program can deploy it as their own. That constraint shaped everything. The confetti and shopping-bag illustrations feel bespoke without clashing inside unfamiliar brand contexts, and the palette runs light and dark modes off the same six-color accent set. Arial carries body copy because every touchpoint had to render without font installs, from email to intranet templates.</p>
-        <img width="1080" src="/assets/treatweek/03-1.png" height="1242" alt="Design system panel &#8212; logo, typography, color palette, graphical elements" style="width: 1080px; max-width: 100%; height: auto; display: block;">
-      </section>
-
-      <div class="tw-sep"></div>
-
-      <!-- 04 — APPLIED FORMATS -->
-      <section class="tw-section fade-up" aria-labelledby="s04-head">
-        <h2 class="tw-s-header" id="s04-head">04 &#8212; Applied Formats</h2>
-        <div class="tw-04-content">
-          <div class="tw-04-block1">
-            <div class="tw-04-copy">
-              <p class="tw-body-text">The campaign ran across US employee communications for the sale window, September 22&#8211;26: digital signage, email, intranet, social, and the Workhuman Connect platform, all pulling from one system.</p>
-              <p class="tw-body-text">The same white-label templates ship to customers running their own store programs.</p>
-            </div>
-            <img src="/assets/treatweek/04-1.png" width="564" style="max-width:100%;height:auto;" alt="Email and marketing application">
-          </div>
-          <img src="/assets/treatweek/04-2.png" width="1235" alt="Applied formats spread">
+        <div class="brand-sys fade-up">
+          <img src="/assets/treatweek/04-system-type.png" width="1080" height="103" alt="" loading="lazy">
         </div>
-      </section>
-
-      <div class="tw-sep"></div>
-
-      <!-- 05 — IMPACT -->
-      <section class="tw-section fade-up" aria-labelledby="s05-head">
-        <h2 class="tw-s-header" id="s05-head">05 &#8212; Impact</h2>
-        <p class="tw-body-text">One brand, built once, running across six surfaces and any client context &#8212; without a single designer on the deployment side.</p>
-        <div class="tw-05-grid">
-          <div class="tw-05-card">
-            <p class="tw-05-title">6 formats, one system</p>
-            <p class="tw-05-body">Every employee touchpoint, digital and print, pulled from the same modular kit</p>
-          </div>
-          <div class="tw-05-card">
-            <p class="tw-05-title">White-label by design</p>
-            <p class="tw-05-body">Logo placeholders ship in every template, so the system deploys into any client brand</p>
-          </div>
-          <div class="tw-05-card">
-            <p class="tw-05-title">Zero-designer handoff</p>
-            <p class="tw-05-body">Templates the People team extends without design support</p>
-          </div>
-          <div class="tw-05-card">
-            <p class="tw-05-title">4 weeks</p>
-            <p class="tw-05-body">Concept to launch, sole designer</p>
-          </div>
-          <div class="tw-05-card">
-            <p class="tw-05-title">Light + dark, one palette</p>
-            <p class="tw-05-body">Two primary surfaces sharing one six-color accent set</p>
-          </div>
-          <div class="tw-05-card">
-            <p class="tw-05-title">Named, not just designed</p>
-            <p class="tw-05-body">Treat Week replaced a label with a brand employees anticipate</p>
-          </div>
+        <div class="brand-sys fade-up">
+          <img src="/assets/treatweek/04-system-graphics.png" width="1080" height="253" alt="" loading="lazy">
         </div>
-      </section>
-
-      <!-- PREV/NEXT NAV -->
-      <nav class="cs-nav-outer fade-up" aria-label="Project navigation">
-        <div class="cs-nav-divider"></div>
-        <div class="cs-nav-row">
-          <div class="cs-nav-side">
-            <a href="/workhuman" class="cs-nav-btn" aria-label="Previous project: Workhuman">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M10 12L6 8L10 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-            <div class="cs-nav-label">
-              <span class="cs-nav-direction">Previous project:</span>
-              <span class="cs-nav-project">Workhuman</span>
-            </div>
-          </div>
-          <div class="cs-nav-side cs-nav-side--right">
-            <div class="cs-nav-label" style="text-align:right;">
-              <span class="cs-nav-direction">Next project:</span>
-              <span class="cs-nav-project">Selected Works</span>
-            </div>
-            <a href="/selected-works" class="cs-nav-btn" aria-label="Next project: Selected Works">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M6 12L10 8L6 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
+        <div class="brand-sys fade-up">
+          <img src="/assets/treatweek/04-system-color.png" width="1080" height="474" alt="" loading="lazy">
         </div>
-      </nav>
+        <div class="fade-up"><img src="/assets/treatweek/05-applications.png" width="1080" height="511" alt="" loading="lazy"></div>
+        <div class="fade-up"><img src="/assets/treatweek/06-email.png" width="966" height="591" alt="" loading="lazy"></div>
+        <div class="fade-up"><img src="/assets/treatweek/07-devices.png" width="1080" height="500" alt="" loading="lazy"></div>
+      </div>
+    </section>
 
-    </div><!-- .tw-col -->
-  </div><!-- .tw-body -->
+    <nav class="cs-nav-outer" aria-label="Project navigation">
+      <div class="cs-nav-divider"></div>
+      <div class="cs-nav-row">
+        <div class="cs-nav-side cs-nav-side--left">
+          <a href="/workhuman" class="cs-nav-btn" aria-label="Previous project: Workhuman"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/workhuman" class="cs-nav-label">
+            <span class="cs-nav-direction">Previous project:</span>
+            <span class="cs-nav-project">Workhuman</span>
+          </a>
+        </div>
+        <div class="cs-nav-side cs-nav-side--right">
+          <a href="/ripco" class="cs-nav-label" style="text-align:right;">
+            <span class="cs-nav-direction">Next project:</span>
+            <span class="cs-nav-project">RIPCO Real Estate</span>
+          </a>
+          <a href="/ripco" class="cs-nav-btn" aria-label="Next project: RIPCO Real Estate"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </nav>
 
-  <!-- FOOTER -->
+  </main>
+
   <footer class="site-footer" role="contentinfo">
-    <div class="footer-top">
+    <div class="footer-inner">
       <div class="footer-mark">
-        <div class="footer-brand">
-          <svg viewBox="0 0 40 39.999" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M32.7275 0C36.744 0.000144051 39.9999 3.25601 40 7.27246V32.7266C39.9999 36.743 36.744 39.9989 32.7275 39.999H7.27246C3.25602 39.9989 8.67142e-05 36.743 0 32.7266V7.27246C9.1388e-05 3.25601 3.25602 0.000144051 7.27246 0H32.7275ZM9.26758 28.0898C8.27491 28.0899 7.46995 28.8941 7.46973 29.8867C7.46985 30.8794 8.27484 31.6845 9.26758 31.6846H10.4912C11.484 31.6846 12.2889 30.8795 12.2891 29.8867C12.2888 28.8941 11.4839 28.0898 10.4912 28.0898H9.26758ZM16.0146 28.0898C15.022 28.0899 14.217 28.8941 14.2168 29.8867C14.2169 30.8794 15.0219 31.6845 16.0146 31.6846H17.2383C18.2311 31.6846 19.036 30.8795 19.0361 29.8867C19.0359 28.8941 18.231 28.0898 17.2383 28.0898H16.0146ZM22.7617 28.0898C21.7691 28.0899 20.9641 28.8941 20.9639 29.8867C20.964 30.8794 21.769 31.6845 22.7617 31.6846H23.9854C24.9781 31.6846 25.7831 30.8795 25.7832 29.8867C25.783 28.8941 24.9781 28.0898 23.9854 28.0898H22.7617ZM29.5078 28.0898C28.5152 28.09 27.7102 28.8942 27.71 29.8867C27.7101 30.8794 28.5152 31.6844 29.5078 31.6846H30.7314C31.7242 31.6846 32.5292 30.8795 32.5293 29.8867C32.5291 28.8941 31.7242 28.0898 30.7314 28.0898H29.5078ZM9.26758 20.8984C8.27477 20.8985 7.46974 21.7035 7.46973 22.6963C7.46985 23.689 8.27484 24.4941 9.26758 24.4941H17.2383C18.231 24.4941 19.036 23.689 19.0361 22.6963C19.0361 21.7035 18.2311 20.8985 17.2383 20.8984H9.26758ZM22.7617 20.8984C21.7689 20.8985 20.9639 21.7035 20.9639 22.6963C20.964 23.689 21.769 24.4941 22.7617 24.4941H30.7324C31.7252 24.4941 32.5302 23.689 32.5303 22.6963C32.5303 21.7034 31.7253 20.8984 30.7324 20.8984H22.7617ZM9.26758 14.6064C8.27479 14.6065 7.46976 15.4115 7.46973 16.4043C7.46985 17.397 8.27484 18.2021 9.26758 18.2021H17.2383C18.231 18.2021 19.036 17.397 19.0361 16.4043C19.0361 15.4115 18.2311 14.6065 17.2383 14.6064H9.26758ZM22.7617 14.6064C21.7689 14.6065 20.9639 15.4115 20.9639 16.4043C20.964 17.397 21.769 18.2021 22.7617 18.2021H30.7324C31.7252 18.2021 32.5302 17.397 32.5303 16.4043C32.5302 15.4115 31.7253 14.6064 30.7324 14.6064H22.7617ZM9.26758 8.31445C8.27477 8.3145 7.46973 9.11948 7.46973 10.1123C7.46992 11.105 8.27489 11.9101 9.26758 11.9102H17.2383C18.231 11.9102 19.0359 11.105 19.0361 10.1123C19.0361 9.11946 18.2311 8.31446 17.2383 8.31445H9.26758ZM22.7617 8.31445C21.7689 8.3145 20.9639 9.11953 20.9639 10.1123C20.964 11.105 21.769 11.9101 22.7617 11.9102H30.7324C31.7252 11.9101 32.5302 11.105 32.5303 10.1123C32.5302 9.11953 31.7252 8.3145 30.7324 8.31445H22.7617Z" fill="#F1ECE7"/>
-          </svg>
-          <span class="footer-brand-name">wma.nyc</span>
-        </div>
-        <p class="footer-tagline">Designer and creative technologist in New York.</p>
+        <span class="heading-wordmark">wma.nyc</span>
+        <p class="footer-copy meta-small">&#169; 2026 Wilson Ma</p>
       </div>
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="/#work">Work</a>
-        <a href="/about">About</a>
-        <a href="https://www.linkedin.com/in/wilsonxma/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="mailto:ny.wilson.ma@gmail.com">Email</a>
+        <a href="/#work" class="ui-nav">projects</a>
+        <a href="/about" class="ui-nav">about</a>
+        <a href="https://www.linkedin.com/in/wilsonxma/" target="_blank" rel="noopener noreferrer" class="ui-nav">linkedin</a>
+        <a href="mailto:ny.wilson.ma@gmail.com" class="ui-nav">email</a>
       </nav>
-    </div>
-    <div class="footer-divider"></div>
-    <div class="footer-bottom">
-      <p>&#169; 2026 Wilson Ma</p>
-      <p class="footer-tagline-hidden">Designed in Figma, shipped through the same pipeline as the ads.</p>
     </div>
   </footer>
 

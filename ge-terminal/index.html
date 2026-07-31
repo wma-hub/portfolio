@@ -3,183 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GE Terminal — Wilson Ma</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <title>GE Terminal &#8212; Wilson Ma</title>
+  <link rel="preload" href="/assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/site.css">
-
-  <!--
-  §7 CD SIZE OVERRIDES — /ge-terminal
-  Do not revert on rebuild. All widths are display px (exports are @2x → intrinsic÷2).
-
-  section  | element              | natural / Figma width | display px | note
-  ─────────────────────────────────────────────────────────────────────────────
-  01       | 01-1.png collage     | flex-1 ~723px          | 1192px     | intrinsic÷2 (2385/2), centered in 1080 col via transform (bleeds ±56px)
-  02       | 02-1.png signal      | 1080px (full col)      | 1080px     | ×1.25 → cap (no change)
-  02       | 02-2.png parchment   | 1080px (full col)      | 1080px     | untouched
-  03 copy  | rb-override-copy     | flex-1                 | 400px      | 40:60 restructure
-  03 image | rb-override-screens  | 390px                  | 600px      | 40:60, gap clamps 40–80px
-  05       | 05-1.png origin      | 591px                  | 600px      | 40:60 restructure (mirrors 03), clipped export 2026-07-14
-  -->
-
-  <style>
-    /* ── GE Terminal hero — see site.css .cs-hero-* ── */
-
-    /* ── Body section ──────────────────────────────────────────── */
-    .rb-body-section {
-      background: #fff;
-      padding: 80px max(calc((100% - 1080px) / 2), clamp(24px, 5vw, 60px)) 180px;
-      display: flex;
-      flex-direction: column;
-      gap: 80px;
-    }
-
-    /* Main content wrapper */
-    .rb-content {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      width: 100%;
-    }
-
-    /* Section: py-40 + inner gap-40 */
-    .rb-section {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      padding: 40px 0;
-    }
-    .rb-section--first {
-      padding-top: 0;
-      padding-bottom: 40px;
-    }
-
-    /* Section heading gradient */
-    .rb-section-heading {
-      font-size: clamp(28px, 3.33vw, 48px);
-      font-weight: 600;
-      line-height: 1.2;
-      background: linear-gradient(111.21deg, #001d93 33.876%, #476bfe 113.48%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      width: 100%;
-    }
-
-    /* Divider (80px wide, 2px tall) */
-    .rb-divider {
-      width: 80px;
-      height: 2px;
-      background: rgba(155, 192, 228, 0.5);
-      flex-shrink: 0;
-    }
-
-    /* Body text */
-    .rb-text {
-      font-size: 18px;
-      font-weight: 400;
-      color: #203f5b;
-      line-height: 1.7;
-    }
-    .rb-text p + p { margin-top: 1em; }
-    .rb-text strong { font-weight: 700; }
-
-    /* Bare image rule: width only, height auto */
-    .rb-img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* ── 01 Problem — CD override: intrinsic÷2 = 1192px, centered ── */
-    /* CD override: 2385px intrinsic ÷ 2 = 1192px; exceeds 1080 col,
-       centered via transform (bleeds ±56px into the 180px gutters) */
-    .rb-problem-image {
-      width: 1192px;
-      max-width: 100%;
-      height: auto;
-      display: block;
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    /* ── 02 Signal Engine ──────────────────────────────────────── */
-    .rb-signal-lower {
-      display: flex;
-      flex-direction: column;
-      gap: 80px;
-      align-items: center;
-      width: 100%;
-    }
-    .rb-verdict-text {
-      font-size: 18px;
-      font-weight: 400;
-      color: #203f5b;
-      line-height: 1.7;
-      width: 100%;
-    }
-    .rb-verdict-text strong { font-weight: 700; }
-
-    /* ── 03 Override Layer — CD override: 400px / 600px ────────── */
-    .rb-override-row {
-      display: flex;
-      /* gap flexes 40–80px; at 1440vw: 400 + 80 + 600 = 1080px exact */
-      gap: clamp(40px, 5.56vw, 80px);
-      align-items: center;
-    }
-    /* CD override: fixed 400px text col */
-    .rb-override-copy {
-      width: 400px;
-      max-width: 100%;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-    .rb-override-copy .rb-text p + p { margin-top: 1em; }
-    /* CD override: 390px → 600px image col */
-    .rb-override-screens {
-      flex: 1;
-      min-width: 0;
-      max-width: 600px;
-    }
-
-    /* ── 05 Origin — CD override: 591px → 739px ────────────────── */
-    .rb-origin-row {
-      display: flex;
-      gap: clamp(40px, 5.56vw, 80px);
-      align-items: center;
-    }
-    .rb-origin-copy {
-      flex: 1;
-      min-width: 0;
-    }
-    /* CD: mirrors 03's 40:60 restructure — copy ~400px, screens 600px at full col.
-       Flexible basis so both columns share shrink below 1080 (no rigid slot). */
-    .rb-origin-screens {
-      flex: 1 1 600px;
-      min-width: 0;
-      max-width: 600px;
-    }
-
-    /* ── Responsive ─────────────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .rb-body-section { padding: 60px 40px 120px; gap: 60px; }
-      .rb-problem-image { width: 100%; }
-      .rb-override-row { flex-direction: column; }
-      .rb-override-copy { width: 100%; }
-      .rb-override-screens { max-width: 100%; }
-      .rb-origin-row { flex-direction: column; }
-      .rb-origin-screens { width: 100%; }
-      .rb-cards-row { flex-direction: column; }
-    }
-    @media (max-width: 700px) {
-      .rb-body-section { padding: 40px 24px 80px; }
-    }
-  </style>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3KK0FQDE6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -191,192 +17,124 @@
 <body>
 <div class="page">
 
-  <!-- NAV -->
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <a href="/" class="nav-wordmark" aria-label="wma.nyc home">
-      <svg viewBox="0 0 40 39.999" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M32.7275 0C36.744 0.000144051 39.9999 3.25601 40 7.27246V32.7266C39.9999 36.743 36.744 39.9989 32.7275 39.999H7.27246C3.25602 39.9989 8.67142e-05 36.743 0 32.7266V7.27246C9.1388e-05 3.25601 3.25602 0.000144051 7.27246 0H32.7275ZM9.26758 28.0898C8.27491 28.0899 7.46995 28.8941 7.46973 29.8867C7.46985 30.8794 8.27484 31.6845 9.26758 31.6846H10.4912C11.484 31.6846 12.2889 30.8795 12.2891 29.8867C12.2888 28.8941 11.4839 28.0898 10.4912 28.0898H9.26758ZM16.0146 28.0898C15.022 28.0899 14.217 28.8941 14.2168 29.8867C14.2169 30.8794 15.0219 31.6845 16.0146 31.6846H17.2383C18.2311 31.6846 19.036 30.8795 19.0361 29.8867C19.0359 28.8941 18.231 28.0898 17.2383 28.0898H16.0146ZM22.7617 28.0898C21.7691 28.0899 20.9641 28.8941 20.9639 29.8867C20.964 30.8794 21.769 31.6845 22.7617 31.6846H23.9854C24.9781 31.6846 25.7831 30.8795 25.7832 29.8867C25.783 28.8941 24.9781 28.0898 23.9854 28.0898H22.7617ZM29.5078 28.0898C28.5152 28.09 27.7102 28.8942 27.71 29.8867C27.7101 30.8794 28.5152 31.6844 29.5078 31.6846H30.7314C31.7242 31.6846 32.5292 30.8795 32.5293 29.8867C32.5291 28.8941 31.7242 28.0898 30.7314 28.0898H29.5078ZM9.26758 20.8984C8.27477 20.8985 7.46974 21.7035 7.46973 22.6963C7.46985 23.689 8.27484 24.4941 9.26758 24.4941H17.2383C18.231 24.4941 19.036 23.689 19.0361 22.6963C19.0361 21.7035 18.2311 20.8985 17.2383 20.8984H9.26758ZM22.7617 20.8984C21.7689 20.8985 20.9639 21.7035 20.9639 22.6963C20.964 23.689 21.769 24.4941 22.7617 24.4941H30.7324C31.7252 24.4941 32.5302 23.689 32.5303 22.6963C32.5303 21.7034 31.7253 20.8984 30.7324 20.8984H22.7617ZM9.26758 14.6064C8.27479 14.6065 7.46976 15.4115 7.46973 16.4043C7.46985 17.397 8.27484 18.2021 9.26758 18.2021H17.2383C18.231 18.2021 19.036 17.397 19.0361 16.4043C19.0361 15.4115 18.2311 14.6065 17.2383 14.6064H9.26758ZM22.7617 14.6064C21.7689 14.6065 20.9639 15.4115 20.9639 16.4043C20.964 17.397 21.769 18.2021 22.7617 18.2021H30.7324C31.7252 18.2021 32.5302 17.397 32.5303 16.4043C32.5302 15.4115 31.7253 14.6064 30.7324 14.6064H22.7617ZM9.26758 8.31445C8.27477 8.3145 7.46973 9.11948 7.46973 10.1123C7.46992 11.105 8.27489 11.9101 9.26758 11.9102H17.2383C18.231 11.9102 19.0359 11.105 19.0361 10.1123C19.0361 9.11946 18.2311 8.31446 17.2383 8.31445H9.26758ZM22.7617 8.31445C21.7689 8.3145 20.9639 9.11953 20.9639 10.1123C20.964 11.105 21.769 11.9101 22.7617 11.9102H30.7324C31.7252 11.9101 32.5302 11.105 32.5303 10.1123C32.5302 9.11953 31.7252 8.3145 30.7324 8.31445H22.7617Z" fill="#F1ECE7"/>
-      </svg>
-    </a>
+    <a href="/" class="nav-wordmark">wilson ma</a>
     <div class="nav-links">
-      <a href="/#work">Work</a>
-      <a href="/about">About</a>
-      <a href="mailto:ny.wilson.ma@gmail.com" class="nav-cta">Get in touch</a>
+      <a href="/#work" class="ui-nav" aria-current="page">projects</a>
+      <a href="/about" class="ui-nav">about</a>
+      <a href="mailto:ny.wilson.ma@gmail.com" class="ui-nav nav-cta">Get in touch</a>
     </div>
   </nav>
 
   <main>
 
-    <!-- HERO -->
-    <section class="cs-hero-outer">
-      <div class="cs-hero-feature fade-up">
-        <div class="cs-hero-copy">
-          <div class="cs-hero-text">
-            <p class="cs-hero-title">GE Terminal</p>
-            <p class="cs-hero-subtitle">Bloomberg for a game economy.</p>
-            <p class="cs-hero-body">The Grand Exchange is Old School RuneScape&#8217;s player-driven commodities market: 3,000+ items, real volatility, visible volume, and nothing but a raw price API to read it with. GE Terminal is the market intelligence terminal I built and run daily, with a layered signal engine, verdicts that explain themselves, and an override that keeps a human in the loop.</p>
-          </div>
-          <div class="cs-hero-cards">
-            <div class="cs-hero-card">
-              <p class="cs-hero-card-label">Scope</p>
-              <p class="cs-hero-card-value">Signal engine, verdict system, risk grading, P&amp;L tracking, Discord alerts</p>
-            </div>
-            <div class="cs-hero-card">
-              <p class="cs-hero-card-label">Context</p>
-              <p class="cs-hero-card-value">Personal tool, built from zero Python experience</p>
-            </div>
-          </div>
+    <section class="hero" aria-label="GE Terminal">
+      <div class="hero-inner">
+        <div class="hero-copy hero-copy--narrow fade-up">
+          <h1 class="display-hero">GE Terminal</h1>
+          <p class="heading-subhead hero-sub">Bloomberg for a game economy.</p>
+          <p class="body-default hero-intro">The Grand Exchange is Old School RuneScape&#8217;s player-driven commodities market: 3,000+ items, real volatility, visible volume, and nothing but a raw price API to read it with. GE Terminal is the market intelligence terminal I built and run daily, with a layered signal engine, verdicts that explain themselves, and an override that keeps a human in the loop.</p>
+        </div>
+        <div class="hero-portrait fade-up">
+          <img src="/assets/ge-terminal/hero.png" width="380" height="291" alt="" loading="eager">
         </div>
       </div>
     </section>
 
-    <!-- BODY -->
-    <section class="rb-body-section">
-
-      <div class="rb-content">
-
-        <!-- 01 — Problem | CD: 1192px (intrinsic÷2), centered, date baked in -->
-        <div class="rb-section rb-section--first fade-up">
-          <p class="rb-section-heading">01 &#8212; Problem</p>
-          <p class="rb-text" style="max-width:708px;">Flipping items on the Grand Exchange is a decision-making problem under noisy data. Prices spike and crash hourly, some items dump on predictable cycles, and the wiki&#8217;s raw price API tells you what happened without telling you what it means.<br><br>Every trade came down to the same question:</p>
-          <img src="/assets/ge-terminal/01-1.png" alt="GE Terminal signal overview" class="rb-problem-image">
-        </div>
-
-        <div class="rb-divider"></div>
-
-        <!-- 02 — The Signal Engine | CD: 02-1.png 1080px (cap), parchment untouched, quote baked in -->
-        <div class="rb-section fade-up">
-          <p class="rb-section-heading">02 &#8212; The Signal Engine</p>
-          <p class="rb-text" style="max-width:780px;">GE Terminal answers that with a layered signal engine. It pulls live and historical prices across four timeframes, scores movers on momentum and volume, then runs each candidate through graded buy and sell checklists before anything surfaces as an action.</p>
-          <p class="rb-text" style="max-width:780px;">An early version treated any price in the bottom of its 7-day range as a buy signal, no questions asked. It didn&#8217;t take long working with real money to find out how often &#8220;lower than usual&#8221; and &#8220;still falling&#8221; look identical from that vantage point.</p>
-          <img src="/assets/ge-terminal/02-1.png" alt="Signal engine — table, detail view, and item lookup" class="rb-img">
-          <div class="rb-signal-lower">
-            <p class="rb-verdict-text">A verdict engine weighs <strong>7-day, 30-day,</strong> and <strong>90-day percentile position</strong> into plain-English calls, from <strong>SELL NOW</strong> to <strong>DON&#8217;T SELL</strong>, each with its reasoning attached. Nothing appears on screen without a letter-grade and a reason why.</p>
-            <img src="/assets/ge-terminal/02-2.png" alt="Verdict panel — parchment quote banner" class="rb-img">
+    <section class="cs-body" aria-label="Case study">
+      <div class="cs-body-inner ge-sections">
+        <section class="ge-section fade-up">
+          <div class="ge-head">
+            <p class="ge-num heading-wordmark">01</p>
+            <h2 class="ge-title display-page">Problem</h2>
+            <p class="ge-body body-default">Flipping items on the Grand Exchange is a decision-making problem under noisy data. Prices spike and crash hourly, some items dump on predictable cycles, and the wiki&#8217;s raw price API tells you what happened without telling you what it means.</p>
+            <p class="ge-body body-default">Every trade came down to the same question:</p>
           </div>
-        </div>
-
-        <div class="rb-divider"></div>
-
-        <!-- 03 — The Override Layer | CD: 400px / 600px, caption + date baked in -->
-        <div class="rb-section fade-up">
-          <div class="rb-override-row">
-            <div class="rb-override-copy">
-              <p class="rb-section-heading">03 &#8212; The Override Layer</p>
-              <div class="rb-text">
-                <p>It took a real trade to expose the gap. A position was sitting well underwater with an F trade grade &#8212; and the same row was still labeled ACCUMULATE, because the zone logic was pure percentile math: bottom 20% of the range, buy, with no concept of whether that range still meant anything. The question I asked myself looking at it was simple: why is the data telling me to accumulate.</p>
-                <p><strong>When longer-timeframe structure contradicts a short-term signal, the label gets hard-replaced and the grade takes a penalty.</strong></p>
-                <p>The machine still surfaces the signal, but it arrives demoted, with the disagreement visible. That pattern&#8202;&#8212;&#8202;letting a system flag its own uncertainty instead of hiding it&#8202;&#8212;&#8202;is the thing I keep taking into design work with AI systems.</p>
-              </div>
-            </div>
-            <div class="rb-override-screens">
-              <img src="/assets/ge-terminal/03-1.png" alt="Override layer — dump detection and label demotion" class="rb-img">
-            </div>
+          <img src="/assets/ge-terminal/01-problem.png" width="708" height="349" alt="" loading="lazy">
+          <blockquote class="ge-quote heading-subhead">&#8220;Is this signal real, or am I about to chase a correction?&#8221;</blockquote>
+        </section>
+        <section class="ge-section fade-up">
+          <div class="ge-head">
+            <p class="ge-num heading-wordmark">02</p>
+            <h2 class="ge-title display-page">The Signal Engine</h2>
+            <p class="ge-body body-default">GE Terminal answers that with a layered signal engine. It pulls live and historical prices across four timeframes, scores movers on momentum and volume, then runs each candidate through graded buy and sell checklists before anything surfaces as an action.</p>
           </div>
-        </div>
-
-        <div class="rb-divider"></div>
-
-        <!-- 04 — Daily Operation -->
-        <div class="rb-section fade-up">
-          <p class="rb-section-heading">04 &#8212; Daily Operation</p>
-          <p class="rb-text">Running daily, positions, realized P&amp;L, and a full signal history persist all locally. A Discord webhook fires alerts only when a signal passes every metric gate, because an alert you learn to ignore is worse than no alert.</p>
-          <img src="/assets/ge-terminal/04-1.png" alt="Daily operation — signals table, P&amp;L tracking, Discord alert" class="rb-img">
-        </div>
-
-        <div class="rb-divider"></div>
-
-        <!-- 05 — Origin | CD: screens 739px, date baked in -->
-        <div class="rb-section fade-up">
-          <p class="rb-section-heading">05 &#8212; Origin</p>
-          <div class="rb-origin-row">
-            <div class="rb-origin-copy">
-              <div class="rb-text">
-                <p>I started this with zero Python background. GE Terminal became a way to learn by building something I&#8217;d actually use.</p>
-              </div>
-            </div>
-            <div class="rb-origin-screens">
-              <img src="/assets/ge-terminal/05-1.png" alt="GE Terminal — full application view" class="rb-img">
-            </div>
+          <img src="/assets/ge-terminal/02-engine.png" width="1079" height="544" alt="" loading="lazy">
+          <p class="ge-callout body-default">The algorithm serves the interface, and the interface serves a decision a human has to make under uncertainty.</p>
+          <p class="ge-body body-default">A verdict engine weighs 7-day, 30-day, and 90-day percentile position into plain-English calls, from SELL NOW to DON&#8217;T SELL, each with its reasoning attached. Nothing appears on screen without a letter-grade and a reason why.</p>
+          <img src="/assets/ge-terminal/02-callout.png" width="480" height="131" alt="" loading="lazy">
+        </section>
+        <section class="ge-section fade-up">
+          <div class="ge-head">
+            <p class="ge-num heading-wordmark">03</p>
+            <h2 class="ge-title display-page">The Override Layer</h2>
+            <p class="ge-body body-default">The most interesting engineering is the override layer. Momentum algorithms chase corrections they shouldn&#8217;t trust, so GE Terminal runs a two-layer regime-break check:</p>
+            <p class="ge-body body-default">When longer-timeframe structure contradicts a short-term signal, the label gets hard-replaced and the grade takes a penalty.</p>
+            <p class="ge-body body-default">The machine still surfaces the signal, but it arrives demoted, with the disagreement visible. That pattern, letting a system flag its own uncertainty instead of hiding it, is the thing I keep taking into design work with AI systems.</p>
           </div>
-        </div>
-
-        <div class="rb-divider"></div>
-
-        <!-- 06 — What I'd Change -->
-        <div class="rb-section fade-up">
-          <p class="rb-section-heading">06 &#8212; What I&#8217;d Change</p>
-          <div class="rb-text">
-            <p>Almost nothing in this tool got specified in advance. The regime-break override exists because of one bad trade, not a design session. The fill-risk layer exists because a shown price and the price I could actually get were 30% apart on a real position, and I had to ask why before it got fixed. Even the one algorithm I&#8217;d call genuinely mine &#8212; dump-pattern recurrence detection &#8212; got built because I pushed back on my own decision to defer it, not because it was in an original plan.</p>
-            <p>That&#8217;s slower than writing requirements first would have been. It&#8217;s also probably the only way I&#8217;d have found half of these failure modes &#8212; I didn&#8217;t know a percentile score could tell me to buy into a position that was already broken until it happened to me, with real money on the line.</p>
+          <img src="/assets/ge-terminal/03-override.png" width="1080" height="446" alt="" loading="lazy">
+          <p class="ge-caption meta-caption">Dump detection doesn&#8217;t just classify the drop, it also measures how long recovery historically takes.</p>
+        </section>
+        <section class="ge-section fade-up">
+          <div class="ge-head">
+            <p class="ge-num heading-wordmark">04</p>
+            <h2 class="ge-title display-page">Daily Operation</h2>
+            <p class="ge-body body-default">Running daily, positions, realized P&amp;L, and a full signal history persist all locally. A Discord webhook fires alerts only when a signal passes every metric gate, because an alert you learn to ignore is worse than no alert.</p>
           </div>
-        </div>
-
+          <img src="/assets/ge-terminal/04-daily.png" width="1080" height="470" alt="" loading="lazy">
+        </section>
+        <section class="ge-section fade-up">
+          <div class="ge-split">
+            <div class="ge-split-copy">
+              <p class="ge-num heading-wordmark">05</p>
+              <h2 class="ge-title display-page">Origin</h2>
+              <p class="ge-body body-default">I started this with zero Python background. GE Terminal became a way to learn by building something I&#8217;d actually use. 18+ versions later, it isn&#8217;t shipped software, but it&#8217;s built like it wants to be: cached API layers, state persistence, alert thresholds a user can trust.</p>
+              <p class="ge-body body-default">It&#8217;s what happens when the barrier between an idea and a working tool gets low enough that a designer stops waiting for an engineer.</p>
+            </div>
+            <div class="ge-split-visual"><img src="/assets/ge-terminal/05-origin.png" width="591" height="408" alt="" loading="lazy"></div>
+          </div>
+        </section>
       </div>
-
-      <!-- Full-width divider before nav -->
-      <div class="rb-page-nav-divider"></div>
-
-      <!-- Prev/Next nav -->
-      <nav class="cs-nav-outer" aria-label="Project navigation">
-        <div class="cs-nav-divider"></div>
-        <div class="cs-nav-row">
-          <div class="cs-nav-side">
-            <a href="/selected-works" class="cs-nav-btn" aria-label="Previous project: Selected Works">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 12L6 8L10 4" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-            <div class="cs-nav-label">
-              <span class="cs-nav-direction">Previous project:</span>
-              <span class="cs-nav-project">Selected Works</span>
-            </div>
-          </div>
-          <div class="cs-nav-side cs-nav-side--right">
-            <div class="cs-nav-label" style="text-align:right;">
-              <span class="cs-nav-direction">Next project:</span>
-              <span class="cs-nav-project">MARLY Creative Concepts</span>
-            </div>
-            <a href="/marly" class="cs-nav-btn" aria-label="Next project: MARLY Creative Concepts">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 4L10 8L6 12" stroke="#212744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </nav>
-
     </section>
+
+    <nav class="cs-nav-outer" aria-label="Project navigation">
+      <div class="cs-nav-divider"></div>
+      <div class="cs-nav-row">
+        <div class="cs-nav-side cs-nav-side--left">
+          <a href="/west-elm" class="cs-nav-btn" aria-label="Previous project: West Elm"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/west-elm" class="cs-nav-label">
+            <span class="cs-nav-direction">Previous project:</span>
+            <span class="cs-nav-project">West Elm, Williams Sonoma</span>
+          </a>
+        </div>
+        <div class="cs-nav-side cs-nav-side--right">
+          <a href="/marly" class="cs-nav-label" style="text-align:right;">
+            <span class="cs-nav-direction">Next project:</span>
+            <span class="cs-nav-project">MARLY Creative Concepts</span>
+          </a>
+          <a href="/marly" class="cs-nav-btn" aria-label="Next project: MARLY Creative Concepts"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </nav>
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer" role="contentinfo">
-    <div class="footer-top">
+    <div class="footer-inner">
       <div class="footer-mark">
-        <div class="footer-brand">
-          <svg viewBox="0 0 40 39.999" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M32.7275 0C36.744 0.000144051 39.9999 3.25601 40 7.27246V32.7266C39.9999 36.743 36.744 39.9989 32.7275 39.999H7.27246C3.25602 39.9989 8.67142e-05 36.743 0 32.7266V7.27246C9.1388e-05 3.25601 3.25602 0.000144051 7.27246 0H32.7275ZM9.26758 28.0898C8.27491 28.0899 7.46995 28.8941 7.46973 29.8867C7.46985 30.8794 8.27484 31.6845 9.26758 31.6846H10.4912C11.484 31.6846 12.2889 30.8795 12.2891 29.8867C12.2888 28.8941 11.4839 28.0898 10.4912 28.0898H9.26758ZM16.0146 28.0898C15.022 28.0899 14.217 28.8941 14.2168 29.8867C14.2169 30.8794 15.0219 31.6845 16.0146 31.6846H17.2383C18.2311 31.6846 19.036 30.8795 19.0361 29.8867C19.0359 28.8941 18.231 28.0898 17.2383 28.0898H16.0146ZM22.7617 28.0898C21.7691 28.0899 20.9641 28.8941 20.9639 29.8867C20.964 30.8794 21.769 24.4941 22.7617 31.6846H23.9854C24.9781 31.6846 25.7831 30.8795 25.7832 29.8867C25.783 28.8941 24.9781 28.0898 23.9854 28.0898H22.7617ZM29.5078 28.0898C28.5152 28.09 27.7102 28.8942 27.71 29.8867C27.7101 30.8794 28.5152 31.6844 29.5078 31.6846H30.7314C31.7242 31.6846 32.5292 30.8795 32.5293 29.8867C32.5291 28.8941 31.7242 28.0898 30.7314 28.0898H29.5078ZM9.26758 20.8984C8.27477 20.8985 7.46974 21.7035 7.46973 22.6963C7.46985 23.689 8.27484 24.4941 9.26758 24.4941H17.2383C18.231 24.4941 19.036 23.689 19.0361 22.6963C19.0361 21.7035 18.2311 20.8985 17.2383 20.8984H9.26758ZM22.7617 20.8984C21.7689 20.8985 20.9639 21.7035 20.9639 22.6963C20.964 23.689 21.769 24.4941 22.7617 24.4941H30.7324C31.7252 24.4941 32.5302 23.689 32.5303 22.6963C32.5303 21.7034 31.7253 20.8984 30.7324 20.8984H22.7617ZM9.26758 14.6064C8.27479 14.6065 7.46976 15.4115 7.46973 16.4043C7.46985 17.397 8.27484 18.2021 9.26758 18.2021H17.2383C18.231 18.2021 19.036 17.397 19.0361 16.4043C19.0361 15.4115 18.2311 14.6065 17.2383 14.6064H9.26758ZM22.7617 14.6064C21.7689 14.6065 20.9639 15.4115 20.9639 16.4043C20.964 17.397 21.769 18.2021 22.7617 18.2021H30.7324C31.7252 18.2021 32.5302 17.397 32.5303 16.4043C32.5302 15.4115 31.7253 14.6064 30.7324 14.6064H22.7617ZM9.26758 8.31445C8.27477 8.3145 7.46973 9.11948 7.46973 10.1123C7.46992 11.105 8.27489 11.9101 9.26758 11.9102H17.2383C18.231 11.9102 19.0359 11.105 19.0361 10.1123C19.0361 9.11946 18.2311 8.31446 17.2383 8.31445H9.26758ZM22.7617 8.31445C21.7689 8.3145 20.9639 9.11953 20.9639 10.1123C20.964 11.105 21.769 11.9101 22.7617 11.9102H30.7324C31.7252 11.9101 32.5302 11.105 32.5303 10.1123C32.5302 9.11953 31.7252 8.3145 30.7324 8.31445H22.7617Z" fill="#F1ECE7"/>
-          </svg>
-          <span class="footer-brand-name">wma.nyc</span>
-        </div>
-        <p class="footer-tagline">Designer and creative technologist in New York.</p>
+        <span class="heading-wordmark">wma.nyc</span>
+        <p class="footer-copy meta-small">&#169; 2026 Wilson Ma</p>
       </div>
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="/#work">Work</a>
-        <a href="/about">About</a>
-        <a href="https://www.linkedin.com/in/wilsonxma/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="mailto:ny.wilson.ma@gmail.com">Email</a>
+        <a href="/#work" class="ui-nav">projects</a>
+        <a href="/about" class="ui-nav">about</a>
+        <a href="https://www.linkedin.com/in/wilsonxma/" target="_blank" rel="noopener noreferrer" class="ui-nav">linkedin</a>
+        <a href="mailto:ny.wilson.ma@gmail.com" class="ui-nav">email</a>
       </nav>
     </div>
-    <div class="footer-divider"></div>
-    <div class="footer-bottom">
-      <p>&#169; 2026 Wilson Ma</p>
-      <p class="footer-tagline-hidden">Designed in Figma, shipped through the same pipeline as the ads.</p>
-    </div>
-  </footer><!-- svg-patched -->
+  </footer>
 
-</div>
+</div><!-- .page -->
 <script src="/js/site.js"></script>
 </body>
 </html>

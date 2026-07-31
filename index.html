@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wilson Ma — Designer &amp; Creative Technologist</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/site.css">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3KK0FQDE6"></script>
@@ -22,110 +20,74 @@
 
   <!-- NAV -->
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <a href="/" class="nav-wordmark" aria-label="wma.nyc home">
-      <svg viewBox="0 0 40 39.999" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M32.7275 0C36.744 0.000144051 39.9999 3.25601 40 7.27246V32.7266C39.9999 36.743 36.744 39.9989 32.7275 39.999H7.27246C3.25602 39.9989 8.67142e-05 36.743 0 32.7266V7.27246C9.1388e-05 3.25601 3.25602 0.000144051 7.27246 0H32.7275ZM9.26758 28.0898C8.27491 28.0899 7.46995 28.8941 7.46973 29.8867C7.46985 30.8794 8.27484 31.6845 9.26758 31.6846H10.4912C11.484 31.6846 12.2889 30.8795 12.2891 29.8867C12.2888 28.8941 11.4839 28.0898 10.4912 28.0898H9.26758ZM16.0146 28.0898C15.022 28.0899 14.217 28.8941 14.2168 29.8867C14.2169 30.8794 15.0219 31.6845 16.0146 31.6846H17.2383C18.2311 31.6846 19.036 30.8795 19.0361 29.8867C19.0359 28.8941 18.231 28.0898 17.2383 28.0898H16.0146ZM22.7617 28.0898C21.7691 28.0899 20.9641 28.8941 20.9639 29.8867C20.964 30.8794 21.769 31.6845 22.7617 31.6846H23.9854C24.9781 31.6846 25.7831 30.8795 25.7832 29.8867C25.783 28.8941 24.9781 28.0898 23.9854 28.0898H22.7617ZM29.5078 28.0898C28.5152 28.09 27.7102 28.8942 27.71 29.8867C27.7101 30.8794 28.5152 31.6844 29.5078 31.6846H30.7314C31.7242 31.6846 32.5292 30.8795 32.5293 29.8867C32.5291 28.8941 31.7242 28.0898 30.7314 28.0898H29.5078ZM9.26758 20.8984C8.27477 20.8985 7.46974 21.7035 7.46973 22.6963C7.46985 23.689 8.27484 24.4941 9.26758 24.4941H17.2383C18.231 24.4941 19.036 23.689 19.0361 22.6963C19.0361 21.7035 18.2311 20.8985 17.2383 20.8984H9.26758ZM22.7617 20.8984C21.7689 20.8985 20.9639 21.7035 20.9639 22.6963C20.964 23.689 21.769 24.4941 22.7617 24.4941H30.7324C31.7252 24.4941 32.5302 23.689 32.5303 22.6963C32.5303 21.7034 31.7253 20.8984 30.7324 20.8984H22.7617ZM9.26758 14.6064C8.27479 14.6065 7.46976 15.4115 7.46973 16.4043C7.46985 17.397 8.27484 18.2021 9.26758 18.2021H17.2383C18.231 18.2021 19.036 17.397 19.0361 16.4043C19.0361 15.4115 18.2311 14.6065 17.2383 14.6064H9.26758ZM22.7617 14.6064C21.7689 14.6065 20.9639 15.4115 20.9639 16.4043C20.964 17.397 21.769 18.2021 22.7617 18.2021H30.7324C31.7252 18.2021 32.5302 17.397 32.5303 16.4043C32.5302 15.4115 31.7253 14.6064 30.7324 14.6064H22.7617ZM9.26758 8.31445C8.27477 8.3145 7.46973 9.11948 7.46973 10.1123C7.46992 11.105 8.27489 11.9101 9.26758 11.9102H17.2383C18.231 11.9102 19.0359 11.105 19.0361 10.1123C19.0361 9.11946 18.2311 8.31446 17.2383 8.31445H9.26758ZM22.7617 8.31445C21.7689 8.3145 20.9639 9.11953 20.9639 10.1123C20.964 11.105 21.769 11.9101 22.7617 11.9102H30.7324C31.7252 11.9101 32.5302 11.105 32.5303 10.1123C32.5302 9.11953 31.7252 8.3145 30.7324 8.31445H22.7617Z" fill="#F1ECE7"/>
-      </svg>
-    </a>
+    <a href="/" class="nav-wordmark">wilson ma</a>
     <div class="nav-links">
-      <a href="/#work">Work</a>
-      <a href="/about">About</a>
-      <a href="mailto:ny.wilson.ma@gmail.com" class="nav-cta">Get in touch</a>
+      <a href="/#work" class="ui-nav">projects</a>
+      <a href="/about" class="ui-nav">about</a>
+      <a href="mailto:ny.wilson.ma@gmail.com" class="ui-nav nav-cta">Get in touch</a>
     </div>
   </nav>
 
-  <!-- MAIN -->
   <main>
 
-    <!-- HERO SECTION -->
-    <section class="hero-section" aria-label="Introduction">
-      <div class="hero-card">
+    <!-- HERO -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-inner">
         <div class="hero-copy fade-up">
-          <p class="hero-headline">
-            <span class="hero-gradient">Heyo &#x1F44B; - I'm Wilson. </span><span class="hero-secondary">Designer and creative technologist in New York, building systems where design survives production.</span>
-          </p>
-          <p class="hero-body">
-            I build design systems and the production pipelines that run on them. The five projects below span a solo ad studio, four years of shipped work at Workhuman, a brand built in four weeks, and a market terminal written in Python, and the through line is the same: design intent that survives production.
-          </p>
+          <h1 class="display-hero">Designer &amp; creative technologist in New York.</h1>
+          <p class="heading-subhead hero-sub">Building systems where design survives production.</p>
         </div>
-        <div class="hero-cards fade-up">
-          <div class="info-card">
-            <p class="info-card-label">Focus</p>
-            <p class="info-card-body">Design systems, creative technology, AI-assisted production</p>
-          </div>
-          <div class="info-card">
-            <p class="info-card-label">Based</p>
-            <p class="info-card-body">New York City</p>
-          </div>
-          <div class="info-card">
-            <p class="info-card-label">Contact</p>
-            <p class="info-card-body">LinkedIn &middot; Email</p>
-          </div>
+        <!-- Placeholder — real composed portrait export lands here later -->
+        <div class="hero-portrait hero-portrait--home fade-up">
+          <img src="/assets/home/portrait.png" width="284" height="261" alt="" loading="eager">
         </div>
       </div>
     </section>
 
-    <!-- SELECTED PROJECTS -->
-    <section class="projects-section" id="work" aria-label="Selected Projects">
-      <p class="projects-heading fade-up">Selected Projects</p>
-      <div class="projects-grid">
+    <!-- WORK -->
+    <section class="work" id="work" aria-label="Selected work">
+      <div class="work-inner">
 
-        <a href="/marly" class="project-row fade-up">
-          <div class="chip-row">
-            <span class="chip chip-red">Motion Design</span>
-            <span class="chip chip-orange">Creative Technology</span>
-            <span class="chip chip-blue">Web Design</span>
-          </div>
-          <div class="project-meta">
-            <p class="project-title">MARLY Creative Concepts</p>
-            <p class="project-sub">Animated HTML5 display, built like a system.</p>
-          </div>
-        </a>
+        <div class="section-head fade-up">
+          <h2 class="heading-section">A few companies I&rsquo;ve worked with</h2>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
 
-        <a href="/workhuman" class="project-row fade-up">
-          <div class="chip-row">
-            <span class="chip chip-teal">Design Systems</span>
-            <span class="chip chip-green">UI Design</span>
-            <span class="chip chip-purple">Marketing Design</span>
-          </div>
-          <div class="project-meta">
-            <p class="project-title">Workhuman</p>
-            <p class="project-sub">Same instinct, five layers.</p>
-          </div>
-        </a>
+        <div class="card-row card-row--four fade-up">
+          <a href="/workhuman" class="card">
+            <span class="card-title heading-card">Workhuman</span>
+            <span class="card-desc body-default">Same instinct, five layers.</span>
+          </a>
+          <a href="/treat-week" class="card">
+            <span class="card-title heading-card">Treat Week</span>
+            <span class="card-kicker meta-caption">by Workhuman</span>
+            <span class="card-desc body-default">A brand built for a sale.</span>
+          </a>
+          <a href="/west-elm" class="card">
+            <span class="card-title heading-card">West Elm</span>
+            <span class="card-desc body-default">Jorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+          </span>
+          <a href="/ripco" class="card">
+            <span class="card-title heading-card">RIPCO Real Estate</span>
+            <span class="card-desc body-default">Jorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+          </span>
+        </div>
 
-        <a href="/treat-week" class="project-row fade-up">
-          <div class="chip-row">
-            <span class="chip chip-peach">Brand Design</span>
-            <span class="chip chip-pink">Art Direction</span>
-          </div>
-          <div class="project-meta">
-            <p class="project-title">Treat Week</p>
-            <p class="project-sub">A brand built for a sale.</p>
-          </div>
-        </a>
+        <div class="section-head fade-up">
+          <h2 class="heading-section">Personal projects</h2>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
 
-        <a href="/selected-works" class="project-row fade-up">
-          <div class="chip-row">
-            <span class="chip chip-cream">Production Design</span>
-            <span class="chip chip-purple">Marketing Design</span>
-          </div>
-          <div class="project-meta">
-            <p class="project-title">Selected Works</p>
-            <p class="project-sub">Volume work, before I had the vocabulary for it.</p>
-          </div>
-        </a>
-
-        <a href="/ge-terminal" class="project-row fade-up">
-          <div class="chip-row">
-            <span class="chip chip-orange">Creative Technology</span>
-            <span class="chip chip-steel">Python</span>
-          </div>
-          <div class="project-meta">
-            <p class="project-title">GE Terminal</p>
-            <p class="project-sub">Bloomberg for a game economy.</p>
-          </div>
-        </a>
+        <div class="card-row card-row--two fade-up">
+          <a href="/marly" class="card">
+            <span class="card-title heading-card">MARLY Creative Concepts</span>
+            <span class="card-desc body-default">Animated HTML5 display, built like a system.</span>
+          </a>
+          <a href="/ge-terminal" class="card">
+            <span class="card-title heading-card">GE Terminal</span>
+            <span class="card-desc body-default">Bloomberg for a game economy.</span>
+          </a>
+        </div>
 
       </div>
     </section>
@@ -134,27 +96,17 @@
 
   <!-- FOOTER -->
   <footer class="site-footer" role="contentinfo">
-    <div class="footer-top">
+    <div class="footer-inner">
       <div class="footer-mark">
-        <div class="footer-brand">
-          <svg viewBox="0 0 40 39.999" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M32.7275 0C36.744 0.000144051 39.9999 3.25601 40 7.27246V32.7266C39.9999 36.743 36.744 39.9989 32.7275 39.999H7.27246C3.25602 39.9989 8.67142e-05 36.743 0 32.7266V7.27246C9.1388e-05 3.25601 3.25602 0.000144051 7.27246 0H32.7275ZM9.26758 28.0898C8.27491 28.0899 7.46995 28.8941 7.46973 29.8867C7.46985 30.8794 8.27484 31.6845 9.26758 31.6846H10.4912C11.484 31.6846 12.2889 30.8795 12.2891 29.8867C12.2888 28.8941 11.4839 28.0898 10.4912 28.0898H9.26758ZM16.0146 28.0898C15.022 28.0899 14.217 28.8941 14.2168 29.8867C14.2169 30.8794 15.0219 31.6845 16.0146 31.6846H17.2383C18.2311 31.6846 19.036 30.8795 19.0361 29.8867C19.0359 28.8941 18.231 28.0898 17.2383 28.0898H16.0146ZM22.7617 28.0898C21.7691 28.0899 20.9641 28.8941 20.9639 29.8867C20.964 30.8794 21.769 31.6845 22.7617 31.6846H23.9854C24.9781 31.6846 25.7831 30.8795 25.7832 29.8867C25.783 28.8941 24.9781 28.0898 23.9854 28.0898H22.7617ZM29.5078 28.0898C28.5152 28.09 27.7102 28.8942 27.71 29.8867C27.7101 30.8794 28.5152 31.6844 29.5078 31.6846H30.7314C31.7242 31.6846 32.5292 30.8795 32.5293 29.8867C32.5291 28.8941 31.7242 28.0898 30.7314 28.0898H29.5078ZM9.26758 20.8984C8.27477 20.8985 7.46974 21.7035 7.46973 22.6963C7.46985 23.689 8.27484 24.4941 9.26758 24.4941H17.2383C18.231 24.4941 19.036 23.689 19.0361 22.6963C19.0361 21.7035 18.2311 20.8985 17.2383 20.8984H9.26758ZM22.7617 20.8984C21.7689 20.8985 20.9639 21.7035 20.9639 22.6963C20.964 23.689 21.769 24.4941 22.7617 24.4941H30.7324C31.7252 24.4941 32.5302 23.689 32.5303 22.6963C32.5303 21.7034 31.7253 20.8984 30.7324 20.8984H22.7617ZM9.26758 14.6064C8.27479 14.6065 7.46976 15.4115 7.46973 16.4043C7.46985 17.397 8.27484 18.2021 9.26758 18.2021H17.2383C18.231 18.2021 19.036 17.397 19.0361 16.4043C19.0361 15.4115 18.2311 14.6065 17.2383 14.6064H9.26758ZM22.7617 14.6064C21.7689 14.6065 20.9639 15.4115 20.9639 16.4043C20.964 17.397 21.769 18.2021 22.7617 18.2021H30.7324C31.7252 18.2021 32.5302 17.397 32.5303 16.4043C32.5302 15.4115 31.7253 14.6064 30.7324 14.6064H22.7617ZM9.26758 8.31445C8.27477 8.3145 7.46973 9.11948 7.46973 10.1123C7.46992 11.105 8.27489 11.9101 9.26758 11.9102H17.2383C18.231 11.9102 19.0359 11.105 19.0361 10.1123C19.0361 9.11946 18.2311 8.31446 17.2383 8.31445H9.26758ZM22.7617 8.31445C21.7689 8.3145 20.9639 9.11953 20.9639 10.1123C20.964 11.105 21.769 11.9101 22.7617 11.9102H30.7324C31.7252 11.9101 32.5302 11.105 32.5303 10.1123C32.5302 9.11953 31.7252 8.3145 30.7324 8.31445H22.7617Z" fill="#F1ECE7"/>
-          </svg>
-          <span class="footer-brand-name">wma.nyc</span>
-        </div>
-        <p class="footer-tagline">Designer and creative technologist in New York.</p>
+        <span class="heading-wordmark">wma.nyc</span>
+        <p class="footer-copy meta-small">&#169; 2026 Wilson Ma</p>
       </div>
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="/#work">Work</a>
-        <a href="/about">About</a>
-        <a href="https://www.linkedin.com/in/wilsonxma/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="mailto:ny.wilson.ma@gmail.com">Email</a>
+        <a href="/#work" class="ui-nav">projects</a>
+        <a href="/about" class="ui-nav">about</a>
+        <a href="https://www.linkedin.com/in/wilsonxma/" target="_blank" rel="noopener noreferrer" class="ui-nav">linkedin</a>
+        <a href="mailto:ny.wilson.ma@gmail.com" class="ui-nav">email</a>
       </nav>
-    </div>
-    <div class="footer-divider"></div>
-    <div class="footer-bottom">
-      <p>&#169; 2026 Wilson Ma</p>
-      <p class="footer-tagline-hidden">Designed in Figma, shipped through the same pipeline as the ads.</p>
     </div>
   </footer>
 
