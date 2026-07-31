@@ -35,7 +35,7 @@
           <p class="heading-subhead hero-sub">Animated HTML5 display, built like a system.</p>
           <p class="body-default hero-intro">Marly is the solo studio I founded and run: a Figma-to-production pipeline that turns brand design systems into animated ad sets. I&#8217;m the creative director, the pipeline architect, and the final QA gate, which is why the system below exists at all.</p>
         </div>
-        <div class="hero-portrait ph ph--circle fade-up" data-asset="marly/portrait.png" aria-hidden="true"></div>
+        <div class="ad-slot" style="width:300px;height:250px;" id="slot-hero" aria-label="Marly client work sample"></div>
       </div>
     </section>
 
@@ -255,6 +255,16 @@ function initSlot(cfg) {
   io.observe(el);
 }
 
+initSlot({ id: 'slot-hero', nativeW: 300, nativeH: 250, displayW: 300,
+  units: [
+    { src: '/marly-work/tumblerware/unit-b.html', label: 'Tumblerware' },
+    { src: '/marly-work/ghia/unit-b.html',        label: 'Ghia' },
+    { src: '/marly-work/byredo/unit-b.html',      label: 'Byredo' },
+    { src: '/marly-work/graza/unit-b.html',       label: 'Graza' },
+    { src: '/marly-work/ritual/unit-b.html',      label: 'Ritual' },
+    { src: '/marly-work/magic-spoon/unit-b.html', label: 'Magic Spoon' }
+  ]
+});
 AD_SLOTS.forEach(function(cfg) { initSlot(cfg); });
 </script>
 </body>

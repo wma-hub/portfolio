@@ -603,8 +603,8 @@ a.card:hover .card-title {
 .brand-sys-label { color: var(--color-ink); }
 
 /* Wide horizontal strips that overflow the 1080 column */
-.cs-strip { display: flex; gap: var(--space-4); overflow-x: auto; -webkit-overflow-scrolling: touch; align-items: flex-start; }
-.cs-strip > img { flex-shrink: 0; height: auto; }
+.cs-strip { display: flex; gap: var(--space-4); overflow-x: auto; -webkit-overflow-scrolling: touch; align-items: flex-start; scroll-snap-type: x mandatory; }
+.cs-strip > img { flex-shrink: 0; height: auto; scroll-snap-align: start; }
 
 @media (max-width: 900px) {
   .cs-stack { gap: var(--space-60); }
