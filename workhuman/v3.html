@@ -132,6 +132,102 @@
           </figure>
         </section>
 
+                <section class="ge-section fade-up" id="aura">
+          <div class="ge-head">
+            <p class="wh-eyebrow meta-caption">Design Systems</p>
+            <p class="ge-num heading-wordmark">02</p>
+            <h2 class="ge-title display-page">Web Design System, Aura</h2>
+            <p class="wh-hook body-strong">Fifteen button variants. Two offices. No shared language.</p>
+            <p class="ge-body body-default">Workhuman&#8217;s US and Ireland design teams had developed their component libraries independently. By the time I joined, the drift was visible everywhere &#8212; inconsistent spacing, divergent type scales, and a button component that had forked into fifteen variants across both codebases, none of them formally documented.</p>
+            <p class="ge-body body-default">The work was less about building new components and more about establishing the conditions under which both teams could stop rebuilding the same things. That meant a token layer first: named decisions about color, spacing, and typography that could travel between Figma and code without re-interpretation at each handoff.</p>
+          </div>
+
+          <div class="wh-stats">
+            <div class="wh-stat">
+              <span class="wh-stat-label meta-caption">Consolidation</span>
+              <span class="wh-stat-value heading-card">15+ &#8594; 1</span>
+              <span class="wh-stat-label meta-caption">button variants</span>
+            </div>
+            <div class="wh-stat">
+              <span class="wh-stat-label meta-caption">Dev cycle</span>
+              <span class="wh-stat-value heading-card">~60%</span>
+              <span class="wh-stat-label meta-caption">reduction</span>
+            </div>
+            <div class="wh-stat">
+              <span class="wh-stat-label meta-caption">Reach</span>
+              <span class="wh-stat-value heading-card">2 offices</span>
+              <span class="wh-stat-label meta-caption">one token system</span>
+            </div>
+          </div>
+
+          <blockquote class="wh-quote fade-up">
+            <p class="heading-section">&#8220;We spend 60% of our time asking the same design questions.&#8221;</p>
+            <cite class="meta-caption">Engineering, discovery interviews</cite>
+          </blockquote>
+
+          <div class="wh-tiers fade-up">
+            <div class="wh-tier">
+              <span class="wh-tier-n body-strong">Tier 1</span>
+              <span class="wh-tier-name body-default">Primitives</span>
+              <span class="wh-tier-eg meta-caption">humanity-60, spacing-4, font-16</span>
+            </div>
+            <div class="wh-tier">
+              <span class="wh-tier-n body-strong">Tier 2</span>
+              <span class="wh-tier-name body-default">Aliases</span>
+              <span class="wh-tier-eg meta-caption">brand-primary = humanity-60</span>
+            </div>
+            <div class="wh-tier">
+              <span class="wh-tier-n body-strong">Tier 3</span>
+              <span class="wh-tier-name body-default">Semantic tokens</span>
+              <span class="wh-tier-eg meta-caption">surface-primary, text-default</span>
+            </div>
+            <div class="wh-tier">
+              <span class="wh-tier-n body-strong">Tier 4</span>
+              <span class="wh-tier-name body-default">Component tokens</span>
+              <span class="wh-tier-eg meta-caption">button-bg-primary, input-border-focus</span>
+            </div>
+          </div>
+
+          <figure class="wh-figure fade-up">
+            <img src="/assets/workhuman/02-1.png" alt="Button component anatomy showing which token resolves each property" loading="lazy" decoding="async">
+            <figcaption class="wh-caption meta-caption">White variant, focus state. The ring resolves to humanity-60, the same primitive in Tier 1 above.</figcaption>
+          </figure>
+
+          <div class="wh-stats">
+            <div class="wh-stat">
+              <span class="wh-stat-label meta-caption">Onboarding</span>
+              <span class="wh-stat-value heading-card">2 wks &#8594; 3 days</span>
+              <span class="wh-stat-label meta-caption">for a new designer</span>
+            </div>
+            <div class="wh-stat">
+              <span class="wh-stat-label meta-caption">Engineer questions</span>
+              <span class="wh-stat-value heading-card">&#8595;60%</span>
+              <span class="wh-stat-label meta-caption">after documentation</span>
+            </div>
+            <div class="wh-stat">
+              <span class="wh-stat-label meta-caption">Adherence</span>
+              <span class="wh-stat-value heading-card">95%</span>
+              <span class="wh-stat-label meta-caption">implementation</span>
+            </div>
+          </div>
+
+          <div class="wh-panel-head">
+            <h3 class="wh-panel-title heading-section">Contribution pipeline: how new components are added to Aura</h3>
+          </div>
+          <ol class="wh-pipeline fade-up">
+            <li class="wh-step"><span class="wh-step-n meta-caption">01</span><span class="wh-step-label body-default">Request</span></li>
+            <li class="wh-step"><span class="wh-step-n meta-caption">02</span><span class="wh-step-label body-default">Validate need<br>3+ use cases</span></li>
+            <li class="wh-step"><span class="wh-step-n meta-caption">03</span><span class="wh-step-label body-default">Design review</span></li>
+            <li class="wh-step"><span class="wh-step-n meta-caption">04</span><span class="wh-step-label body-default">Engineering feasibility</span></li>
+            <li class="wh-step"><span class="wh-step-n meta-caption">05</span><span class="wh-step-label body-default">Docs required</span></li>
+            <li class="wh-step"><span class="wh-step-n meta-caption">06</span><span class="wh-step-label body-default">Ship</span></li>
+          </ol>
+          <p class="wh-note body-default">Semantic versioning, changelog every release, six-month deprecation notice, migration guides for breaking changes.</p>
+          <p class="wh-note body-default"><strong>Compromise:</strong> token naming took three iterations before the semantics made sense to engineers. That caused early confusion, and bought long-term clarity.</p>
+
+          <p class="wh-spec meta-caption">150+ components &#183; 200+ icons &#183; 8pt grid &#183; 6-size type scale &#183; WCAG AA compliant</p>
+        </section>
+
         <!-- PARTS 2-4 APPEND HERE: 02 Aura, 03 Echo, 04 Ceros, 05 ROI -->
 
       </div>
