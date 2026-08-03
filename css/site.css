@@ -1057,3 +1057,9 @@ p:not(.text-link-line) > .text-link {
     transition-delay: 0s;
   }
 }
+
+/* ---- spec disclosure under the brand logo row ---- */
+.spec-note {
+  color: var(--color-ink-subtle);
+  margin-top: var(--space-12);
+}
