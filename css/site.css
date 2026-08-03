@@ -484,8 +484,8 @@ a.card:hover .card-title {
 .ad-slot-wrap { display: flex; flex-direction: column; align-items: center; gap: var(--space-8); }
 .ad-slot-label { font-size: var(--type-micro); color: var(--color-ink-subtle); text-align: center; }
 .ad-slot { position: relative; overflow: hidden; background: var(--color-background-acc); flex-shrink: 0; }
-.ad-slot iframe { position: absolute; top: 0; left: 0; border: 0; display: block; }
-.brand-range-slots-wrap { overflow-x: auto; }
+.ad-slot iframe { position: absolute; top: 0; left: 0; border: 0; display: block; max-width: none; }
+.brand-range-slots-wrap { overflow-x: auto; max-width: 100%; min-width: 0; }
 
 @media (max-width: 900px) {
   .problem-row { flex-direction: column; gap: var(--space-60); }
@@ -972,7 +972,7 @@ a.card:hover .card-title { font-weight: var(--font-weight-bold); }
    allowed to shrink. Horizontal galleries stay scrollable but stop
    dominating small screens.
    ============================================================ */
-img, svg, video, iframe { max-width: 100%; }
+img, svg, video { max-width: 100%; }
 img, svg, video { height: auto; }
 
 .hero-portrait          { width: min(380px, 100%); }
@@ -996,6 +996,7 @@ img, svg, video { height: auto; }
   .cs-strip > .ph, .cs-strip > img { min-width: 0; }
   .wh-tablist { gap: var(--space-4); }
   .wh-tab { padding: var(--space-8) var(--space-12); font-size: var(--type-body-sm); }
+  .ad-slots-col > div[style*="display:flex"] { flex-wrap: wrap; gap: var(--space-24); }
 }
 
 /* ---- prev/next: alignment lives in CSS so mobile can override it ---- */
