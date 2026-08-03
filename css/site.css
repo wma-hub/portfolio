@@ -1063,3 +1063,13 @@ p:not(.text-link-line) > .text-link {
   color: var(--color-ink-subtle);
   margin-top: var(--space-12);
 }
+
+/* ---- ad gallery column: slots plus the note beneath, same width ---- */
+.ad-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  min-width: 0;
+  flex: 0 1 auto;
+}
+.ad-column .spec-note { margin-top: 0; }
