@@ -1009,3 +1009,14 @@ img, svg, video { height: auto; }
   .cs-nav-side--right .cs-nav-label { text-align: left; }
   .cs-nav-label { min-width: 0; }
 }
+
+/* ---- inline text link ---- */
+.text-link {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-thickness 0.15s;
+}
+.text-link:hover { text-decoration-thickness: 2px; }
+.text-link-line { margin-top: var(--space-8); }
