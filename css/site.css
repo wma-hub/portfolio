@@ -245,7 +245,7 @@ ul, ol { list-style: none; }
    ------------------------------------------------------------ */
 .hero {
   background: var(--bg);
-  padding: var(--space-80) var(--px-outer) var(--space-120);
+  padding: var(--space-80) var(--px-outer) var(--space-160);
 }
 .hero-inner {
   width: 100%;
