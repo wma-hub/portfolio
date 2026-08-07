@@ -576,6 +576,9 @@ a.card:hover .card-title {
 }
 .ge-head--cols > * { flex: 1 1 0; min-width: 0; }
 
+/* 04 — stacked head, body runs the full 1080 column */
+.ge-head--wide { max-width: none; }
+
 .ge-num   { color: var(--color-ink-muted); }
 .ge-title { color: var(--color-ink); }
 .ge-body  { color: var(--color-ink-muted); max-width: 720px; }
@@ -591,6 +594,10 @@ a.card:hover .card-title {
 .ge-two-up-visual { flex: 1 1 572px; max-width: 572px; }
 .ge-two-up-copy   { flex: 1 1 428px; max-width: 428px;
                     display: flex; flex-direction: column; gap: var(--space-24); }
+
+/* 02 code + body pair — 632 / 368, gap 80 */
+.ge-two-up--code .ge-two-up-visual { flex: 1 1 632px; max-width: 632px; }
+.ge-two-up--code .ge-two-up-copy   { flex: 1 1 368px; max-width: 368px; }
 
 .ge-quote {
   margin: 0;
