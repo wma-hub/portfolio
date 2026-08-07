@@ -17,7 +17,7 @@
   // indexed and arrive in sequence rather than as one block
   var STAGGER = [
     '.card-row', '.wh-tiles', '.wh-surfaces', '.wh-stats',
-    '.lockup-row', '.about-cols-inner', '.wh-zones', '.wh-pipeline'
+    '.lockup-row', '.about-cols-inner', '.wh-zones', '.wh-pipeline', '.ge-meta-row'
   ].join(',');
 
   var els = [].slice.call(document.querySelectorAll('.fade-up'));
