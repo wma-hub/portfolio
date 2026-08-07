@@ -665,7 +665,7 @@ a.card:hover .card-title {
   gap: var(--space-40);
 }
 .ge-split-visual { flex: 0 0 213px; max-width: 213px; }
-.ge-split-visual img { display: block; width: 133px; max-width: 100%; height: auto; }
+.ge-split-visual img { display: block; width: 133px; max-width: 100%; height: auto; margin-left: var(--space-40); }
 .ge-split-copy   { flex: 1 1 787px; max-width: 787px; }
 
 .ge-caption { color: var(--color-ink-muted); }
