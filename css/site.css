@@ -1334,7 +1334,7 @@ p:not(.text-link-line) > .text-link {
   display: flex;
   flex-direction: column;
   gap: 60px;
-  height: 428px;
+  height: 424px;
   outline: none;
 }
 .cs-slideshow:focus { outline: none; }
