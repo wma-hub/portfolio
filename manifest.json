@@ -1,0 +1,83 @@
+{
+  "_comment": "Figma file key yL4hnNAJKHlEWVLT5OUhvx, page WMA.NYC — V4 (4147:3963). w/h are 1x; exports are 2x. Verify writes measured dims back as actual_w/actual_h.",
+  "asset_dir": "assets",
+  "pages": {
+    "home": "index.html",
+    "aura": "aura/index.html",
+    "echo": "echo/index.html",
+    "careers": "careers/index.html",
+    "marly": "marly/index.html",
+    "ge": "ge-terminal/index.html",
+    "treatweek": "treat-week/index.html",
+    "westelm": "west-elm/index.html",
+    "ripco": "ripco/index.html"
+  },
+  "assets": {
+    "home-cards": { "node": "4166:18462", "page": "home", "file": "home/00-project-grid.png", "w": 1080, "h": 922, "eager": true, "alt": "", "_note": "EXPORT INDIVIDUALLY INSTEAD — six separate cards, each its own <img> so they can link. Split before exporting." },
+
+    "aura-fifteen-buttons": { "node": "4152:13606", "page": "aura", "file": "aura/01-fifteen-buttons.png", "w": 800, "h": 333, "eager": true, "alt": "" },
+    "aura-tiers": { "node": "4152:12195", "page": "aura", "file": "aura/02-token-tiers.png", "w": 800, "h": 210, "alt": "" },
+    "aura-button-anatomy": { "node": "4152:12234", "page": "aura", "file": "aura/02-button-anatomy.png", "w": 800, "h": 369, "alt": "" },
+    "aura-variant-sheet": { "node": "4152:12364", "page": "aura", "file": "aura/03-variant-sheet.png", "w": 583, "h": 408, "alt": "" },
+    "aura-docs-a": { "node": "4152:12365", "page": "aura", "file": "aura/03-docs-a.png", "w": 203, "h": 172, "alt": "" },
+    "aura-docs-b": { "node": "4152:12366", "page": "aura", "file": "aura/03-docs-b.png", "w": 203, "h": 322, "alt": "" },
+    "aura-docs-c": { "node": "4152:12368", "page": "aura", "file": "aura/03-docs-c.png", "w": 280, "h": 172, "alt": "" },
+    "aura-docs-d": { "node": "4184:19252", "page": "aura", "file": "aura/03-docs-d.png", "w": 290, "h": 172, "alt": "" },
+    "aura-pipeline-diagram": { "node": "4152:12311", "page": "aura", "file": "aura/04-pipeline-diagram.png", "w": 804, "h": 78, "alt": "" },
+    "aura-system-at-scale": { "node": "4232:23488", "page": "aura", "file": "aura/04-system-at-scale.png", "w": 800, "h": 428, "alt": "" },
+
+    "echo-pre-post": { "node": "4217:20664", "page": "echo", "file": "echo/01-pre-post-ads.png", "w": 800, "h": 630, "eager": true, "alt": "" },
+    "echo-lp-viewer": { "node": "4153:13969", "page": "echo", "file": "echo/02-channel-viewer.png", "w": 800, "h": 579, "alt": "" },
+    "echo-output-grid": { "node": "4216:20081", "page": "echo", "file": "echo/03-output-grid.png", "w": 3679, "h": 300, "alt": "", "_note": "3679px wide at 1x — 7358px at 2x. Export at 1x or crop; this will blow past sane file size." },
+
+    "careers-baseline-a": { "node": "4220:20762", "page": "careers", "file": "careers/01-baseline-a.png", "w": 558, "h": 159, "eager": true, "alt": "" },
+    "careers-baseline-b": { "node": "4220:20764", "page": "careers", "file": "careers/01-baseline-b.png", "w": 401, "h": 276, "alt": "" },
+    "careers-baseline-c": { "node": "4220:20767", "page": "careers", "file": "careers/01-baseline-c.png", "w": 558, "h": 159, "alt": "" },
+    "careers-funnel": { "node": "4153:16765", "page": "careers", "file": "careers/01-funnel.png", "w": 800, "h": 302, "alt": "" },
+    "careers-l1": { "node": "4206:19978", "page": "careers", "file": "careers/02-homepage-l1.png", "w": 800, "h": 457, "alt": "" },
+    "careers-tab-a": { "node": "4153:16523", "page": "careers", "file": "careers/02-tab-a.png", "w": 271, "h": 147, "alt": "" },
+    "careers-tab-b": { "node": "4153:16524", "page": "careers", "file": "careers/02-tab-b.png", "w": 271, "h": 147, "alt": "" },
+    "careers-tab-c": { "node": "4153:16525", "page": "careers", "file": "careers/02-tab-c.png", "w": 271, "h": 156, "alt": "" },
+    "careers-job-detail": { "node": "4153:16526", "page": "careers", "file": "careers/02-job-detail.png", "w": 388, "h": 540, "alt": "" },
+    "careers-rail": { "node": "4153:16527", "page": "careers", "file": "careers/02-also-viewed.png", "w": 473, "h": 274, "alt": "" },
+    "careers-heap": { "node": "4153:16780", "page": "careers", "file": "careers/03-heap-strip.png", "w": 800, "h": 127, "alt": "" },
+    "careers-browse": { "node": "4223:21501", "page": "careers", "file": "careers/03-browse-live.png", "w": 800, "h": 446, "alt": "" },
+
+    "marly-encoded-a": { "node": "4160:16845", "page": "marly", "file": "marly/02-encoded-a.png", "w": 345, "h": 301, "alt": "" },
+    "marly-encoded-b": { "node": "4160:16846", "page": "marly", "file": "marly/02-encoded-b.png", "w": 434, "h": 163, "alt": "" },
+    "marly-encoded-c": { "node": "4160:16847", "page": "marly", "file": "marly/02-encoded-c.png", "w": 435, "h": 251, "alt": "" },
+    "marly-tier-1": { "node": "4166:18574", "page": "marly", "file": "marly/02-tier-1.png", "w": 800, "h": 421, "alt": "" },
+    "marly-tier-2": { "node": "4215:19999", "page": "marly", "file": "marly/02-tier-2.png", "w": 800, "h": 420, "alt": "" },
+    "marly-tier-3": { "node": "4215:20003", "page": "marly", "file": "marly/02-tier-3.png", "w": 800, "h": 413, "alt": "" },
+    "marly-build-traced": { "node": "4173:18928", "page": "marly", "file": "marly/03-build-traced.png", "w": 800, "h": 760, "alt": "" },
+    "marly-logo-graza": { "node": "4160:16878", "page": "marly", "file": "marly/04-logo-graza.png", "w": 87, "h": 24, "alt": "" },
+    "marly-logo-b": { "node": "4160:16889", "page": "marly", "file": "marly/04-logo-b.png", "w": 83, "h": 23, "alt": "" },
+    "marly-logo-levis": { "node": "4160:16900", "page": "marly", "file": "marly/04-logo-levis.png", "w": 72, "h": 31, "alt": "" },
+    "marly-300x250": { "node": "4160:16909", "page": "marly", "file": "marly/04-300x250.png", "w": 316, "h": 289, "alt": "", "_note": "Animated in final build — static PNG is the fallback." },
+
+    "ge-hero": { "node": "4166:18051", "page": "ge", "file": "ge-terminal/00-watchlist.png", "w": 1034, "h": 665, "eager": true, "alt": "" },
+    "ge-tested-live": { "node": "4178:18932", "page": "ge", "file": "ge-terminal/02-tested-live.png", "w": 800, "h": 554, "alt": "" },
+    "ge-actions": { "node": "4166:18828", "page": "ge", "file": "ge-terminal/02-actions.png", "w": 360, "h": 700, "alt": "" },
+    "ge-tier-matrix": { "node": "4166:17579", "page": "ge", "file": "ge-terminal/02-tier-matrix.png", "w": 800, "h": 436, "alt": "" },
+    "ge-item-lookup": { "node": "4166:17451", "page": "ge", "file": "ge-terminal/02-item-lookup.png", "w": 800, "h": 725, "alt": "" },
+    "ge-code": { "node": "4166:17560", "page": "ge", "file": "ge-terminal/02-code.png", "w": 515, "h": 670, "alt": "", "_note": "Prior export of the code block carried a 125px shadow bleed. Check the classify output." },
+    "ge-why-verdict": { "node": "4166:17548", "page": "ge", "file": "ge-terminal/02-why-verdict.png", "w": 261, "h": 171, "alt": "" },
+    "ge-cards": { "node": "4166:17197", "page": "ge", "file": "ge-terminal/04-cards.png", "w": 540, "h": 307, "alt": "", "_note": "Cards must match the In-use paragraph — currently shows Grimy toadflax + three Trade F items, prose describes three 50-61% crashes. Reconcile before export." },
+    "ge-vocabulary": { "node": "4166:17335", "page": "ge", "file": "ge-terminal/05-vocabulary.png", "w": 800, "h": 481, "alt": "" },
+
+    "tw-sale-shot": { "node": "4232:23548", "page": "treatweek", "file": "treat-week/01-sale.png", "w": 1080, "h": 479, "eager": true, "alt": "" },
+    "tw-wordmarks": { "node": "4232:23549", "page": "treatweek", "file": "treat-week/02-wordmarks.png", "w": 1080, "h": 160, "alt": "" },
+    "tw-block-7": { "node": "4232:23613", "page": "treatweek", "file": "treat-week/02-lockup.png", "w": 1080, "h": 200, "alt": "" },
+    "tw-logo-system": { "node": "4232:23615", "page": "treatweek", "file": "treat-week/03-logo-system.png", "w": 1080, "h": 1345, "alt": "" },
+    "tw-typography": { "node": "4232:23853", "page": "treatweek", "file": "treat-week/04-typography.png", "w": 1080, "h": 511, "alt": "" },
+    "tw-applied": { "node": "4232:23943", "page": "treatweek", "file": "treat-week/05-applied.png", "w": 1080, "h": 1212, "alt": "" },
+
+    "we-imac": { "node": "4203:19850", "page": "westelm", "file": "west-elm/01-imac.png", "w": 1025, "h": 810, "eager": true, "alt": "" },
+    "we-iphone": { "node": "4203:19855", "page": "westelm", "file": "west-elm/02-iphone.png", "w": 297, "h": 582, "alt": "" },
+    "we-grid": { "node": "4203:19874", "page": "westelm", "file": "west-elm/03-grid.png", "w": 1080, "h": 725, "alt": "" },
+
+    "ripco-a": { "node": "4203:19779", "page": "ripco", "file": "ripco/01-main.png", "w": 1080, "h": 1649, "eager": true, "alt": "" },
+    "ripco-b": { "node": "4203:19780", "page": "ripco", "file": "ripco/02-detail.png", "w": 468, "h": 745, "alt": "" },
+    "ripco-c": { "node": "4203:19784", "page": "ripco", "file": "ripco/03-strip.png", "w": 4175, "h": 624, "alt": "", "_note": "4175px at 1x. Export at 1x or crop." }
+  }
+}

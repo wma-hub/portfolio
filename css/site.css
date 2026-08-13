@@ -1195,3 +1195,81 @@ p:not(.text-link-line) > .text-link {
   max-width: 100%;
   height: auto;
 }
+
+
+/* ------------------------------------------------------------
+   CS — numbered section layout (Aura, Echo, Careers)
+   Grid: 240px label | 40px gap | 800px content = 1080 column.
+   cs-sections overrides cs-body-inner's default 80px gap → 120px.
+   ------------------------------------------------------------ */
+.cs-sections { gap: var(--space-120); }
+
+.cs-section {
+  display: grid;
+  grid-template-columns: 240px 800px;
+  column-gap: var(--space-40);
+}
+
+.cs-lockup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.cs-num   { color: var(--color-ink-muted); }
+.cs-title { color: var(--color-ink); }
+
+.cs-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-40);
+  min-width: 0;
+}
+
+/* Decision-fork: tinted block, no heading, one paragraph */
+.cs-fork {
+  background: var(--color-background-acc);
+  padding: var(--space-24) var(--space-32);
+}
+.cs-fork p { color: var(--color-ink-muted); }
+
+/* Stat row: large figure over a caption label */
+.cs-stats {
+  display: grid;
+  gap: 0 var(--space-40);
+  padding-top: var(--space-24);
+  border-top: 1px solid var(--color-rule);
+}
+.cs-stats--3 { grid-template-columns: repeat(3, 1fr); }
+.cs-stats--4 { grid-template-columns: repeat(4, 1fr); }
+
+.cs-stat { display: flex; flex-direction: column; gap: var(--space-4); }
+.cs-stat-figure {
+  font-size: var(--type-display);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-ink);
+  line-height: 1.1;
+}
+.cs-stat-caption { color: var(--color-ink-muted); }
+
+/* Docs image composite: full-width first image, then 4-up grid */
+.cs-docs-composite { display: flex; flex-direction: column; gap: var(--space-16); }
+.cs-docs-4up {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-12);
+  align-items: start;
+}
+.cs-docs-composite img,
+.cs-docs-4up img { display: block; width: 100%; height: auto; }
+
+@media (max-width: 900px) {
+  .cs-section { grid-template-columns: 1fr; row-gap: var(--space-24); }
+  .cs-sections { gap: var(--space-80); }
+  .cs-docs-4up { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+  .cs-stats--3,
+  .cs-stats--4 { grid-template-columns: 1fr 1fr; }
+}
