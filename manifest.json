@@ -46,13 +46,13 @@
     "marly-ad-sizes": { "node": "4160:16902", "page": "marly", "file": "marly/04-ad-sizes.png", "w": 447, "h": 484, "alt": "" },
 
     "ge-hero": { "node": "4166:18051", "page": "ge", "file": "ge-terminal/00-watchlist.png", "w": 1034, "h": 665, "eager": true, "alt": "" },
+    "ge-actions-tab": { "node": "4166:18427", "page": "ge", "file": "ge-terminal/01-actions-tab.png", "w": 800, "h": 337, "alt": "" },
     "ge-tested-live": { "node": "4178:18932", "page": "ge", "file": "ge-terminal/02-tested-live.png", "w": 800, "h": 554, "alt": "" },
-    "ge-actions": { "node": "4166:18828", "page": "ge", "file": "ge-terminal/02-actions.png", "w": 360, "h": 700, "alt": "" },
+    "ge-discord-alert": { "node": "4166:18895", "page": "ge", "file": "ge-terminal/02-discord-alert.png", "w": 800, "h": 759, "alt": "" },
     "ge-tier-matrix": { "node": "4166:17579", "page": "ge", "file": "ge-terminal/02-tier-matrix.png", "w": 800, "h": 436, "alt": "" },
-    "ge-item-lookup": { "node": "4166:17451", "page": "ge", "file": "ge-terminal/02-item-lookup.png", "w": 800, "h": 725, "alt": "" },
-    "ge-code": { "node": "4166:17560", "page": "ge", "file": "ge-terminal/02-code.png", "w": 515, "h": 670, "alt": "", "_note": "Prior export of the code block carried a 125px shadow bleed. Check the classify output." },
-    "ge-why-verdict": { "node": "4166:17548", "page": "ge", "file": "ge-terminal/02-why-verdict.png", "w": 261, "h": 171, "alt": "" },
-    "ge-cards": { "node": "4166:17197", "page": "ge", "file": "ge-terminal/04-cards.png", "w": 540, "h": 307, "alt": "", "_note": "Cards must match the In-use paragraph — currently shows Grimy toadflax + three Trade F items, prose describes three 50-61% crashes. Reconcile before export." },
+    "ge-item-lookup": { "node": "4166:17450", "page": "ge", "file": "ge-terminal/02-item-lookup.png", "w": 800, "h": 725, "alt": "" },
+    "ge-dump-code": { "node": "4166:17547", "page": "ge", "file": "ge-terminal/02-dump-code.png", "w": 800, "h": 674, "alt": "" },
+    "ge-cards": { "node": "4166:17197", "page": "ge", "file": "ge-terminal/04-cards.png", "w": 540, "h": 307, "alt": "" },
     "ge-vocabulary": { "node": "4166:17335", "page": "ge", "file": "ge-terminal/05-vocabulary.png", "w": 800, "h": 481, "alt": "" },
 
     "tw-sale-shot": { "node": "4232:23548", "page": "treatweek", "file": "treat-week/01-sale.png", "w": 1080, "h": 479, "eager": true, "alt": "" },

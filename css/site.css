@@ -1245,6 +1245,7 @@ p:not(.text-link-line) > .text-link {
 }
 .cs-stats--3 { grid-template-columns: repeat(3, 1fr); }
 .cs-stats--4 { grid-template-columns: repeat(4, 1fr); }
+.cs-stats--5 { grid-template-columns: repeat(5, 1fr); }
 
 .cs-stat { display: flex; flex-direction: column; gap: var(--space-4); }
 .cs-stat-figure {
@@ -1275,6 +1276,7 @@ p:not(.text-link-line) > .text-link {
 @media (max-width: 700px) {
   .cs-stats--3,
   .cs-stats--4 { grid-template-columns: 1fr 1fr; }
+  .cs-stats--5 { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* Scope section: two-column bordered card split */
