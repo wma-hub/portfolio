@@ -170,34 +170,91 @@
                 <p class="cs-stat-caption meta-caption">implementation adherence</p>
               </div>
             </div>
-            <div class="cs-docs-composite">
-              <picture>
-                <source type="image/webp" srcset="/assets/aura/03-variant-sheet.webp">
-                <img src="/assets/aura/03-variant-sheet.png" width="583" height="408" alt="" loading="lazy">
-              </picture>
-              <div class="cs-docs-4up">
+            <div class="cs-collage" role="img" aria-label="Component library documentation screenshots">
+              <div class="cs-collage-item" style="left:0%;top:0%;width:72.875%;height:68.80%">
+                <picture>
+                  <source type="image/webp" srcset="/assets/aura/03-variant-sheet.webp">
+                  <img src="/assets/aura/03-variant-sheet.png" width="583" height="408" alt="" loading="lazy">
+                </picture>
+              </div>
+              <div class="cs-collage-item" style="left:74.625%;top:14.50%;width:25.375%;height:29.01%">
                 <picture>
                   <source type="image/webp" srcset="/assets/aura/03-docs-a.webp">
                   <img src="/assets/aura/03-docs-a.png" width="203" height="172" alt="" loading="lazy">
                 </picture>
+              </div>
+              <div class="cs-collage-item" style="left:74.625%;top:45.70%;width:25.375%;height:54.30%">
                 <picture>
                   <source type="image/webp" srcset="/assets/aura/03-docs-b.webp">
                   <img src="/assets/aura/03-docs-b.png" width="203" height="322" alt="" loading="lazy">
                 </picture>
+              </div>
+              <div class="cs-collage-item" style="left:0%;top:70.99%;width:35%;height:29.01%">
                 <picture>
                   <source type="image/webp" srcset="/assets/aura/03-docs-c.webp">
                   <img src="/assets/aura/03-docs-c.png" width="280" height="172" alt="" loading="lazy">
                 </picture>
+              </div>
+              <div class="cs-collage-item" style="left:36.625%;top:70.99%;width:36.25%;height:29.01%">
                 <picture>
                   <source type="image/webp" srcset="/assets/aura/03-docs-d.webp">
-                  <img src="/assets/aura/03-docs-d.png" width="299" height="181" alt="" loading="lazy">
+                  <img src="/assets/aura/03-docs-d.png" width="290" height="172" alt="" loading="lazy">
                 </picture>
               </div>
             </div>
-            <picture>
-              <source type="image/webp" srcset="/assets/aura/04-system-at-scale.webp">
-              <img src="/assets/aura/04-system-at-scale.png" width="800" height="428" alt="" loading="lazy">
-            </picture>
+            <div class="cs-slideshow" tabindex="0" aria-live="off">
+              <div class="cs-slideshow-track">
+                <div class="cs-slide cs-slide--active" aria-hidden="false">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/aura/05-slide-1.webp">
+                    <img src="/assets/aura/05-slide-1.png" width="800" height="428" alt="" loading="eager">
+                  </picture>
+                </div>
+                <div class="cs-slide" aria-hidden="true">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/aura/05-slide-2.webp">
+                    <img src="/assets/aura/05-slide-2.png" width="800" height="428" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-slide" aria-hidden="true">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/aura/05-slide-3.webp">
+                    <img src="/assets/aura/05-slide-3.png" width="800" height="388" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-slide" aria-hidden="true">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/aura/05-slide-4.webp">
+                    <img src="/assets/aura/05-slide-4.png" width="800" height="428" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-slide" aria-hidden="true">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/aura/05-slide-5.webp">
+                    <img src="/assets/aura/05-slide-5.png" width="800" height="428" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-slide" aria-hidden="true">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/aura/05-slide-6.webp">
+                    <img src="/assets/aura/05-slide-6.png" width="800" height="428" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-slide" aria-hidden="true">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/aura/05-slide-7.webp">
+                    <img src="/assets/aura/05-slide-7.png" width="800" height="428" alt="" loading="lazy">
+                  </picture>
+                </div>
+              </div>
+              <div class="cs-slideshow-bar" aria-hidden="true">
+                <div class="cs-slideshow-fill"></div>
+              </div>
+              <div class="cs-slideshow-controls" hidden>
+                <button class="cs-slide-btn cs-slide-btn--prev" aria-label="Previous slide">&#8592;</button>
+                <button class="cs-slide-btn cs-slide-btn--next" aria-label="Next slide">&#8594;</button>
+              </div>
+            </div>
             <p class="wh-caption meta-caption">150+ components &#183; 200+ icons &#183; 8pt grid &#183; 6-size type scale &#183; WCAG AA compliant</p>
           </div>
         </section>
@@ -265,5 +322,135 @@
 
 </div><!-- .page -->
 <script src="/js/site.js"></script>
+<script>
+(function () {
+  var mount = document.querySelector('.cs-slideshow');
+  if (!mount) return;
+
+  var slides = [].slice.call(mount.querySelectorAll('.cs-slide'));
+  var fill   = mount.querySelector('.cs-slideshow-fill');
+  var n      = slides.length;
+  var idx    = 0;
+  var timer  = null;
+  var suspended   = false;
+  var userStepped = false;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DURATION = 20000;
+  var slideStartedAt = 0;
+  var slideElapsed   = 0;
+
+  function goTo(i) {
+    slides.forEach(function (s, j) {
+      var on = (j === i);
+      s.classList.toggle('cs-slide--active', on);
+      s.setAttribute('aria-hidden', on ? 'false' : 'true');
+    });
+    /* preload upcoming slide lazily */
+    var upcoming = slides[(i + 1) % n];
+    if (upcoming) {
+      var img = upcoming.querySelector('img');
+      if (img && img.loading === 'lazy') img.loading = 'eager';
+    }
+  }
+
+  function startFill() {
+    fill.style.animationPlayState = '';
+    fill.classList.remove('cs-fill--running');
+    void fill.offsetWidth; /* force reflow to restart animation */
+    fill.classList.add('cs-fill--running');
+  }
+
+  function scheduleNext(ms) {
+    clearTimeout(timer);
+    if (!suspended && !userStepped && !reduced) {
+      slideStartedAt = Date.now();
+      timer = setTimeout(advance, ms);
+    }
+  }
+
+  function advance() {
+    slideElapsed = 0;
+    idx = (idx + 1) % n;
+    goTo(idx);
+    startFill();
+    scheduleNext(DURATION);
+  }
+
+  function suspend() {
+    if (suspended) return;
+    suspended = true;
+    clearTimeout(timer);
+    slideElapsed += Date.now() - slideStartedAt;
+    fill.style.animationPlayState = 'paused';
+  }
+
+  function unsuspend() {
+    if (!suspended || userStepped || reduced) return;
+    suspended = false;
+    fill.style.animationPlayState = 'running';
+    var remaining = Math.max(0, DURATION - slideElapsed);
+    if (remaining === 0) { advance(); return; }
+    slideStartedAt = Date.now();
+    timer = setTimeout(advance, remaining);
+  }
+
+  /* init */
+  goTo(0);
+  var s2 = slides[1] && slides[1].querySelector('img');
+  if (s2 && s2.loading === 'lazy') s2.loading = 'eager';
+
+  if (!reduced) {
+    startFill();
+    scheduleNext(DURATION);
+  }
+
+  /* hover */
+  mount.addEventListener('mouseenter', suspend);
+  mount.addEventListener('mouseleave', unsuspend);
+
+  /* focus */
+  mount.addEventListener('focusin', suspend);
+  mount.addEventListener('focusout', function (e) {
+    if (!mount.contains(e.relatedTarget)) unsuspend();
+  });
+
+  /* keyboard */
+  mount.addEventListener('keydown', function (e) {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault();
+    if (!userStepped) {
+      userStepped = true;
+      clearTimeout(timer);
+      fill.style.animationPlayState = 'paused';
+    }
+    idx = e.key === 'ArrowRight' ? (idx + 1) % n : (idx - 1 + n) % n;
+    goTo(idx);
+  });
+
+  /* IntersectionObserver — pause when offscreen */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) unsuspend(); else suspend();
+      });
+    }, { threshold: 0.1 });
+    io.observe(mount);
+  }
+
+  /* reduced-motion: expose prev/next buttons */
+  if (reduced) {
+    var ctrl = mount.querySelector('.cs-slideshow-controls');
+    if (ctrl) {
+      ctrl.hidden = false;
+      ctrl.querySelector('.cs-slide-btn--prev').addEventListener('click', function () {
+        idx = (idx - 1 + n) % n; goTo(idx);
+      });
+      ctrl.querySelector('.cs-slide-btn--next').addEventListener('click', function () {
+        idx = (idx + 1) % n; goTo(idx);
+      });
+    }
+  }
+})();
+</script>
 </body>
 </html>

@@ -30,6 +30,13 @@
     "aura-docs-d": { "node": "4184:19252", "page": "aura", "file": "aura/03-docs-d.png", "w": 290, "h": 172, "alt": "" },
     "aura-pipeline-diagram": { "node": "4152:12311", "page": "aura", "file": "aura/04-pipeline-diagram.png", "w": 804, "h": 78, "alt": "" },
     "aura-system-at-scale": { "node": "4232:23488", "page": "aura", "file": "aura/04-system-at-scale.png", "w": 800, "h": 428, "alt": "" },
+    "aura-slide-1": { "node": "4232:23241", "page": "aura", "file": "aura/05-slide-1.png", "w": 800, "h": 428, "eager": true, "alt": "" },
+    "aura-slide-2": { "node": "4232:23413", "page": "aura", "file": "aura/05-slide-2.png", "w": 800, "h": 428, "alt": "" },
+    "aura-slide-3": { "node": "4232:23437", "page": "aura", "file": "aura/05-slide-3.png", "w": 800, "h": 388, "alt": "" },
+    "aura-slide-4": { "node": "4299:24295", "page": "aura", "file": "aura/05-slide-4.png", "w": 800, "h": 428, "alt": "" },
+    "aura-slide-5": { "node": "4299:24304", "page": "aura", "file": "aura/05-slide-5.png", "w": 800, "h": 428, "alt": "" },
+    "aura-slide-6": { "node": "4299:24316", "page": "aura", "file": "aura/05-slide-6.png", "w": 800, "h": 428, "alt": "" },
+    "aura-slide-7": { "node": "4299:24325", "page": "aura", "file": "aura/05-slide-7.png", "w": 800, "h": 428, "alt": "" },
 
     "echo-pre-post": { "node": "4217:20664", "page": "echo", "file": "echo/01-pre-post-ads.png", "w": 800, "h": 630, "eager": true, "alt": "" },
     "echo-lp-viewer": { "node": "4153:13969", "page": "echo", "file": "echo/02-channel-viewer.png", "w": 800, "h": 579, "alt": "" },

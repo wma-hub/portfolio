@@ -1319,6 +1319,90 @@ p:not(.text-link-line) > .text-link {
   .cs-stats--5 { grid-template-columns: repeat(3, 1fr); }
 }
 
+/* ---- Aura: positioned image collage ---- */
+.cs-collage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 800 / 593;
+}
+.cs-collage-item { position: absolute; }
+.cs-collage-item picture { display: block; width: 100%; height: 100%; }
+.cs-collage-item img { display: block; width: 100%; height: 100%; object-fit: contain; }
+
+/* ---- Aura: auto-advancing slideshow ---- */
+.cs-slideshow {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  height: 428px;
+  outline: none;
+}
+.cs-slideshow:focus { outline: none; }
+.cs-slideshow:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+.cs-slideshow-track {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+.cs-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+.cs-slide--active { opacity: 1; }
+.cs-slide picture { display: block; width: 100%; }
+.cs-slide img { display: block; width: 100%; height: auto; }
+.cs-slideshow-bar {
+  height: 4px;
+  background: var(--color-background-acc);
+  flex-shrink: 0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.cs-slideshow-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--color-ink);
+  border-radius: 2px;
+}
+.cs-fill--running { animation: cs-fill-progress 20s linear forwards; }
+@keyframes cs-fill-progress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+.cs-slideshow-controls { display: flex; gap: var(--space-12); margin-top: var(--space-8); }
+.cs-slideshow-controls[hidden] { display: none; }
+.cs-slide-btn {
+  padding: var(--space-4) var(--space-12);
+  border: 1px solid var(--color-rule);
+  background: none;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  color: var(--color-ink);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.cs-slide-btn:hover { background: var(--color-background-acc); }
+@media (max-width: 700px) {
+  .cs-collage { aspect-ratio: unset; display: flex; flex-direction: column; gap: var(--space-12); }
+  .cs-collage-item { position: static; width: 100% !important; height: auto !important; }
+  .cs-collage-item picture { height: auto; }
+  .cs-collage-item img { height: auto; object-fit: initial; }
+  .cs-slideshow { height: auto; gap: var(--space-16); }
+  .cs-slideshow-track { height: 220px; flex: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cs-slide { transition: none; }
+  .cs-fill--running { animation: none; }
+}
+
 /* Scope section: two-column bordered card split */
 .cs-scope-cards {
   display: grid;
