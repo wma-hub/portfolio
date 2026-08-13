@@ -61,7 +61,6 @@
         <!-- 01 — Context -->
         <section class="cs-section fade-up">
           <div class="cs-lockup">
-            <p class="cs-num heading-wordmark">01</p>
             <h2 class="cs-title display-page">Context</h2>
           </div>
           <div class="cs-content">
@@ -86,7 +85,6 @@
         <!-- 02 — Problem -->
         <section class="cs-section fade-up">
           <div class="cs-lockup">
-            <p class="cs-num heading-wordmark">02</p>
             <h2 class="cs-title display-page">Problem</h2>
           </div>
           <div class="cs-content">
@@ -109,12 +107,15 @@
         <!-- 03 — Solution -->
         <section class="cs-section fade-up">
           <div class="cs-lockup">
-            <p class="cs-num heading-wordmark">03</p>
             <h2 class="cs-title display-page">Solution</h2>
           </div>
           <div class="cs-content">
             <div class="cs-fork">
-              <p class="body-default">Fifteen button variants across two codebases. While the elegant fix is one component with props for every case, the smallest surface to maintain, nobody was struggling with too many buttons. We were struggling to find the right one, and a single component just moves that into a properties panel. I shipped six, named clearly enough that you find what you need by reading. Six is more to keep in sync, and someone will eventually want a seventh.</p>
+              <span class="cs-fork-tag">DECISION FORK 1</span>
+              <div class="cs-fork-content">
+                <p class="cs-fork-question">Consolidate the fifteen buttons into one flexible component, or a small set of clearly-named ones?</p>
+                <p class="body-default">Fifteen button variants across two codebases. While the elegant fix is one component with props for every case, the smallest surface to maintain, nobody was struggling with too many buttons. We were struggling to find the right one, and a single component just moves that into a properties panel. I shipped six, named clearly enough that you find what you need by reading. Six is more to keep in sync, and someone will eventually want a seventh.</p>
+              </div>
             </div>
             <h3 class="heading-subhead">Establishing a shared source of truth</h3>
             <p class="body-default">A four-tier token model: primitives, aliases, semantic tokens, component tokens. Each tier exists so a decision made once resolves the same way everywhere it lands: in Figma, in code, and in the conversation between them.</p>
@@ -129,7 +130,11 @@
               <img src="/assets/aura/02-button-anatomy.png" width="800" height="369" alt="" loading="lazy">
             </picture>
             <div class="cs-fork">
-              <p class="body-default">Designers reach for what a thing looks like. Engineers reach for where it&#8217;s used. Naming tokens the way they appear in Figma was the path of least resistance, and it broke the first time brand shifted a hue. Humanity/60 was still called humanity/60 and no longer described anything. The second pass named by role instead, so a value could change without the name going stale. Designers also can&#8217;t guess a token from how it looks any more, which is why the docs matter as much as the library.</p>
+              <span class="cs-fork-tag">DECISION FORK 2</span>
+              <div class="cs-fork-content">
+                <p class="cs-fork-question">Name tokens the way designers think, or the way engineers think?</p>
+                <p class="body-default">Designers reach for what a thing looks like. Engineers reach for where it&#8217;s used. Naming tokens the way they appear in Figma was the path of least resistance, and it broke the first time brand shifted a hue. Humanity/60 was still called humanity/60 and no longer described anything. The second pass named by role instead, so a value could change without the name going stale. Designers also can&#8217;t guess a token from how it looks any more, which is why the docs matter as much as the library.</p>
+              </div>
             </div>
             <h3 class="heading-subhead">Governing contribution, instead of policing it</h3>
             <p class="body-default">A six-step contribution pipeline: request, validate against three-plus use cases, design review, engineering feasibility, required docs, ship. Semantic versioning, a changelog every release, six-month deprecation notices, and migration guides for breaking changes.</p>
@@ -143,7 +148,6 @@
         <!-- 04 — Impact -->
         <section class="cs-section fade-up">
           <div class="cs-lockup">
-            <p class="cs-num heading-wordmark">04</p>
             <h2 class="cs-title display-page">Impact</h2>
           </div>
           <div class="cs-content">
@@ -201,7 +205,6 @@
         <!-- 05 — Learning -->
         <section class="cs-section fade-up">
           <div class="cs-lockup">
-            <p class="cs-num heading-wordmark">05</p>
             <h2 class="cs-title display-page">Learning</h2>
           </div>
           <div class="cs-content">
@@ -213,7 +216,6 @@
         <!-- 06 — Credits -->
         <section class="cs-section fade-up">
           <div class="cs-lockup">
-            <p class="cs-num heading-wordmark">06</p>
             <h2 class="cs-title display-page">Credits</h2>
           </div>
           <div class="cs-content">

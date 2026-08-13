@@ -61,7 +61,6 @@
         <!-- 01 — Context -->
         <section class="cs-section fade-up">
           <div class="cs-lockup">
-            <p class="cs-num heading-wordmark">01</p>
             <h2 class="cs-title display-page">Context</h2>
           </div>
           <div class="cs-content">
@@ -87,7 +86,6 @@
         <!-- 02 — Problem -->
         <section class="cs-section fade-up">
           <div class="cs-lockup">
-            <p class="cs-num heading-wordmark">02</p>
             <h2 class="cs-title display-page">Problem</h2>
           </div>
           <div class="cs-content">
@@ -107,7 +105,6 @@
         <!-- 03 — Solution -->
         <section class="cs-section fade-up">
           <div class="cs-lockup">
-            <p class="cs-num heading-wordmark">03</p>
             <h2 class="cs-title display-page">Solution</h2>
           </div>
           <div class="cs-content">
@@ -115,7 +112,11 @@
             <h3 class="heading-subhead">Splitting along how the work actually arrived</h3>
             <p class="body-default">The Webinar Library covers ads, landing pages, and email: three surfaces driven by one recurring event, sharing a date, a time, a title, and a speaker set. The Organic Social Library covers award badges, which followed a different cadence and a different approval path.</p>
             <div class="cs-fork">
-              <p class="body-default">Webinar and organic social both needed systematising, and one library or two decided how much of either could be reused. One was tidier: fewer files, one place to look, cleaner to explain. Instead, I built two. Every webinar deliverable descends from a single event &#8212; one date, one title, one speaker set &#8212; feeding ads, landing page, and email. Social runs on a different cadence, a different approval path, a different asset lifecycle. Abstracting over both would have thrown away the thing that made webinars fast. The price is two libraries to version instead of one.</p>
+              <span class="cs-fork-tag">DECISION FORK 1</span>
+              <div class="cs-fork-content">
+                <p class="cs-fork-question">One unified marketing library, or two parallel tracks?</p>
+                <p class="body-default">Webinar and organic social both needed systematising, and one library or two decided how much of either could be reused. One was tidier: fewer files, one place to look, cleaner to explain. Instead, I built two. Every webinar deliverable descends from a single event &#8212; one date, one title, one speaker set &#8212; feeding ads, landing page, and email. Social runs on a different cadence, a different approval path, a different asset lifecycle. Abstracting over both would have thrown away the thing that made webinars fast. The price is two libraries to version instead of one.</p>
+              </div>
             </div>
             <h3 class="heading-subhead">Turning monthly decisions into component properties</h3>
             <p class="body-default">The landing page component exposes four properties: event type, event title, date, and time. Everything else &#8212; banner geometry, headshot row, copy blocks, the desktop and mobile variants &#8212; is fixed inside the component.</p>
@@ -124,7 +125,11 @@
               <img src="/assets/echo/02-lp-properties.png" width="817" height="478" alt="" loading="lazy">
             </picture>
             <div class="cs-fork">
-              <p class="body-default">How much of a monthly campaign should be editable without opening the component? Exposing everything is the generous answer, and every property withheld becomes a future request. The landing page component exposes four: event type, title, date, time. Everything else stays locked, because the whole point was that the monthly build stopped being a design task, and each new property puts a settled decision back on the table. The way out is detaching, which stops the instance inheriting updates.</p>
+              <span class="cs-fork-tag">DECISION FORK 2</span>
+              <div class="cs-fork-content">
+                <p class="cs-fork-question">Expose everything as properties, or leave blocks detachable?</p>
+                <p class="body-default">How much of a monthly campaign should be editable without opening the component? Exposing everything is the generous answer, and every property withheld becomes a future request. The landing page component exposes four: event type, title, date, time. Everything else stays locked, because the whole point was that the monthly build stopped being a design task, and each new property puts a settled decision back on the table. The way out is detaching, which stops the instance inheriting updates.</p>
+              </div>
             </div>
             <h3 class="heading-subhead">One library, three channel surfaces</h3>
             <p class="body-default">Landing pages, emails, and social posts each render from the same component layer, with per-surface variants handling the dimensional differences rather than separate source files.</p>
@@ -138,7 +143,6 @@
         <!-- 04 — Impact -->
         <section class="cs-section fade-up">
           <div class="cs-lockup">
-            <p class="cs-num heading-wordmark">04</p>
             <h2 class="cs-title display-page">Impact</h2>
           </div>
           <div class="cs-content">
@@ -169,7 +173,6 @@
         <!-- 05 — Learning -->
         <section class="cs-section fade-up">
           <div class="cs-lockup">
-            <p class="cs-num heading-wordmark">05</p>
             <h2 class="cs-title display-page">Learning</h2>
           </div>
           <div class="cs-content">
@@ -182,7 +185,6 @@
         <!-- 06 — Credits -->
         <section class="cs-section fade-up">
           <div class="cs-lockup">
-            <p class="cs-num heading-wordmark">06</p>
             <h2 class="cs-title display-page">Credits</h2>
           </div>
           <div class="cs-content">
