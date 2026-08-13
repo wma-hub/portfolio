@@ -13,7 +13,12 @@
     "ripco": "ripco/index.html"
   },
   "assets": {
-    "home-cards": { "node": "4166:18462", "page": "home", "file": "home/00-project-grid.png", "w": 1080, "h": 922, "eager": true, "alt": "", "_note": "EXPORT INDIVIDUALLY INSTEAD — six separate cards, each its own <img> so they can link. Split before exporting." },
+    "home-card-marly":    { "node": "", "page": "home", "file": "home/card-marly.png",    "w": 376, "h": 200, "eager": true,  "alt": "", "_note": "Individual card export; Figma node TBD" },
+    "home-card-ge":       { "node": "", "page": "home", "file": "home/card-ge.png",       "w": 400, "h": 200, "eager": true,  "alt": "", "_note": "Individual card export; Figma node TBD" },
+    "home-card-aura":     { "node": "", "page": "home", "file": "home/card-aura.png",     "w": 240, "h": 120, "eager": false, "alt": "", "_note": "Individual card export; Figma node TBD" },
+    "home-card-echo":     { "node": "", "page": "home", "file": "home/card-echo.png",     "w": 240, "h": 120, "eager": false, "alt": "", "_note": "Individual card export; Figma node TBD" },
+    "home-card-careers":  { "node": "", "page": "home", "file": "home/card-careers.png",  "w": 240, "h": 120, "eager": false, "alt": "", "_note": "Individual card export; Figma node TBD" },
+    "home-card-treatweek":{ "node": "", "page": "home", "file": "home/card-treatweek.png","w": 240, "h": 120, "eager": false, "alt": "", "_note": "Individual card export; Figma node TBD" },
 
     "aura-fifteen-buttons": { "node": "4152:13606", "page": "aura", "file": "aura/01-fifteen-buttons.png", "w": 800, "h": 333, "eager": true, "alt": "" },
     "aura-tiers": { "node": "4152:12195", "page": "aura", "file": "aura/02-token-tiers.png", "w": 800, "h": 210, "alt": "" },

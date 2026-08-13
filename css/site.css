@@ -325,6 +325,15 @@ a.card:hover .card-title {
 .card--pending .card-title { color: var(--color-ink-muted); }
 .card--pending .card-desc  { color: var(--color-ink-subtle); }
 
+/* Card with thumbnail image */
+.card-thumb { overflow: hidden; border-radius: var(--radius-sm); }
+.card-thumb img { display: block; width: 100%; height: auto; }
+.card--media { gap: var(--space-12); }
+.card-text { display: flex; flex-direction: column; gap: var(--space-4); }
+
+/* Previous-companies row: two equal fluid columns */
+.card-row--prev { grid-template-columns: 1fr 1fr; }
+
 /* ------------------------------------------------------------
    FOOTER
    ------------------------------------------------------------ */
@@ -376,7 +385,8 @@ a.card:hover .card-title {
   .site-nav { padding-top: var(--space-24); padding-bottom: var(--space-24); }
   .nav-links { gap: var(--space-16); }
   .card-row--four,
-  .card-row--two { grid-template-columns: 1fr; gap: var(--space-32); }
+  .card-row--two,
+  .card-row--prev { grid-template-columns: 1fr; gap: var(--space-32); }
   .section-head { gap: var(--space-16); margin-bottom: var(--space-24); }
   .footer-inner { flex-direction: column; align-items: flex-start; }
   .footer-links { flex-wrap: wrap; gap: var(--space-16); }
