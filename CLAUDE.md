@@ -1,32 +1,30 @@
-# WMA.NYC V2 — Build Spec
+# WMA.NYC V4 — Build Spec
 
 ## 0. Context
 Personal portfolio for Wilson Ma. Static site on Vercel project "portfolio"
 (framework: null, no build step). Production domains: wma.nyc, www.wma.nyc.
-This build fully replaces V1. Work on branch `v2` only — NEVER commit to main.
+Work on branch `v4-assets` — NEVER commit to main.
 
 ## 1. Source of truth
-Figma file `yL4hnNAJKHlEWVLT5OUhvx`, page "WMA.NYC — V2" (canvas 3259:2117).
+Figma file `yL4hnNAJKHlEWVLT5OUhvx`, page "WMA.NYC — V4" (canvas 4147:3963).
 Read every frame with `get_design_context` and execute 1:1. Never build from
 `get_metadata` (it silently drops rotations, gradient directions, image
-transforms). Home and About were restructured this week — always pull fresh
-design context at build time; never reuse cached exports.
+transforms). Always pull fresh design context at build time; never reuse cached exports.
 Mid-build compositional questions surface inline as questions. Do not
 improvise composition and do not "fix" the design.
 
-### Phase 1 routes (this build)
-| Route      | Figma node  | Notes |
-|------------|-------------|-------|
-| /          | 3531:1134   | Home — chip rows, two-tone hero, gradient panel |
-| /about     | 3531:1222   | About — 360px column sections |
-| /marly     | 3295:4421   | Heaviest page; live ad embeds (§3) |
-| /runeberg  | 3366:3316   | Magenta annotations are intentional (§2) |
-| nav        | 3533:1134   | Component; sticky, all pages |
-| footer     | 3533:1179   | Component; all pages. Links: Work, About, LinkedIn, Email. NO resume link anywhere on the site. |
-
-### Phase 2 (do NOT build yet)
-workhuman 3295:4590 (+ tab viewer 3394:933) · treat-week 3296:4719 ·
-selected-works 3298:4728
+### Routes
+| Route        | Status    | Notes |
+|--------------|-----------|-------|
+| /            | built     | Home |
+| /aura        | not built | |
+| /echo        | not built | |
+| /careers     | not built | |
+| /marly       | built     | Heaviest page; live ad embeds (§3) |
+| /ge-terminal | built     | |
+| /treat-week  | built     | |
+| /west-elm    | built     | |
+| /ripco       | built     | |
 
 ## 2. Stack & conventions
 - Plain HTML/CSS/vanilla JS. One folder per route with `index.html`.
@@ -38,13 +36,24 @@ selected-works 3298:4728
   wma designs desktop-only; you own the full responsive translation.
 - Scroll animations: IntersectionObserver fade/translate, matching the
   marly.cc case-study template behavior.
-- Assets: download Figma image assets to `/assets/` at build time. NEVER
-  commit a figma.com CDN URL — they expire in ~7 days. Verify with grep (§6).
+- Assets: `manifest.json` holds node → file path → 1x dimensions for all 57
+  assets. Export 2x PNG via Figma MCP `download_assets` into `assets/`.
+  Verify with `python figma_assets.py verify manifest.json --dir assets --write-back`.
+  Images are referenced directly in markup — no placeholder-swap pattern.
+  MCP URLs expire in ~7 days; always commit the bytes, never hotlink. Verify with grep (§6).
 - Magenta elements (#f0e strokes, rgba(255,0,238,x) fills, dashed magenta
   borders) are INTENTIONAL annotation/callout styling on this site.
   Reproduce them exactly. Do not remove or "clean up."
 - Content edits on files containing HTML entities: python str.replace(),
   never sed.
+
+## Known
+- All portfolio PNGs export opaque, filled with `--color-bg`
+  (`rgba(250,248,245,255)`). Every asset carries a background-color
+  dependency — if the page background changes, images won't follow.
+- Figma caches exports keyed on node ID. A frame edited without a new ID
+  returns stale bytes regardless of how many times you re-export. Fix:
+  Cmd+D the frame then delete the original to mint a new node ID.
 
 ## 3. Live ad embeds (/marly)
 Source of truth for available units is the local marly repo:
@@ -93,13 +102,8 @@ before executing the fallback.
 - No dead `#` hrefs anywhere at gate time.
 
 ## 5. Deployment
-Branch `v2` → push → Vercel preview URL → wma reviews → wma merges.
+Branch `v4-assets` → push → Vercel preview URL → wma reviews → wma merges.
 Never merge yourself. Do not touch Vercel project settings, domains, or DNS.
-V1: DELETE all V1 site files in this branch (`git rm`), same PR as the V2
-build, so the merge atomically replaces the live site. Preserve repo-level
-non-site files (README, LICENSE, .gitignore, vercel.json if present — read
-vercel.json before modifying anything in it). Git history retains V1;
-rollback is one revert.
 
 ## 7. 1:1 Fidelity Protocol (site build standard — applies to all pages)
 
@@ -146,7 +150,7 @@ the review request. Gate script: `node qa/parity.js marly` (generated during
 first pass; rerun each section).
 
 ## 6. Verification gate (run before requesting review; paste raw output)
-1. `find . -name "index.html" | sort` — four routes present
+1. `find . -name "index.html" | sort` — nine routes (six built, three pending)
 2. `grep -rn "figma.com" --include="*.html" --include="*.css" .` — empty
 3. `grep -rni "fontawesome\|font awesome" .` — empty
 4. `grep -rni "lorem\|OPEN ITEM\|TODO" --include="*.html" .` — empty
