@@ -28,6 +28,7 @@
 
     "echo-pre-post": { "node": "4217:20664", "page": "echo", "file": "echo/01-pre-post-ads.png", "w": 800, "h": 630, "eager": true, "alt": "" },
     "echo-lp-viewer": { "node": "4153:13969", "page": "echo", "file": "echo/02-channel-viewer.png", "w": 800, "h": 579, "alt": "" },
+    "echo-lp-properties": { "node": "4153:15719", "page": "echo", "file": "echo/02-lp-properties.png", "w": 800, "h": 463, "alt": "" },
     "echo-output-grid": { "node": "4216:20081", "page": "echo", "file": "echo/03-output-grid.png", "w": 3679, "h": 300, "alt": "", "_note": "3679px wide at 1x — 7358px at 2x. Export at 1x or crop; this will blow past sane file size." },
 
     "careers-baseline-a": { "node": "4220:20762", "page": "careers", "file": "careers/01-baseline-a.png", "w": 558, "h": 159, "eager": true, "alt": "" },
