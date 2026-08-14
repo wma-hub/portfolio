@@ -92,13 +92,26 @@
             <p class="body-default">The bottleneck was not quality, it was repetition. Each month&#8217;s campaign began as a blank file, so every decision that had already been made &#8212; layout, hierarchy, how a speaker headshot sits against a banner &#8212; got remade under deadline. Nothing accumulated.</p>
             <p class="body-default">Marketing felt it as turnaround. A webinar campaign meant 30+ days from brief to shipped set across six channels, and five rounds of revision that were mostly re-litigating last month&#8217;s answers. Late deliverables compressed the promotion window, which is the one variable a webinar&#8217;s attendance actually depends on.</p>
             <p class="body-default">Thirty deliverables a month, and none of them made the next thirty easier.</p>
-            <figure class="wh-figure">
-              <picture>
-                <source type="image/webp" srcset="/assets/echo/01-pre-post-ads.webp">
-                <img src="/assets/echo/01-pre-post-ads.png" width="800" height="630" alt="" loading="eager">
-              </picture>
-              <figcaption class="wh-caption meta-caption">Five ads for one webinar. Four different ways of showing the same three speakers &#8212; one hand-grouped, two using different speaker modules, one built from raw cropped headshots. The headline was retyped as its own text layer in four of the five.</figcaption>
-            </figure>
+            <div class="echo-compare">
+              <div class="echo-tabs" role="group" aria-label="View">
+                <button class="echo-tab" aria-pressed="true">Pre-Echo</button>
+                <button class="echo-tab" aria-pressed="false">Post-Echo</button>
+              </div>
+              <div class="echo-frame">
+                <div class="echo-panel echo-panel--active">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/echo/01-pre-echo.webp">
+                    <img src="/assets/echo/01-pre-echo.png" width="800" height="630" alt="" loading="eager">
+                  </picture>
+                </div>
+                <div class="echo-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/echo/01-post-echo.webp">
+                    <img src="/assets/echo/01-post-echo.png" width="800" height="609" alt="" loading="lazy">
+                  </picture>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -234,5 +247,69 @@
 
 </div><!-- .page -->
 <script src="/js/site.js"></script>
+<script>
+(function () {
+  var compare = document.querySelector('.echo-compare');
+  if (!compare) return;
+
+  var tabs   = [].slice.call(compare.querySelectorAll('.echo-tab'));
+  var panels = [].slice.call(compare.querySelectorAll('.echo-panel'));
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var autoFired = false;
+  var autoTimer = null;
+  var io = null;
+
+  function activate(idx) {
+    tabs.forEach(function (t, i) {
+      t.setAttribute('aria-pressed', i === idx ? 'true' : 'false');
+    });
+    panels.forEach(function (p, i) {
+      p.classList.toggle('echo-panel--active', i === idx);
+    });
+  }
+
+  function cancelAuto() {
+    if (autoTimer) { clearTimeout(autoTimer); autoTimer = null; }
+    if (io) { io.disconnect(); io = null; }
+    autoFired = true;
+  }
+
+  tabs.forEach(function (tab, idx) {
+    tab.addEventListener('click', function () {
+      cancelAuto();
+      activate(idx);
+    });
+  });
+
+  compare.addEventListener('keydown', function (e) {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    var focused = document.activeElement;
+    var ci = tabs.indexOf(focused);
+    if (ci === -1) return;
+    e.preventDefault();
+    var next = e.key === 'ArrowRight' ? (ci + 1) % tabs.length : (ci - 1 + tabs.length) % tabs.length;
+    tabs[next].focus();
+    cancelAuto();
+    activate(next);
+  });
+
+  if (!reduced && 'IntersectionObserver' in window) {
+    io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting || autoFired) return;
+        autoFired = true;
+        io.disconnect(); io = null;
+        autoTimer = setTimeout(function () {
+          autoTimer = null;
+          activate(1);
+        }, 3500);
+      });
+    }, { threshold: 0.25 });
+    io.observe(compare);
+  }
+
+  activate(0);
+})();
+</script>
 </body>
 </html>
