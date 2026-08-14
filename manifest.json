@@ -78,7 +78,7 @@
     "marly-ad-sizes": { "node": "4160:16902", "page": "marly", "file": "marly/04-ad-sizes.png", "w": 447, "h": 484, "alt": "" },
 
     "ge-hero": { "node": "", "page": "ge", "file": "ge-terminal/00-hero.png", "w": 1082, "h": 842, "eager": true, "alt": "" },
-    "ge-actions-tab": { "node": "4166:18427", "page": "ge", "file": "ge-terminal/01-actions-tab.png", "w": 800, "h": 337, "alt": "" },
+    "ge-actions-tab": { "node": "4166:18427", "page": "ge", "file": "ge-terminal/01-actions-tab.png", "w": 385, "h": 338, "alt": "" },
     "ge-tested-live": { "node": "4178:18932", "page": "ge", "file": "ge-terminal/02-tested-live.png", "w": 800, "h": 554, "alt": "" },
     "ge-discord-alert": { "node": "4166:18895", "page": "ge", "file": "ge-terminal/02-discord-alert.png", "w": 800, "h": 759, "alt": "" },
     "ge-tier-matrix": { "node": "4166:17579", "page": "ge", "file": "ge-terminal/02-tier-matrix.png", "w": 800, "h": 436, "alt": "" },
