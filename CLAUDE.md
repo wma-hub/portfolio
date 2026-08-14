@@ -48,12 +48,36 @@ improvise composition and do not "fix" the design.
   never sed.
 
 ## Known
-- All portfolio PNGs export opaque, filled with `--color-bg`
-  (`rgba(250,248,245,255)`). Every asset carries a background-color
-  dependency — if the page background changes, images won't follow.
-- Figma caches exports keyed on node ID. A frame edited without a new ID
-  returns stale bytes regardless of how many times you re-export. Fix:
-  Cmd+D the frame then delete the original to mint a new node ID.
+
+**Frames with no fill export as opaque #7e7e7e, not transparent.** Every frame
+intended for export needs an explicit #faf8f5 background fill bound to the
+`color/background` variable, plus clipsContent: true.
+
+**A fill change alone does NOT bust Figma's export cache.** The renderer keys
+on node ID. You can set a fill, verify it is live in the file, and still get
+the old render back. Content edits are also unreliable.
+
+What reliably busts it: changing the frame DIMENSIONS. Nudging height by 1–2px
+mints a new render key. Duplicating the frame (Cmd+D, delete original) also
+works, but cloning via MCP fails on any frame containing Switzer text, so the
+dimension nudge is the practical fix.
+
+Symptom to recognise: grey visible on the top and left edges of a rendered
+image, with baked captions clipped at the left. That is a stale render, not a
+CSS problem. Verify with a four-corner pixel read before touching any CSS:
+
+    python3 -c "
+    from PIL import Image
+    im=Image.open('PATH')
+    print(im.size, [im.getpixel(p) for p in [(0,0),(im.width-1,0),(0,im.height-1),(im.width-1,im.height-1)]])
+    "
+
+Note that a corner reading something other than (250,248,245) is not always a
+fault — it may be artwork reaching the edge. Compare against the Figma render.
+
+Also: check every export frame for baked artwork that duplicates a CSS feature.
+The Aura slideshow frames each contained a static progress bar; the Echo tab
+frames each contained a static tab bar. Both would have rendered twice.
 
 ## 3. Live ad embeds (/marly)
 Source of truth for available units is the local marly repo:
