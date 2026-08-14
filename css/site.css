@@ -551,6 +551,7 @@ a.card:hover .card-title {
   width: 100%;
   max-width: var(--content-width);
   margin-block-start: var(--space-80);
+  margin-block-end: var(--space-60);
   margin-inline: auto;
 }
 .ge-meta {
