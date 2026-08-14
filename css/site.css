@@ -966,6 +966,36 @@ a.card:hover .card-title {
   .echo-sol-frame { transition: none; }
 }
 
+/* ---- Careers: level tab switcher ---- */
+.cs-level { display: flex; flex-direction: column; gap: var(--space-16); }
+.cs-level-tabs { display: flex; gap: 6px; }
+.cs-level-tab {
+  padding: 10px 20px;
+  border: 1px solid var(--color-rule);
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  color: var(--color-ink);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  font-family: inherit;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+.cs-level-tab[aria-pressed="true"] { background: var(--color-background-acc); border-color: var(--color-background-acc); }
+.cs-level-tab:hover:not([aria-pressed="true"]) { background: rgba(239, 234, 227, 0.5); }
+.cs-level-frame { position: relative; overflow: hidden; transition: height 300ms ease; }
+.cs-level-panel { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; pointer-events: none; transition: opacity 200ms ease; display: flex; flex-direction: column; gap: var(--space-12); }
+.cs-level-panel--active { opacity: 1; pointer-events: auto; }
+.cs-level-subhead { font-size: var(--type-subhead); font-weight: var(--font-weight-medium); letter-spacing: var(--tracking-snug); color: var(--color-ink); margin: 0; }
+.cs-level-panel picture { display: block; }
+.cs-level-panel img { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); }
+.cs-level-caption { color: var(--color-ink-muted); font-size: var(--type-caption); font-weight: var(--font-weight-regular); letter-spacing: var(--tracking-tight); margin: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .cs-level-tab   { transition: none; }
+  .cs-level-panel { transition: none; }
+  .cs-level-frame { transition: none; }
+}
+
 /* ---- Echo: campaign surfaces + wide galleries ---- */
 .wh-surfaces {
   display: grid;
