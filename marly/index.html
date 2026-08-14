@@ -117,7 +117,33 @@
             <h3 class="heading-subhead">Three tiers, each compounding the one below</h3>
             <p class="body-default">The Foundation layer is client-agnostic: ad size canvases, layout variants, component shells, animation specs, IAB spacing tokens, the skeleton every build inherits. The second layer is per-client: Foundation components with brand tokens swapped in, so every client file inherits Foundation updates. The third is per-campaign: a CLAUDE.md spec translating the brief into machine-readable production instructions, authored by Opus before Code starts.</p>
             <p class="body-default">Which is why the second campaign for any client is faster than the first.</p>
-            <!-- tier-viewer: Tier 1 static panel — asset pending export -->
+            <div class="cs-level">
+              <div class="cs-level-tabs" role="group" aria-label="Tier">
+                <button class="cs-level-tab" aria-pressed="true">Tier 1</button>
+                <button class="cs-level-tab" aria-pressed="false">Tier 2</button>
+                <button class="cs-level-tab" aria-pressed="false">Tier 3</button>
+              </div>
+              <div class="cs-level-frame">
+                <div class="cs-level-panel cs-level-panel--active">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/02-tier-1.webp">
+                    <img src="/assets/marly/02-tier-1.png" width="800" height="431" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-level-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/02-tier-2.webp">
+                    <img src="/assets/marly/02-tier-2.png" width="800" height="425" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-level-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/02-tier-3.webp">
+                    <img src="/assets/marly/02-tier-3.png" width="800" height="397" alt="" loading="lazy">
+                  </picture>
+                </div>
+              </div>
+            </div>
             <h3 class="heading-subhead">Two phases, one gate</h3>
             <p class="body-default">Phase I is planning. Opus authors a plan.md before Code touches a file: a brief synthesis, gap audit with explicit resolutions, a diff against deployed state for V2+ builds, and a §7 coverage table with a row for every pipeline stage. Code cannot start Stage 1 until every row resolves.</p>
             <p class="body-default">Phase II is execution. Claude Code generates the HTML, deploys the review portal, and syncs the Notion workspace. Before the review page builds, /verify-delivery runs a nine-check ground-truth pass against the deployed file state rather than a self-report from Code: paths resolving, file weights, IAB compliance, animation tokens per spec. If any check fails, the build stops.</p>
@@ -147,10 +173,54 @@
           </div>
           <div class="cs-content">
             <p class="body-default">One campaign end to end: the Tumblerware Father&#8217;s Day set, three IAB sizes, taken from lo-fi internal draft to client-facing V1 through a full change in creative direction mid-pipeline.</p>
-            <picture>
-              <source type="image/webp" srcset="/assets/marly/03-build-traced.webp">
-              <img src="/assets/marly/03-build-traced.png" width="800" height="760" alt="" loading="lazy">
-            </picture>
+            <div class="cs-level">
+              <div class="cs-level-tabs" role="group" aria-label="Build step">
+                <button class="cs-level-tab" aria-pressed="true">Brief</button>
+                <button class="cs-level-tab" aria-pressed="false">plan.md</button>
+                <button class="cs-level-tab" aria-pressed="false">Figma lo-fi + CD pass</button>
+                <button class="cs-level-tab" aria-pressed="false">CLAUDE.md</button>
+                <button class="cs-level-tab" aria-pressed="false">/verify-delivery</button>
+                <button class="cs-level-tab" aria-pressed="false">Delivered</button>
+              </div>
+              <div class="cs-level-frame">
+                <div class="cs-level-panel cs-level-panel--active">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/03-step-1.webp">
+                    <img src="/assets/marly/03-step-1.png" width="800" height="591" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-level-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/03-step-2.webp">
+                    <img src="/assets/marly/03-step-2.png" width="800" height="481" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-level-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/03-step-3.webp">
+                    <img src="/assets/marly/03-step-3.png" width="800" height="484" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-level-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/03-step-4.webp">
+                    <img src="/assets/marly/03-step-4.png" width="800" height="651" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-level-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/03-step-5.webp">
+                    <img src="/assets/marly/03-step-5.png" width="800" height="547" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-level-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/03-step-6.webp">
+                    <img src="/assets/marly/03-step-6.png" width="800" height="562" alt="" loading="lazy">
+                  </picture>
+                </div>
+              </div>
+            </div>
             <div class="cs-fork">
               <span class="cs-fork-tag">DECISION FORK 2</span>
               <div class="cs-fork-content">
@@ -276,5 +346,40 @@
 
 </div><!-- .page -->
 <script src="/js/site.js"></script>
+<script>
+(function () {
+  document.querySelectorAll('.cs-level').forEach(function (wrap) {
+    var frame  = wrap.querySelector('.cs-level-frame');
+    var tabs   = [].slice.call(wrap.querySelectorAll('.cs-level-tab'));
+    var panels = [].slice.call(wrap.querySelectorAll('.cs-level-panel'));
+    var active = 0;
+    function computeH(panel) {
+      var img = panel.querySelector('img');
+      if (!img) return 0;
+      var attrW = parseInt(img.getAttribute('width'), 10);
+      var attrH = parseInt(img.getAttribute('height'), 10);
+      var subhead = panel.querySelector('.cs-level-subhead');
+      var caption = panel.querySelector('.cs-level-caption');
+      var gap = 12;
+      var subH = subhead ? subhead.offsetHeight : 0;
+      var capH = caption ? caption.offsetHeight : 0;
+      var imgH = Math.round(attrH * (frame.offsetWidth || 800) / attrW);
+      return subH + (subH ? gap : 0) + imgH + (capH ? gap : 0) + capH;
+    }
+    function switchTo(idx) {
+      if (idx === active) return;
+      tabs[active].setAttribute('aria-pressed', 'false');
+      panels[active].classList.remove('cs-level-panel--active');
+      active = idx;
+      tabs[active].setAttribute('aria-pressed', 'true');
+      panels[active].classList.add('cs-level-panel--active');
+      frame.style.height = computeH(panels[active]) + 'px';
+    }
+    tabs.forEach(function (btn, i) { btn.addEventListener('click', function () { switchTo(i); }); });
+    frame.style.height = computeH(panels[0]) + 'px';
+    window.addEventListener('resize', function () { frame.style.height = computeH(panels[active]) + 'px'; });
+  });
+})();
+</script>
 </body>
 </html>

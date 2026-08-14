@@ -292,43 +292,38 @@
 <script src="/js/site.js"></script>
 <script>
 (function () {
-  var wrap   = document.querySelector('.cs-level');
-  if (!wrap) return;
-  var frame  = wrap.querySelector('.cs-level-frame');
-  var tabs   = [].slice.call(wrap.querySelectorAll('.cs-level-tab'));
-  var panels = [].slice.call(wrap.querySelectorAll('.cs-level-panel'));
-  var active = 0;
-
-  function computeH(panel) {
-    var img = panel.querySelector('img');
-    var attrW = parseInt(img.getAttribute('width'), 10);
-    var attrH = parseInt(img.getAttribute('height'), 10);
-    var subhead = panel.querySelector('.cs-level-subhead');
-    var caption = panel.querySelector('.cs-level-caption');
-    var gap = 12; /* var(--space-12) */
-    var subH = subhead ? subhead.offsetHeight : 0;
-    var capH = caption ? caption.offsetHeight : 0;
-    var imgH = Math.round(attrH * (frame.offsetWidth || 800) / attrW);
-    return subH + gap + imgH + gap + capH;
-  }
-
-  function switchTo(idx) {
-    if (idx === active) return;
-    tabs[active].setAttribute('aria-pressed', 'false');
-    panels[active].classList.remove('cs-level-panel--active');
-    active = idx;
-    tabs[active].setAttribute('aria-pressed', 'true');
-    panels[active].classList.add('cs-level-panel--active');
-    frame.style.height = computeH(panels[active]) + 'px';
-  }
-
-  tabs.forEach(function (btn, i) {
-    btn.addEventListener('click', function () { switchTo(i); });
-  });
-
-  frame.style.height = computeH(panels[0]) + 'px';
-  window.addEventListener('resize', function () {
-    frame.style.height = computeH(panels[active]) + 'px';
+  document.querySelectorAll('.cs-level').forEach(function (wrap) {
+    var frame  = wrap.querySelector('.cs-level-frame');
+    var tabs   = [].slice.call(wrap.querySelectorAll('.cs-level-tab'));
+    var panels = [].slice.call(wrap.querySelectorAll('.cs-level-panel'));
+    var active = 0;
+    function computeH(panel) {
+      var img = panel.querySelector('img');
+      if (!img) return 0;
+      var attrW = parseInt(img.getAttribute('width'), 10);
+      var attrH = parseInt(img.getAttribute('height'), 10);
+      var subhead = panel.querySelector('.cs-level-subhead');
+      var caption = panel.querySelector('.cs-level-caption');
+      var gap = 12;
+      var subH = subhead ? subhead.offsetHeight : 0;
+      var capH = caption ? caption.offsetHeight : 0;
+      var imgH = Math.round(attrH * (frame.offsetWidth || 800) / attrW);
+      return subH + (subH ? gap : 0) + imgH + (capH ? gap : 0) + capH;
+    }
+    function switchTo(idx) {
+      if (idx === active) return;
+      tabs[active].setAttribute('aria-pressed', 'false');
+      panels[active].classList.remove('cs-level-panel--active');
+      active = idx;
+      tabs[active].setAttribute('aria-pressed', 'true');
+      panels[active].classList.add('cs-level-panel--active');
+      frame.style.height = computeH(panels[active]) + 'px';
+    }
+    tabs.forEach(function (btn, i) { btn.addEventListener('click', function () { switchTo(i); }); });
+    frame.style.height = computeH(panels[0]) + 'px';
+    window.addEventListener('resize', function () {
+      frame.style.height = computeH(panels[active]) + 'px';
+    });
   });
 })();
 </script>
