@@ -694,6 +694,8 @@ a.card:hover .card-title {
   .ge-split { flex-direction: column; gap: var(--space-40); }
   .ge-meta-row { grid-template-columns: repeat(2, 1fr); }
   .ge-chip-row { flex-direction: column; align-items: flex-start; gap: var(--space-16); }
+  .ge-problem-split { flex-direction: column; }
+  .ge-problem-split > .cs-quote { flex: none; }
 }
 @media (max-width: 700px) {
   .ge-meta-row { grid-template-columns: 1fr; }
@@ -822,6 +824,19 @@ a.card:hover .card-title {
   color: rgba(26, 23, 20, 0.75);
   margin-top: 8px;
 }
+
+.ge-problem-split {
+  display: flex;
+  align-items: center;
+  gap: var(--space-40);
+}
+.ge-problem-split > picture {
+  flex: 1 1 0;
+  min-width: 0;
+  display: block;
+}
+.ge-problem-split > picture img { display: block; width: 100%; height: auto; }
+.ge-problem-split > .cs-quote { flex: 0 0 355px; }
 
 .wh-quote {
   margin: 0;
