@@ -1372,7 +1372,7 @@ p:not(.text-link-line) > .text-link {
   background: var(--color-ink);
   border-radius: 2px;
 }
-.cs-fill--running { animation: cs-fill-progress 20s linear forwards; }
+.cs-fill--running { animation: cs-fill-progress 14s linear forwards; }
 @keyframes cs-fill-progress {
   from { width: 0%; }
   to   { width: 100%; }
