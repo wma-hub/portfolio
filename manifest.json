@@ -39,7 +39,7 @@
 
     "echo-pre-echo":  { "node": "4217:20664", "page": "echo", "file": "echo/01-pre-echo.png",     "w": 800, "h": 630, "eager": true, "alt": "" },
     "echo-post-echo": { "node": "",           "page": "echo", "file": "echo/01-post-echo.png",    "w": 800, "h": 609, "alt": "" },
-    "echo-lp-1":    { "node": "", "page": "echo", "file": "echo/03-lp-1.png",    "w": 800, "h": 428, "alt": "" },
+    "echo-lp-1":    { "node": "", "page": "echo", "file": "echo/03-lp-1.png",    "w": 800, "h": 492, "alt": "" },
     "echo-lp-2":    { "node": "", "page": "echo", "file": "echo/03-lp-2.png",    "w": 800, "h": 428, "alt": "" },
     "echo-lp-3":    { "node": "", "page": "echo", "file": "echo/03-lp-3.png",    "w": 800, "h": 574, "alt": "" },
     "echo-email-1": { "node": "", "page": "echo", "file": "echo/03-email-1.png", "w": 800, "h": 291, "alt": "" },
