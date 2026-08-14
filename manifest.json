@@ -48,7 +48,10 @@
     "echo-social-1":{ "node": "", "page": "echo", "file": "echo/03-social-1.png","w": 800, "h": 784, "alt": "" },
     "echo-lp-viewer": { "node": "4153:13969", "page": "echo", "file": "echo/02-channel-viewer.png", "w": 800, "h": 579, "alt": "" },
     "echo-lp-properties": { "node": "4153:15719", "page": "echo", "file": "echo/02-lp-properties.png", "w": 800, "h": 463, "alt": "" },
-    "echo-output-gallery": { "node": "", "page": "echo", "file": "echo/04-output-gallery.png", "w": 980, "h": 301, "alt": "" },
+    "echo-gallery-1":  { "node": "", "page": "echo", "file": "echo/04-gallery-1.png",  "w": 442, "h": 301, "alt": "" },
+    "echo-gallery-2":  { "node": "", "page": "echo", "file": "echo/04-gallery-2.png",  "w": 522, "h": 301, "alt": "" },
+    "echo-gallery-34": { "node": "", "page": "echo", "file": "echo/04-gallery-34.png", "w": 980, "h": 301, "alt": "" },
+    "echo-gallery-5":  { "node": "", "page": "echo", "file": "echo/04-gallery-5.png",  "w": 683, "h": 301, "alt": "" },
 
     "careers-baseline": { "node": "4220:20762", "page": "careers", "file": "careers/01-baseline.png", "w": 838, "h": 432, "eager": true, "alt": "", "_note": "Parent composite superseding a/b/c sub-images; shadow bleed, use measured 1x" },
     "careers-funnel": { "node": "4153:16765", "page": "careers", "file": "careers/01-funnel.png", "w": 800, "h": 302, "alt": "" },
