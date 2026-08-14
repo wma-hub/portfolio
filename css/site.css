@@ -1418,7 +1418,7 @@ p:not(.text-link-line) > .text-link {
 .cs-stats--4 { grid-template-columns: repeat(4, 1fr); }
 .cs-stats--5 { grid-template-columns: repeat(5, 1fr); }
 
-.cs-stat { display: flex; flex-direction: column; gap: var(--space-4); }
+.cs-stat { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
 .cs-stat-figure {
   font-size: var(--type-subhead);
   font-weight: var(--font-weight-regular);
