@@ -41,7 +41,7 @@
     "echo-post-echo": { "node": "",           "page": "echo", "file": "echo/01-post-echo.png",    "w": 800, "h": 609, "alt": "" },
     "echo-lp-1":    { "node": "", "page": "echo", "file": "echo/03-lp-1.png",    "w": 800, "h": 406, "alt": "" },
     "echo-lp-2":    { "node": "", "page": "echo", "file": "echo/03-lp-2.png",    "w": 800, "h": 450, "alt": "" },
-    "echo-lp-3":    { "node": "", "page": "echo", "file": "echo/03-lp-3.png",    "w": 800, "h": 512, "alt": "" },
+    "echo-lp-3":    { "node": "", "page": "echo", "file": "echo/03-lp-3.png",    "w": 800, "h": 513, "alt": "" },
     "echo-email-1": { "node": "", "page": "echo", "file": "echo/03-email-1.png", "w": 800, "h": 295, "alt": "" },
     "echo-email-2": { "node": "", "page": "echo", "file": "echo/03-email-2.png", "w": 800, "h": 364, "alt": "" },
     "echo-email-3": { "node": "", "page": "echo", "file": "echo/03-email-3.png", "w": 800, "h": 613, "alt": "" },
