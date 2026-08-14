@@ -146,10 +146,64 @@
             </div>
             <h3 class="heading-subhead">One library, three channel surfaces</h3>
             <p class="body-default">Landing pages, emails, and social posts each render from the same component layer, with per-surface variants handling the dimensional differences rather than separate source files.</p>
-            <picture>
-              <source type="image/webp" srcset="/assets/echo/02-channel-viewer.webp">
-              <img src="/assets/echo/02-channel-viewer.png" width="812" height="579" alt="" loading="lazy">
-            </picture>
+            <div class="echo-sol" tabindex="0" aria-label="Channel showcase">
+              <div class="echo-sol-tabs" role="group" aria-label="Channel">
+                <button class="echo-sol-tab" aria-pressed="true">Landing Pages</button>
+                <button class="echo-sol-tab" aria-pressed="false">Email Newsletters</button>
+                <button class="echo-sol-tab" aria-pressed="false">Social Ads</button>
+              </div>
+              <div class="echo-sol-frame">
+                <div class="echo-sol-channel echo-sol-channel--active">
+                  <div class="echo-sol-slide echo-sol-slide--active">
+                    <picture>
+                      <source type="image/webp" srcset="/assets/echo/03-lp-1.webp">
+                      <img src="/assets/echo/03-lp-1.png" width="800" height="428" alt="" loading="eager">
+                    </picture>
+                  </div>
+                  <div class="echo-sol-slide">
+                    <picture>
+                      <source type="image/webp" srcset="/assets/echo/03-lp-2.webp">
+                      <img src="/assets/echo/03-lp-2.png" width="800" height="428" alt="" loading="lazy">
+                    </picture>
+                  </div>
+                  <div class="echo-sol-slide">
+                    <picture>
+                      <source type="image/webp" srcset="/assets/echo/03-lp-3.webp">
+                      <img src="/assets/echo/03-lp-3.png" width="800" height="574" alt="" loading="lazy">
+                    </picture>
+                  </div>
+                </div>
+                <div class="echo-sol-channel">
+                  <div class="echo-sol-slide echo-sol-slide--active">
+                    <picture>
+                      <source type="image/webp" srcset="/assets/echo/03-email-1.webp">
+                      <img src="/assets/echo/03-email-1.png" width="800" height="291" alt="" loading="lazy">
+                    </picture>
+                  </div>
+                  <div class="echo-sol-slide">
+                    <picture>
+                      <source type="image/webp" srcset="/assets/echo/03-email-2.webp">
+                      <img src="/assets/echo/03-email-2.png" width="800" height="360" alt="" loading="lazy">
+                    </picture>
+                  </div>
+                  <div class="echo-sol-slide">
+                    <picture>
+                      <source type="image/webp" srcset="/assets/echo/03-email-3.webp">
+                      <img src="/assets/echo/03-email-3.png" width="800" height="609" alt="" loading="lazy">
+                    </picture>
+                  </div>
+                </div>
+                <div class="echo-sol-channel" data-no-bar>
+                  <div class="echo-sol-slide echo-sol-slide--active">
+                    <picture>
+                      <source type="image/webp" srcset="/assets/echo/03-social-1.webp">
+                      <img src="/assets/echo/03-social-1.png" width="800" height="780" alt="" loading="lazy">
+                    </picture>
+                  </div>
+                </div>
+              </div>
+              <div class="echo-sol-bar"><div class="echo-sol-fill"></div></div>
+            </div>
           </div>
         </section>
 
@@ -309,6 +363,156 @@
   }
 
   activate(0);
+})();
+
+(function () {
+  var sol = document.querySelector('.echo-sol');
+  if (!sol) return;
+
+  var frame    = sol.querySelector('.echo-sol-frame');
+  var tabBtns  = [].slice.call(sol.querySelectorAll('.echo-sol-tab'));
+  var channels = [].slice.call(sol.querySelectorAll('.echo-sol-channel'));
+  var bar      = sol.querySelector('.echo-sol-bar');
+  var fill     = sol.querySelector('.echo-sol-fill');
+  var reduced  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var noBar    = channels.map(function (ch) { return ch.hasAttribute('data-no-bar'); });
+
+  var DURATION       = 14000;
+  var activeTab      = 0;
+  var activeSlide    = [0, 0, 0];
+  var timer          = null;
+  var suspended      = false;
+  var slideStartedAt = 0;
+  var slideElapsed   = 0;
+
+  function getSlides(tabIdx) {
+    return [].slice.call(channels[tabIdx].querySelectorAll('.echo-sol-slide'));
+  }
+
+  function computeH(slideEl) {
+    var img   = slideEl.querySelector('img');
+    var attrW = parseInt(img.getAttribute('width'), 10);
+    var attrH = parseInt(img.getAttribute('height'), 10);
+    return Math.round(attrH * (frame.offsetWidth || 800) / attrW);
+  }
+
+  function startFill() {
+    if (!fill || noBar[activeTab]) return;
+    fill.style.animationPlayState = '';
+    fill.classList.remove('cs-fill--running');
+    void fill.offsetWidth;
+    fill.classList.add('cs-fill--running');
+  }
+
+  function stopFill() {
+    if (!fill) return;
+    fill.classList.remove('cs-fill--running');
+    fill.style.animationPlayState = '';
+  }
+
+  function scheduleNext(ms) {
+    clearTimeout(timer);
+    if (!suspended && !reduced && !noBar[activeTab]) {
+      slideStartedAt = Date.now();
+      timer = setTimeout(advance, ms);
+    }
+  }
+
+  function advance() {
+    var slides = getSlides(activeTab);
+    slideElapsed = 0;
+    switchSlide(activeTab, (activeSlide[activeTab] + 1) % slides.length);
+  }
+
+  function switchSlide(tabIdx, slideIdx) {
+    var slides   = getSlides(tabIdx);
+    var oldSlide = slides[activeSlide[tabIdx]];
+    var newSlide = slides[slideIdx];
+    oldSlide.classList.remove('echo-sol-slide--active');
+    newSlide.classList.add('echo-sol-slide--active');
+    frame.style.height = computeH(newSlide) + 'px';
+    var nextImg = slides[(slideIdx + 1) % slides.length].querySelector('img');
+    if (nextImg && nextImg.loading === 'lazy') nextImg.loading = 'eager';
+    activeSlide[tabIdx] = slideIdx;
+    startFill();
+    scheduleNext(DURATION);
+  }
+
+  function switchTab(tabIdx) {
+    if (tabIdx === activeTab) return;
+    clearTimeout(timer); stopFill(); slideElapsed = 0;
+    tabBtns[activeTab].setAttribute('aria-pressed', 'false');
+    channels[activeTab].classList.remove('echo-sol-channel--active');
+    var newSlides = getSlides(tabIdx);
+    newSlides.forEach(function (s, i) { s.classList.toggle('echo-sol-slide--active', i === 0); });
+    activeSlide[tabIdx] = 0;
+    tabBtns[tabIdx].setAttribute('aria-pressed', 'true');
+    channels[tabIdx].classList.add('echo-sol-channel--active');
+    frame.style.height = computeH(newSlides[0]) + 'px';
+    if (bar) bar.hidden = noBar[tabIdx];
+    activeTab = tabIdx;
+    if (!suspended && !reduced && !noBar[tabIdx]) { startFill(); scheduleNext(DURATION); }
+  }
+
+  function suspend() {
+    if (suspended) return;
+    suspended = true;
+    clearTimeout(timer);
+    if (slideStartedAt) slideElapsed += Date.now() - slideStartedAt;
+    if (fill) fill.style.animationPlayState = 'paused';
+  }
+
+  function unsuspend() {
+    if (!suspended || reduced || noBar[activeTab]) return;
+    suspended = false;
+    var remaining = Math.max(0, DURATION - slideElapsed);
+    if (remaining === 0) { advance(); return; }
+    slideStartedAt = Date.now();
+    timer = setTimeout(advance, remaining);
+    if (fill) {
+      if (fill.classList.contains('cs-fill--running')) {
+        fill.style.animationPlayState = 'running';
+      } else {
+        startFill(); /* tab was switched while suspended — fresh fill, fresh timer */
+      }
+    }
+  }
+
+  tabBtns.forEach(function (btn, idx) {
+    btn.addEventListener('click', function () { switchTab(idx); });
+  });
+
+  sol.addEventListener('keydown', function (e) {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    e.preventDefault();
+    var slides = getSlides(activeTab);
+    if (slides.length <= 1) return;
+    var dir  = e.key === 'ArrowRight' ? 1 : -1;
+    var next = (activeSlide[activeTab] + dir + slides.length) % slides.length;
+    clearTimeout(timer); stopFill(); slideElapsed = 0;
+    switchSlide(activeTab, next);
+  });
+
+  sol.addEventListener('mouseenter', suspend);
+  sol.addEventListener('mouseleave', unsuspend);
+  sol.addEventListener('focusin', suspend);
+  sol.addEventListener('focusout', function (e) {
+    if (!sol.contains(e.relatedTarget)) unsuspend();
+  });
+
+  if ('IntersectionObserver' in window) {
+    var ioSol = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) unsuspend(); else suspend(); });
+    }, { threshold: 0.1 });
+    ioSol.observe(sol);
+  }
+
+  /* init */
+  var s2 = getSlides(0)[1] && getSlides(0)[1].querySelector('img');
+  if (s2 && s2.loading === 'lazy') s2.loading = 'eager';
+  frame.style.height = computeH(getSlides(0)[0]) + 'px';
+  if (bar) bar.hidden = noBar[0];
+  if (!reduced) { startFill(); scheduleNext(DURATION); }
 })();
 </script>
 </body>

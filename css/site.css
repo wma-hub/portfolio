@@ -911,6 +911,61 @@ a.card:hover .card-title {
   .echo-panel { transition: none; }
 }
 
+/* ---- Echo: solution channel showcase ---- */
+.echo-sol { display: flex; flex-direction: column; gap: var(--space-16); outline: none; }
+.echo-sol:focus { outline: none; }
+.echo-sol:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+.echo-sol-tabs { display: flex; gap: 6px; }
+.echo-sol-tab {
+  padding: 10px 20px;
+  border: 1px solid var(--color-rule);
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  color: var(--color-ink);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  font-family: inherit;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+.echo-sol-tab[aria-pressed="true"] {
+  background: var(--color-background-acc);
+  border-color: var(--color-background-acc);
+}
+.echo-sol-tab:hover:not([aria-pressed="true"]) { background: rgba(239, 234, 227, 0.5); }
+.echo-sol-frame {
+  position: relative;
+  overflow: hidden;
+  transition: height 300ms ease;
+}
+.echo-sol-channel { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; pointer-events: none; }
+.echo-sol-channel--active { opacity: 1; pointer-events: auto; }
+.echo-sol-slide {
+  position: absolute;
+  top: 0; left: 0; width: 100%;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+}
+.echo-sol-slide--active { opacity: 1; pointer-events: auto; }
+.echo-sol-slide picture { display: block; }
+.echo-sol-slide img { display: block; width: 100%; height: auto; }
+.echo-sol-bar {
+  height: 4px;
+  background: var(--color-background-acc);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.echo-sol-bar[hidden] { display: none; }
+.echo-sol-fill { height: 100%; width: 0%; background: var(--color-ink); border-radius: 2px; }
+/* reuses .cs-fill--running / @keyframes cs-fill-progress (14s) from Aura */
+@media (max-width: 700px) { .echo-sol-tabs { flex-wrap: wrap; } }
+@media (prefers-reduced-motion: reduce) {
+  .echo-sol-tab   { transition: none; }
+  .echo-sol-slide { transition: none; }
+  .echo-sol-frame { transition: none; }
+}
+
 /* ---- Echo: campaign surfaces + wide galleries ---- */
 .wh-surfaces {
   display: grid;
