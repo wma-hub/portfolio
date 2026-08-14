@@ -815,7 +815,7 @@ a.card:hover .card-title {
   margin: 0;
 }
 .cs-quote img { flex-shrink: 0; }
-.cs-quote-body { margin-left: -60px; }
+.cs-quote-body { margin-left: -60px; min-width: 0; }
 .cs-quote-body > p { color: var(--color-ink); }
 .cs-quote-attr {
   font-size: var(--type-caption);
@@ -838,7 +838,7 @@ a.card:hover .card-title {
   display: block;
 }
 .ge-problem-split > picture img { display: block; width: 100%; height: auto; }
-.ge-problem-split > .cs-quote { flex: 0 0 355px; }
+.ge-problem-split > .cs-quote { flex: 0 0 355px; overflow: hidden; }
 
 .wh-quote {
   margin: 0;
