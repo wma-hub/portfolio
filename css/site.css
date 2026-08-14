@@ -824,6 +824,8 @@ a.card:hover .card-title {
   color: rgba(26, 23, 20, 0.75);
   margin-top: 8px;
 }
+/* --lede: setup line precedes the quote rather than attributing it after */
+.cs-quote--lede .cs-quote-attr { margin-top: 0; margin-bottom: 8px; }
 
 .ge-problem-split {
   display: flex;
