@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 320px; height: 50px; overflow: hidden; background: #FFFFFF; }
+
+a.ad {
+  display: block;
+  width: 320px;
+  height: 50px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 2px solid #FBF9F7;
+}
+
+/* Pure CSS fade — no GSAP on this size */
+@keyframes fadeIn320 {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* V3 — headline drifts up 4px as it fades in */
+@keyframes fadeSlide320 {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* CTA fades to 60% first, then drifts to 100% */
+@keyframes fadeCTA320 {
+  0%   { opacity: 0; }
+  38%  { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<a class="mc-unit" href="https://byredo.com/mojave-ghost" target="_blank">
+
+  <!-- Warm gradient — behind all content -->
+  <div style="
+    position: absolute; left: 0; top: 0;
+    width: 320px; height: 50px;
+    background: radial-gradient(ellipse at center, rgba(200,184,154,0.12), transparent);
+    pointer-events: none; z-index: 0;
+  "></div>
+
+  <!-- Headline — full width, centered text -->
+  <div style="
+    position: absolute; left: 0; top: 18px;
+    width: 320px; height: 15px;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-weight: 500; font-size: 14px; color: #000;
+    letter-spacing: 0.02em; line-height: 1.1;
+    text-align: center; white-space: nowrap;
+    z-index: 1; opacity: 0;
+    animation: fadeSlide320 0.8s ease 0.5s both;
+  ">MOJAVE GHOST</div>
+
+  <!-- BYREDO logo wordmark — left anchor -->
+  <div style="
+    position: absolute; left: 16px; top: 20px;
+    width: 46px; height: 10px;
+    z-index: 2; opacity: 0;
+    animation: fadeIn320 0.6s ease 0.2s both;
+  ">
+    <img src="/units/byredo/assets/logo-dark.svg" width="46" height="10"
+      style="display: block; width: 100%; height: 100%;" alt="Byredo">
+  </div>
+
+  <!-- CTA frame — right anchor -->
+  <div style="
+    position: absolute; left: 234px; top: 14px;
+    width: 86px; height: 22px;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2; opacity: 0;
+    animation: fadeCTA320 1.8s ease 0.8s both;
+  ">
+    <span style="
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 8px; font-weight: 500; color: #000;
+      letter-spacing: 0.12em; text-transform: uppercase;
+    ">DISCOVER &#8594;</span>
+  </div>
+
+
+</a>
+
+<!-- No GSAP on 320×50 — pure CSS animation per brand spec -->
+</body>
+</html>

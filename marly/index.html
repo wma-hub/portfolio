@@ -7,35 +7,35 @@
   <link rel="preload" href="/assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/site.css">
   <style>
-  /* — Ad gallery marquee strip — */
-  .ad-strip-outer{overflow:hidden;margin-top:28px;}
-  .ad-strip-track{
+  /* — Creative gallery marquee strip — */
+  .mc-rail{overflow:hidden;margin-top:28px;}
+  .mc-rail-track{
     display:flex;gap:0;width:max-content;
-    animation:ad-marquee 70s linear infinite;
+    animation:mc-marquee 70s linear infinite;
   }
-  .ad-strip-track.is-paused{animation-play-state:paused;}
-  @keyframes ad-marquee{
+  .mc-rail-track.is-paused{animation-play-state:paused;}
+  @keyframes mc-marquee{
     0%{transform:translateX(0);}
     100%{transform:translateX(-50%);}
   }
-  @media(prefers-reduced-motion:reduce){.ad-strip-track{animation:none;}}
-  .ad-tile{position:relative;width:613px;height:400px;flex-shrink:0;}
-  .ad-slot{
+  @media(prefers-reduced-motion:reduce){.mc-rail-track{animation:none;}}
+  .mc-tile{position:relative;width:613px;height:400px;flex-shrink:0;}
+  .mc-slot{
     position:absolute;overflow:hidden;
-    background:#f4f3f0;cursor:default;
+    cursor:default;
   }
-  .ad-slot img{
+  .mc-slot img{
     width:100%;height:100%;display:block;
     object-fit:contain;object-position:center;
     pointer-events:none;user-select:none;
   }
-  .ad-slot iframe{
+  .mc-slot iframe{
     position:absolute;top:0;left:0;
     border:none;transform-origin:top left;
     pointer-events:none;
   }
-  .ad-slot.is-active{cursor:pointer;}
-  .ad-slot.is-active iframe{pointer-events:auto;}
+  .mc-slot.is-active{cursor:pointer;}
+  .mc-slot.is-active iframe{pointer-events:auto;}
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3KK0FQDE6"></script>
   <script>
@@ -292,8 +292,8 @@
               <source type="image/webp" srcset="/assets/marly/04-ad-sizes.webp">
               <img src="/assets/marly/04-ad-sizes.png" width="447" height="484" alt="" loading="lazy">
             </picture>
-            <div class="ad-strip-outer" aria-hidden="true">
-              <div class="ad-strip-track" id="ad-strip-track"><!-- JS-generated tiles --></div>
+            <div class="mc-rail" aria-hidden="true">
+              <div class="mc-rail-track" id="mc-rail-track"><!-- JS-generated tiles --></div>
             </div>
           </div>
         </section>
@@ -381,118 +381,115 @@
 </div><!-- .page -->
 <script src="/js/site.js"></script>
 <script>
-/* — Ad gallery: tile builder + hover-to-play — */
+/* — Creative gallery: tile builder + hover-to-play — */
 (function () {
-  var track = document.getElementById('ad-strip-track');
+  var track = document.getElementById('mc-rail-track');
   if (!track) return;
 
-  /* ── Figma tile spec ────────────────────────────────────────────
-     Tile pitch = 613px (content 577px starting at x=27, 36px gap).
-     8 absolutely-positioned slots per tile, 400px tall.
+  /* ── Tile spec ─────────────────────────────────────────────────
+     Pitch = 613px. 8 absolutely-positioned slots per 400px-tall tile.
+     Slot dimensions = IAB ÷ 3; positions vertically centred in tile.
   ──────────────────────────────────────────────────────────────── */
   var SLOTS = [
-    {x:27,  y:16,  w:60,  h:224, size:'160x600', fallback:null   },
-    {x:87,  y:290, w:112, h:94,  size:'300x250', fallback:null   },
-    {x:131, y:16,  w:111, h:224, size:'300x600', fallback:'160x600'},
-    {x:242, y:290, w:362, h:94,  size:'970x250', fallback:'728x90'},
-    {x:296, y:16,  w:125, h:103, size:'300x250', fallback:null   },
-    {x:296, y:163, w:112, h:19,  size:'320x50',  fallback:null   },
-    {x:296, y:226, w:271, h:33,  size:'728x90',  fallback:null   },
-    {x:485, y:16,  w:119, h:178, size:'300x600', fallback:'160x600'},
+    {x:27,  y:55,  w:53,  h:200, size:'ws', fallback:null},  /* 160×600 */
+    {x:87,  y:262, w:100, h:83,  size:'mr', fallback:null},  /* 300×250 */
+    {x:87,  y:55,  w:100, h:200, size:'hp', fallback:'ws'},  /* 300×600 */
+    {x:194, y:262, w:323, h:83,  size:'bb', fallback:'lb'},  /* 970×250 */
+    {x:194, y:55,  w:100, h:83,  size:'mr', fallback:null},  /* 300×250 */
+    {x:194, y:145, w:107, h:17,  size:'mb', fallback:null},  /* 320×50  */
+    {x:194, y:169, w:243, h:30,  size:'lb', fallback:null},  /* 728×90  */
+    {x:444, y:55,  w:100, h:200, size:'hp', fallback:'ws'},  /* 300×600 */
   ];
 
-  /* per-brand ad catalogue ─────────────────────────────────────── */
+  /* per-brand catalogue ─────────────────────────────────────────── */
   var ADS = {
     byredo: {
-      '160x600': {src:'/review/byredo/mojave-ghost-discovery/units/160x600.html', w:160, h:600},
-      '300x250': {src:'/review/byredo/mojave-ghost-discovery/units/300x250.html', w:300, h:250},
-      '300x600': {src:'/review/byredo/mojave-ghost-discovery/units/300x600.html', w:300, h:600},
-      '320x50':  {src:'/review/byredo/mojave-ghost-discovery/units/320x50.html',  w:320, h:50 },
-      '728x90':  {src:'/review/byredo/mojave-ghost-discovery/units/728x90.html',  w:728, h:90 },
+      ws: {src:'/units/byredo/mojave-ghost-discovery/units/ws.html', w:160, h:600},
+      mr: {src:'/units/byredo/mojave-ghost-discovery/units/mr.html', w:300, h:250},
+      hp: {src:'/units/byredo/mojave-ghost-discovery/units/hp.html', w:300, h:600},
+      mb: {src:'/units/byredo/mojave-ghost-discovery/units/mb.html', w:320, h:50 },
+      lb: {src:'/units/byredo/mojave-ghost-discovery/units/lb.html', w:728, h:90 },
     },
     ghia: {
-      '160x600': {src:'/review/ghia/summer-spritz-series/units/set1-160x600.html', w:160, h:600},
-      '300x250': {src:'/review/ghia/summer-spritz-series/units/set1-300x250.html', w:300, h:250},
-      '300x600': {src:'/review/ghia/summer-spritz-series/units/set1-300x600.html', w:300, h:600},
-      '320x50':  {src:'/review/ghia/summer-spritz-series/units/set1-320x50.html',  w:320, h:50 },
-      '728x90':  {src:'/review/ghia/summer-spritz-series/units/set1-728x90.html',  w:728, h:90 },
+      ws: {src:'/units/ghia/summer-spritz-series/units/set1-ws.html', w:160, h:600},
+      mr: {src:'/units/ghia/summer-spritz-series/units/set1-mr.html', w:300, h:250},
+      hp: {src:'/units/ghia/summer-spritz-series/units/set1-hp.html', w:300, h:600},
+      mb: {src:'/units/ghia/summer-spritz-series/units/set1-mb.html', w:320, h:50 },
+      lb: {src:'/units/ghia/summer-spritz-series/units/set1-lb.html', w:728, h:90 },
     },
     gorjana: {
-      '160x600': {src:'/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_160x600.html', w:160, h:600},
-      '300x250': {src:'/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_300x250.html', w:300, h:250},
-      '320x50':  {src:'/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_320x50.html',  w:320, h:50 },
-      '728x90':  {src:'/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_728x90.html',  w:728, h:90 },
-      '970x250': {src:'/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_970x250.html', w:970, h:250},
+      ws: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_ws.html', w:160, h:600},
+      mr: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_mr.html', w:300, h:250},
+      mb: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_mb.html', w:320, h:50 },
+      lb: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_lb.html', w:728, h:90 },
+      bb: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_bb.html', w:970, h:250},
     },
     graza: {
-      '160x600': {src:'/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_160x600.html', w:160, h:600},
-      '300x250': {src:'/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_300x250.html', w:300, h:250},
-      '320x50':  {src:'/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_320x50.html',  w:320, h:50 },
-      '728x90':  {src:'/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_728x90.html',  w:728, h:90 },
-      '970x250': {src:'/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_970x250.html', w:970, h:250},
+      ws: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_ws.html', w:160, h:600},
+      mr: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_mr.html', w:300, h:250},
+      mb: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_mb.html', w:320, h:50 },
+      lb: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_lb.html', w:728, h:90 },
+      bb: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_bb.html', w:970, h:250},
     },
     levis: {
-      '160x600': {src:'/review/levis/pride-2026/units/set-4-i-know-you-know/160x600.html', w:160, h:600},
-      '300x250': {src:'/review/levis/pride-2026/units/set-4-i-know-you-know/300x250.html', w:300, h:250},
-      '300x600': {src:'/review/levis/pride-2026/units/set-4-i-know-you-know/300x600.html', w:300, h:600},
-      '320x50':  {src:'/review/levis/pride-2026/units/set-4-i-know-you-know/320x50.html',  w:320, h:50 },
-      '728x90':  {src:'/review/levis/pride-2026/units/set-4-i-know-you-know/728x90.html',  w:728, h:90 },
+      ws: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/ws.html', w:160, h:600},
+      mr: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/mr.html', w:300, h:250},
+      hp: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/hp.html', w:300, h:600},
+      mb: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/mb.html', w:320, h:50 },
+      lb: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/lb.html', w:728, h:90 },
     },
     'magic-spoon': {
-      '160x600': {src:'/review/magic-spoon/summer-sampler-drop/units/set1-160x600.html', w:160, h:600},
-      '300x250': {src:'/review/magic-spoon/summer-sampler-drop/units/set1-300x250.html', w:300, h:250},
-      '300x600': {src:'/review/magic-spoon/summer-sampler-drop/units/set1-300x600.html', w:300, h:600},
-      '320x50':  {src:'/review/magic-spoon/summer-sampler-drop/units/set1-320x50.html',  w:320, h:50 },
-      '728x90':  {src:'/review/magic-spoon/summer-sampler-drop/units/set1-728x90.html',  w:728, h:90 },
+      ws: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-ws.html', w:160, h:600},
+      mr: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-mr.html', w:300, h:250},
+      hp: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-hp.html', w:300, h:600},
+      mb: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-mb.html', w:320, h:50 },
+      lb: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-lb.html', w:728, h:90 },
     },
     ritual: {
-      '160x600': {src:'/review/ritual/your-body-your-ritual/units/160x600.html', w:160, h:600},
-      '300x250': {src:'/review/ritual/your-body-your-ritual/units/300x250.html', w:300, h:250},
-      '320x50':  {src:'/review/ritual/your-body-your-ritual/units/320x50.html',  w:320, h:50 },
-      '728x90':  {src:'/review/ritual/your-body-your-ritual/units/728x90.html',  w:728, h:90 },
+      ws: {src:'/units/ritual/your-body-your-ritual/units/ws.html', w:160, h:600},
+      mr: {src:'/units/ritual/your-body-your-ritual/units/mr.html', w:300, h:250},
+      mb: {src:'/units/ritual/your-body-your-ritual/units/mb.html', w:320, h:50 },
+      lb: {src:'/units/ritual/your-body-your-ritual/units/lb.html', w:728, h:90 },
     },
     tumblerware: {
-      '160x600': {src:'/review/tumblerware/fathers-day/ads/160x600.html', w:160, h:600},
-      '300x250': {src:'/review/tumblerware/fathers-day/ads/300x250.html', w:300, h:250},
-      '728x90':  {src:'/review/tumblerware/fathers-day/ads/728x90.html',  w:728, h:90 },
+      ws: {src:'/units/tumblerware/fathers-day/ads/ws.html', w:160, h:600},
+      mr: {src:'/units/tumblerware/fathers-day/ads/mr.html', w:300, h:250},
+      lb: {src:'/units/tumblerware/fathers-day/ads/lb.html', w:728, h:90 },
     },
   };
 
   var BRANDS = ['byredo','ghia','gorjana','graza','levis','magic-spoon','ritual','tumblerware'];
-  var N_TILES = 8; /* one full brand cycle before loop repeats */
+  var N_TILES = 8;
 
   function getAd(brand, size, fallback) {
     var b = ADS[brand];
-    if (b && b[size])               return {size: size,     ad: b[size]};
+    if (b && b[size])                 return {size: size,     ad: b[size]};
     if (fallback && b && b[fallback]) return {size: fallback, ad: b[fallback]};
     return null;
   }
 
   function buildTile(tileIdx) {
     var tile = document.createElement('div');
-    tile.className = 'ad-tile';
+    tile.className = 'mc-tile';
     SLOTS.forEach(function (slot, s) {
       var brand  = BRANDS[(tileIdx + s) % BRANDS.length];
       var result = getAd(brand, slot.size, slot.fallback);
       if (!result) return;
       var el = document.createElement('div');
-      el.className = 'ad-slot';
+      el.className = 'mc-slot';
       el.style.cssText = 'left:' + slot.x + 'px;top:' + slot.y + 'px;width:' + slot.w + 'px;height:' + slot.h + 'px';
-      el.dataset.adSrc = result.ad.src;
-      el.dataset.adW   = result.ad.w;
-      el.dataset.adH   = result.ad.h;
+      el.dataset.mcSrc = result.ad.src;
+      el.dataset.mcW   = result.ad.w;
+      el.dataset.mcH   = result.ad.h;
       var img = document.createElement('img');
       img.src = '/assets/marly/gallery/' + brand + '-' + result.size + '.png';
       img.alt = '';
-      /* no loading=lazy — marquee images must be eager to avoid
-         deferred-forever in animated overflow:hidden containers */
       el.appendChild(img);
       tile.appendChild(el);
     });
     return tile;
   }
 
-  /* Build N_TILES, clone for seamless loop */
   var primaryTiles = [];
   for (var t = 0; t < N_TILES; t++) {
     var tile = buildTile(t);
@@ -503,7 +500,7 @@
     track.appendChild(tile.cloneNode(true));
   });
 
-  /* ── Hover-to-play (event delegation) ──────────────────────────── */
+  /* ── Hover-to-play ──────────────────────────────────────────────── */
   var activeIframe = null;
   var activeSlot   = null;
 
@@ -516,18 +513,18 @@
   function startSlot(slot) {
     if (slot === activeSlot) return;
     stopActive();
-    var nativeW = parseInt(slot.dataset.adW, 10);
-    var nativeH = parseInt(slot.dataset.adH, 10);
+    var nativeW = parseInt(slot.dataset.mcW, 10);
+    var nativeH = parseInt(slot.dataset.mcH, 10);
     var cW      = slot.offsetWidth;
     var cH      = slot.offsetHeight;
     var scale   = Math.min(cW / nativeW, cH / nativeH);
     var tx      = (cW - nativeW * scale) / 2;
     var ty      = (cH - nativeH * scale) / 2;
     var iframe  = document.createElement('iframe');
-    iframe.src  = slot.dataset.adSrc;
+    iframe.src  = slot.dataset.mcSrc;
     iframe.setAttribute('width',   nativeW);
     iframe.setAttribute('height',  nativeH);
-    iframe.setAttribute('sandbox', 'allow-scripts');
+    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
     iframe.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
     slot.appendChild(iframe);
     slot.classList.add('is-active');
@@ -537,21 +534,20 @@
   }
 
   track.addEventListener('mouseover', function (e) {
-    var slot = e.target.closest && e.target.closest('.ad-slot');
+    var slot = e.target.closest && e.target.closest('.mc-slot');
     if (slot) startSlot(slot);
   });
   track.addEventListener('mouseout', function (e) {
-    var slot = e.target.closest && e.target.closest('.ad-slot');
+    var slot = e.target.closest && e.target.closest('.mc-slot');
     if (slot && !slot.contains(e.relatedTarget)) stopActive();
   });
   track.addEventListener('click', function (e) {
-    var slot = e.target.closest && e.target.closest('.ad-slot');
+    var slot = e.target.closest && e.target.closest('.mc-slot');
     if (slot) { e.stopPropagation(); (slot === activeSlot) ? stopActive() : startSlot(slot); }
   });
   document.addEventListener('click', stopActive);
 
-  /* Pause animation when strip is offscreen */
-  var outer = document.querySelector('.ad-strip-outer');
+  var outer = document.querySelector('.mc-rail');
   if (outer && 'IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
       track.style.animationPlayState = entries[0].isIntersecting ? '' : 'paused';
