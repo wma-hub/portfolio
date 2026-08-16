@@ -902,25 +902,24 @@ a.card:hover .card-title {
 
 /* ---- Echo: pre/post comparison toggle ---- */
 .echo-compare { display: flex; flex-direction: column; gap: var(--space-12); }
-.echo-tabs { display: flex; gap: var(--space-8); }
+.echo-tabs { display: flex; gap: 6px; }
 .echo-tab {
-  padding: 6px 14px;
+  padding: 10px 20px;
   border: 1px solid var(--color-rule);
-  background: none;
+  background: transparent;
   cursor: pointer;
-  border-radius: var(--radius-sm);
+  border-radius: 4px;
   color: var(--color-ink);
   font-size: 0.8125rem;
   line-height: 1.5;
   font-family: inherit;
-  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+  transition: background 120ms ease, border-color 120ms ease;
 }
 .echo-tab[aria-pressed="true"] {
-  background: var(--color-ink);
-  color: var(--bg);
-  border-color: var(--color-ink);
+  background: var(--color-background-acc);
+  border-color: var(--color-background-acc);
 }
-.echo-tab:hover:not([aria-pressed="true"]) { background: var(--color-background-acc); }
+.echo-tab:hover:not([aria-pressed="true"]) { background: rgba(239, 234, 227, 0.5); }
 .echo-frame {
   position: relative;
   height: 630px;
@@ -993,7 +992,7 @@ a.card:hover .card-title {
 }
 .echo-sol-bar[hidden] { display: none; }
 .echo-sol-fill { height: 100%; width: 0%; background: var(--color-ink); border-radius: 2px; }
-/* reuses .cs-fill--running / @keyframes cs-fill-progress (14s) from Aura */
+/* reuses .cs-fill--running / @keyframes cs-fill-progress (9s) from Aura */
 @media (max-width: 700px) { .echo-sol-tabs { flex-wrap: wrap; } }
 @media (prefers-reduced-motion: reduce) {
   .echo-sol-tab   { transition: none; }
@@ -1538,7 +1537,7 @@ p:not(.text-link-line) > .text-link {
   background: var(--color-ink);
   border-radius: 2px;
 }
-.cs-fill--running { animation: cs-fill-progress 14s linear forwards; }
+.cs-fill--running { animation: cs-fill-progress 9s linear forwards; }
 @keyframes cs-fill-progress {
   from { width: 0%; }
   to   { width: 100%; }
