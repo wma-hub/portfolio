@@ -56,9 +56,9 @@
 
     "careers-baseline": { "node": "4220:20762", "page": "careers", "file": "careers/01-baseline.png", "w": 838, "h": 432, "eager": true, "alt": "", "_note": "Parent composite superseding a/b/c sub-images; shadow bleed, use measured 1x" },
     "careers-funnel": { "node": "4153:16765", "page": "careers", "file": "careers/01-funnel.png", "w": 800, "h": 302, "alt": "" },
-    "careers-level-1": { "node": "", "page": "careers", "file": "careers/02-level-1.png", "w": 800, "h": 261, "alt": "" },
-    "careers-level-2": { "node": "", "page": "careers", "file": "careers/02-level-2.png", "w": 800, "h": 307, "alt": "" },
-    "careers-level-3": { "node": "", "page": "careers", "file": "careers/02-level-3.png", "w": 800, "h": 240, "alt": "" },
+    "careers-level-1": { "node": "", "page": "careers", "file": "careers/02-level-1.png", "w": 752, "h": 261, "alt": "" },
+    "careers-level-2": { "node": "", "page": "careers", "file": "careers/02-level-2.png", "w": 752, "h": 307, "alt": "" },
+    "careers-level-3": { "node": "", "page": "careers", "file": "careers/02-level-3.png", "w": 752, "h": 241, "alt": "" },
     "careers-job-detail": { "node": "4153:16526", "page": "careers", "file": "careers/02-job-detail.png", "w": 912, "h": 652, "alt": "", "_note": "Parent composite superseding tab-a/b/c, job-detail, rail sub-images; shadow bleed, use measured 1x" },
     "careers-heap": { "node": "4153:16780", "page": "careers", "file": "careers/03-heap-strip.png", "w": 800, "h": 127, "alt": "" },
     "careers-browse": { "node": "4223:21501", "page": "careers", "file": "careers/03-browse-live.png", "w": 800, "h": 446, "alt": "" },
