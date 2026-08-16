@@ -1017,7 +1017,7 @@ a.card:hover .card-title {
 }
 .cs-level-tab[aria-pressed="true"] { background: var(--color-background-acc); border-color: var(--color-background-acc); }
 .cs-level-tab:hover:not([aria-pressed="true"]) { background: rgba(239, 234, 227, 0.5); }
-.cs-level-frame { position: relative; overflow: hidden; transition: height 300ms ease; }
+.cs-level-frame { position: relative; transition: height 300ms ease; }
 .cs-level-panel { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; pointer-events: none; transition: opacity 200ms ease; display: flex; flex-direction: column; gap: 24px; }
 .cs-level-panel--active { opacity: 1; pointer-events: auto; }
 .cs-level-subhead { font-size: var(--type-subhead); font-weight: var(--font-weight-medium); letter-spacing: var(--tracking-snug); color: var(--color-ink); margin: 0; }

@@ -315,7 +315,9 @@
       var pic = panel.querySelector('picture');
       var imgH = Math.round(attrH * Math.min(frame.offsetWidth || 800, attrW) / attrW);
       if (pic) pic.style.height = imgH + 'px';
-      var h = panel.scrollHeight;
+      var children = [].slice.call(panel.children);
+      var last = children[children.length - 1];
+      var h = last ? last.offsetTop + last.offsetHeight : 0;
       if (pic) pic.style.height = '';
       return h;
     }
