@@ -1024,6 +1024,7 @@ a.card:hover .card-title {
 .cs-level-panel picture { display: block; }
 .cs-level-panel img { display: block; width: auto; max-width: 100%; height: auto; border-radius: var(--radius-sm); }
 .cs-level-caption { color: var(--color-ink-muted); font-size: var(--type-caption); font-weight: var(--font-weight-regular); letter-spacing: var(--tracking-tight); margin: 0; }
+.cs-level-desc { color: var(--color-ink-muted); font-size: var(--type-caption); font-weight: var(--font-weight-regular); letter-spacing: var(--tracking-tight); margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   .cs-level-tab   { transition: none; }
   .cs-level-panel { transition: none; }
