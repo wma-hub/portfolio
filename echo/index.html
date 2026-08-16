@@ -151,6 +151,7 @@
                 <button class="echo-sol-tab" aria-pressed="true">Landing Pages</button>
                 <button class="echo-sol-tab" aria-pressed="false">Email Newsletters</button>
                 <button class="echo-sol-tab" aria-pressed="false">Social Ads</button>
+                <button class="echo-sol-tab" aria-pressed="false">Award Badges</button>
               </div>
               <div class="echo-sol-frame">
                 <div class="echo-sol-channel echo-sol-channel--active">
@@ -201,7 +202,18 @@
                     </picture>
                   </div>
                 </div>
+                <div class="echo-sol-channel" data-no-bar data-strip-h="400">
+                  <div class="cs-strip echo-badge-strip">
+                    <img src="/assets/echo/badges/1-cover.webp" width="320" height="400" alt="The reviews are in" loading="lazy">
+                    <img src="/assets/echo/badges/2-g2.webp" width="320" height="400" alt="G2 Best Software / Best HR" loading="lazy">
+                    <img src="/assets/echo/badges/3-trustradius.webp" width="320" height="400" alt="TrustRadius Buyer&#8217;s Choice" loading="lazy">
+                    <img src="/assets/echo/badges/4-lighthouse.webp" width="320" height="400" alt="Lighthouse Tech Awards Finalist" loading="lazy">
+                    <img src="/assets/echo/badges/5-capterra.webp" width="320" height="400" alt="Capterra Shortlist" loading="lazy">
+                    <img src="/assets/echo/badges/6-end.webp" width="320" height="400" alt="Closing card" loading="lazy">
+                  </div>
+                </div>
               </div>
+              <p class="echo-badge-caption meta-caption">Organic Social Library: one campaign, five component variants &#8212; cover, double-badge, single-badge, and end card.</p>
               <div class="echo-sol-bar"><div class="echo-sol-fill"></div></div>
             </div>
           </div>
@@ -379,14 +391,15 @@
   var frame    = sol.querySelector('.echo-sol-frame');
   var tabBtns  = [].slice.call(sol.querySelectorAll('.echo-sol-tab'));
   var channels = [].slice.call(sol.querySelectorAll('.echo-sol-channel'));
-  var bar      = sol.querySelector('.echo-sol-bar');
-  var fill     = sol.querySelector('.echo-sol-fill');
+  var bar          = sol.querySelector('.echo-sol-bar');
+  var fill         = sol.querySelector('.echo-sol-fill');
+  var badgeCaption = sol.querySelector('.echo-badge-caption');
   var reduced  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var noBar    = channels.map(function (ch) { return ch.hasAttribute('data-no-bar'); });
 
   var DURATION       = 9000;
   var activeTab      = 0;
-  var activeSlide    = [0, 0, 0];
+  var activeSlide    = [0, 0, 0, 0];
   var timer          = null;
   var suspended      = false;
   var slideStartedAt = 0;
@@ -455,7 +468,12 @@
     activeSlide[tabIdx] = 0;
     tabBtns[tabIdx].setAttribute('aria-pressed', 'true');
     channels[tabIdx].classList.add('echo-sol-channel--active');
-    frame.style.height = computeH(newSlides[0]) + 'px';
+    if (newSlides.length) {
+      frame.style.height = computeH(newSlides[0]) + 'px';
+    } else {
+      frame.style.height = (parseInt(channels[tabIdx].getAttribute('data-strip-h') || 0, 10) || 0) + 'px';
+    }
+    if (badgeCaption) badgeCaption.hidden = (tabIdx !== channels.length - 1);
     if (bar) bar.hidden = noBar[tabIdx];
     activeTab = tabIdx;
     if (!suspended && !reduced && !noBar[tabIdx]) { startFill(); scheduleNext(DURATION); }
@@ -518,6 +536,7 @@
   var s2 = getSlides(0)[1] && getSlides(0)[1].querySelector('img');
   if (s2 && s2.loading === 'lazy') s2.loading = 'eager';
   frame.style.height = computeH(getSlides(0)[0]) + 'px';
+  if (badgeCaption) badgeCaption.hidden = true;
   if (bar) bar.hidden = noBar[0];
   if (!reduced) { startFill(); scheduleNext(DURATION); }
 })();

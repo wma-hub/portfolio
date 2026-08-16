@@ -53,6 +53,12 @@
     "echo-gallery-3":  { "node": "", "page": "echo", "file": "echo/04-gallery-3.png",  "w": 791, "h": 301, "alt": "" },
     "echo-gallery-4":  { "node": "", "page": "echo", "file": "echo/04-gallery-4.png",  "w": 791, "h": 301, "alt": "" },
     "echo-gallery-5":  { "node": "", "page": "echo", "file": "echo/04-gallery-5.png",  "w": 524, "h": 301, "alt": "" },
+    "echo-badge-1": { "node": "", "page": "echo", "file": "echo/badges/1-cover.webp",        "w": 320, "h": 400, "alt": "The reviews are in" },
+    "echo-badge-2": { "node": "", "page": "echo", "file": "echo/badges/2-g2.webp",           "w": 320, "h": 400, "alt": "G2 Best Software / Best HR" },
+    "echo-badge-3": { "node": "", "page": "echo", "file": "echo/badges/3-trustradius.webp",  "w": 320, "h": 400, "alt": "TrustRadius Buyer's Choice" },
+    "echo-badge-4": { "node": "", "page": "echo", "file": "echo/badges/4-lighthouse.webp",   "w": 320, "h": 400, "alt": "Lighthouse Tech Awards Finalist" },
+    "echo-badge-5": { "node": "", "page": "echo", "file": "echo/badges/5-capterra.webp",     "w": 320, "h": 400, "alt": "Capterra Shortlist" },
+    "echo-badge-6": { "node": "", "page": "echo", "file": "echo/badges/6-end.webp",          "w": 320, "h": 400, "alt": "Closing card" },
 
     "careers-baseline": { "node": "4220:20762", "page": "careers", "file": "careers/01-baseline.png", "w": 838, "h": 432, "eager": true, "alt": "", "_note": "Parent composite superseding a/b/c sub-images; shadow bleed, use measured 1x" },
     "careers-funnel": { "node": "4153:16765", "page": "careers", "file": "careers/01-funnel.png", "w": 800, "h": 302, "alt": "" },

@@ -966,9 +966,11 @@ a.card:hover .card-title {
 .echo-sol-tab:hover:not([aria-pressed="true"]) { background: rgba(239, 234, 227, 0.5); }
 .echo-sol-frame {
   position: relative;
-  overflow: hidden;
   transition: height 300ms ease;
 }
+.echo-badge-strip { gap: 16px; }
+.echo-badge-strip img { width: 320px; }
+.echo-badge-caption { color: var(--color-ink-muted); margin-top: var(--space-12); }
 .echo-sol-channel { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; pointer-events: none; }
 .echo-sol-channel--active { opacity: 1; pointer-events: auto; }
 .echo-sol-slide {
