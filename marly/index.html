@@ -10,8 +10,8 @@
   /* — Ad gallery marquee strip — */
   .ad-strip-outer{overflow:hidden;margin-top:28px;}
   .ad-strip-track{
-    display:flex;gap:8px;width:max-content;
-    animation:ad-marquee 90s linear infinite;
+    display:flex;gap:0;width:max-content;
+    animation:ad-marquee 70s linear infinite;
   }
   .ad-strip-track.is-paused{animation-play-state:paused;}
   @keyframes ad-marquee{
@@ -19,23 +19,23 @@
     100%{transform:translateX(-50%);}
   }
   @media(prefers-reduced-motion:reduce){.ad-strip-track{animation:none;}}
-  .ad-strip-item{
-    position:relative;flex-shrink:0;
-    width:240px;height:200px;overflow:hidden;
-    cursor:default;background:#f4f3f0;
+  .ad-tile{position:relative;width:613px;height:400px;flex-shrink:0;}
+  .ad-slot{
+    position:absolute;overflow:hidden;
+    background:#f4f3f0;cursor:default;
   }
-  .ad-strip-item img{
+  .ad-slot img{
     width:100%;height:100%;display:block;
     object-fit:contain;object-position:center;
     pointer-events:none;user-select:none;
   }
-  .ad-strip-item iframe{
+  .ad-slot iframe{
     position:absolute;top:0;left:0;
     border:none;transform-origin:top left;
     pointer-events:none;
   }
-  .ad-strip-item.is-active{cursor:pointer;}
-  .ad-strip-item.is-active iframe{pointer-events:auto;}
+  .ad-slot.is-active{cursor:pointer;}
+  .ad-slot.is-active iframe{pointer-events:auto;}
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3KK0FQDE6"></script>
   <script>
@@ -293,82 +293,7 @@
               <img src="/assets/marly/04-ad-sizes.png" width="447" height="484" alt="" loading="lazy">
             </picture>
             <div class="ad-strip-outer" aria-hidden="true">
-              <div class="ad-strip-track" id="ad-strip-track">
-                <div class="ad-strip-item" data-ad-src="/review/byredo/mojave-ghost-discovery/units/160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/byredo-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/byredo/mojave-ghost-discovery/units/300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/byredo-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/byredo/mojave-ghost-discovery/units/300x600.html" data-ad-w="300" data-ad-h="600"><img src="/assets/marly/gallery/byredo-300x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/byredo/mojave-ghost-discovery/units/320x50.html" data-ad-w="320" data-ad-h="50"><img src="/assets/marly/gallery/byredo-320x50.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/byredo/mojave-ghost-discovery/units/728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/byredo-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ghia/summer-spritz-series/units/set1-160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/ghia-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ghia/summer-spritz-series/units/set1-300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/ghia-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ghia/summer-spritz-series/units/set1-300x600.html" data-ad-w="300" data-ad-h="600"><img src="/assets/marly/gallery/ghia-300x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ghia/summer-spritz-series/units/set1-320x50.html" data-ad-w="320" data-ad-h="50"><img src="/assets/marly/gallery/ghia-320x50.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ghia/summer-spritz-series/units/set1-728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/ghia-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/gorjana-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/gorjana-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_320x50.html" data-ad-w="320" data-ad-h="50"><img src="/assets/marly/gallery/gorjana-320x50.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/gorjana-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_970x250.html" data-ad-w="970" data-ad-h="250"><img src="/assets/marly/gallery/gorjana-970x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/graza-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/graza-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_320x50.html" data-ad-w="320" data-ad-h="50"><img src="/assets/marly/gallery/graza-320x50.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/graza-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_970x250.html" data-ad-w="970" data-ad-h="250"><img src="/assets/marly/gallery/graza-970x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/levis/pride-2026/units/set-4-i-know-you-know/160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/levis-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/levis/pride-2026/units/set-4-i-know-you-know/300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/levis-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/levis/pride-2026/units/set-4-i-know-you-know/300x600.html" data-ad-w="300" data-ad-h="600"><img src="/assets/marly/gallery/levis-300x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/levis/pride-2026/units/set-4-i-know-you-know/320x50.html" data-ad-w="320" data-ad-h="50"><img src="/assets/marly/gallery/levis-320x50.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/levis/pride-2026/units/set-4-i-know-you-know/728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/levis-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/magic-spoon/summer-sampler-drop/units/set1-160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/magic-spoon-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/magic-spoon/summer-sampler-drop/units/set1-300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/magic-spoon-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/magic-spoon/summer-sampler-drop/units/set1-300x600.html" data-ad-w="300" data-ad-h="600"><img src="/assets/marly/gallery/magic-spoon-300x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/magic-spoon/summer-sampler-drop/units/set1-320x50.html" data-ad-w="320" data-ad-h="50"><img src="/assets/marly/gallery/magic-spoon-320x50.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/magic-spoon/summer-sampler-drop/units/set1-728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/magic-spoon-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ritual/your-body-your-ritual/units/160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/ritual-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ritual/your-body-your-ritual/units/300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/ritual-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ritual/your-body-your-ritual/units/320x50.html" data-ad-w="320" data-ad-h="50"><img src="/assets/marly/gallery/ritual-320x50.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ritual/your-body-your-ritual/units/728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/ritual-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/tumblerware/fathers-day/ads/160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/tumblerware-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/tumblerware/fathers-day/ads/300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/tumblerware-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/tumblerware/fathers-day/ads/728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/tumblerware-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/byredo/mojave-ghost-discovery/units/160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/byredo-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/byredo/mojave-ghost-discovery/units/300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/byredo-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/byredo/mojave-ghost-discovery/units/300x600.html" data-ad-w="300" data-ad-h="600"><img src="/assets/marly/gallery/byredo-300x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/byredo/mojave-ghost-discovery/units/320x50.html" data-ad-w="320" data-ad-h="50"><img src="/assets/marly/gallery/byredo-320x50.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/byredo/mojave-ghost-discovery/units/728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/byredo-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ghia/summer-spritz-series/units/set1-160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/ghia-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ghia/summer-spritz-series/units/set1-300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/ghia-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ghia/summer-spritz-series/units/set1-300x600.html" data-ad-w="300" data-ad-h="600"><img src="/assets/marly/gallery/ghia-300x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ghia/summer-spritz-series/units/set1-320x50.html" data-ad-w="320" data-ad-h="50"><img src="/assets/marly/gallery/ghia-320x50.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ghia/summer-spritz-series/units/set1-728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/ghia-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/gorjana-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/gorjana-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_320x50.html" data-ad-w="320" data-ad-h="50"><img src="/assets/marly/gallery/gorjana-320x50.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/gorjana-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_970x250.html" data-ad-w="970" data-ad-h="250"><img src="/assets/marly/gallery/gorjana-970x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/graza-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/graza-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_320x50.html" data-ad-w="320" data-ad-h="50"><img src="/assets/marly/gallery/graza-320x50.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/graza-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_970x250.html" data-ad-w="970" data-ad-h="250"><img src="/assets/marly/gallery/graza-970x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/levis/pride-2026/units/set-4-i-know-you-know/160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/levis-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/levis/pride-2026/units/set-4-i-know-you-know/300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/levis-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/levis/pride-2026/units/set-4-i-know-you-know/300x600.html" data-ad-w="300" data-ad-h="600"><img src="/assets/marly/gallery/levis-300x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/levis/pride-2026/units/set-4-i-know-you-know/320x50.html" data-ad-w="320" data-ad-h="50"><img src="/assets/marly/gallery/levis-320x50.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/levis/pride-2026/units/set-4-i-know-you-know/728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/levis-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/magic-spoon/summer-sampler-drop/units/set1-160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/magic-spoon-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/magic-spoon/summer-sampler-drop/units/set1-300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/magic-spoon-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/magic-spoon/summer-sampler-drop/units/set1-300x600.html" data-ad-w="300" data-ad-h="600"><img src="/assets/marly/gallery/magic-spoon-300x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/magic-spoon/summer-sampler-drop/units/set1-320x50.html" data-ad-w="320" data-ad-h="50"><img src="/assets/marly/gallery/magic-spoon-320x50.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/magic-spoon/summer-sampler-drop/units/set1-728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/magic-spoon-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ritual/your-body-your-ritual/units/160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/ritual-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ritual/your-body-your-ritual/units/300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/ritual-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ritual/your-body-your-ritual/units/320x50.html" data-ad-w="320" data-ad-h="50"><img src="/assets/marly/gallery/ritual-320x50.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/ritual/your-body-your-ritual/units/728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/ritual-728x90.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/tumblerware/fathers-day/ads/160x600.html" data-ad-w="160" data-ad-h="600"><img src="/assets/marly/gallery/tumblerware-160x600.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/tumblerware/fathers-day/ads/300x250.html" data-ad-w="300" data-ad-h="250"><img src="/assets/marly/gallery/tumblerware-300x250.png" alt="" loading="lazy"></div>
-                <div class="ad-strip-item" data-ad-src="/review/tumblerware/fathers-day/ads/728x90.html" data-ad-w="728" data-ad-h="90"><img src="/assets/marly/gallery/tumblerware-728x90.png" alt="" loading="lazy"></div>
-              </div>
+              <div class="ad-strip-track" id="ad-strip-track"><!-- JS-generated tiles --></div>
             </div>
           </div>
         </section>
@@ -456,52 +381,173 @@
 </div><!-- .page -->
 <script src="/js/site.js"></script>
 <script>
-/* — Ad gallery hover-to-play — */
+/* — Ad gallery: tile builder + hover-to-play — */
 (function () {
   var track = document.getElementById('ad-strip-track');
   if (!track) return;
+
+  /* ── Figma tile spec ────────────────────────────────────────────
+     Tile pitch = 613px (content 577px starting at x=27, 36px gap).
+     8 absolutely-positioned slots per tile, 400px tall.
+  ──────────────────────────────────────────────────────────────── */
+  var SLOTS = [
+    {x:27,  y:16,  w:60,  h:224, size:'160x600', fallback:null   },
+    {x:87,  y:290, w:112, h:94,  size:'300x250', fallback:null   },
+    {x:131, y:16,  w:111, h:224, size:'300x600', fallback:'160x600'},
+    {x:242, y:290, w:362, h:94,  size:'970x250', fallback:'728x90'},
+    {x:296, y:16,  w:125, h:103, size:'300x250', fallback:null   },
+    {x:296, y:163, w:112, h:19,  size:'320x50',  fallback:null   },
+    {x:296, y:226, w:271, h:33,  size:'728x90',  fallback:null   },
+    {x:485, y:16,  w:119, h:178, size:'300x600', fallback:'160x600'},
+  ];
+
+  /* per-brand ad catalogue ─────────────────────────────────────── */
+  var ADS = {
+    byredo: {
+      '160x600': {src:'/review/byredo/mojave-ghost-discovery/units/160x600.html', w:160, h:600},
+      '300x250': {src:'/review/byredo/mojave-ghost-discovery/units/300x250.html', w:300, h:250},
+      '300x600': {src:'/review/byredo/mojave-ghost-discovery/units/300x600.html', w:300, h:600},
+      '320x50':  {src:'/review/byredo/mojave-ghost-discovery/units/320x50.html',  w:320, h:50 },
+      '728x90':  {src:'/review/byredo/mojave-ghost-discovery/units/728x90.html',  w:728, h:90 },
+    },
+    ghia: {
+      '160x600': {src:'/review/ghia/summer-spritz-series/units/set1-160x600.html', w:160, h:600},
+      '300x250': {src:'/review/ghia/summer-spritz-series/units/set1-300x250.html', w:300, h:250},
+      '300x600': {src:'/review/ghia/summer-spritz-series/units/set1-300x600.html', w:300, h:600},
+      '320x50':  {src:'/review/ghia/summer-spritz-series/units/set1-320x50.html',  w:320, h:50 },
+      '728x90':  {src:'/review/ghia/summer-spritz-series/units/set1-728x90.html',  w:728, h:90 },
+    },
+    gorjana: {
+      '160x600': {src:'/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_160x600.html', w:160, h:600},
+      '300x250': {src:'/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_300x250.html', w:300, h:250},
+      '320x50':  {src:'/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_320x50.html',  w:320, h:50 },
+      '728x90':  {src:'/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_728x90.html',  w:728, h:90 },
+      '970x250': {src:'/review/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_970x250.html', w:970, h:250},
+    },
+    graza: {
+      '160x600': {src:'/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_160x600.html', w:160, h:600},
+      '300x250': {src:'/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_300x250.html', w:300, h:250},
+      '320x50':  {src:'/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_320x50.html',  w:320, h:50 },
+      '728x90':  {src:'/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_728x90.html',  w:728, h:90 },
+      '970x250': {src:'/review/graza/mayo-launch-q2-2026/units/graza-mayo-launch_970x250.html', w:970, h:250},
+    },
+    levis: {
+      '160x600': {src:'/review/levis/pride-2026/units/set-4-i-know-you-know/160x600.html', w:160, h:600},
+      '300x250': {src:'/review/levis/pride-2026/units/set-4-i-know-you-know/300x250.html', w:300, h:250},
+      '300x600': {src:'/review/levis/pride-2026/units/set-4-i-know-you-know/300x600.html', w:300, h:600},
+      '320x50':  {src:'/review/levis/pride-2026/units/set-4-i-know-you-know/320x50.html',  w:320, h:50 },
+      '728x90':  {src:'/review/levis/pride-2026/units/set-4-i-know-you-know/728x90.html',  w:728, h:90 },
+    },
+    'magic-spoon': {
+      '160x600': {src:'/review/magic-spoon/summer-sampler-drop/units/set1-160x600.html', w:160, h:600},
+      '300x250': {src:'/review/magic-spoon/summer-sampler-drop/units/set1-300x250.html', w:300, h:250},
+      '300x600': {src:'/review/magic-spoon/summer-sampler-drop/units/set1-300x600.html', w:300, h:600},
+      '320x50':  {src:'/review/magic-spoon/summer-sampler-drop/units/set1-320x50.html',  w:320, h:50 },
+      '728x90':  {src:'/review/magic-spoon/summer-sampler-drop/units/set1-728x90.html',  w:728, h:90 },
+    },
+    ritual: {
+      '160x600': {src:'/review/ritual/your-body-your-ritual/units/160x600.html', w:160, h:600},
+      '300x250': {src:'/review/ritual/your-body-your-ritual/units/300x250.html', w:300, h:250},
+      '320x50':  {src:'/review/ritual/your-body-your-ritual/units/320x50.html',  w:320, h:50 },
+      '728x90':  {src:'/review/ritual/your-body-your-ritual/units/728x90.html',  w:728, h:90 },
+    },
+    tumblerware: {
+      '160x600': {src:'/review/tumblerware/fathers-day/ads/160x600.html', w:160, h:600},
+      '300x250': {src:'/review/tumblerware/fathers-day/ads/300x250.html', w:300, h:250},
+      '728x90':  {src:'/review/tumblerware/fathers-day/ads/728x90.html',  w:728, h:90 },
+    },
+  };
+
+  var BRANDS = ['byredo','ghia','gorjana','graza','levis','magic-spoon','ritual','tumblerware'];
+  var N_TILES = 8; /* one full brand cycle before loop repeats */
+
+  function getAd(brand, size, fallback) {
+    var b = ADS[brand];
+    if (b && b[size])               return {size: size,     ad: b[size]};
+    if (fallback && b && b[fallback]) return {size: fallback, ad: b[fallback]};
+    return null;
+  }
+
+  function buildTile(tileIdx) {
+    var tile = document.createElement('div');
+    tile.className = 'ad-tile';
+    SLOTS.forEach(function (slot, s) {
+      var brand  = BRANDS[(tileIdx + s) % BRANDS.length];
+      var result = getAd(brand, slot.size, slot.fallback);
+      if (!result) return;
+      var el = document.createElement('div');
+      el.className = 'ad-slot';
+      el.style.cssText = 'left:' + slot.x + 'px;top:' + slot.y + 'px;width:' + slot.w + 'px;height:' + slot.h + 'px';
+      el.dataset.adSrc = result.ad.src;
+      el.dataset.adW   = result.ad.w;
+      el.dataset.adH   = result.ad.h;
+      var img = document.createElement('img');
+      img.src = '/assets/marly/gallery/' + brand + '-' + result.size + '.png';
+      img.alt = '';
+      /* no loading=lazy — marquee images must be eager to avoid
+         deferred-forever in animated overflow:hidden containers */
+      el.appendChild(img);
+      tile.appendChild(el);
+    });
+    return tile;
+  }
+
+  /* Build N_TILES, clone for seamless loop */
+  var primaryTiles = [];
+  for (var t = 0; t < N_TILES; t++) {
+    var tile = buildTile(t);
+    primaryTiles.push(tile);
+    track.appendChild(tile);
+  }
+  primaryTiles.forEach(function (tile) {
+    track.appendChild(tile.cloneNode(true));
+  });
+
+  /* ── Hover-to-play (event delegation) ──────────────────────────── */
   var activeIframe = null;
-  var activeItem   = null;
+  var activeSlot   = null;
 
   function stopActive() {
     if (activeIframe) { activeIframe.remove(); activeIframe = null; }
-    if (activeItem)   { activeItem.classList.remove('is-active'); activeItem = null; }
+    if (activeSlot)   { activeSlot.classList.remove('is-active'); activeSlot = null; }
     track.classList.remove('is-paused');
   }
 
-  function startItem(item) {
-    if (item === activeItem) return;
+  function startSlot(slot) {
+    if (slot === activeSlot) return;
     stopActive();
-    var nativeW   = parseInt(item.dataset.adW, 10);
-    var nativeH   = parseInt(item.dataset.adH, 10);
-    var cW        = item.offsetWidth;
-    var cH        = item.offsetHeight;
-    var scale     = Math.min(cW / nativeW, cH / nativeH);
-    var tx        = (cW - nativeW * scale) / 2;
-    var ty        = (cH - nativeH * scale) / 2;
-    var iframe    = document.createElement('iframe');
-    iframe.src    = item.dataset.adSrc;
+    var nativeW = parseInt(slot.dataset.adW, 10);
+    var nativeH = parseInt(slot.dataset.adH, 10);
+    var cW      = slot.offsetWidth;
+    var cH      = slot.offsetHeight;
+    var scale   = Math.min(cW / nativeW, cH / nativeH);
+    var tx      = (cW - nativeW * scale) / 2;
+    var ty      = (cH - nativeH * scale) / 2;
+    var iframe  = document.createElement('iframe');
+    iframe.src  = slot.dataset.adSrc;
     iframe.setAttribute('width',   nativeW);
     iframe.setAttribute('height',  nativeH);
     iframe.setAttribute('sandbox', 'allow-scripts');
-    iframe.setAttribute('loading', 'lazy');
     iframe.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
-    item.appendChild(iframe);
-    item.classList.add('is-active');
+    slot.appendChild(iframe);
+    slot.classList.add('is-active');
     activeIframe = iframe;
-    activeItem   = item;
+    activeSlot   = slot;
     track.classList.add('is-paused');
   }
 
-  [].forEach.call(document.querySelectorAll('.ad-strip-item'), function (item) {
-    item.addEventListener('mouseenter', function () { startItem(item); });
-    item.addEventListener('mouseleave', stopActive);
-    item.addEventListener('click', function (e) {
-      e.stopPropagation();
-      if (activeItem === item) { stopActive(); } else { startItem(item); }
-    });
+  track.addEventListener('mouseover', function (e) {
+    var slot = e.target.closest && e.target.closest('.ad-slot');
+    if (slot) startSlot(slot);
   });
-
+  track.addEventListener('mouseout', function (e) {
+    var slot = e.target.closest && e.target.closest('.ad-slot');
+    if (slot && !slot.contains(e.relatedTarget)) stopActive();
+  });
+  track.addEventListener('click', function (e) {
+    var slot = e.target.closest && e.target.closest('.ad-slot');
+    if (slot) { e.stopPropagation(); (slot === activeSlot) ? stopActive() : startSlot(slot); }
+  });
   document.addEventListener('click', stopActive);
 
   /* Pause animation when strip is offscreen */
