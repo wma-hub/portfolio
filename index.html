@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wilson Ma — Designer &amp; Creative Technologist</title>
+  <title>Wilson Ma &#8212; Designer &amp; Creative Technologist</title>
   <link rel="preload" href="/assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/site.css">
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3KK0FQDE6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -18,7 +17,6 @@
 <body>
 <div class="page">
 
-  <!-- NAV -->
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
     <a href="/" class="nav-wordmark">wilson ma</a>
     <div class="nav-links">
@@ -30,62 +28,127 @@
 
   <main>
 
-    <!-- HERO -->
     <section class="hero" aria-label="Introduction">
       <div class="hero-inner">
         <div class="hero-copy fade-up">
           <h1 class="display-hero">Designer &amp; creative technologist in New York.</h1>
           <p class="heading-subhead hero-sub">Building systems where design survives production.</p>
+          <!-- "five projects" below is verbatim from brief; six cards are shown. Treat Week may be intentionally uncounted. Do not change. -->
+          <!-- <p class="body-default">I build design systems and the production pipelines that run on them. The five projects below span a solo ad studio, four years of shipped work at Workhuman, a brand built in four weeks, and a market terminal written in Python, and the through line is the same: design intent that survives production.</p> -->
         </div>
-        <!-- Placeholder — real composed portrait export lands here later -->
         <div class="hero-portrait hero-portrait--home fade-up">
           <img src="/assets/home/portrait.png" width="284" height="261" alt="" loading="eager">
         </div>
       </div>
     </section>
 
-    <!-- WORK -->
     <section class="work" id="work" aria-label="Selected work">
       <div class="work-inner">
 
-        <div class="section-head fade-up">
-          <h2 class="heading-section">A few companies I&rsquo;ve worked with</h2>
-          <span class="rule" aria-hidden="true"></span>
-        </div>
-
-        <div class="card-row card-row--four fade-up">
-          <a href="/workhuman" class="card">
-            <span class="card-title heading-card">Workhuman</span>
-            <span class="card-desc body-default">Same instinct, five layers.</span>
-          </a>
-          <a href="/treat-week" class="card">
-            <span class="card-title heading-card">Treat Week</span>
-            <span class="card-kicker meta-caption">by Workhuman</span>
-            <span class="card-desc body-default">A brand built for a sale.</span>
-          </a>
-          <a href="/west-elm" class="card">
-            <span class="card-title heading-card">West Elm</span>
-            <span class="card-desc body-default">Conversion pressure at retail-email scale.</span>
-          </a>
-          <a href="/ripco" class="card">
-            <span class="card-title heading-card">RIPCO Real Estate</span>
-            <span class="card-desc body-default">Marketing for 100+ properties at once.</span>
-          </a>
-        </div>
-
+        <!-- Personal projects -->
         <div class="section-head fade-up">
           <h2 class="heading-section">Personal projects</h2>
           <span class="rule" aria-hidden="true"></span>
         </div>
 
         <div class="card-row card-row--two fade-up">
-          <a href="/marly" class="card">
-            <span class="card-title heading-card">MARLY Creative Concepts</span>
-            <span class="card-desc body-default">Animated HTML5 display, built like a system.</span>
+          <a href="/marly" class="card card--media">
+            <div class="card-thumb">
+              <div style="position:relative;width:100%;height:200px;background:#E3E1DE;">
+                <img src="/assets/marly/gallery/ghia-mr.png" alt="" loading="eager" style="position:absolute;left:21px;top:65px;width:84px;height:70px;object-fit:cover;">
+                <img src="/assets/marly/gallery/magic-spoon-mr.png" alt="" loading="eager" style="position:absolute;left:113px;top:65px;width:84px;height:70px;object-fit:cover;">
+                <img src="/assets/marly/gallery/graza-mr.png" alt="" loading="eager" style="position:absolute;left:204px;top:65px;width:84px;height:70px;object-fit:cover;">
+                <img src="/assets/marly/gallery/byredo-mr.png" alt="" loading="eager" style="position:absolute;left:295px;top:65px;width:84px;height:70px;object-fit:cover;">
+              </div>
+            </div>
+            <div class="card-text">
+              <span class="card-title heading-card">Marly Creative Concepts</span>
+              <span class="card-desc body-default">Systematic animated HTML5 display ad production</span>
+            </div>
           </a>
-          <a href="/ge-terminal" class="card">
-            <span class="card-title heading-card">GE Terminal</span>
-            <span class="card-desc body-default">Bloomberg for a game economy.</span>
+          <a href="/ge-terminal" class="card card--media">
+            <div class="card-thumb">
+              <picture>
+                <source type="image/webp" srcset="/assets/home/card-ge.webp">
+                <img src="/assets/home/card-ge.png" width="400" height="200" alt="" loading="eager">
+              </picture>
+            </div>
+            <div class="card-text">
+              <span class="card-title heading-card">Grand Exchange Terminal</span>
+              <span class="card-desc body-default">Market intelligence for a game economy.</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Workhuman -->
+        <div class="section-head fade-up">
+          <h2 class="heading-section">Workhuman</h2>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
+
+        <div class="card-row card-row--four fade-up">
+          <a href="/aura" class="card card--media">
+            <div class="card-thumb">
+              <picture>
+                <source type="image/webp" srcset="/assets/home/card-aura.webp">
+                <img src="/assets/home/card-aura.png" width="240" height="120" alt="" loading="lazy">
+              </picture>
+            </div>
+            <div class="card-text">
+              <span class="card-title heading-card">Aura</span>
+              <span class="card-desc body-default">Web Design System</span>
+            </div>
+          </a>
+          <a href="/echo" class="card card--media">
+            <div class="card-thumb">
+              <picture>
+                <source type="image/webp" srcset="/assets/home/card-echo.webp">
+                <img src="/assets/home/card-echo.png" width="240" height="120" alt="" loading="lazy">
+              </picture>
+            </div>
+            <div class="card-text">
+              <span class="card-title heading-card">Echo</span>
+              <span class="card-desc body-default">Marketing Design System</span>
+            </div>
+          </a>
+          <a href="/careers" class="card card--media">
+            <div class="card-thumb">
+              <picture>
+                <source type="image/webp" srcset="/assets/home/card-careers.webp">
+                <img src="/assets/home/card-careers.png" width="240" height="120" alt="" loading="lazy">
+              </picture>
+            </div>
+            <div class="card-text">
+              <span class="card-title heading-card">Careers Refresh</span>
+              <span class="card-desc body-default">Conversion Design</span>
+            </div>
+          </a>
+          <a href="/treat-week" class="card card--media">
+            <div class="card-thumb">
+              <picture>
+                <source type="image/webp" srcset="/assets/home/card-treatweek.webp">
+                <img src="/assets/home/card-treatweek.png" width="240" height="120" alt="" loading="lazy">
+              </picture>
+            </div>
+            <div class="card-text">
+              <span class="card-title heading-card">Treat Week</span>
+              <span class="card-desc body-default">A brand built for a sale.</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Previous Companies -->
+        <div class="section-head fade-up">
+          <h2 class="heading-section">Previous Companies</h2>
+          <span class="rule" aria-hidden="true"></span>
+        </div>
+
+        <div class="card-row card-row--prev fade-up">
+          <a href="/west-elm" class="card">
+            <span class="card-title heading-card">West Elm, Williams Sonoma</span>
+          </a>
+          <a href="/ripco" class="card">
+            <span class="card-title heading-card">RIPCO Real Estate</span>
           </a>
         </div>
 
@@ -94,7 +157,6 @@
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-mark">

@@ -3,10 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MARLY Creative Concepts — Wilson Ma</title>
+  <title>Marly Creative Concepts &#8212; Wilson Ma</title>
   <link rel="preload" href="/assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/site.css">
-  <!-- Google tag (gtag.js) -->
+  <style>
+  /* — Creative gallery marquee strip — */
+  .mc-rail{overflow:hidden;margin-top:28px;}
+  .mc-rail-track{
+    display:flex;gap:0;width:max-content;
+    animation:mc-marquee 70s linear infinite;
+  }
+  .mc-rail-track.is-paused{animation-play-state:paused;}
+  @keyframes mc-marquee{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+  @media(prefers-reduced-motion:reduce){.mc-rail-track{animation:none;}}
+  .mc-tile{position:relative;width:613px;height:400px;flex-shrink:0;}
+  .mc-slot{
+    position:absolute;overflow:hidden;
+    cursor:default;
+  }
+  .mc-slot img{
+    width:100%;height:100%;display:block;
+    object-fit:contain;object-position:center;
+    pointer-events:none;user-select:none;
+  }
+  .mc-slot iframe{
+    position:absolute;top:0;left:0;
+    border:none;transform-origin:top left;
+    pointer-events:none;
+  }
+  .mc-slot.is-active{cursor:pointer;}
+  .mc-slot.is-active iframe{pointer-events:auto;}
+  </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3KK0FQDE6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -29,57 +59,283 @@
 
   <main>
 
-    <section class="hero" aria-label="MARLY Creative Concepts">
+    <section class="hero" aria-label="Marly Creative Concepts">
       <div class="hero-inner">
-        <div class="hero-copy hero-copy--narrow fade-up">
-          <h1 class="display-hero">MARLY Creative Concepts</h1>
+        <div class="hero-copy fade-up">
+          <h1 class="display-hero">Marly Creative Concepts</h1>
           <p class="heading-subhead hero-sub">Animated HTML5 display, built like a system.</p>
-          <p class="body-default hero-intro">Marly is <a href="https://marly.cc" class="text-link" target="_blank" rel="noopener">the solo studio I founded and run</a>: a Figma-to-production pipeline that turns brand design systems into animated ad sets. I&#8217;m the creative director, the pipeline architect, and the final QA gate, which is why the system below exists at all.</p>
         </div>
-        <div class="ad-slot" style="width:300px;height:250px;" id="slot-hero" aria-label="Marly client work sample"></div>
+      </div>
+      <div class="ge-meta-row fade-up">
+        <div class="ge-meta">
+          <p class="ge-meta-label body-default"><strong>Studio</strong></p>
+          <p class="ge-meta-value body-default">Marly Creative Concepts</p>
+        </div>
+        <div class="ge-meta">
+          <p class="ge-meta-label body-default"><strong>Year</strong></p>
+          <p class="ge-meta-value body-default">Founded 2026</p>
+        </div>
+        <div class="ge-meta">
+          <p class="ge-meta-label body-default"><strong>Role</strong></p>
+          <p class="ge-meta-value body-default">Founder, creative director, pipeline architect</p>
+        </div>
+        <div class="ge-meta">
+          <p class="ge-meta-label body-default"><strong>Output</strong></p>
+          <p class="ge-meta-value body-default">Animated HTML5 display</p>
+        </div>
       </div>
     </section>
 
-    <section class="cs-body" aria-label="Brand range">
-      <div class="cs-body-inner">
+    <section class="cs-body" aria-label="Case study">
+      <div class="cs-body-inner cs-sections">
 
-        <div class="fade-up">
-  <div class="brand-logos">
-            <div class="brand-logo-cell"><img src="/assets/marly/magic-spoon-logo.svg" alt="Magic Spoon" width="108" height="48"></div>
-            <div class="brand-logo-cell"><img src="/assets/marly/ritual-logo.png" alt="Ritual" width="114" height="36"></div>
-            <div class="brand-logo-cell"><img src="/assets/marly/graza-logo.png" alt="Graza" width="109" height="30"></div>
-            <div class="brand-logo-cell"><img src="/assets/marly/byredo-logo.svg" alt="Byredo" width="123" height="27"></div>
-            <div class="brand-logo-cell"><img src="/assets/marly/ghia-logo.svg" alt="Ghia" width="98" height="41"></div>
-            <div class="brand-logo-cell"><img src="/assets/marly/tumblerware-logo.png" alt="Tumblerware" width="131" height="36"></div>
+        <!-- 01 — Context -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">Context</h2>
           </div>
-        </div>
-
-        <div class="problem-row fade-up">
-          <div class="problem-copy">
-            <p class="body-default">Enterprise platforms like Celtra automate at scale but assume someone else is producing the creative. Agencies charge $350&#8211;1,500 per ad set and reset the file handoff with every campaign. DIY tools produce output that looks like Canva, because it is.</p>
-            <p class="body-default">D2C brands spend real money on type, palette, and a product with a shape worth showing, and still can&#8217;t get those choices honored downstream.</p>
-            <p class="body-default text-link-line"><a href="https://marly.cc" class="text-link" target="_blank" rel="noopener">See the studio at marly.cc &#8594;</a></p>
-          </div>
-  <div class="ad-column">
-    <div class="ad-slots-col brand-range-slots-wrap" id="brand-range-slots">
-            <div class="ad-slot-wrap" data-slot="728x90">
-              <div class="ad-slot" style="width:447px;height:55px;" id="slot-728x90"></div>
-              <p class="ad-slot-label">728&#215;90</p>
-            </div>
-            <div style="display:flex;gap:40px;align-items:flex-start;">
-              <div class="ad-slot-wrap" data-slot="300x250">
-                <div class="ad-slot" style="width:316px;height:263px;" id="slot-300x250"></div>
-                <p class="ad-slot-label">300&#215;250</p>
+          <div class="cs-content">
+            <p class="body-default">Marly is the solo studio I founded and run: a Figma-to-production pipeline that turns brand design systems into animated ad sets. I&#8217;m the creative director, the pipeline architect, and the final QA gate.</p>
+            <div class="cs-stats cs-stats--4">
+              <div class="cs-stat">
+                <p class="cs-stat-figure">17</p>
+                <p class="cs-stat-caption meta-caption">builds across D2C, SaaS, apparel, CPG</p>
               </div>
-              <div class="ad-slot-wrap" data-slot="160x600">
-                <div class="ad-slot" style="width:98px;height:367px;" id="slot-160x600"></div>
-                <p class="ad-slot-label">160&#215;600</p>
+              <div class="cs-stat">
+                <p class="cs-stat-figure">6</p>
+                <p class="cs-stat-caption meta-caption">brands in the range</p>
+              </div>
+              <div class="cs-stat">
+                <p class="cs-stat-figure">10</p>
+                <p class="cs-stat-caption meta-caption">pipeline stages per build</p>
+              </div>
+              <div class="cs-stat">
+                <p class="cs-stat-figure">1</p>
+                <p class="cs-stat-caption meta-caption">person, end to end</p>
               </div>
             </div>
+            <p class="wh-caption meta-caption">Stack: Figma &#8594; Claude Opus &#8594; Claude Code &#8594; Vercel.</p>
           </div>
-    <p class="meta-caption spec-note">Spec builds, produced through the Marly pipeline from each brand&#8217;s design system.</p>
-  </div>
-        </div>
+        </section>
+
+        <!-- 02 — Problem -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">Problem</h2>
+          </div>
+          <div class="cs-content">
+            <p class="body-default">Display advertising is where brand systems go to die. A D2C brand spends real money on type, palette, and a product with a shape worth showing, and none of those choices survive the handoff downstream.</p>
+            <p class="body-default">The existing options each fail at a different point. Enterprise platforms like Celtra automate at scale but assume someone else is producing the creative. Agencies charge $350&#8211;1,500 per ad set and reset the file handoff with every campaign, so nothing accumulates. Turnaround runs upwards of 5 weeks from brief to delivered set, and every campaign restarts the file handoff from zero. DIY tools produce output that looks like Canva.</p>
+            <p class="body-default">The gap is not automation and it is not craft. It is that nobody holds both ends of the same rope.</p>
+          </div>
+        </section>
+
+        <!-- 03 — Solution -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">Solution</h2>
+          </div>
+          <div class="cs-content">
+            <p class="body-default">Marly treats an ad set the way a product team treats a component library: brand decisions get encoded once, and every size is an instance of those decisions rather than a fresh interpretation of them.</p>
+            <div class="cs-fork">
+              <span class="cs-fork-tag">DECISION FORK 1</span>
+              <div class="cs-fork-content">
+                <p class="cs-fork-question">Automate the design, or automate the production?</p>
+                <p class="body-default">The tempting version of this studio generates the creative. Prompt in a brief, get ad sets out. Bigger ceiling, better pitch, no dependency on my hours, and it&#8217;s what most people in this space are building. It also produces Canva output, because a model asked to make aesthetic decisions makes average ones, and average is already free.</p>
+                <p class="body-default">Marly runs the other way: creative stays human-authored in Figma, the model handles assembly, sizing and build. Ghia&#8217;s pastel restraint and Magic Spoon&#8217;s maximalism come out of identical infrastructure. The system encodes process, not aesthetic. The ceiling is real. Every campaign still needs me in Figma, which is why this is a studio and not a product.</p>
+              </div>
+            </div>
+            <h3 class="heading-subhead">Three tiers, each compounding the one below</h3>
+            <p class="body-default">The Foundation layer is client-agnostic: ad size canvases, layout variants, component shells, animation specs, IAB spacing tokens, the skeleton every build inherits. The second layer is per-client: Foundation components with brand tokens swapped in, so every client file inherits Foundation updates. The third is per-campaign: a CLAUDE.md spec translating the brief into machine-readable production instructions, authored by Opus before Code starts.</p>
+            <p class="body-default">Which is why the second campaign for any client is faster than the first.</p>
+            <div class="cs-level">
+              <div class="cs-level-tabs" role="group" aria-label="Tier">
+                <button class="cs-level-tab" aria-pressed="true">Tier 1</button>
+                <button class="cs-level-tab" aria-pressed="false">Tier 2</button>
+                <button class="cs-level-tab" aria-pressed="false">Tier 3</button>
+              </div>
+              <div class="cs-level-frame">
+                <div class="cs-level-panel cs-level-panel--active">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/02-tier-1.webp">
+                    <img src="/assets/marly/02-tier-1.png" width="800" height="431" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-level-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/02-tier-2.webp">
+                    <img src="/assets/marly/02-tier-2.png" width="800" height="425" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-level-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/02-tier-3.webp">
+                    <img src="/assets/marly/02-tier-3.png" width="800" height="397" alt="" loading="lazy">
+                  </picture>
+                </div>
+              </div>
+            </div>
+            <h3 class="heading-subhead">Two phases, one gate</h3>
+            <p class="body-default">Phase I is planning. Opus authors a plan.md before Code touches a file: a brief synthesis, gap audit with explicit resolutions, a diff against deployed state for V2+ builds, and a §7 coverage table with a row for every pipeline stage. Code cannot start Stage 1 until every row resolves.</p>
+            <p class="body-default">Phase II is execution. Claude Code generates the HTML, deploys the review portal, and syncs the Notion workspace. Before the review page builds, /verify-delivery runs a nine-check ground-truth pass against the deployed file state rather than a self-report from Code: paths resolving, file weights, IAB compliance, animation tokens per spec. If any check fails, the build stops.</p>
+            <p class="body-default">This is how the pipeline catches the class of errors that only surface after a client clicks play.</p>
+            <picture>
+              <source type="image/webp" srcset="/assets/marly/02-gate-diagram.webp">
+              <img src="/assets/marly/02-gate-diagram.png" width="800" height="421" alt="" loading="lazy">
+            </picture>
+            <h3 class="heading-subhead">Animation intent locked at the brief</h3>
+            <p class="body-default">Campaign type determines the sequence; brand energy from the client CLAUDE.md selects which animation token executes inside it. Ghia&#8217;s retargeting campaign opens on a product already in frame with a slow opacity fade, because retargeting assumes recognition. Graza&#8217;s mayo launch leads with squeeze-bottle physics on the entrance, because a launch has to introduce the thing.</p>
+            <p class="body-default">Surface effects sit above animation as a separate compositional layer (scrims, feathered edges, ambient glows, shimmer sweeps). Gorjana gets a warm gold shimmer because the product is brass. Graza gets none, because nothing about a matte squeeze bottle on flat color wants atmosphere.</p>
+            <div style="display:flex;gap:16px;">
+              <div style="width:256px;height:213px;overflow:hidden;flex-shrink:0;">
+                <iframe src="/units/ghia/summer-spritz-series/units/set1-mr.html" width="300" height="250" scrolling="no" sandbox="allow-scripts allow-same-origin" title="Ghia Summer Spritz Series — 300×250" style="border:none;display:block;transform:scale(0.8533);transform-origin:top left;"></iframe>
+              </div>
+              <div style="width:256px;height:213px;overflow:hidden;flex-shrink:0;">
+                <iframe src="/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_mr.html" width="300" height="250" scrolling="no" sandbox="allow-scripts allow-same-origin" title="Graza Mayo Launch — 300×250" style="border:none;display:block;transform:scale(0.8533);transform-origin:top left;"></iframe>
+              </div>
+              <div style="width:256px;height:213px;overflow:hidden;flex-shrink:0;">
+                <iframe src="/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_mr.html" width="300" height="250" scrolling="no" sandbox="allow-scripts allow-same-origin" title="Gorjana Halo Collection — 300×250" style="border:none;display:block;transform:scale(0.8533);transform-origin:top left;"></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 04 — A Build, Traced -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">A Build, Traced</h2>
+          </div>
+          <div class="cs-content">
+            <p class="body-default">One campaign end to end: the Tumblerware Father&#8217;s Day set, three IAB sizes, taken from lo-fi internal draft to client-facing V1 through a full change in creative direction mid-pipeline.</p>
+            <div class="cs-level">
+              <div class="cs-level-tabs" role="group" aria-label="Build step">
+                <button class="cs-level-tab" aria-pressed="true">Brief</button>
+                <button class="cs-level-tab" aria-pressed="false">plan.md</button>
+                <button class="cs-level-tab" aria-pressed="false">Figma lo-fi + CD pass</button>
+                <button class="cs-level-tab" aria-pressed="false">CLAUDE.md</button>
+                <button class="cs-level-tab" aria-pressed="false">/verify-delivery</button>
+                <button class="cs-level-tab" aria-pressed="false">Delivered</button>
+              </div>
+              <div class="cs-level-frame">
+                <div class="cs-level-panel cs-level-panel--active">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/03-step-1.webp">
+                    <img src="/assets/marly/03-step-1.png" width="800" height="591" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-level-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/03-step-2.webp">
+                    <img src="/assets/marly/03-step-2.png" width="800" height="481" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-level-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/03-step-3.webp">
+                    <img src="/assets/marly/03-step-3.png" width="800" height="484" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-level-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/03-step-4.webp">
+                    <img src="/assets/marly/03-step-4.png" width="800" height="651" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-level-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/03-step-5.webp">
+                    <img src="/assets/marly/03-step-5.png" width="800" height="547" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-level-panel">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/marly/03-step-6.webp">
+                    <img src="/assets/marly/03-step-6.png" width="800" height="562" alt="" loading="lazy">
+                  </picture>
+                </div>
+              </div>
+            </div>
+            <div class="cs-fork">
+              <span class="cs-fork-tag">DECISION FORK 2</span>
+              <div class="cs-fork-content">
+                <p class="cs-fork-question">When the brief and the Figma file disagree, which one wins?</p>
+                <p class="body-default">Halfway through Tumblerware the direction reversed. The brief said dark product demo; the CD pass came back a light multi-product carousel. In a normal handoff that&#8217;s a renegotiation, however a pipeline has nobody in the loop to make that call, so it needs a rule that returns the same answer every time: Figma is Source 1 after CD.</p>
+                <p class="body-default">Treating the brief as the contract throughout is defensible, since it&#8217;s what the client signed off on, but the rule has to exist before you need it. The cost is that a brief can go stale silently, so anything that must survive a reversal gets declared as architecture instead of direction. That&#8217;s why Architecture B, CSS token classes and vanilla JS with no GSAP and no runtime, is checked by /verify-delivery on every build.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 05 — Throughput -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">Throughput</h2>
+          </div>
+          <div class="cs-content">
+            <p class="body-default">Seventeen speculative builds against real brands. Self-initiated, run through the same pipeline and the same nine-check gate as commissioned work.</p>
+            <div class="cs-stats cs-stats--3">
+              <div class="cs-stat">
+                <p class="cs-stat-figure">~30&nbsp;min</p>
+                <p class="cs-stat-caption meta-caption">HTML generation per set</p>
+              </div>
+              <div class="cs-stat">
+                <p class="cs-stat-figure">48&nbsp;hrs</p>
+                <p class="cs-stat-caption meta-caption">brief to full campaign</p>
+              </div>
+              <div class="cs-stat">
+                <p class="cs-stat-figure">17</p>
+                <p class="cs-stat-caption meta-caption">spec builds completed</p>
+              </div>
+            </div>
+            <picture>
+              <source type="image/webp" srcset="/assets/marly/04-brand-range.webp">
+              <img src="/assets/marly/04-brand-range.png" width="800" height="96" alt="" loading="lazy">
+            </picture>
+            <div class="mc-rail" aria-hidden="true">
+              <div class="mc-rail-track" id="mc-rail-track"><!-- JS-generated tiles --></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 06 — Learning -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">Learning</h2>
+          </div>
+          <div class="cs-content">
+            <p class="body-default">On Aura and Echo other people used what I built, so the feedback loop ran through them. On Marly I&#8217;m the author, the consumer and the QA gate at once. There&#8217;s no engineer to blame for an inconsistency and no stakeholder whose taste explains a compromise. What that taught me is how much of this work is designing the moment of failure: the gate, the check, the thing that stops a bad build before anyone sees it. The nine-check verify step exists because I couldn&#8217;t trust my own review at 2am.</p>
+            <p class="body-default">Everything upstream of the finished frame is still done by hand since the pipeline compresses production, not judgment. That caps how fast the studio can scale, and it&#8217;s the constraint I&#8217;d defend hardest: the moment a model starts making aesthetic decisions, the output converges on the average of everything it&#8217;s seen.</p>
+          </div>
+        </section>
+
+        <!-- 07 — Scope -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">Scope</h2>
+          </div>
+          <div class="cs-content">
+            <p class="body-default">Solo venture: Creative direction, design system, pipeline architecture, build, and QA.</p>
+            <div class="cs-scope-cards">
+              <div class="cs-scope-card">
+                <h3 class="heading-subhead">Claude Opus</h3>
+                <ul>
+                  <li class="body-default">Reads Figma frames, authors plan.md</li>
+                  <li class="body-default">Writes the CLAUDE.md Code builds from</li>
+                  <li class="body-default">Creative judgment, before a file is touched</li>
+                </ul>
+              </div>
+              <div class="cs-scope-card">
+                <h3 class="heading-subhead">Claude Code</h3>
+                <ul>
+                  <li class="body-default">Generates HTML, runs the build</li>
+                  <li class="body-default">Runs /verify-delivery ground-truth check</li>
+                  <li class="body-default">Deploys to Vercel, syncs Notion</li>
+                </ul>
+              </div>
+            </div>
+            <p class="body-default">The split is not a division of labour between people, but a record of what I chose to hand to a model and what I chose to execute myself.</p>
+          </div>
+        </section>
 
       </div>
     </section>
@@ -88,18 +344,18 @@
       <div class="cs-nav-divider"></div>
       <div class="cs-nav-row">
         <div class="cs-nav-side cs-nav-side--left">
-          <a href="/ge-terminal" class="cs-nav-btn" aria-label="Previous project: GE Terminal"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/ge-terminal" class="cs-nav-btn" aria-label="Previous project: Grand Exchange Terminal"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="/ge-terminal" class="cs-nav-label">
             <span class="cs-nav-direction">Previous project:</span>
-            <span class="cs-nav-project">GE Terminal</span>
+            <span class="cs-nav-project">Grand Exchange Terminal</span>
           </a>
         </div>
         <div class="cs-nav-side cs-nav-side--right">
-          <a href="/workhuman" class="cs-nav-label">
+          <a href="/aura" class="cs-nav-label">
             <span class="cs-nav-direction">Next project:</span>
-            <span class="cs-nav-project">Workhuman</span>
+            <span class="cs-nav-project">Web Design System, Aura</span>
           </a>
-          <a href="/workhuman" class="cs-nav-btn" aria-label="Next project: Workhuman"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/aura" class="cs-nav-btn" aria-label="Next project: Web Design System, Aura"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </nav>
@@ -124,153 +380,213 @@
 </div><!-- .page -->
 <script src="/js/site.js"></script>
 <script>
-/* ── Brand Range rotating showcase ─────────────────────────────────────────
-   ROTATE_MS: [min, max] milliseconds per rotation interval.
-   Rotation amendment: if pool resolves to a single unit, render it static —
-   no crossfade infrastructure, no opacity transition.
-   ─────────────────────────────────────────────────────────────────────────*/
-var ROTATE_MS = [12000, 16000];
+/* — Creative gallery: tile builder + hover-to-play — */
+(function () {
+  var track = document.getElementById('mc-rail-track');
+  if (!track) return;
 
-/* §8 NOTE — Ghia held pending file paths (no Ad Sets DB entry as of 2026-07-13).
-   Magic Spoon/Graza/Byredo review links resolve through the retired review.marly.cc
-   domain via the vercel.json 301 redirect — confirm these render before merge.
-   Magic Spoon has 2 ad-set variants (Promo, Product-Focused) sharing one review link;
-   defaulted to Promo below — swap if Product-Focused is the intended one.
-   Levi's has 4 variants (Meet Here, I Know You Know, Reclaim, Wear Who You Are)
-   sharing one review link; defaulted to Meet Here below — swap if another is intended. */
-/* Local snapshots of shipped marly.cc spec work — frozen copies,
-   source of truth for revisions remains the marly repo. */
-var AD_SLOTS = [
-  {
-    id: 'slot-728x90',  nativeW: 728, nativeH: 90,  displayW: 447,
-    units: [
-      { src: '/marly-work/magic-spoon/unit-a.html', label: 'Magic Spoon' },
-      { src: '/marly-work/ritual/unit-a.html',      label: 'Ritual' },
-      { src: '/marly-work/graza/unit-a.html',       label: 'Graza' },
-      { src: '/marly-work/byredo/unit-a.html',      label: 'Byredo' },
-      { src: '/marly-work/ghia/unit-a.html',        label: 'Ghia' },
-      { src: '/marly-work/tumblerware/unit-a.html', label: 'Tumblerware' }
-    ]
-  },
-  {
-    id: 'slot-300x250', nativeW: 300, nativeH: 250, displayW: 316,
-    units: [
-      { src: '/marly-work/magic-spoon/unit-b.html', label: 'Magic Spoon' },
-      { src: '/marly-work/ritual/unit-b.html',      label: 'Ritual' },
-      { src: '/marly-work/graza/unit-b.html',       label: 'Graza' },
-      { src: '/marly-work/byredo/unit-b.html',      label: 'Byredo' },
-      { src: '/marly-work/ghia/unit-b.html',        label: 'Ghia' },
-      { src: '/marly-work/tumblerware/unit-b.html', label: 'Tumblerware' }
-    ]
-  },
-  {
-    id: 'slot-160x600', nativeW: 160, nativeH: 600, displayW: 98,
-    units: [
-      { src: '/marly-work/magic-spoon/unit-c.html', label: 'Magic Spoon' },
-      { src: '/marly-work/ritual/unit-c.html',      label: 'Ritual' },
-      { src: '/marly-work/graza/unit-c.html',       label: 'Graza' },
-      { src: '/marly-work/byredo/unit-c.html',      label: 'Byredo' },
-      { src: '/marly-work/ghia/unit-c.html',        label: 'Ghia' },
-      { src: '/marly-work/tumblerware/unit-c.html', label: 'Tumblerware' }
-    ]
-  }
-];
+  /* ── Tile spec ─────────────────────────────────────────────────
+     Pitch = 613px. 8 absolutely-positioned slots per 400px-tall tile.
+     Slot dimensions = IAB ÷ 3; positions vertically centred in tile.
+  ──────────────────────────────────────────────────────────────── */
+  var SLOTS = [
+    {x:27,  y:16,  w:60,  h:224, size:'ws', fallback:null},  /* 160×600 */
+    {x:87,  y:290, w:112, h:94,  size:'mr', fallback:null},  /* 300×250 */
+    {x:131, y:16,  w:111, h:224, size:'hp', fallback:'ws'},  /* 300×600 */
+    {x:242, y:290, w:362, h:94,  size:'bb', fallback:'lb'},  /* 970×250 */
+    {x:296, y:16,  w:125, h:103, size:'mr', fallback:null},  /* 300×250 */
+    {x:296, y:163, w:112, h:19,  size:'mb', fallback:null},  /* 320×50  */
+    {x:296, y:226, w:271, h:33,  size:'lb', fallback:null},  /* 728×90  */
+    {x:485, y:16,  w:119, h:178, size:'hp', fallback:'ws'},  /* 300×600 */
+  ];
 
-var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* per-brand catalogue ─────────────────────────────────────────── */
+  var ADS = {
+    byredo: {
+      ws: {src:'/units/byredo/mojave-ghost-discovery/units/ws.html', w:160, h:600},
+      mr: {src:'/units/byredo/mojave-ghost-discovery/units/mr.html', w:300, h:250},
+      hp: {src:'/units/byredo/mojave-ghost-discovery/units/hp.html', w:300, h:600},
+      mb: {src:'/units/byredo/mojave-ghost-discovery/units/mb.html', w:320, h:50 },
+      lb: {src:'/units/byredo/mojave-ghost-discovery/units/lb.html', w:728, h:90 },
+    },
+    ghia: {
+      ws: {src:'/units/ghia/summer-spritz-series/units/set1-ws.html', w:160, h:600},
+      mr: {src:'/units/ghia/summer-spritz-series/units/set1-mr.html', w:300, h:250},
+      hp: {src:'/units/ghia/summer-spritz-series/units/set1-hp.html', w:300, h:600},
+      mb: {src:'/units/ghia/summer-spritz-series/units/set1-mb.html', w:320, h:50 },
+      lb: {src:'/units/ghia/summer-spritz-series/units/set1-lb.html', w:728, h:90 },
+    },
+    gorjana: {
+      ws: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_ws.html', w:160, h:600},
+      mr: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_mr.html', w:300, h:250},
+      mb: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_mb.html', w:320, h:50 },
+      lb: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_lb.html', w:728, h:90 },
+      bb: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_bb.html', w:970, h:250},
+    },
+    graza: {
+      ws: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_ws.html', w:160, h:600},
+      mr: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_mr.html', w:300, h:250},
+      mb: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_mb.html', w:320, h:50 },
+      lb: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_lb.html', w:728, h:90 },
+      bb: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_bb.html', w:970, h:250},
+    },
+    levis: {
+      ws: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/ws.html', w:160, h:600},
+      mr: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/mr.html', w:300, h:250},
+      hp: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/hp.html', w:300, h:600},
+      mb: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/mb.html', w:320, h:50 },
+      lb: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/lb.html', w:728, h:90 },
+    },
+    'magic-spoon': {
+      ws: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-ws.html', w:160, h:600},
+      mr: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-mr.html', w:300, h:250},
+      hp: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-hp.html', w:300, h:600},
+      mb: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-mb.html', w:320, h:50 },
+      lb: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-lb.html', w:728, h:90 },
+    },
+    ritual: {
+      ws: {src:'/units/ritual/your-body-your-ritual/units/ws.html', w:160, h:600},
+      mr: {src:'/units/ritual/your-body-your-ritual/units/mr.html', w:300, h:250},
+      mb: {src:'/units/ritual/your-body-your-ritual/units/mb.html', w:320, h:50 },
+      lb: {src:'/units/ritual/your-body-your-ritual/units/lb.html', w:728, h:90 },
+    },
+    tumblerware: {
+      ws: {src:'/units/tumblerware/fathers-day/ads/ws.html', w:160, h:600},
+      mr: {src:'/units/tumblerware/fathers-day/ads/mr.html', w:300, h:250},
+      lb: {src:'/units/tumblerware/fathers-day/ads/lb.html', w:728, h:90 },
+    },
+  };
 
-function randMs() {
-  return ROTATE_MS[0] + Math.random() * (ROTATE_MS[1] - ROTATE_MS[0]);
-}
+  var BRANDS = ['byredo','ghia','gorjana','graza','levis','magic-spoon','ritual','tumblerware'];
+  var N_TILES = 8;
 
-function makeIframe(src, nativeW, nativeH, displayW, title) {
-  var f = document.createElement('iframe');
-  f.src = src;
-  f.width = nativeW;
-  f.height = nativeH;
-  f.scrolling = 'no';
-  f.title = title || 'Ad unit';
-  f.loading = 'lazy';
-  var scale = displayW / nativeW;
-  f.style.cssText = 'border:0;display:block;position:absolute;top:0;left:0;transform:scale(' + scale.toFixed(4) + ');transform-origin:top left;';
-  return f;
-}
-
-function initSlot(cfg) {
-  var el = document.getElementById(cfg.id);
-  if (!el || cfg.units.length === 0) return;
-
-  /* ── Static path: single unit, no animation (rotation amendment) ───── */
-  if (cfg.units.length === 1) {
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting && !el.hasChildNodes()) {
-          el.appendChild(makeIframe(cfg.units[0].src, cfg.nativeW, cfg.nativeH, cfg.displayW, cfg.units[0].label));
-          io.disconnect();
-        }
-      });
-    }, { rootMargin: '200px' });
-    io.observe(el);
-    return;
+  function getAd(brand, size, fallback) {
+    var b = ADS[brand];
+    if (b && b[size])                 return {size: size,     ad: b[size]};
+    if (fallback && b && b[fallback]) return {size: fallback, ad: b[fallback]};
+    return null;
   }
 
-  /* ── Rotation path: multi-unit double-buffered crossfade ─────────────── */
-  var idx = 0;
-  var active = null;
-  var timer = null;
-  var running = false;
-
-  function showUnit(i) {
-    var unit = cfg.units[i];
-    var next = makeIframe(unit.src, cfg.nativeW, cfg.nativeH, cfg.displayW, unit.label);
-    next.style.opacity = '0';
-    next.style.transition = 'opacity 0.4s ease';
-    el.appendChild(next);
-    requestAnimationFrame(function() {
-      next.style.opacity = '1';
-      if (active) {
-        var prev = active;
-        setTimeout(function() { if (prev.parentNode) prev.parentNode.removeChild(prev); }, 450);
-      }
-      active = next;
+  function buildTile(tileIdx) {
+    var tile = document.createElement('div');
+    tile.className = 'mc-tile';
+    SLOTS.forEach(function (slot, s) {
+      var brand  = BRANDS[(tileIdx + s) % BRANDS.length];
+      var result = getAd(brand, slot.size, slot.fallback);
+      if (!result) return;
+      var el = document.createElement('div');
+      el.className = 'mc-slot';
+      el.style.cssText = 'left:' + slot.x + 'px;top:' + slot.y + 'px;width:' + slot.w + 'px;height:' + slot.h + 'px';
+      el.dataset.mcSrc = result.ad.src;
+      el.dataset.mcW   = result.ad.w;
+      el.dataset.mcH   = result.ad.h;
+      var img = document.createElement('img');
+      img.src = '/assets/marly/gallery/' + brand + '-' + result.size + '.png';
+      img.alt = '';
+      el.appendChild(img);
+      tile.appendChild(el);
     });
+    return tile;
   }
 
-  function advance() {
-    if (!running) return;
-    idx = (idx + 1) % cfg.units.length;
-    showUnit(idx);
-    timer = setTimeout(advance, randMs());
+  var primaryTiles = [];
+  for (var t = 0; t < N_TILES; t++) {
+    var tile = buildTile(t);
+    primaryTiles.push(tile);
+    track.appendChild(tile);
+  }
+  primaryTiles.forEach(function (tile) {
+    track.appendChild(tile.cloneNode(true));
+  });
+
+  /* ── Hover-to-play ──────────────────────────────────────────────── */
+  var activeIframe = null;
+  var activeSlot   = null;
+
+  function stopActive() {
+    if (activeIframe) { activeIframe.remove(); activeIframe = null; }
+    if (activeSlot)   { activeSlot.classList.remove('is-active'); activeSlot = null; }
+    track.classList.remove('is-paused');
   }
 
-  function start() {
-    if (running) return;
-    running = true;
-    if (!active) showUnit(idx);
-    if (!prefersReducedMotion) timer = setTimeout(advance, cfg.firstMs != null ? cfg.firstMs : randMs());
+  function startSlot(slot) {
+    if (slot === activeSlot) return;
+    stopActive();
+    var nativeW = parseInt(slot.dataset.mcW, 10);
+    var nativeH = parseInt(slot.dataset.mcH, 10);
+    var cW      = slot.offsetWidth;
+    var cH      = slot.offsetHeight;
+    var scale   = Math.min(cW / nativeW, cH / nativeH);
+    var tx      = (cW - nativeW * scale) / 2;
+    var ty      = (cH - nativeH * scale) / 2;
+    var iframe  = document.createElement('iframe');
+    iframe.src  = slot.dataset.mcSrc;
+    iframe.setAttribute('width',   nativeW);
+    iframe.setAttribute('height',  nativeH);
+    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
+    iframe.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
+    slot.appendChild(iframe);
+    slot.classList.add('is-active');
+    activeIframe = iframe;
+    activeSlot   = slot;
+    track.classList.add('is-paused');
   }
 
-  function stop() {
-    running = false;
-    clearTimeout(timer);
+  track.addEventListener('mouseover', function (e) {
+    var slot = e.target.closest && e.target.closest('.mc-slot');
+    if (slot) startSlot(slot);
+  });
+  track.addEventListener('mouseout', function (e) {
+    var slot = e.target.closest && e.target.closest('.mc-slot');
+    if (slot && !slot.contains(e.relatedTarget)) stopActive();
+  });
+  track.addEventListener('click', function (e) {
+    var slot = e.target.closest && e.target.closest('.mc-slot');
+    if (slot) { e.stopPropagation(); (slot === activeSlot) ? stopActive() : startSlot(slot); }
+  });
+  document.addEventListener('click', stopActive);
+
+  var outer = document.querySelector('.mc-rail');
+  if (outer && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      track.style.animationPlayState = entries[0].isIntersecting ? '' : 'paused';
+    }).observe(outer);
   }
+})();
 
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) { if (e.isIntersecting) { start(); } else { stop(); } });
-  }, { rootMargin: '200px' });
-  io.observe(el);
-}
-
-initSlot({ id: 'slot-hero', nativeW: 300, nativeH: 250, displayW: 300, firstMs: 9000,
-  units: [
-    { src: '/marly-work/tumblerware/unit-b.html', label: 'Tumblerware' },
-    { src: '/marly-work/ghia/unit-b.html',        label: 'Ghia' },
-    { src: '/marly-work/byredo/unit-b.html',      label: 'Byredo' },
-    { src: '/marly-work/graza/unit-b.html',       label: 'Graza' },
-    { src: '/marly-work/ritual/unit-b.html',      label: 'Ritual' },
-    { src: '/marly-work/magic-spoon/unit-b.html', label: 'Magic Spoon' }
-  ]
-});
-AD_SLOTS.forEach(function(cfg) { initSlot(cfg); });
+(function () {
+  document.querySelectorAll('.cs-level').forEach(function (wrap) {
+    var frame  = wrap.querySelector('.cs-level-frame');
+    var tabs   = [].slice.call(wrap.querySelectorAll('.cs-level-tab'));
+    var panels = [].slice.call(wrap.querySelectorAll('.cs-level-panel'));
+    var active = 0;
+    function computeH(panel) {
+      var img = panel.querySelector('img');
+      if (!img) return 0;
+      var attrW = parseInt(img.getAttribute('width'), 10);
+      var attrH = parseInt(img.getAttribute('height'), 10);
+      var subhead = panel.querySelector('.cs-level-subhead');
+      var caption = panel.querySelector('.cs-level-caption');
+      var gap = 12;
+      var subH = subhead ? subhead.offsetHeight : 0;
+      var capH = caption ? caption.offsetHeight : 0;
+      var imgH = Math.round(attrH * (frame.offsetWidth || 800) / attrW);
+      return subH + (subH ? gap : 0) + imgH + (capH ? gap : 0) + capH;
+    }
+    function switchTo(idx) {
+      if (idx === active) return;
+      tabs[active].setAttribute('aria-pressed', 'false');
+      panels[active].classList.remove('cs-level-panel--active');
+      active = idx;
+      tabs[active].setAttribute('aria-pressed', 'true');
+      panels[active].classList.add('cs-level-panel--active');
+      frame.style.height = computeH(panels[active]) + 'px';
+    }
+    tabs.forEach(function (btn, i) { btn.addEventListener('click', function () { switchTo(i); }); });
+    frame.style.height = computeH(panels[0]) + 'px';
+    window.addEventListener('resize', function () { frame.style.height = computeH(panels[active]) + 'px'; });
+  });
+})();
 </script>
 </body>
 </html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="ad.size" content="width=300,height=250">
+  <title>Levi's Pride 2026 — I Know You Know — 300×250</title>
+  <style>
+    @font-face{font-family:'Anton';src:url('/units/levis/assets/fonts/Anton-Regular.woff2')format('woff2');font-weight:400;font-display:swap;}
+    @font-face{font-family:'Inter';src:url('/units/levis/assets/fonts/Inter-Regular.woff2')format('woff2');font-weight:400;font-display:swap;}
+    @font-face{font-family:'Inter';src:url('/units/levis/assets/fonts/Inter-SemiBold.woff2')format('woff2');font-weight:600;font-display:swap;}
+    @font-face{font-family:'Inter';src:url('/units/levis/assets/fonts/Inter-Medium.woff2')format('woff2');font-weight:500;font-display:swap;}
+    @font-face{font-family:'Inter';src:url('/units/levis/assets/fonts/Inter-Black.woff2')format('woff2');font-weight:900;font-display:swap;}
+    @font-face{font-family:'Inter';src:url('/units/levis/assets/fonts/Inter-Bold.woff2')format('woff2');font-weight:700;font-display:swap;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{width:300px;height:250px;overflow:hidden;cursor:pointer;}
+    .mc-unit{position:relative;width:300px;height:250px;background:#fff;overflow:hidden;border:1px solid #ddd;}
+    #f1,#f2,#cta{position:absolute;left:0;top:0;width:300px;height:250px;pointer-events:none;z-index:5;}
+  </style>
+</head>
+<body>
+  <div class="mc-unit">
+    <!-- img-zone: flat -->
+    <div style="position:absolute;left:0;top:-39px;width:359px;height:300px;z-index:1;">
+      <img src="/units/levis/assets/images/pride-4.webp" alt="" style="position:absolute;inset:0;max-width:none;object-fit:cover;pointer-events:none;width:100%;height:100%;">
+    </div>
+
+    <!-- Ellipse 1 (top-left corner) -->
+    <div style="position:absolute;display:flex;align-items:center;justify-content:center;left:-206px;top:-223px;width:451.875px;height:445.258px;z-index:2;">
+      <div style="flex:none;transform:rotate(47.55deg);">
+        <div style="position:relative;width:265px;height:370px;">
+          <div style="position:absolute;inset:-33.78% -47.17%;">
+            <div style="display:block;max-width:none;width:100%;height:100%;background:radial-gradient(ellipse at center, rgba(39,39,39,0.75) 0%, rgba(39,39,39,0.35) 45%, transparent 75%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ellipse 2 (bottom-right area) -->
+    <div style="position:absolute;display:flex;align-items:center;justify-content:center;left:114px;top:72px;width:439.206px;height:431.406px;z-index:2;">
+      <div style="flex:none;transform:rotate(47.55deg);">
+        <div style="position:relative;width:246.227px;height:370px;">
+          <div style="position:absolute;inset:-33.78% -50.77%;">
+            <div style="display:block;max-width:none;width:100%;height:100%;background:radial-gradient(ellipse at center, rgba(39,39,39,0.75) 0%, rgba(39,39,39,0.35) 45%, transparent 75%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logo (persistent) -->
+    <img src="/units/levis/assets/images/logo.png" alt="Levi's" style="position:absolute;left:20px;top:20px;width:71px;height:29px;z-index:10;object-fit:contain;">
+    <p style="position:absolute;left:20px;top:65px;font-family:'Inter',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#fff;line-height:normal;white-space:nowrap;z-index:10;"><span style="font-weight:900">PRIDE</span> <span style="font-weight:500">2026</span></p>
+
+    <!-- F1: I know you know. -->
+    <div id="f1">
+      <div style="position:absolute;left:20px;top:85px;font-family:'Anton',sans-serif;font-weight:400;font-size:32px;color:#fff;line-height:0;width:141px;">
+        <p style="line-height:36px;margin-bottom:0;">I know</p>
+        <p style="line-height:36px;">you know.</p>
+      </div>
+    </div>
+
+    <!-- F2: For those who recognize each other. -->
+    <div id="f2">
+      <div style="position:absolute;left:20px;top:85px;font-family:'Anton',sans-serif;font-weight:400;font-size:28px;color:#fff;line-height:0;width:280px;">
+        <p style="line-height:36px;margin-bottom:0;">For those who</p>
+        <p style="line-height:36px;">recognize each other.</p>
+      </div>
+    </div>
+
+    <!-- CTA (F3) -->
+    <div id="cta">
+      <div style="position:absolute;transform:translateX(-50%);left:calc(50% - 48px);top:194px;background:#c8102e;display:flex;align-items:center;justify-content:center;padding:8px 16px;">
+        <p style="font-family:'Inter',sans-serif;font-weight:700;font-size:13px;color:#fff;white-space:nowrap;line-height:normal;">Shop the Collection</p>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    window.clickTag="https://www.levi.com/US/en_US/lgbt-pride-collection/c/levi_clothing_pride_us";
+    document.addEventListener('click',function(){window.open(window.clickTag,'_blank');});
+    gsap.set(['#f1','#f2','#cta'],{autoAlpha:0});
+    const tl=gsap.timeline({repeat:-1,onRepeat:function(){gsap.set(['#f1','#f2','#cta'],{autoAlpha:0});}});
+    tl.to('#f1',{autoAlpha:1,duration:0.4})
+      .to('#f1',{autoAlpha:0,duration:0.4},'+=2.5')
+      .to('#f2',{autoAlpha:1,duration:0.4})
+      .to('#f2',{autoAlpha:0,duration:0.4},'+=2.5')
+      .to('#cta',{autoAlpha:1,duration:0.4})
+      .to('#cta',{autoAlpha:0,duration:0.4},'+=2.5');
+  </script>
+</body>
+</html>

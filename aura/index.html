@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Design System, Aura &#8212; Wilson Ma</title>
+  <link rel="preload" href="/assets/fonts/Switzer-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/site.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L3KK0FQDE6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L3KK0FQDE6');
+  </script>
+</head>
+<body>
+<div class="page">
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-wordmark">wilson ma</a>
+    <div class="nav-links">
+      <a href="/#work" class="ui-nav" aria-current="page">projects</a>
+      <a href="/about" class="ui-nav">about</a>
+      <a href="mailto:ny.wilson.ma@gmail.com" class="ui-nav nav-cta">Get in touch</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero" aria-label="Web Design System, Aura">
+      <div class="hero-inner">
+        <div class="hero-copy fade-up">
+          <h1 class="display-hero">Web Design System, Aura</h1>
+          <p class="heading-subhead hero-sub">Fifteen button variants across two offices with no shared language.</p>
+        </div>
+      </div>
+      <div class="ge-meta-row fade-up">
+        <div class="ge-meta">
+          <p class="ge-meta-label body-default"><strong>Company</strong></p>
+          <p class="ge-meta-value body-default">Workhuman</p>
+        </div>
+        <div class="ge-meta">
+          <p class="ge-meta-label body-default"><strong>Year</strong></p>
+          <p class="ge-meta-value body-default">2024 &#8211; Ongoing</p>
+        </div>
+        <div class="ge-meta">
+          <p class="ge-meta-label body-default"><strong>Role</strong></p>
+          <p class="ge-meta-value body-default">Design Systems Designer</p>
+        </div>
+        <div class="ge-meta">
+          <p class="ge-meta-label body-default"><strong>Team</strong></p>
+          <p class="ge-meta-value body-default">Web</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cs-body" aria-label="Case study">
+      <div class="cs-body-inner cs-sections">
+
+        <!-- 01 — Context -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">Context</h2>
+          </div>
+          <div class="cs-content">
+            <p class="body-default">Workhuman is a B2B SaaS platform for employee recognition. Its US and Ireland design teams had developed their component libraries independently. By the time I joined, the drift was visible everywhere: inconsistent spacing, divergent type scales, and a button component that had forked into fifteen variants across both codebases, none of them formally documented.</p>
+            <div class="cs-stats cs-stats--3">
+              <div class="cs-stat">
+                <p class="cs-stat-figure">3</p>
+                <p class="cs-stat-caption meta-caption">designers on the systems team</p>
+              </div>
+              <div class="cs-stat">
+                <p class="cs-stat-figure">4</p>
+                <p class="cs-stat-caption meta-caption">engineers owning the component library</p>
+              </div>
+              <div class="cs-stat">
+                <p class="cs-stat-figure">15</p>
+                <p class="cs-stat-caption meta-caption">designers + engineers consuming it</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 02 — Problem -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">Problem</h2>
+          </div>
+          <div class="cs-content">
+            <p class="body-default">Fragmented user experiences from inconsistent UI, inefficient designer&#8211;developer handoffs caused by differing layout systems, and the ongoing cost of maintaining two divergent visual languages. Every handoff re-litigated decisions that should already have been settled.</p>
+            <div class="cs-quote">
+              <img src="/assets/shared/quote-mark.svg" width="85" height="85" aria-hidden="true" alt="">
+              <div class="cs-quote-body">
+                <p class="heading-subhead">&#8220;We spend 60% of our time asking the same design questions.&#8221;</p>
+                <p class="cs-quote-attr">Engineering, discovery interviews</p>
+              </div>
+            </div>
+            <p class="body-default">The work was less about building new components and more about establishing the conditions under which both teams could stop rebuilding the same things. That meant a token layer first: named decisions about color, spacing, and typography that could travel between Figma and code without re-interpretation at each handoff.</p>
+            <figure class="wh-figure">
+              <picture>
+                <source type="image/webp" srcset="/assets/aura/01-fifteen-buttons.webp">
+                <img src="/assets/aura/01-fifteen-buttons.png" width="800" height="333" alt="" loading="eager">
+              </picture>
+              <figcaption class="wh-caption meta-caption">Design audit revealed 15+ button implementations across products; each required separate maintenance and causing inconsistent UX.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <!-- 03 — Solution -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">Solution</h2>
+          </div>
+          <div class="cs-content">
+            <div class="cs-fork">
+              <span class="cs-fork-tag">DECISION FORK 1</span>
+              <div class="cs-fork-content">
+                <p class="cs-fork-question">Consolidate the fifteen buttons into one flexible component, or a small set of clearly-named ones?</p>
+                <p class="body-default">Fifteen button variants across two codebases. While the elegant fix is one component with props for every case, the smallest surface to maintain, nobody was struggling with too many buttons. We were struggling to find the right one, and a single component just moves that into a properties panel. I shipped six, named clearly enough that you find what you need by reading. Six is more to keep in sync, and someone will eventually want a seventh.</p>
+              </div>
+            </div>
+            <h3 class="heading-subhead">Establishing a shared source of truth</h3>
+            <p class="body-default">A four-tier token model: primitives, aliases, semantic tokens, component tokens. Each tier exists so a decision made once resolves the same way everywhere it lands: in Figma, in code, and in the conversation between them.</p>
+            <picture>
+              <source type="image/webp" srcset="/assets/aura/02-token-tiers.webp">
+              <img src="/assets/aura/02-token-tiers.png" width="800" height="210" alt="" loading="lazy">
+            </picture>
+            <h3 class="heading-subhead">Making the token chain visible</h3>
+            <p class="body-default">White button, focus state: the focus ring resolves to border/acc-default, which aliases humanity/60, which is the primitive #5B63E4 from Tier 1. One annotated component showing the whole chain did more for adoption than the documentation site did.</p>
+            <picture>
+              <source type="image/webp" srcset="/assets/aura/02-button-anatomy.webp">
+              <img src="/assets/aura/02-button-anatomy.png" width="800" height="369" alt="" loading="lazy">
+            </picture>
+            <div class="cs-fork">
+              <span class="cs-fork-tag">DECISION FORK 2</span>
+              <div class="cs-fork-content">
+                <p class="cs-fork-question">Name tokens the way designers think, or the way engineers think?</p>
+                <p class="body-default">Designers reach for what a thing looks like. Engineers reach for where it&#8217;s used. Naming tokens the way they appear in Figma was the path of least resistance, and it broke the first time brand shifted a hue. Humanity/60 was still called humanity/60 and no longer described anything. The second pass named by role instead, so a value could change without the name going stale. Designers also can&#8217;t guess a token from how it looks any more, which is why the docs matter as much as the library.</p>
+              </div>
+            </div>
+            <h3 class="heading-subhead">Governing contribution, instead of policing it</h3>
+            <p class="body-default">A six-step contribution pipeline: request, validate against three-plus use cases, design review, engineering feasibility, required docs, ship. Semantic versioning, a changelog every release, six-month deprecation notices, and migration guides for breaking changes.</p>
+            <picture>
+              <source type="image/webp" srcset="/assets/aura/04-pipeline-diagram.webp">
+              <img src="/assets/aura/04-pipeline-diagram.png" width="804" height="78" alt="" loading="lazy">
+            </picture>
+          </div>
+        </section>
+
+        <!-- 04 — Impact -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">Impact</h2>
+          </div>
+          <div class="cs-content">
+            <p class="body-default">Over the course of the rollout, the system moved from a source of friction to the default starting point for both teams.</p>
+            <div class="cs-stats cs-stats--4">
+              <div class="cs-stat">
+                <p class="cs-stat-figure">15 &#8594; 6</p>
+                <p class="cs-stat-caption meta-caption">button variants consolidated</p>
+              </div>
+              <div class="cs-stat">
+                <p class="cs-stat-figure">2&nbsp;wks &#8594; 4&nbsp;days</p>
+                <p class="cs-stat-caption meta-caption">new designer onboarding</p>
+              </div>
+              <div class="cs-stat">
+                <p class="cs-stat-figure">&#8595;60%</p>
+                <p class="cs-stat-caption meta-caption">engineer questions after docs shipped</p>
+              </div>
+              <div class="cs-stat">
+                <p class="cs-stat-figure">92%</p>
+                <p class="cs-stat-caption meta-caption">implementation adherence</p>
+              </div>
+            </div>
+            <div class="cs-collage" role="img" aria-label="Component library documentation screenshots">
+              <div class="cs-collage-item" style="left:0%;top:0%;width:72.875%;height:68.80%">
+                <picture>
+                  <source type="image/webp" srcset="/assets/aura/03-variant-sheet.webp">
+                  <img src="/assets/aura/03-variant-sheet.png" width="583" height="408" alt="" loading="lazy">
+                </picture>
+              </div>
+              <div class="cs-collage-item" style="left:74.625%;top:14.50%;width:25.375%;height:29.01%">
+                <picture>
+                  <source type="image/webp" srcset="/assets/aura/03-docs-a.webp">
+                  <img src="/assets/aura/03-docs-a.png" width="203" height="172" alt="" loading="lazy">
+                </picture>
+              </div>
+              <div class="cs-collage-item" style="left:74.625%;top:45.70%;width:25.375%;height:54.30%">
+                <picture>
+                  <source type="image/webp" srcset="/assets/aura/03-docs-b.webp">
+                  <img src="/assets/aura/03-docs-b.png" width="203" height="322" alt="" loading="lazy">
+                </picture>
+              </div>
+              <div class="cs-collage-item" style="left:0%;top:70.99%;width:35%;height:29.01%">
+                <picture>
+                  <source type="image/webp" srcset="/assets/aura/03-docs-c.webp">
+                  <img src="/assets/aura/03-docs-c.png" width="280" height="172" alt="" loading="lazy">
+                </picture>
+              </div>
+              <div class="cs-collage-item" style="left:36.625%;top:70.99%;width:36.25%;height:29.01%">
+                <picture>
+                  <source type="image/webp" srcset="/assets/aura/03-docs-d.webp">
+                  <img src="/assets/aura/03-docs-d.png" width="290" height="172" alt="" loading="lazy">
+                </picture>
+              </div>
+            </div>
+            <div class="cs-slideshow" tabindex="0" aria-live="off">
+              <div class="cs-slideshow-track">
+                <div class="cs-slide cs-slide--active" aria-hidden="false">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/aura/05-slide-1.webp">
+                    <img src="/assets/aura/05-slide-1.png" width="800" height="360" alt="" loading="eager">
+                  </picture>
+                </div>
+                <div class="cs-slide" aria-hidden="true">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/aura/05-slide-2.webp">
+                    <img src="/assets/aura/05-slide-2.png" width="800" height="360" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-slide" aria-hidden="true">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/aura/05-slide-4.webp">
+                    <img src="/assets/aura/05-slide-4.png" width="800" height="360" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-slide" aria-hidden="true">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/aura/05-slide-5.webp">
+                    <img src="/assets/aura/05-slide-5.png" width="800" height="360" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-slide" aria-hidden="true">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/aura/05-slide-6.webp">
+                    <img src="/assets/aura/05-slide-6.png" width="800" height="360" alt="" loading="lazy">
+                  </picture>
+                </div>
+                <div class="cs-slide" aria-hidden="true">
+                  <picture>
+                    <source type="image/webp" srcset="/assets/aura/05-slide-7.webp">
+                    <img src="/assets/aura/05-slide-7.png" width="800" height="360" alt="" loading="lazy">
+                  </picture>
+                </div>
+              </div>
+              <div class="cs-slideshow-bar" aria-hidden="true">
+                <div class="cs-slideshow-fill"></div>
+              </div>
+              <div class="cs-slideshow-controls" hidden>
+                <button class="cs-slide-btn cs-slide-btn--prev" aria-label="Previous slide">&#8592;</button>
+                <button class="cs-slide-btn cs-slide-btn--next" aria-label="Next slide">&#8594;</button>
+              </div>
+            </div>
+            <p class="wh-caption meta-caption">150+ components &#183; 200+ icons &#183; 8pt grid &#183; 6-size type scale &#183; WCAG AA compliant</p>
+          </div>
+        </section>
+
+        <!-- 05 — Learning -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">Learning</h2>
+          </div>
+          <div class="cs-content">
+            <p class="body-default">A design system&#8217;s users are designers and engineers, and they behave like any other user: they route around anything slower than what they already do. Aura was adopted when reaching for a component became faster than rebuilding one. Most of the work wasn&#8217;t designing components but rather removing reasons to go around them.</p>
+            <p class="body-default">The tokens are the artifact while the pipeline is the product. Our two teams in two time zones didn&#8217;t need a better button, but instead, a shared way to decide what a button is and somewhere that decision survives the conversation. What outlasted me was the vocabulary and the review ritual, not the library.</p>
+          </div>
+        </section>
+
+        <!-- 06 — Credits -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">Credits</h2>
+          </div>
+          <div class="cs-content">
+            <p class="body-default">Aura was built with the US and Ireland product design teams and the engineers who owned the component libraries on both sides. Thanks to the Ireland team, Gin, Amanda, Cameron, Jesse, and Jon, who took the arguments about naming seriously enough to make them worth having.</p>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+    <nav class="cs-nav-outer" aria-label="Project navigation">
+      <div class="cs-nav-divider"></div>
+      <div class="cs-nav-row">
+        <div class="cs-nav-side cs-nav-side--left">
+          <a href="/marly" class="cs-nav-btn" aria-label="Previous project: MARLY Creative Concepts"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/marly" class="cs-nav-label">
+            <span class="cs-nav-direction">Previous project:</span>
+            <span class="cs-nav-project">MARLY Creative Concepts</span>
+          </a>
+        </div>
+        <div class="cs-nav-side cs-nav-side--right">
+          <a href="/echo" class="cs-nav-label">
+            <span class="cs-nav-direction">Next project:</span>
+            <span class="cs-nav-project">Marketing Design System, Echo</span>
+          </a>
+          <a href="/echo" class="cs-nav-btn" aria-label="Next project: Marketing Design System, Echo"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-mark">
+        <span class="heading-wordmark">wma.nyc</span>
+        <p class="footer-copy meta-small">&#169; 2026 Wilson Ma</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/#work" class="ui-nav">projects</a>
+        <a href="/about" class="ui-nav">about</a>
+        <a href="https://www.linkedin.com/in/wilsonxma/" target="_blank" rel="noopener noreferrer" class="ui-nav">linkedin</a>
+        <a href="mailto:ny.wilson.ma@gmail.com" class="ui-nav">email</a>
+      </nav>
+    </div>
+  </footer>
+
+</div><!-- .page -->
+<script src="/js/site.js"></script>
+<script>
+(function () {
+  var mount = document.querySelector('.cs-slideshow');
+  if (!mount) return;
+
+  var slides = [].slice.call(mount.querySelectorAll('.cs-slide'));
+  var fill   = mount.querySelector('.cs-slideshow-fill');
+  var n      = slides.length;
+  var idx    = 0;
+  var timer  = null;
+  var suspended   = false;
+  var userStepped = false;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DURATION = 14000;
+  var slideStartedAt = 0;
+  var slideElapsed   = 0;
+
+  function goTo(i) {
+    slides.forEach(function (s, j) {
+      var on = (j === i);
+      s.classList.toggle('cs-slide--active', on);
+      s.setAttribute('aria-hidden', on ? 'false' : 'true');
+    });
+    /* preload upcoming slide lazily */
+    var upcoming = slides[(i + 1) % n];
+    if (upcoming) {
+      var img = upcoming.querySelector('img');
+      if (img && img.loading === 'lazy') img.loading = 'eager';
+    }
+  }
+
+  function startFill() {
+    fill.style.animationPlayState = '';
+    fill.classList.remove('cs-fill--running');
+    void fill.offsetWidth; /* force reflow to restart animation */
+    fill.classList.add('cs-fill--running');
+  }
+
+  function scheduleNext(ms) {
+    clearTimeout(timer);
+    if (!suspended && !userStepped && !reduced) {
+      slideStartedAt = Date.now();
+      timer = setTimeout(advance, ms);
+    }
+  }
+
+  function advance() {
+    slideElapsed = 0;
+    idx = (idx + 1) % n;
+    goTo(idx);
+    startFill();
+    scheduleNext(DURATION);
+  }
+
+  function suspend() {
+    if (suspended) return;
+    suspended = true;
+    clearTimeout(timer);
+    slideElapsed += Date.now() - slideStartedAt;
+    fill.style.animationPlayState = 'paused';
+  }
+
+  function unsuspend() {
+    if (!suspended || userStepped || reduced) return;
+    suspended = false;
+    fill.style.animationPlayState = 'running';
+    var remaining = Math.max(0, DURATION - slideElapsed);
+    if (remaining === 0) { advance(); return; }
+    slideStartedAt = Date.now();
+    timer = setTimeout(advance, remaining);
+  }
+
+  /* init */
+  goTo(0);
+  var s2 = slides[1] && slides[1].querySelector('img');
+  if (s2 && s2.loading === 'lazy') s2.loading = 'eager';
+
+  if (!reduced) {
+    startFill();
+    scheduleNext(DURATION);
+  }
+
+  /* hover */
+  mount.addEventListener('mouseenter', suspend);
+  mount.addEventListener('mouseleave', unsuspend);
+
+  /* focus */
+  mount.addEventListener('focusin', suspend);
+  mount.addEventListener('focusout', function (e) {
+    if (!mount.contains(e.relatedTarget)) unsuspend();
+  });
+
+  /* keyboard */
+  mount.addEventListener('keydown', function (e) {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    e.preventDefault();
+    if (!userStepped) {
+      userStepped = true;
+      clearTimeout(timer);
+      fill.style.animationPlayState = 'paused';
+    }
+    idx = e.key === 'ArrowRight' ? (idx + 1) % n : (idx - 1 + n) % n;
+    goTo(idx);
+  });
+
+  /* IntersectionObserver — pause when offscreen */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) unsuspend(); else suspend();
+      });
+    }, { threshold: 0.1 });
+    io.observe(mount);
+  }
+
+  /* reduced-motion: expose prev/next buttons */
+  if (reduced) {
+    var ctrl = mount.querySelector('.cs-slideshow-controls');
+    if (ctrl) {
+      ctrl.hidden = false;
+      ctrl.querySelector('.cs-slide-btn--prev').addEventListener('click', function () {
+        idx = (idx - 1 + n) % n; goTo(idx);
+      });
+      ctrl.querySelector('.cs-slide-btn--next').addEventListener('click', function () {
+        idx = (idx + 1) % n; goTo(idx);
+      });
+    }
+  }
+})();
+</script>
+</body>
+</html>
