@@ -65,10 +65,13 @@
           <p class="ge-meta-value body-default">Active, 18+ versions, 2026</p>
         </div>
       </div>
-      <picture class="fade-up">
-        <source type="image/webp" srcset="/assets/ge-terminal/00-hero.webp">
-        <img src="/assets/ge-terminal/00-hero.png" width="1082" height="842" alt="" loading="eager">
-      </picture>
+      <figure class="wh-figure fade-up">
+        <picture>
+          <source type="image/webp" srcset="/assets/ge-terminal/00-hero.webp">
+          <img src="/assets/ge-terminal/00-hero.png" width="1082" height="842" alt="GE Terminal Watchlist tab showing 6 trade cards" loading="eager">
+        </picture>
+        <figcaption class="wh-caption meta-caption">Cards display price sparklines, zone labels (DUMP/ACCUMULATE/Trim/Nibble), buy and sell targets, and A/B/F grade badges</figcaption>
+      </figure>
     </section>
 
     <section class="cs-body" aria-label="Case study">
@@ -114,10 +117,13 @@
           <div class="cs-content">
             <p class="body-default">Flipping items on the Grand Exchange is a decision-making problem under noisy data. Prices spike and crash hourly, some items dump on predictable cycles, and the wiki’s raw price API tells you what happened without telling you what it means.</p>
             <div class="ge-problem-split">
-              <picture>
-                <source type="image/webp" srcset="/assets/ge-terminal/01-actions-tab.webp">
-                <img src="/assets/ge-terminal/01-actions-tab.png" width="385" height="338" alt="" loading="lazy">
-              </picture>
+              <figure class="wh-figure">
+                <picture>
+                  <source type="image/webp" srcset="/assets/ge-terminal/01-actions-tab.webp">
+                  <img src="/assets/ge-terminal/01-actions-tab.png" width="385" height="338" alt="GE Terminal Actions tab" loading="lazy">
+                </picture>
+                <figcaption class="wh-caption meta-caption">Priority-sorted trade queue showing &#8216;SELL &#8212; Grade A / Grimy toadflax&#8217; at 1,966 gp sell price, 3,401 units, realizing +6.70M total gain</figcaption>
+              </figure>
               <div class="cs-quote cs-quote--lede">
                 <img src="/assets/shared/quote-mark.svg" width="85" height="85" aria-hidden="true" alt="">
                 <div class="cs-quote-body">
@@ -140,7 +146,7 @@
             <p class="body-default">A momentum scanner&#8217;s failure mode is enthusiasm. Every violent move looks like an opportunity, and the biggest movers are almost always the worst trades; thin, wide-spread items where the move is two people trading at once. So the market gets graded first: range width, volatility, volume, spread, sample depth, each subtracting from a 100-point start. Below 45, and an item is graded with an F, and with the Trade grade &#8805; B filter on, F never becomes an action.</p>
             <picture>
               <source type="image/webp" srcset="/assets/ge-terminal/02-tested-live.webp">
-              <img src="/assets/ge-terminal/02-tested-live.png" width="800" height="554" alt="" loading="lazy">
+              <img src="/assets/ge-terminal/02-tested-live.png" width="800" height="554" alt="Live stress test result: items crashed 50&#8211;61% in one hour, all graded F, and none surfaced to the Actions tab" loading="lazy">
             </picture>
             <p class="body-default">The extreme case is a hard stop. If price breaks below its own 7-day floor, the zones the signal was derived from stop being valid, so the label is replaced with BROKEN and the grade takes a &#8722;60 penalty, enough to fail an item on its own. It fires rarely, because once an item crashes, the floor moves down to meet it. Most suppression happens in the grading.</p>
             <div class="cs-fork">
@@ -154,22 +160,28 @@
             <p class="body-default">Two grade systems run in parallel, measuring different things. Trade grade asks whether the item is worth trading at all: range width, volatility, volume, spread, sample depth. It&#8217;s a property of the market and it barely moves hour to hour. Signal grade asks whether right now is the moment: three checklist questions, rescored on every refresh. Is this a dip rather than a trend? Is there room to move? Are buyers in control?</p>
             <picture>
               <source type="image/webp" srcset="/assets/ge-terminal/02-discord-alert.webp">
-              <img src="/assets/ge-terminal/02-discord-alert.png" width="800" height="759" alt="" loading="lazy">
-            </picture>
-            <picture>
-              <source type="image/webp" srcset="/assets/ge-terminal/02-tier-matrix.webp">
-              <img src="/assets/ge-terminal/02-tier-matrix.png" width="800" height="436" alt="" loading="lazy">
-            </picture>
-            <h3 class="heading-subhead">Verdicts that explain themselves</h3>
-            <p class="body-default">A verdict engine weighs 7-day, 30-day, and 90-day percentile position into plain-English calls, from SELL NOW to DON&#8217;T SELL, each with its reasoning attached. Nothing appears on screen without a letter-grade and a reason why. Dump detection doesn&#8217;t just classify the drop, it also measures how long recovery historically takes.</p>
-            <picture>
-              <source type="image/webp" srcset="/assets/ge-terminal/02-item-lookup.webp">
-              <img src="/assets/ge-terminal/02-item-lookup.png" width="800" height="725" alt="" loading="lazy">
+              <img src="/assets/ge-terminal/02-discord-alert.png" width="800" height="759" alt="Discord GE Alerts bot message: SELL signal for Emerald at 598 gp, 74% confidence, 52,694 vol/h, Trade A grade, 2 of 3 checks passed" loading="lazy">
             </picture>
             <figure class="wh-figure">
               <picture>
+                <source type="image/webp" srcset="/assets/ge-terminal/02-tier-matrix.webp">
+                <img src="/assets/ge-terminal/02-tier-matrix.png" width="800" height="436" alt="tier_label() resolution matrix: 4&#215;4 Signal grade (A/B/C/F) vs Trade grade (A/B/C/F)" loading="lazy">
+              </picture>
+              <figcaption class="wh-caption meta-caption">Cells map to MAJOR, STRONG, SOLID, WEAK, and SKIP tier labels; dashed cells show where B-signal returns SOLID before trade grade is checked</figcaption>
+            </figure>
+            <h3 class="heading-subhead">Verdicts that explain themselves</h3>
+            <p class="body-default">A verdict engine weighs 7-day, 30-day, and 90-day percentile position into plain-English calls, from SELL NOW to DON&#8217;T SELL, each with its reasoning attached. Nothing appears on screen without a letter-grade and a reason why. Dump detection doesn&#8217;t just classify the drop, it also measures how long recovery historically takes.</p>
+            <figure class="wh-figure">
+              <picture>
+                <source type="image/webp" srcset="/assets/ge-terminal/02-item-lookup.webp">
+                <img src="/assets/ge-terminal/02-item-lookup.png" width="800" height="725" alt="GE Terminal Item Lookup for grimy toadflax: SELL NOW verdict" loading="lazy">
+              </picture>
+              <figcaption class="wh-caption meta-caption">Price at multi-timeframe highs &#8212; 7-day 8th percentile, 30-day 36th percentile, 90-day 40th percentile</figcaption>
+            </figure>
+            <figure class="wh-figure">
+              <picture>
                 <source type="image/webp" srcset="/assets/ge-terminal/02-dump-code.webp">
-                <img src="/assets/ge-terminal/02-dump-code.png" width="800" height="674" alt="" loading="lazy">
+                <img src="/assets/ge-terminal/02-dump-code.png" width="800" height="674" alt="Python source: is_dumping() function body" loading="lazy">
               </picture>
               <figcaption class="wh-caption meta-caption">Two magic numbers carry the entire heuristic: an 8% hourly drop and 1.5&#215; typical volume. Every dump the tool has ever reported traces back to this line.</figcaption>
             </figure>
@@ -188,10 +200,13 @@
           <div class="cs-content">
             <p class="body-default">Eighteen-plus versions, running daily, still the tool I trade with.</p>
             <p class="body-default">Early versions had no exit logic at all. I&#8217;d buy into something that looked like it was climbing and then sit on it, holding inventory I couldn&#8217;t read: no sell zone, no sense of whether it was coming back or whether I should take the loss. That&#8217;s where the verdict engine came from, and the recovery window with it. The tool learned to tell me when to get out because I&#8217;d already proved I couldn&#8217;t work it out myself.</p>
-            <picture>
-              <source type="image/webp" srcset="/assets/ge-terminal/04-cards.webp">
-              <img src="/assets/ge-terminal/04-cards.png" width="540" height="308" alt="" loading="lazy">
-            </picture>
+            <figure class="wh-figure">
+              <picture>
+                <source type="image/webp" srcset="/assets/ge-terminal/04-cards.webp">
+                <img src="/assets/ge-terminal/04-cards.png" width="540" height="308" alt="GE Terminal watchlist card for Grimy toadflax" loading="lazy">
+              </picture>
+              <figcaption class="wh-caption meta-caption">DUMP zone badge (top 20% of 7-day band), declining price sparkline, current 2,011 gp versus sell zone 1,966 gp, Trade A grade, max position 22k at 15% allocation</figcaption>
+            </figure>
           </div>
         </section>
 
@@ -204,10 +219,13 @@
             <p class="body-default">The thing I&#8217;d fix first isn&#8217;t a feature. I let six classification systems accumulate in parallel, each with its own vocabulary. Individually every one is defensible; they were added months apart, each solving a real problem.</p>
             <p class="body-default">None of this was a decision so much as an accumulation. Each system arrived with a feature, named itself sensibly in isolation, and never got reconciled against the ones already there. The cost isn&#8217;t confusion inside any single card; every card is readable. It&#8217;s that fluency doesn&#8217;t transfer. Learning what ACCUMULATE means teaches you nothing about what HOLD or WAIT means, even though they&#8217;re the same measurement over a different window.</p>
             <p class="body-default">The fix isn&#8217;t fewer states, it&#8217;s fewer vocabularies. Zone and Verdict collapse into one percentile scale with a timeframe parameter. Signal grade and trade grade stop surfacing as letters at all and exist only as inputs to tier. Six scales down to three, and each remaining answering something the others can&#8217;t: where the price sits, whether the item is worth trading, and whether to act now.</p>
-            <picture>
-              <source type="image/webp" srcset="/assets/ge-terminal/05-vocabulary.webp">
-              <img src="/assets/ge-terminal/05-vocabulary.png" width="800" height="481" alt="" loading="lazy">
-            </picture>
+            <figure class="wh-figure">
+              <picture>
+                <source type="image/webp" srcset="/assets/ge-terminal/05-vocabulary.webp">
+                <img src="/assets/ge-terminal/05-vocabulary.png" width="800" height="481" alt="GE Terminal classification vocabulary" loading="lazy">
+              </picture>
+              <figcaption class="wh-caption meta-caption">Signal grade (A&#8211;F, timing), Trade grade (A&#8211;F, safety), Tier (MAJOR/STRONG/SOLID/WEAK/SKIP), Zone state (BROKEN through DUMP), Verdict (SELL NOW through DON&#8217;T SELL), and Pattern (PERIODIC through NONE)</figcaption>
+            </figure>
             <p class="body-default">No single naming decision was wrong because each one was sensible when it was made. However, across eighteen versions I never asked whether they still added up to one language.</p>
             <picture>
               <source type="image/webp" srcset="/assets/ge-terminal/05-quote.webp">

@@ -113,13 +113,13 @@
                 <div class="echo-panel echo-panel--active">
                   <picture>
                     <source type="image/webp" srcset="/assets/echo/01-pre-echo.webp">
-                    <img src="/assets/echo/01-pre-echo.png" width="800" height="630" alt="" loading="eager">
+                    <img src="/assets/echo/01-pre-echo.png" width="800" height="630" alt="Pre-Echo: webinar ad frames built individually &#8212; speakers hand-grouped, headlines retyped, layout inconsistent across sizes" loading="eager">
                   </picture>
                 </div>
                 <div class="echo-panel">
                   <picture>
                     <source type="image/webp" srcset="/assets/echo/01-post-echo.webp">
-                    <img src="/assets/echo/01-post-echo.png" width="800" height="609" alt="" loading="lazy">
+                    <img src="/assets/echo/01-post-echo.png" width="800" height="609" alt="Post-Echo: webinar ad frames assembled from component instances &#8212; uniform background, banner, headshot row, and copy block" loading="lazy">
                   </picture>
                 </div>
               </div>
@@ -145,10 +145,13 @@
             </div>
             <h3 class="heading-subhead">Turning monthly decisions into component properties</h3>
             <p class="body-default">The landing page component exposes four properties: event type, event title, date, and time. Everything else &#8212; banner geometry, headshot row, copy blocks, the desktop and mobile variants &#8212; is fixed inside the component.</p>
-            <picture>
-              <source type="image/webp" srcset="/assets/echo/02-lp-properties.webp">
-              <img src="/assets/echo/02-lp-properties.png" width="817" height="478" alt="" loading="lazy">
-            </picture>
+            <figure class="wh-figure">
+              <picture>
+                <source type="image/webp" srcset="/assets/echo/02-lp-properties.webp">
+                <img src="/assets/echo/02-lp-properties.png" width="817" height="478" alt="Echo LP-desktop component in Figma" loading="lazy">
+              </picture>
+              <figcaption class="wh-caption meta-caption">LP-logo-banner, LP-hero, LP-Content, and LP-speaker-gallery subcomponents exposing editable date, time, speakers, and event detail properties</figcaption>
+            </figure>
             <div class="cs-fork">
               <span class="cs-fork-tag">DECISION FORK 2</span>
               <div class="cs-fork-content">
@@ -170,19 +173,19 @@
                   <div class="echo-sol-slide echo-sol-slide--active">
                     <picture>
                       <source type="image/webp" srcset="/assets/echo/03-lp-1.webp">
-                      <img src="/assets/echo/03-lp-1.png" width="800" height="406" alt="" loading="eager">
+                      <img src="/assets/echo/03-lp-1.png" width="800" height="406" alt="Echo LP-hero component panel: date, time, event type, and title properties on the left; rendered webinar landing page hero banner on the right" loading="eager">
                     </picture>
                   </div>
                   <div class="echo-sol-slide">
                     <picture>
                       <source type="image/webp" srcset="/assets/echo/03-lp-2.webp">
-                      <img src="/assets/echo/03-lp-2.png" width="800" height="450" alt="" loading="lazy">
+                      <img src="/assets/echo/03-lp-2.png" width="800" height="450" alt="Echo LP-Content component panel: paragraph and headline text inputs on the left; rendered two-column webinar body and registration form on the right" loading="lazy">
                     </picture>
                   </div>
                   <div class="echo-sol-slide">
                     <picture>
                       <source type="image/webp" srcset="/assets/echo/03-lp-3.webp">
-                      <img src="/assets/echo/03-lp-3.png" width="800" height="513" alt="" loading="lazy">
+                      <img src="/assets/echo/03-lp-3.png" width="800" height="513" alt="Echo LP-speaker-gallery: headshot and name inputs on the left; speaker grid with George Rogers and Lynette Silva Heelan on the right" loading="lazy">
                     </picture>
                   </div>
                 </div>
@@ -190,19 +193,19 @@
                   <div class="echo-sol-slide echo-sol-slide--active">
                     <picture>
                       <source type="image/webp" srcset="/assets/echo/03-email-1.webp">
-                      <img src="/assets/echo/03-email-1.png" width="800" height="295" alt="" loading="lazy">
+                      <img src="/assets/echo/03-email-1.png" width="800" height="295" alt="Echo EML-headshot component panel: speaker visibility toggles on the left; rendered email headshot row on the right" loading="lazy">
                     </picture>
                   </div>
                   <div class="echo-sol-slide">
                     <picture>
                       <source type="image/webp" srcset="/assets/echo/03-email-2.webp">
-                      <img src="/assets/echo/03-email-2.png" width="800" height="364" alt="" loading="lazy">
+                      <img src="/assets/echo/03-email-2.png" width="800" height="364" alt="Echo email hero component: event title and CTA inputs on the left; &#8216;The New State of Work&#8217; email hero with &#8216;Sign me up&#8217; CTA on the right" loading="lazy">
                     </picture>
                   </div>
                   <div class="echo-sol-slide">
                     <picture>
                       <source type="image/webp" srcset="/assets/echo/03-email-3.webp">
-                      <img src="/assets/echo/03-email-3.png" width="800" height="613" alt="" loading="lazy">
+                      <img src="/assets/echo/03-email-3.png" width="800" height="613" alt="Echo EML-inv1-content component: intro, header and body inputs, and CTA on the left; rendered invitation email body on the right" loading="lazy">
                     </picture>
                   </div>
                 </div>
@@ -210,7 +213,7 @@
                   <div class="echo-sol-slide echo-sol-slide--active">
                     <picture>
                       <source type="image/webp" srcset="/assets/echo/03-social-1.webp">
-                      <img src="/assets/echo/03-social-1.png" width="800" height="784" alt="" loading="lazy">
+                      <img src="/assets/echo/03-social-1.png" width="800" height="784" alt="Echo social ad component: img-banner, img-copy-body, and headshot inputs on the left; Meta Traffic Static Image ad at three sizes on the right" loading="lazy">
                     </picture>
                   </div>
                 </div>
@@ -257,14 +260,16 @@
               </div>
             </div>
             <p class="body-default">Echo&#8217;s effect shows up in what stopped happening: no month after the library shipped began with a blank file, and no channel needed a source file of its own.</p>
-            <div class="cs-strip fade-up" style="gap: 16px">
-              <img src="/assets/echo/04-gallery-1.png" width="442" height="301" alt="" loading="lazy">
-              <img src="/assets/echo/04-gallery-2.png" width="870" height="301" alt="" loading="lazy">
-              <img src="/assets/echo/04-gallery-3.png" width="791" height="301" alt="" loading="lazy">
-              <img src="/assets/echo/04-gallery-4.png" width="791" height="301" alt="" loading="lazy">
-              <img src="/assets/echo/04-gallery-5.png" width="524" height="301" alt="" loading="lazy">
-            </div>
-            <p class="wh-caption meta-caption" style="margin-top: 12px">Five months of campaign output, one library.</p>
+            <figure class="wh-figure">
+              <div class="cs-strip fade-up" style="gap: 16px">
+                <img src="/assets/echo/04-gallery-1.png" width="442" height="301" alt="Meta Traffic Static Image ad for &#8216;5 Workplace Challenges Defining 2026&#8217; webinar at square, portrait, and landscape sizes" loading="lazy">
+                <img src="/assets/echo/04-gallery-2.png" width="870" height="301" alt="Meta Traffic Static Image variants: speaker-only and benefit-copy creative directions, each at multiple ad sizes" loading="lazy">
+                <img src="/assets/echo/04-gallery-3.png" width="791" height="301" alt="Google Demand Gen Native Ad for &#8216;5 Workplace Challenges Defining 2026&#8217; webinar at 1:1, 4:5, 9:16, and 16:9 plus phone-scaled view" loading="lazy">
+                <img src="/assets/echo/04-gallery-4.png" width="791" height="301" alt="Google Demand Gen Native Ad format spec: sizes 1:1 1080&#215;1080, 4:5 1080&#215;1350, 9:16 1080&#215;1920, 16:9 1920&#215;1080, plus phone-scaled view" loading="lazy">
+                <img src="/assets/echo/04-gallery-5.png" width="524" height="301" alt="LinkedIn Static Image ad for &#8216;5 Workplace Challenges Defining 2026&#8217; webinar: variants A and B with headshot format, C with benefit-copy" loading="lazy">
+              </div>
+              <figcaption class="wh-caption meta-caption" style="margin-top: 12px">Five months of campaign output, one library.</figcaption>
+            </figure>
           </div>
         </section>
 
