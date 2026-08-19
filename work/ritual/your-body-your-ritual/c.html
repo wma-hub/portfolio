@@ -47,7 +47,6 @@ body{width:160px;height:600px;overflow:hidden;font-family:'Plus Jakarta Sans',Ar
 </style>
 </head>
 <body>
-<a href="%%CLICK_URL_UNESC%%" id="mc-link" style="display:block;width:160px;height:600px;text-decoration:none;">
 <div id="mc">
   <div id="bg"></div>
 
@@ -113,11 +112,8 @@ body{width:160px;height:600px;overflow:hidden;font-family:'Plus Jakarta Sans',Ar
     <div id="s4-detail">Free shipping<br>Cancel anytime</div>
   </div>
 </div>
-</a>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
-var clickTag = "%%CLICK_URL_UNESC%%";
-document.getElementById('mc-link').href = clickTag;
 
 var HOLD = 2.7;
 var tl = gsap.timeline({repeat:-1, defaults:{ease:'power2.out'}});
