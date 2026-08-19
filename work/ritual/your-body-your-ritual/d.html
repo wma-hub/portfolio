@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ritual — Your Body. Your Ritual. — 320×50 · Speculative, Marly Creative Concepts</title>
+<meta name="description" content="Speculative work. Not affiliated with, commissioned by, or endorsed by Ritual.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&family=Inter:wght@700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{width:320px;height:50px;overflow:hidden;}
+#mc{position:relative;width:320px;height:50px;overflow:hidden;border:1px solid #E0E0E0;background:#142B6F;}
+
+/* Yellow icon logo — left, always visible */
+#logo-wrap{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:20px;height:32px;}
+
+/* Cycling text zone */
+#cycle-zone{position:absolute;left:52px;right:72px;top:0;bottom:0;overflow:hidden;}
+.cycle-frame{position:absolute;left:0;right:0;top:0;bottom:0;opacity:0;}
+.main-text{position:absolute;left:0;top:50%;transform:translateY(-50%);font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:14px;font-weight:700;color:#FFFFFF;white-space:nowrap;}
+#f4-sub{position:absolute;left:75px;top:20px;font-family:'Plus Jakarta Sans',Arial,sans-serif;font-size:8px;font-weight:700;color:#FFFFFF;white-space:nowrap;}
+
+/* Ghost CTA — right, always visible */
+#cta{position:absolute;right:11px;top:50%;transform:translateY(-50%);font-family:'Inter',Arial,sans-serif;font-size:8px;font-weight:700;color:#F5D547;white-space:nowrap;border:1px solid #F5D547;padding:4px 8px;background:transparent;line-height:1;}
+
+/* 4-frame cycling — 3s per frame, 12s total */
+@keyframes cycle-frame {
+  0%    { opacity: 0; }
+  2.5%  { opacity: 1; }
+  22.5% { opacity: 1; }
+  25%   { opacity: 0; }
+  100%  { opacity: 0; }
+}
+
+#f1 { animation: cycle-frame 12s infinite 0s   both; }
+#f2 { animation: cycle-frame 12s infinite 3s   both; }
+#f3 { animation: cycle-frame 12s infinite 6s   both; }
+#f4 { animation: cycle-frame 12s infinite 9s   both; }
+</style>
+</head>
+<body>
+<div id="mc">
+
+  <!-- Yellow Ritual icon logo — left, always visible -->
+  <div id="logo-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 75" width="20" height="32" style="display:block;">
+      <g clip-path="url(#clip0_r)">
+        <mask height="75" width="48" y="0" x="0" maskUnits="userSpaceOnUse" style="mask-type:luminance" id="mask0_r">
+          <path fill="white" d="M48 0.600098H0V74.6001H48V0.600098Z"/>
+        </mask>
+        <g mask="url(#mask0_r)">
+          <path fill="#F5D547" d="M48 24.4858C48 37.676 37.2534 48.3714 24 48.3714C10.7466 48.3714 0 37.676 0 24.4858C0 11.2955 10.7466 0.600098 24 0.600098C37.2534 0.600098 48 11.2955 48 24.4858Z"/>
+          <path fill="#F5D547" d="M45.8227 52.7114H2.18359V57.0515H45.8227V52.7114Z"/>
+          <path fill="#F5D547" d="M6.60544 68.5663H4.51954V63.8073H6.61154C8.2766 63.8073 9.56961 64.5479 9.56961 66.1868C9.56961 67.8257 8.2766 68.5723 6.61154 68.5723L6.60544 68.5663ZM12.1861 74.4299L9.42323 70.3084C11.1005 69.4768 12.0336 68.0017 12.0336 66.1807C12.0336 63.4553 9.99045 61.4097 6.36757 61.4097H2.17139V74.4299H4.52564V70.9579H7.08117L9.37444 74.4299H12.1922H12.1861Z"/>
+          <path fill="#F5D547" d="M45.8103 61.4097H43.4561V74.4239H45.8103V61.4097Z"/>
+          <path fill="#F5D547" d="M21.7614 67.213V65.0946H20.1573V62.0596H17.8031V65.0946H16.6016V67.213H17.8031V72.0145C17.8031 72.8521 18.0044 73.3499 18.4069 73.8476C18.8582 74.2907 19.462 74.5578 20.0964 74.5942C20.9441 74.6428 21.7065 74.4182 22.1579 74.1025V71.8991C21.8285 72.1905 21.4016 72.3544 20.9624 72.3665C20.4501 72.3665 20.1939 72.0994 20.1573 71.5228V67.207H21.7675L21.7614 67.213Z"/>
+          <path fill="#F5D547" d="M31.8315 74.4239H29.7212L29.5016 73.3617C29.0686 73.9201 28.1842 74.5392 26.8851 74.5392C24.5614 74.5392 22.9756 73.1795 22.9756 70.6908V65.0942H25.2993V69.9139C25.2993 71.5588 26.0434 72.263 27.3852 72.263C28.727 72.263 29.4955 71.2918 29.4955 69.9139V65.0942H31.8193V74.43L31.8315 74.4239Z"/>
+          <path fill="#F5D547" d="M37.5342 67.2009C36.1314 67.2313 35.0091 68.3724 35.0091 69.7686C35.0091 71.1647 36.1314 72.3058 37.5342 72.3362C38.9248 72.3362 39.9921 71.1707 39.9921 69.7686C39.9921 68.3664 38.9308 67.2009 37.5403 67.2009H37.5342ZM42.2488 65.1068V74.4303H40.3641L40.1446 73.4591C39.7481 73.963 38.7174 74.5396 37.4671 74.5396C34.7896 74.5396 32.7646 72.5668 32.7646 69.7625C32.7646 66.9581 34.7896 64.9854 37.4732 64.9854C38.7113 64.9854 39.7603 65.562 40.1507 66.0658L40.3702 65.0946H42.2488V65.1068Z"/>
+          <path fill="#F5D547" d="M15.5222 65.0942H13.168V74.43H15.5222V65.0942Z"/>
+          <path fill="#F5D547" d="M15.864 62.4964C15.864 63.3462 15.1809 64.0382 14.3392 64.0382C13.4976 64.0382 12.8145 63.3462 12.8145 62.4964C12.8145 61.6466 13.4976 60.9546 14.3392 60.9546C15.1809 60.9546 15.864 61.6466 15.864 62.4964Z"/>
+        </g>
+      </g>
+      <defs>
+        <clipPath id="clip0_r">
+          <rect fill="white" height="75" width="48"/>
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- Cycling center text -->
+  <div id="cycle-zone">
+    <div class="cycle-frame" id="f1"><span class="main-text">What's in your vitamin?</span></div>
+    <div class="cycle-frame" id="f2"><span class="main-text">9 nutrients. Traceable.</span></div>
+    <div class="cycle-frame" id="f3"><span class="main-text">Essential for Women 18+</span></div>
+    <div class="cycle-frame" id="f4">
+      <span class="main-text">$33/mo</span>
+      <span id="f4-sub">Free shipping&nbsp;&nbsp;Cancel anytime</span>
+    </div>
+  </div>
+
+  <!-- Ghost CTA — right, always visible -->
+  <div id="cta">Shop &#8594;</div>
+
+</div>
+<script>
+</script>
+</body>
+</html>

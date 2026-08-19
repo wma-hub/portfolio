@@ -112,7 +112,7 @@
             <figure class="wh-figure">
               <picture>
                 <source type="image/webp" srcset="/assets/aura/01-fifteen-buttons.webp">
-                <img src="/assets/aura/01-fifteen-buttons.png" width="800" height="333" alt="" loading="eager">
+                <img src="/assets/aura/01-fifteen-buttons.png" width="800" height="333" alt="Grid of button styles drawn from the pre-Aura audit: varied shapes, fills, stroke weights, and label treatments with no shared visual language" loading="eager">
               </picture>
               <figcaption class="wh-caption meta-caption">Design audit revealed 15+ button implementations across products; each required separate maintenance and causing inconsistent UX.</figcaption>
             </figure>
@@ -134,16 +134,22 @@
             </div>
             <h3 class="heading-subhead">Establishing a shared source of truth</h3>
             <p class="body-default">A four-tier token model: primitives, aliases, semantic tokens, component tokens. Each tier exists so a decision made once resolves the same way everywhere it lands: in Figma, in code, and in the conversation between them.</p>
-            <picture>
-              <source type="image/webp" srcset="/assets/aura/02-token-tiers.webp">
-              <img src="/assets/aura/02-token-tiers.png" width="800" height="210" alt="" loading="lazy">
-            </picture>
+            <figure class="wh-figure">
+              <picture>
+                <source type="image/webp" srcset="/assets/aura/02-token-tiers.webp">
+                <img src="/assets/aura/02-token-tiers.png" width="800" height="210" alt="Four-tier design token model" loading="lazy">
+              </picture>
+              <figcaption class="wh-caption meta-caption">Tier 1 primitive #5B63E4 &#8594; aliased as humanity/60 (Tier 2) &#8594; semantic tokens brandPrimary and buttonPrimary (Tier 3) &#8594; component tokens button-bg-primary and input-border-focus (Tier 4)</figcaption>
+            </figure>
             <h3 class="heading-subhead">Making the token chain visible</h3>
             <p class="body-default">White button, focus state: the focus ring resolves to border/acc-default, which aliases humanity/60, which is the primitive #5B63E4 from Tier 1. One annotated component showing the whole chain did more for adoption than the documentation site did.</p>
-            <picture>
-              <source type="image/webp" srcset="/assets/aura/02-button-anatomy.webp">
-              <img src="/assets/aura/02-button-anatomy.png" width="800" height="369" alt="" loading="lazy">
-            </picture>
+            <figure class="wh-figure">
+              <picture>
+                <source type="image/webp" srcset="/assets/aura/02-button-anatomy.webp">
+                <img src="/assets/aura/02-button-anatomy.png" width="800" height="369" alt="Annotated white button in focus state" loading="lazy">
+              </picture>
+              <figcaption class="wh-caption meta-caption">Callouts trace the focus ring through border/acc-default &#8594; humanity/60 &#8594; #5B63E4, showing a component token resolving to a Tier 1 primitive</figcaption>
+            </figure>
             <div class="cs-fork">
               <span class="cs-fork-tag">DECISION FORK 2</span>
               <div class="cs-fork-content">
@@ -155,7 +161,7 @@
             <p class="body-default">A six-step contribution pipeline: request, validate against three-plus use cases, design review, engineering feasibility, required docs, ship. Semantic versioning, a changelog every release, six-month deprecation notices, and migration guides for breaking changes.</p>
             <picture>
               <source type="image/webp" srcset="/assets/aura/04-pipeline-diagram.webp">
-              <img src="/assets/aura/04-pipeline-diagram.png" width="804" height="78" alt="" loading="lazy">
+              <img src="/assets/aura/04-pipeline-diagram.png" width="804" height="78" alt="Contribution pipeline: Request, Validate need (3+ use cases), Design review, Engineering feasibility, Docs required, Ship" loading="lazy">
             </picture>
           </div>
         </section>
@@ -222,37 +228,37 @@
                 <div class="cs-slide cs-slide--active" aria-hidden="false">
                   <picture>
                     <source type="image/webp" srcset="/assets/aura/05-slide-1.webp">
-                    <img src="/assets/aura/05-slide-1.png" width="800" height="360" alt="" loading="eager">
+                    <img src="/assets/aura/05-slide-1.png" width="800" height="360" alt="Aura button documentation &#8212; Accessibility: native element, aria-label, focus ring, touch target, and contrast rules" loading="eager">
                   </picture>
                 </div>
                 <div class="cs-slide" aria-hidden="true">
                   <picture>
                     <source type="image/webp" srcset="/assets/aura/05-slide-2.webp">
-                    <img src="/assets/aura/05-slide-2.png" width="800" height="360" alt="" loading="lazy">
+                    <img src="/assets/aura/05-slide-2.png" width="800" height="360" alt="Aura button documentation &#8212; Anatomy (annotated Primary coral button) and States (focus ring, hover examples)" loading="lazy">
                   </picture>
                 </div>
                 <div class="cs-slide" aria-hidden="true">
                   <picture>
                     <source type="image/webp" srcset="/assets/aura/05-slide-4.webp">
-                    <img src="/assets/aura/05-slide-4.png" width="800" height="360" alt="" loading="lazy">
+                    <img src="/assets/aura/05-slide-4.png" width="800" height="360" alt="Aura button documentation &#8212; Props table: type, size (sml/mdm/lrg), state, icon-name, and Label" loading="lazy">
                   </picture>
                 </div>
                 <div class="cs-slide" aria-hidden="true">
                   <picture>
                     <source type="image/webp" srcset="/assets/aura/05-slide-5.webp">
-                    <img src="/assets/aura/05-slide-5.png" width="800" height="360" alt="" loading="lazy">
+                    <img src="/assets/aura/05-slide-5.png" width="800" height="360" alt="Aura button documentation &#8212; Tokens consumed: eleven role-to-token assignments (fills, border, focus ring, labels, radius, elevation, type)" loading="lazy">
                   </picture>
                 </div>
                 <div class="cs-slide" aria-hidden="true">
                   <picture>
                     <source type="image/webp" srcset="/assets/aura/05-slide-6.webp">
-                    <img src="/assets/aura/05-slide-6.png" width="800" height="360" alt="" loading="lazy">
+                    <img src="/assets/aura/05-slide-6.png" width="800" height="360" alt="Aura button documentation &#8212; Variants table: button types mapped to container treatment and intended use" loading="lazy">
                   </picture>
                 </div>
                 <div class="cs-slide" aria-hidden="true">
                   <picture>
                     <source type="image/webp" srcset="/assets/aura/05-slide-7.webp">
-                    <img src="/assets/aura/05-slide-7.png" width="800" height="360" alt="" loading="lazy">
+                    <img src="/assets/aura/05-slide-7.png" width="800" height="360" alt="Aura button documentation &#8212; Sizes table: sml/mdm/lrg specifying text style, padding, item spacing, and use; mdm and lrg share button/lg/16" loading="lazy">
                   </picture>
                 </div>
               </div>

@@ -157,6 +157,7 @@
                 <p class="body-default">Marly runs the other way: creative stays human-authored in Figma, the model handles assembly, sizing and build. Ghia&#8217;s pastel restraint and Magic Spoon&#8217;s maximalism come out of identical infrastructure. The system encodes process, not aesthetic. The ceiling is real. Every campaign still needs me in Figma, which is why this is a studio and not a product.</p>
               </div>
             </div>
+            <p class="wh-caption meta-caption">Speculative work. Not affiliated with, commissioned by, or endorsed by the brands shown.</p>
             <h3 class="heading-subhead">Three tiers, each compounding the one below</h3>
             <p class="body-default">The Foundation layer is client-agnostic: ad size canvases, layout variants, component shells, animation specs, IAB spacing tokens, the skeleton every build inherits. The second layer is per-client: Foundation components with brand tokens swapped in, so every client file inherits Foundation updates. The third is per-campaign: a CLAUDE.md spec translating the brief into machine-readable production instructions, authored by Opus before Code starts.</p>
             <p class="body-default">Which is why the second campaign for any client is faster than the first.</p>
@@ -170,19 +171,19 @@
                 <div class="cs-level-panel cs-level-panel--active">
                   <picture>
                     <source type="image/webp" srcset="/assets/marly/02-tier-1.webp">
-                    <img src="/assets/marly/02-tier-1.png" width="800" height="431" alt="" loading="lazy">
+                    <img src="/assets/marly/02-tier-1.png" width="800" height="431" alt="Marly Foundation layer (Tier 1): 336&#215;280 layout wireframe with zone dimensions, loop-pulse animation token spec, and headline component contract" loading="lazy">
                   </picture>
                 </div>
                 <div class="cs-level-panel">
                   <picture>
                     <source type="image/webp" srcset="/assets/marly/02-tier-2.webp">
-                    <img src="/assets/marly/02-tier-2.png" width="800" height="425" alt="" loading="lazy">
+                    <img src="/assets/marly/02-tier-2.png" width="800" height="425" alt="Marly per-client layer (Tier 2): Tumblerware brand brief &#8212; logo, product image, palette swatches, typeface, and rendered 300&#215;250 ad" loading="lazy">
                   </picture>
                 </div>
                 <div class="cs-level-panel">
                   <picture>
                     <source type="image/webp" srcset="/assets/marly/02-tier-3.webp">
-                    <img src="/assets/marly/02-tier-3.png" width="800" height="397" alt="" loading="lazy">
+                    <img src="/assets/marly/02-tier-3.png" width="800" height="397" alt="Marly per-campaign layer (Tier 3): CLAUDE.md with Father&#8217;s Day copy deck, color tokens, and type scale by ad size" loading="lazy">
                   </picture>
                 </div>
               </div>
@@ -191,22 +192,28 @@
             <p class="body-default">Phase I is planning. Opus authors a plan.md before Code touches a file: a brief synthesis, gap audit with explicit resolutions, a diff against deployed state for V2+ builds, and a §7 coverage table with a row for every pipeline stage. Code cannot start Stage 1 until every row resolves.</p>
             <p class="body-default">Phase II is execution. Claude Code generates the HTML, deploys the review portal, and syncs the Notion workspace. Before the review page builds, /verify-delivery runs a nine-check ground-truth pass against the deployed file state rather than a self-report from Code: paths resolving, file weights, IAB compliance, animation tokens per spec. If any check fails, the build stops.</p>
             <p class="body-default">This is how the pipeline catches the class of errors that only surface after a client clicks play.</p>
-            <picture>
-              <source type="image/webp" srcset="/assets/marly/02-gate-diagram.webp">
-              <img src="/assets/marly/02-gate-diagram.png" width="800" height="421" alt="" loading="lazy">
-            </picture>
+            <figure class="wh-figure">
+              <picture>
+                <source type="image/webp" srcset="/assets/marly/02-gate-diagram.webp">
+                <img src="/assets/marly/02-gate-diagram.png" width="800" height="421" alt="Two-phase Marly pipeline diagram" loading="lazy">
+              </picture>
+              <figcaption class="wh-caption meta-caption">Phase I: Claude Opus authors a plan.md blocked by a &#167;7 gate. Phase II: Claude Code generates HTML and deploys, blocked by /verify-delivery ground-truth file check before the review page goes live.</figcaption>
+            </figure>
             <h3 class="heading-subhead">Animation intent locked at the brief</h3>
             <p class="body-default">Campaign type determines the sequence; brand energy from the client CLAUDE.md selects which animation token executes inside it. Ghia&#8217;s retargeting campaign opens on a product already in frame with a slow opacity fade, because retargeting assumes recognition. Graza&#8217;s mayo launch leads with squeeze-bottle physics on the entrance, because a launch has to introduce the thing.</p>
             <p class="body-default">Surface effects sit above animation as a separate compositional layer (scrims, feathered edges, ambient glows, shimmer sweeps). Gorjana gets a warm gold shimmer because the product is brass. Graza gets none, because nothing about a matte squeeze bottle on flat color wants atmosphere.</p>
             <div style="display:flex;gap:16px;">
-              <div style="width:256px;height:213px;overflow:hidden;flex-shrink:0;">
-                <iframe src="/units/ghia/summer-spritz-series/units/set1-mr.html" width="300" height="250" scrolling="no" sandbox="allow-scripts allow-same-origin" title="Ghia Summer Spritz Series — 300×250" style="border:none;display:block;transform:scale(0.8533);transform-origin:top left;"></iframe>
+              <div class="mc-trio-cell" style="position:relative;width:256px;height:213px;overflow:hidden;flex-shrink:0;">
+                <img src="/assets/marly/gallery/ghia-mr.png" alt="" width="256" height="213" style="position:absolute;top:0;left:0;width:256px;height:213px;object-fit:cover;">
+                <iframe class="mc-trio-frame" data-src="/work/ghia/summer-spritz-series/a.html" data-loop="4000" width="300" height="250" scrolling="no" sandbox="allow-scripts" title="Ghia Summer Spritz Series — 300×250" style="position:absolute;top:0;left:0;border:none;transform:scale(0.8533);transform-origin:top left;opacity:0;"></iframe>
               </div>
-              <div style="width:256px;height:213px;overflow:hidden;flex-shrink:0;">
-                <iframe src="/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_mr.html" width="300" height="250" scrolling="no" sandbox="allow-scripts allow-same-origin" title="Graza Mayo Launch — 300×250" style="border:none;display:block;transform:scale(0.8533);transform-origin:top left;"></iframe>
+              <div class="mc-trio-cell" style="position:relative;width:256px;height:213px;overflow:hidden;flex-shrink:0;">
+                <img src="/assets/marly/gallery/graza-mr.png" alt="" width="256" height="213" style="position:absolute;top:0;left:0;width:256px;height:213px;object-fit:cover;">
+                <iframe class="mc-trio-frame" data-src="/work/graza/mayo-launch-q2-2026/a.html" data-loop="9000" width="300" height="250" scrolling="no" sandbox="allow-scripts" title="Graza Mayo Launch — 300×250" style="position:absolute;top:0;left:0;border:none;transform:scale(0.8533);transform-origin:top left;opacity:0;"></iframe>
               </div>
-              <div style="width:256px;height:213px;overflow:hidden;flex-shrink:0;">
-                <iframe src="/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_mr.html" width="300" height="250" scrolling="no" sandbox="allow-scripts allow-same-origin" title="Gorjana Halo Collection — 300×250" style="border:none;display:block;transform:scale(0.8533);transform-origin:top left;"></iframe>
+              <div class="mc-trio-cell" style="position:relative;width:256px;height:213px;overflow:hidden;flex-shrink:0;">
+                <img src="/assets/marly/gallery/gorjana-mr.png" alt="" width="256" height="213" style="position:absolute;top:0;left:0;width:256px;height:213px;object-fit:cover;">
+                <iframe class="mc-trio-frame" data-src="/work/gorjana/halo-collection/a.html" data-loop="14000" width="300" height="250" scrolling="no" sandbox="allow-scripts" title="Gorjana Halo Collection — 300×250" style="position:absolute;top:0;left:0;border:none;transform:scale(0.8533);transform-origin:top left;opacity:0;"></iframe>
               </div>
             </div>
           </div>
@@ -232,37 +239,37 @@
                 <div class="cs-level-panel cs-level-panel--active">
                   <picture>
                     <source type="image/webp" srcset="/assets/marly/03-step-1.webp">
-                    <img src="/assets/marly/03-step-1.png" width="800" height="591" alt="" loading="lazy">
+                    <img src="/assets/marly/03-step-1.png" width="800" height="591" alt="Build step 01 &#8212; Brief: Tumblerware intake form capturing ad sizes (300&#215;250, 728&#215;90, 160&#215;600), Animation Style Subtle, and Architecture B" loading="lazy">
                   </picture>
                 </div>
                 <div class="cs-level-panel">
                   <picture>
                     <source type="image/webp" srcset="/assets/marly/03-step-2.webp">
-                    <img src="/assets/marly/03-step-2.png" width="800" height="481" alt="" loading="lazy">
+                    <img src="/assets/marly/03-step-2.png" width="800" height="481" alt="Build step 02 &#8212; plan.md: &#167;7 coverage-table gate with Post-Build Pipeline stages resolved; rows carry DEVIATION NOTED annotations" loading="lazy">
                   </picture>
                 </div>
                 <div class="cs-level-panel">
                   <picture>
                     <source type="image/webp" srcset="/assets/marly/03-step-3.webp">
-                    <img src="/assets/marly/03-step-3.png" width="800" height="484" alt="" loading="lazy">
+                    <img src="/assets/marly/03-step-3.png" width="800" height="484" alt="Build step 03 &#8212; Figma lo-fi + CD pass: wireframe on left, rendered Tumblerware 300&#215;250 with product image and &#8216;TUMBLER GIFT BUNDLE $161&#8217; on right" loading="lazy">
                   </picture>
                 </div>
                 <div class="cs-level-panel">
                   <picture>
                     <source type="image/webp" srcset="/assets/marly/03-step-4.webp">
-                    <img src="/assets/marly/03-step-4.png" width="800" height="651" alt="" loading="lazy">
+                    <img src="/assets/marly/03-step-4.png" width="800" height="651" alt="Build step 04 &#8212; CLAUDE.md: Father&#8217;s Day spec with copy deck (&#8216;Gift Sharp.&#8217;, &#8216;SHOP NOW&#8217;, &#8216;Order by June 13&#8217;), brand energy, and animation defaults" loading="lazy">
                   </picture>
                 </div>
                 <div class="cs-level-panel">
                   <picture>
                     <source type="image/webp" srcset="/assets/marly/03-step-5.webp">
-                    <img src="/assets/marly/03-step-5.png" width="800" height="547" alt="" loading="lazy">
+                    <img src="/assets/marly/03-step-5.png" width="800" height="547" alt="Build step 05 &#8212; /verify-delivery: terminal output with all 9 checks passing, 46 assets verified &#8212; Overall PASS (9/9)" loading="lazy">
                   </picture>
                 </div>
                 <div class="cs-level-panel">
                   <picture>
                     <source type="image/webp" srcset="/assets/marly/03-step-6.webp">
-                    <img src="/assets/marly/03-step-6.png" width="800" height="562" alt="" loading="lazy">
+                    <img src="/assets/marly/03-step-6.png" width="800" height="562" alt="Build step 06 &#8212; Delivered: Tumblerware Father&#8217;s Day ad units at 728&#215;90, 300&#215;250, and 160&#215;600 &#8212; deployed to the review portal" loading="lazy">
                   </picture>
                 </div>
               </div>
@@ -301,7 +308,7 @@
             </div>
             <picture>
               <source type="image/webp" srcset="/assets/marly/04-brand-range.webp">
-              <img src="/assets/marly/04-brand-range.png" width="800" height="96" alt="" loading="lazy">
+              <img src="/assets/marly/04-brand-range.png" width="800" height="96" alt="Marly brand range: Graza, Byredo, Tumbler, Magic Spoon, Ghia, and Levi&#8217;s logos representing spec builds completed through the pipeline" loading="lazy">
             </picture>
             <div class="mc-rail" aria-hidden="true">
               <div class="mc-rail-track" id="mc-rail-track"><!-- JS-generated tiles --></div>
@@ -415,57 +422,57 @@
   /* per-brand catalogue ─────────────────────────────────────────── */
   var ADS = {
     byredo: {
-      ws: {src:'/units/byredo/mojave-ghost-discovery/units/ws.html', w:160, h:600},
-      mr: {src:'/units/byredo/mojave-ghost-discovery/units/mr.html', w:300, h:250},
-      hp: {src:'/units/byredo/mojave-ghost-discovery/units/hp.html', w:300, h:600},
-      mb: {src:'/units/byredo/mojave-ghost-discovery/units/mb.html', w:320, h:50 },
-      lb: {src:'/units/byredo/mojave-ghost-discovery/units/lb.html', w:728, h:90 },
+      ws: {src:'/work/byredo/mojave-ghost-discovery/c.html', w:160, h:600},
+      mr: {src:'/work/byredo/mojave-ghost-discovery/a.html', w:300, h:250},
+      hp: {src:'/work/byredo/mojave-ghost-discovery/e.html', w:300, h:600},
+      mb: {src:'/work/byredo/mojave-ghost-discovery/d.html', w:320, h:50 },
+      lb: {src:'/work/byredo/mojave-ghost-discovery/b.html', w:728, h:90 },
     },
     ghia: {
-      ws: {src:'/units/ghia/summer-spritz-series/units/set1-ws.html', w:160, h:600},
-      mr: {src:'/units/ghia/summer-spritz-series/units/set1-mr.html', w:300, h:250},
-      hp: {src:'/units/ghia/summer-spritz-series/units/set1-hp.html', w:300, h:600},
-      mb: {src:'/units/ghia/summer-spritz-series/units/set1-mb.html', w:320, h:50 },
-      lb: {src:'/units/ghia/summer-spritz-series/units/set1-lb.html', w:728, h:90 },
+      ws: {src:'/work/ghia/summer-spritz-series/c.html', w:160, h:600},
+      mr: {src:'/work/ghia/summer-spritz-series/a.html', w:300, h:250},
+      hp: {src:'/work/ghia/summer-spritz-series/e.html', w:300, h:600},
+      mb: {src:'/work/ghia/summer-spritz-series/d.html', w:320, h:50 },
+      lb: {src:'/work/ghia/summer-spritz-series/b.html', w:728, h:90 },
     },
     gorjana: {
-      ws: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_ws.html', w:160, h:600},
-      mr: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_mr.html', w:300, h:250},
-      mb: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_mb.html', w:320, h:50 },
-      lb: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_lb.html', w:728, h:90 },
-      bb: {src:'/units/gorjana/halo-collection/units/set-1-collection/gorjana-halo-collection_bb.html', w:970, h:250},
+      ws: {src:'/work/gorjana/halo-collection/c.html', w:160, h:600},
+      mr: {src:'/work/gorjana/halo-collection/a.html', w:300, h:250},
+      mb: {src:'/work/gorjana/halo-collection/d.html', w:320, h:50 },
+      lb: {src:'/work/gorjana/halo-collection/b.html', w:728, h:90 },
+      bb: {src:'/work/gorjana/halo-collection/f.html', w:970, h:250},
     },
     graza: {
-      ws: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_ws.html', w:160, h:600},
-      mr: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_mr.html', w:300, h:250},
-      mb: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_mb.html', w:320, h:50 },
-      lb: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_lb.html', w:728, h:90 },
-      bb: {src:'/units/graza/mayo-launch-q2-2026/units/graza-mayo-launch_bb.html', w:970, h:250},
+      ws: {src:'/work/graza/mayo-launch-q2-2026/c.html', w:160, h:600},
+      mr: {src:'/work/graza/mayo-launch-q2-2026/a.html', w:300, h:250},
+      mb: {src:'/work/graza/mayo-launch-q2-2026/d.html', w:320, h:50 },
+      lb: {src:'/work/graza/mayo-launch-q2-2026/b.html', w:728, h:90 },
+      bb: {src:'/work/graza/mayo-launch-q2-2026/f.html', w:970, h:250},
     },
     levis: {
-      ws: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/ws.html', w:160, h:600},
-      mr: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/mr.html', w:300, h:250},
-      hp: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/hp.html', w:300, h:600},
-      mb: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/mb.html', w:320, h:50 },
-      lb: {src:'/units/levis/pride-2026/units/set-4-i-know-you-know/lb.html', w:728, h:90 },
+      ws: {src:'/work/levis/pride-2026/c.html', w:160, h:600},
+      mr: {src:'/work/levis/pride-2026/a.html', w:300, h:250},
+      hp: {src:'/work/levis/pride-2026/e.html', w:300, h:600},
+      mb: {src:'/work/levis/pride-2026/d.html', w:320, h:50 },
+      lb: {src:'/work/levis/pride-2026/b.html', w:728, h:90 },
     },
     'magic-spoon': {
-      ws: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-ws.html', w:160, h:600},
-      mr: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-mr.html', w:300, h:250},
-      hp: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-hp.html', w:300, h:600},
-      mb: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-mb.html', w:320, h:50 },
-      lb: {src:'/units/magic-spoon/summer-sampler-drop/units/set1-lb.html', w:728, h:90 },
+      ws: {src:'/work/magic-spoon/summer-sampler-drop/c.html', w:160, h:600},
+      mr: {src:'/work/magic-spoon/summer-sampler-drop/a.html', w:300, h:250},
+      hp: {src:'/work/magic-spoon/summer-sampler-drop/e.html', w:300, h:600},
+      mb: {src:'/work/magic-spoon/summer-sampler-drop/d.html', w:320, h:50 },
+      lb: {src:'/work/magic-spoon/summer-sampler-drop/b.html', w:728, h:90 },
     },
     ritual: {
-      ws: {src:'/units/ritual/your-body-your-ritual/units/ws.html', w:160, h:600},
-      mr: {src:'/units/ritual/your-body-your-ritual/units/mr.html', w:300, h:250},
-      mb: {src:'/units/ritual/your-body-your-ritual/units/mb.html', w:320, h:50 },
-      lb: {src:'/units/ritual/your-body-your-ritual/units/lb.html', w:728, h:90 },
+      ws: {src:'/work/ritual/your-body-your-ritual/c.html', w:160, h:600},
+      mr: {src:'/work/ritual/your-body-your-ritual/a.html', w:300, h:250},
+      mb: {src:'/work/ritual/your-body-your-ritual/d.html', w:320, h:50 },
+      lb: {src:'/work/ritual/your-body-your-ritual/b.html', w:728, h:90 },
     },
     tumblerware: {
-      ws: {src:'/units/tumblerware/fathers-day/ads/ws.html', w:160, h:600},
-      mr: {src:'/units/tumblerware/fathers-day/ads/mr.html', w:300, h:250},
-      lb: {src:'/units/tumblerware/fathers-day/ads/lb.html', w:728, h:90 },
+      ws: {src:'/work/tumblerware/fathers-day/c.html', w:160, h:600},
+      mr: {src:'/work/tumblerware/fathers-day/a.html', w:300, h:250},
+      lb: {src:'/work/tumblerware/fathers-day/b.html', w:728, h:90 },
     },
   };
 
@@ -598,6 +605,45 @@
     frame.style.height = computeH(panels[0]) + 'px';
     window.addEventListener('resize', function () { frame.style.height = computeH(panels[active]) + 'px'; });
   });
+})();
+
+(function () {
+  var motionOK = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var frames = [].slice.call(document.querySelectorAll('.mc-trio-frame'));
+  if (!frames.length) return;
+  if (!motionOK) {
+    frames.forEach(function (f) { f.style.display = 'none'; });
+    return;
+  }
+  var timers = {};
+  function load(frame) {
+    var key = frame.dataset.src;
+    clearTimeout(timers[key]);
+    frame.style.opacity = '0';
+    setTimeout(function () {
+      frame.onload = null;
+      frame.src = frame.dataset.src;
+      frame.onload = function () {
+        frame.style.opacity = '1';
+        frame.onload = null;
+        timers[key] = setTimeout(function () { load(frame); }, parseInt(frame.dataset.loop, 10));
+      };
+    }, 50);
+  }
+  function unload(frame) {
+    var key = frame.dataset.src;
+    clearTimeout(timers[key]);
+    frame.onload = null;
+    frame.src = '';
+    frame.style.opacity = '0';
+  }
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) { load(entry.target); }
+      else { unload(entry.target); }
+    });
+  }, { threshold: 0.1 });
+  frames.forEach(function (f) { observer.observe(f); });
 })();
 </script>
 </body>

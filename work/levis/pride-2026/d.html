@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Levi's Pride 2026 — I Know You Know — 320×50 · Speculative, Marly Creative Concepts</title>
+<meta name="description" content="Speculative work. Not affiliated with, commissioned by, or endorsed by Levi's.">
+  <style>
+    @font-face{font-family:'Anton';src:url('/work/levis/assets/fonts/Anton-Regular.woff2')format('woff2');font-weight:400;font-display:swap;}
+    @font-face{font-family:'Inter';src:url('/work/levis/assets/fonts/Inter-SemiBold.woff2')format('woff2');font-weight:600;font-display:swap;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{width:320px;height:50px;overflow:hidden;}
+    .mc-unit{position:relative;width:320px;height:50px;background:#fff;overflow:hidden;border:1px solid #ddd;}
+    .logo{position:absolute;left:15px;top:50%;width:49px;height:20px;transform:translateY(-50%);z-index:10;object-fit:contain;}
+    .shop-link{position:absolute;left:259px;top:19px;width:45px;font-family:'Inter',sans-serif;font-weight:600;font-size:11px;color:#c8102e;z-index:10;white-space:nowrap;}
+    #f1,#f2{position:absolute;left:0;top:0;width:320px;height:50px;pointer-events:none;z-index:5;}
+  </style>
+</head>
+<body>
+  <div class="mc-unit">
+    <!-- Ellipse 1 (left) -->
+    <div style="position:absolute;display:flex;align-items:center;justify-content:center;left:-118px;top:-126px;width:266.407px;height:262.453px;z-index:1;">
+      <div style="flex:none;transform:rotate(47.55deg);">
+        <div style="position:relative;width:155.79px;height:218.543px;">
+          <div style="position:absolute;inset:-57.2% -80.24%;">
+            <div style="display:block;max-width:none;width:100%;height:100%;background:radial-gradient(ellipse at center, rgba(244,252,248,1.0) 0%, rgba(244,252,248,0.6) 45%, transparent 75%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ellipse 2 (right) -->
+    <div style="position:absolute;display:flex;align-items:center;justify-content:center;left:215px;top:-121px;width:266.407px;height:262.453px;z-index:1;">
+      <div style="flex:none;transform:rotate(47.55deg);">
+        <div style="position:relative;width:155.79px;height:218.543px;">
+          <div style="position:absolute;inset:-57.2% -80.24%;">
+            <div style="display:block;max-width:none;width:100%;height:100%;background:radial-gradient(ellipse at center, rgba(252,244,244,1.0) 0%, rgba(252,244,244,0.6) 45%, transparent 75%);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <img class="logo" src="/work/levis/assets/images/logo.png" alt="Levi's">
+    <div class="shop-link">Shop →</div>
+
+    <div id="f1">
+      <div style="position:absolute;left:80px;top:calc(50% + 0.5px);transform:translateY(-50%);font-family:'Anton',sans-serif;font-weight:400;font-size:14px;color:#000;letter-spacing:-0.02em;line-height:0;display:flex;flex-direction:column;justify-content:center;width:160px;z-index:5;">
+        <p style="line-height:normal;">I know you know.</p>
+      </div>
+    </div>
+    <div id="f2">
+      <div style="position:absolute;left:80px;top:50%;transform:translateY(-50%);font-family:'Anton',sans-serif;font-weight:400;font-size:12px;color:#000;letter-spacing:-0.02em;line-height:0;display:flex;flex-direction:column;justify-content:center;width:160px;z-index:5;">
+        <p style="line-height:normal;margin-bottom:0;">For those who</p>
+        <p style="line-height:normal;">recognize each other.</p>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    gsap.set(['#f1','#f2'],{autoAlpha:0,y:10});
+    const tl=gsap.timeline({repeat:-1,onRepeat:function(){gsap.set(['#f1','#f2'],{autoAlpha:0,y:10});}});
+    tl.to('#f1',{autoAlpha:1,y:0,duration:0.4})
+      .to('#f1',{autoAlpha:0,duration:0.4},'+=2.1')
+      .to('#f2',{autoAlpha:1,y:0,duration:0.4})
+      .to('#f2',{autoAlpha:0,duration:0.4},'+=2.1');
+  </script>
+</body>
+</html>
