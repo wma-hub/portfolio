@@ -755,6 +755,7 @@ a.card:hover .card-title {
 .wh-figure { display: flex; flex-direction: column; gap: var(--space-12); }
 .wh-figure img { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); }
 .wh-caption { color: var(--color-ink-muted); }
+.wh-figure-pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-24); }
 
 .wh-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-24); align-items: start; }
 .wh-grid-2 { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-24); align-items: start; }
@@ -799,6 +800,7 @@ a.card:hover .card-title {
 @media (max-width: 900px) {
   .wh-stats { grid-template-columns: 1fr; gap: var(--space-24); }
   .wh-grid-3, .wh-grid-2 { grid-template-columns: 1fr; }
+  .wh-figure-pair { grid-template-columns: 1fr; }
   .wh-tablist { overflow-x: auto; }
   .wh-tab { white-space: nowrap; }
 }
