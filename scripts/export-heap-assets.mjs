@@ -1,19 +1,23 @@
 #!/usr/bin/env node
 /**
- * export-heap-assets.mjs
+ * export-heap-assets.mjs  (v2 — bitmaps only, no baked-in text)
  *
- * Exports the four HEAP evidence frames from Figma (title + screenshot + date caption
- * baked into each frame) and writes PNG + WebP pairs into assets/careers/.
+ * Exports the four HEAP screenshots from Figma as clean images. Titles and date
+ * ranges are NOT included — those are typed as HTML on the page so they stay
+ * selectable, translatable, and legible at any width.
+ *
+ * Targets the inner screenshot layers, not their wrapper frames:
+ *   4418:34420  exit-rate funnel, September
+ *   4418:34421  exit-rate funnel, October–December
+ *   4418:34477  page performance table, September
+ *   4418:34433  page performance table, October–December
  *
  * Usage:
  *   FIGMA_TOKEN=figd_xxx node scripts/export-heap-assets.mjs
- *   FIGMA_TOKEN=figd_xxx node scripts/export-heap-assets.mjs --scale 3 --out assets/careers
+ *   FIGMA_TOKEN=figd_xxx node scripts/export-heap-assets.mjs --scale 4
  *
- * Requires: Node 18+ (built-in fetch). WebP conversion uses `cwebp` if present,
- * otherwise `sharp` if installed, otherwise it skips WebP with a warning.
- *
- * Get a token at figma.com → Settings → Security → Personal access tokens.
- * Scope needed: File content (read). Never commit the token.
+ * Requires Node 18+. WebP via `cwebp` (brew install webp) or `sharp`.
+ * Never commit the token.
  */
 
 import { writeFile, mkdir, access } from 'node:fs/promises';
@@ -25,12 +29,17 @@ const run = promisify(execFile);
 
 const FILE_KEY = 'yL4hnNAJKHlEWVLT5OUhvx';
 
-/** Figma node id → output basename. Each frame already contains title + image + date line. */
+/**
+ * Inner screenshot layers only. Figma widths are small (752–800px) because the
+ * frames are laid out at that size, but the underlying bitmaps were captured at
+ * ~2600px — so scale 3 lands near native without upscaling. Scale 4 will
+ * interpolate past the source; only use it if 3x looks soft in situ.
+ */
 const FRAMES = [
-  { id: '4418:34426', name: '01-funnel-sep',          label: 'Exit rate funnel — September 2025' },
-  { id: '4418:34427', name: '01-funnel-oct-dec',      label: 'Exit rate funnel — October–December 2025' },
-  { id: '4421:34491', name: '03-heap-strip-sep',      label: 'Page performance — September 2025' },
-  { id: '4421:34494', name: '03-heap-strip-oct-dec',  label: 'Page performance — October–December 2025' },
+  { id: '4418:34420', name: '01-exit-sep',      figmaW: 800, note: 'Exit funnel, September' },
+  { id: '4418:34421', name: '01-exit-oct-dec',  figmaW: 800, note: 'Exit funnel, Oct–Dec' },
+  { id: '4418:34477', name: '03-pages-sep',     figmaW: 752, note: 'Page performance, September' },
+  { id: '4418:34433', name: '03-pages-oct-dec', figmaW: 752, note: 'Page performance, Oct–Dec' },
 ];
 
 // ---------- args ----------
@@ -39,9 +48,9 @@ const argVal = (flag, fallback) => {
   const i = args.indexOf(flag);
   return i !== -1 && args[i + 1] ? args[i + 1] : fallback;
 };
-const SCALE = Number(argVal('--scale', '2'));
+const SCALE = Number(argVal('--scale', '3'));
 const OUT_DIR = argVal('--out', 'assets/careers');
-const QUALITY = Number(argVal('--quality', '82'));
+const QUALITY = Number(argVal('--quality', '84'));
 
 const TOKEN = process.env.FIGMA_TOKEN;
 if (!TOKEN) {
@@ -58,7 +67,7 @@ const has = async (cmd) => {
   try { await run('which', [cmd]); return true; } catch { return false; }
 };
 
-/** Read PNG width/height straight from the IHDR chunk — no dependencies. */
+/** Read PNG width/height from the IHDR chunk — no dependencies. */
 const pngSize = (buf) => {
   if (buf.length < 24 || buf.readUInt32BE(0) !== 0x89504e47) return null;
   return { w: buf.readUInt32BE(16), h: buf.readUInt32BE(20) };
@@ -79,7 +88,7 @@ async function toWebp(pngPath, webpPath) {
 }
 
 // ---------- main ----------
-console.log(`\nFigma export → ${OUT_DIR}  (scale ${SCALE}x, webp q${QUALITY})\n`);
+console.log(`\nFigma export → ${OUT_DIR}   scale ${SCALE}x · webp q${QUALITY} · bitmaps only\n`);
 
 await mkdir(OUT_DIR, { recursive: true });
 
@@ -108,14 +117,14 @@ const written = [];
 for (const frame of FRAMES) {
   const url = body.images?.[frame.id];
   if (!url) {
-    console.error(`✗ ${frame.name.padEnd(24)} no render URL returned for ${frame.id}`);
+    console.error(`✗ ${frame.name.padEnd(20)} no render URL for ${frame.id}`);
     failures++;
     continue;
   }
 
   const imgRes = await fetch(url);
   if (!imgRes.ok) {
-    console.error(`✗ ${frame.name.padEnd(24)} download failed (${imgRes.status})`);
+    console.error(`✗ ${frame.name.padEnd(20)} download failed (${imgRes.status})`);
     failures++;
     continue;
   }
@@ -123,7 +132,7 @@ for (const frame of FRAMES) {
   const buf = Buffer.from(await imgRes.arrayBuffer());
   const size = pngSize(buf);
   if (!size) {
-    console.error(`✗ ${frame.name.padEnd(24)} response was not a PNG — check the node id`);
+    console.error(`✗ ${frame.name.padEnd(20)} response was not a PNG — check the node id`);
     failures++;
     continue;
   }
@@ -136,9 +145,9 @@ for (const frame of FRAMES) {
   webpTool ??= tool;
 
   const kb = (buf.length / 1024).toFixed(0);
-  const warn = size.w < 1400 ? '  ⚠ under 1400px wide — raise --scale' : '';
-  console.log(`✓ ${frame.name.padEnd(24)} ${size.w}×${size.h}  ${kb}KB  ${tool ? 'png+webp' : 'png only'}${warn}`);
-  written.push({ ...frame, ...size, pngPath, webpPath: tool ? webpPath : null });
+  const warn = size.w < 1800 ? '  ⚠ under 1800px — these render full width, raise --scale' : '';
+  console.log(`✓ ${frame.name.padEnd(20)} ${size.w}×${size.h}  ${kb}KB  ${tool ? 'png+webp' : 'png only'}${warn}`);
+  written.push({ ...frame, ...size });
 }
 
 if (!webpTool) {
@@ -150,14 +159,24 @@ if (!webpTool) {
   );
 }
 
-// Old files these replace — flag them so nothing stale lingers.
-for (const stale of ['01-funnel', '03-heap-strip']) {
+// Anything these supersede — flag so nothing stale ships.
+const stale = [
+  '01-funnel', '03-heap-strip',
+  '01-funnel-sep', '01-funnel-oct-dec',
+  '03-heap-strip-sep', '03-heap-strip-oct-dec',
+];
+const found = [];
+for (const s of stale) {
   for (const ext of ['png', 'webp']) {
-    const p = path.join(OUT_DIR, `${stale}.${ext}`);
-    try { await access(p); console.log(`\n⚠ superseded file still on disk: ${p}`); } catch {}
+    const p = path.join(OUT_DIR, `${s}.${ext}`);
+    try { await access(p); found.push(p); } catch {}
   }
 }
+if (found.length) {
+  console.log('\n⚠ superseded files still on disk — delete after the markup is rewired:');
+  for (const p of found) console.log(`    ${p}`);
+}
 
-console.log(`\n${written.length}/${FRAMES.length} frames exported.`);
+console.log(`\n${written.length}/${FRAMES.length} exported.`);
 if (failures) { console.error(`${failures} failed.`); process.exit(1); }
-console.log('Next: run the pass-6 brief so Claude Code rewires the two <figure> blocks.\n');
+console.log('Titles and date ranges are NOT in these images — they are typed in the markup.\n');
