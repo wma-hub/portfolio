@@ -76,7 +76,7 @@
             <h2 class="cs-title display-page">Context</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">Workhuman is a B2B SaaS platform for employee recognition. Its US and Ireland design teams had developed their component libraries independently. By the time I joined, the drift was visible everywhere: inconsistent spacing, divergent type scales, and a button component that had forked into fifteen variants across both codebases, none of them formally documented.</p>
+            <p class="body-default">Workhuman is a B2B SaaS platform for employee recognition. Its US and Ireland design teams had developed their component libraries independently. By the time I joined, the drift was visible everywhere: inconsistent spacing, divergent type scales, and a button component that had forked into fifteen variants across both codebases, and neither of them were formally documented.</p>
             <div class="cs-stats cs-stats--3">
               <div class="cs-stat">
                 <p class="cs-stat-figure">3</p>
@@ -129,7 +129,7 @@
               <span class="cs-fork-tag">DECISION FORK 1</span>
               <div class="cs-fork-content">
                 <p class="cs-fork-question">Consolidate the fifteen buttons into one flexible component, or a small set of clearly-named ones?</p>
-                <p class="body-default">Fifteen button variants across two codebases. While the elegant fix is one component with props for every case, the smallest surface to maintain, nobody was struggling with too many buttons. We were struggling to find the right one, and a single component just moves that into a properties panel. I shipped six, named clearly enough that you find what you need by reading. Six is more to keep in sync, and someone will eventually want a seventh.</p>
+                <p class="body-default">While the elegant fix is one component with props for every case, the smallest surface to maintain, we weren&#8217;t struggling with too many buttons; we were struggling to find the right one and a single component just moves that into a properties panel. I shipped six, named clearly enough that you find what you need by reading. Six is more to keep in sync, and someone will eventually want a seventh.</p>
               </div>
             </div>
             <h3 class="heading-subhead">Establishing a shared source of truth</h3>
@@ -154,7 +154,7 @@
               <span class="cs-fork-tag">DECISION FORK 2</span>
               <div class="cs-fork-content">
                 <p class="cs-fork-question">Name tokens the way designers think, or the way engineers think?</p>
-                <p class="body-default">Designers reach for what a thing looks like. Engineers reach for where it&#8217;s used. Naming tokens the way they appear in Figma was the path of least resistance, and it broke the first time brand shifted a hue. Humanity/60 was still called humanity/60 and no longer described anything. The second pass named by role instead, so a value could change without the name going stale. Designers also can&#8217;t guess a token from how it looks any more, which is why the docs matter as much as the library.</p>
+                <p class="body-default">Designers reach for what a thing looks like, while engineers reach for where it&#8217;s used. Naming tokens the way they appear in Figma was the path of least resistance, and it broke the first time brand shifted a hue. Humanity/60 was still called humanity/60 and no longer described anything. The second pass named by role instead, so a value could change without the name going stale. The documentation matters as much as the library because designers can&#8217;t guess a token based on how it looks anymore.</p>
               </div>
             </div>
             <h3 class="heading-subhead">Governing contribution, instead of policing it</h3>
@@ -291,7 +291,7 @@
             <h2 class="cs-title display-page">Credits</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">Aura was built with the US and Ireland product design teams and the engineers who owned the component libraries on both sides. Thanks to the Ireland team, Gin, Amanda, Cameron, Jesse, and Jon, who took the arguments about naming seriously enough to make them worth having.</p>
+            <p class="body-default">Aura was built with the US and Ireland product and web design teams and the engineers who owned the component libraries on both sides. Thanks to the Ireland team, Gin, Amanda, Cameron, Jesse, and Jon, who took the arguments about naming seriously enough to make them worth having.</p>
           </div>
         </section>
 

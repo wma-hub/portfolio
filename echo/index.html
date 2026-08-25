@@ -77,7 +77,7 @@
           </div>
           <div class="cs-content">
             <p class="body-default">Workhuman&#8217;s marketing team ran a monthly webinar program across six channels: paid social, email, display ads, organic social, landing pages, and on-brand event promotion. Every month the same visual problem was solved again from scratch. There was no system for it.</p>
-            <p class="body-default">Echo was the system: a purpose-built component library structured as two parallel tracks &#8212; a Webinar Library covering ads, landing pages, and email, and an Organic Social Library covering award badges.</p>
+            <p class="body-default">Echo was the system: a purpose-built component library structured as two parallel tracks: a Webinar Library covering ads, landing pages, and email, and an Organic Social Library covering award badges.</p>
             <div class="cs-stats cs-stats--3">
               <div class="cs-stat">
                 <p class="cs-stat-figure">30</p>
@@ -101,9 +101,8 @@
             <h2 class="cs-title display-page">Problem</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">The bottleneck was not quality, it was repetition. Each month&#8217;s campaign began as a blank file, so every decision that had already been made &#8212; layout, hierarchy, how a speaker headshot sits against a banner &#8212; got remade under deadline. Nothing accumulated.</p>
+            <p class="body-default">The bottleneck was not quality, it was repetition. Each month&#8217;s campaign began as a blank file, so every decision that had already been made, layout, hierarchy, how a speaker headshot sits against a banner, all were rebuilt under deadline.</p>
             <p class="body-default">Marketing felt it as turnaround. A webinar campaign meant 30+ days from brief to shipped set across six channels, and five rounds of revision that were mostly re-litigating last month&#8217;s answers. Late deliverables compressed the promotion window, which is the one variable a webinar&#8217;s attendance actually depends on.</p>
-            <p class="body-default">Thirty deliverables a month, and none of them made the next thirty easier.</p>
             <div class="echo-compare">
               <div class="echo-tabs" role="group" aria-label="View">
                 <button class="echo-tab" aria-pressed="true">Pre-Echo</button>
@@ -133,18 +132,18 @@
             <h2 class="cs-title display-page">Solution</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">The move was to stop treating each campaign as a design problem and start treating it as an assembly problem. That meant deciding which parts of a webinar campaign were genuinely variable &#8212; the event title, speaker, date &#8212; and which only looked variable because they were getting remade by hand each time.</p>
+            <p class="body-default">The move was to stop treating each campaign as a design problem and start treating it as an assembly problem. That meant deciding which parts of a webinar campaign were genuinely variable (event title, speaker, date) and which only looked variable because they were getting remade by hand each time.</p>
             <h3 class="heading-subhead">Splitting along how the work actually arrived</h3>
             <p class="body-default">The Webinar Library covers ads, landing pages, and email: three surfaces driven by one recurring event, sharing a date, a time, a title, and a speaker set. The Organic Social Library covers award badges, which followed a different cadence and a different approval path.</p>
             <div class="cs-fork">
               <span class="cs-fork-tag">DECISION FORK 1</span>
               <div class="cs-fork-content">
                 <p class="cs-fork-question">One unified marketing library, or two parallel tracks?</p>
-                <p class="body-default">Webinar and organic social both needed systematising, and one library or two decided how much of either could be reused. One was tidier: fewer files, one place to look, cleaner to explain. Instead, I built two. Every webinar deliverable descends from a single event &#8212; one date, one title, one speaker set &#8212; feeding ads, landing page, and email. Social runs on a different cadence, a different approval path, a different asset lifecycle. Abstracting over both would have thrown away the thing that made webinars fast. The price is two libraries to version instead of one.</p>
+                <p class="body-default">Webinar and organic social both needed systematising, and one library or two decided how much of either could be reused. One library meant fewer files, one place to look, and cleaner to explain. Instead, I built two. Every webinar deliverable descends from a single event, one date, one title, one speaker set, feeding ads, landing page, and email. Social runs on a different cadence, a different approval path, a different asset lifecycle. Abstracting over both would have thrown away the thing that made webinars fast.</p>
               </div>
             </div>
             <h3 class="heading-subhead">Turning monthly decisions into component properties</h3>
-            <p class="body-default">The landing page component exposes four properties: event type, event title, date, and time. Everything else &#8212; banner geometry, headshot row, copy blocks, the desktop and mobile variants &#8212; is fixed inside the component.</p>
+            <p class="body-default">The landing page component exposes four properties: event type, event title, date, and time. Everything else (banner geometry, headshot row, copy blocks, the desktop and mobile variants) is fixed inside the component.</p>
             <figure class="wh-figure">
               <picture>
                 <source type="image/webp" srcset="/assets/echo/02-lp-properties.webp">
