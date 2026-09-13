@@ -1038,6 +1038,25 @@ a.card:hover .card-title {
   .cs-level-frame { transition: none; }
 }
 
+/* ---- Live delivered-ad stage (cs-level panel, /marly step 06) ----
+   Stage is authored at 800x640 native px and scaled to the frame width by JS,
+   so it matches the baked-image panels 1:1. Ads sit at 0.7 of native IAB size
+   so all three read at true relative scale. ------------------------------- */
+.cs-live { position: relative; width: 100%; overflow: hidden; }
+.cs-live-stage { position: absolute; top: 0; left: 0; background: var(--color-background-acc); transform-origin: top left; }
+.cs-live-head { display: flex; gap: 16px; padding: 48px 0 0 47px; }
+.cs-live-idx { flex: 0 0 22px; font-size: 18px; line-height: 1.45; font-weight: var(--font-weight-bold); letter-spacing: var(--tracking-tight); color: var(--color-ink-subtle); }
+.cs-live-cap { width: 665px; margin: 0; font-size: 18px; line-height: 1.45; letter-spacing: var(--tracking-tight); color: var(--color-ink); }
+.cs-live-grid { display: flex; align-items: flex-start; gap: 28px; padding: 52px 0 0 85px; }
+.cs-live-col { display: flex; flex-direction: column; gap: 24px; }
+.cs-live-unit { display: flex; flex-direction: column; gap: 8px; }
+.cs-live-ad { position: relative; overflow: hidden; }
+.cs-live-ad img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+.cs-live-ad iframe { position: absolute; top: 0; left: 0; border: 0; opacity: 0; transform-origin: top left; transition: opacity 300ms ease; }
+.cs-live-ad iframe.is-live { opacity: 1; }
+.cs-live-label { margin: 0; font-size: 13px; line-height: 1; letter-spacing: var(--tracking-tight); color: var(--color-ink); }
+@media (prefers-reduced-motion: reduce) { .cs-live-ad iframe { transition: none; } }
+
 /* ---- Echo: campaign surfaces + wide galleries ---- */
 .wh-surfaces {
   display: grid;

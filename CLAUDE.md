@@ -87,8 +87,16 @@ Embed via iframe pointing at the deployed files:
 `https://www.marly.cc/review/{client}/{campaign}/ads/{unit}/index.html`
 (adjust to actual file layout found on disk).
 
-- Step 6 "DELIVERED" slot: Tumblerware Father's Day **300x250** unit
-  (campaign at /review/tumblerware/fathers-day). Static, no rotation.
+- Step 6 "DELIVERED" slot: **all three** Tumblerware Father's Day units
+  (728x90, 300x250, 160x600), live and static, no rotation. Served from the
+  in-repo copies at `/work/tumblerware/fathers-day/{b,a,c}.html` — the §3
+  framing fallback is already executed sitewide, so every /marly embed points
+  at /work/, never at marly.cc. Built as an 800x640 native stage
+  (`.cs-live-stage`) scaled to the frame width by the cs-level JS; the ads sit
+  at 0.7 of native IAB size so the three read at true relative scale. Poster
+  PNGs from `/assets/marly/gallery/` stand in before load and are the whole
+  panel under prefers-reduced-motion. Size labels under each unit are part of
+  the composition — keep them.
 - Brand Range section: the mock slots become ROTATING SHOWCASES. Each slot
   keeps its Figma size and position and cycles through all seven brands'
   units at that slot's size (Tumblerware, Graza, Ghia, Ritual, Levi's,
