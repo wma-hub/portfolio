@@ -158,7 +158,7 @@
             </div>
             <p class="wh-caption meta-caption">Speculative work. Not affiliated with, commissioned by, or endorsed by the brands shown.</p>
             <h3 class="heading-subhead">Three tiers, each compounding the one below</h3>
-            <p class="body-default">The Foundation layer is client-agnostic: ad size canvases, layout variants, component shells, animation specs, IAB spacing tokens, the skeleton every build inherits. The second layer is per-client: Foundation components with brand tokens swapped in, so every client file inherits Foundation updates. The third is per-campaign: a CLAUDE.md spec translating the brief into machine-readable production instructions, authored by Opus before Code starts, which is why the second campaign for any client is faster than the first.</p>
+            <p class="body-default">Tier 1 is the skeleton every build inherits. Tier 2 swaps in a client&rsquo;s brand tokens, so their files inherit Tier 1 updates. Tier 3 is the campaign spec Opus writes before Code starts. That&rsquo;s why a client&rsquo;s second campaign is faster than their first.</p>
             <div class="cs-level">
               <div class="cs-level-tabs" role="group" aria-label="Tier">
                 <button class="cs-level-tab" aria-pressed="true">Tier 1</button>
@@ -187,8 +187,8 @@
               </div>
             </div>
             <h3 class="heading-subhead">Two phases, one gate</h3>
-            <p class="body-default">Phase I is planning. Opus authors a plan.md before Code touches a file: a brief synthesis, gap audit with explicit resolutions, a diff against deployed state for V2+ builds, and a §7 coverage table with a row for every pipeline stage. Code cannot start Stage 1 until every row resolves.</p>
-            <p class="body-default">Phase II is execution. Claude Code generates the HTML, deploys the review portal, and syncs the Notion workspace. Before the review page builds, /verify-delivery runs a nine-check ground-truth pass against the deployed file state rather than a self-report from Code: paths resolving, file weights, IAB compliance, animation tokens per spec. If any check fails, the build stops.</p>
+            <p class="body-default">Phase I is planning. Opus writes the plan before Code touches a file, and Code can&rsquo;t start until every stage in it is accounted for.</p>
+            <p class="body-default">Phase II is execution. Code generates the HTML and deploys. Then nine checks run against the files that actually landed, not against Code&rsquo;s report of what it did: paths, file weights, IAB compliance, animation tokens. Any failure stops the build.</p>
             <figure class="wh-figure">
               <picture>
                 <source type="image/webp" srcset="/assets/marly/02-gate-diagram.webp">
