@@ -205,14 +205,9 @@
                 </div>
               </div>
             </div>
-            <div class="cs-fork">
-              <span class="cs-fork-tag">DECISION FORK 1</span>
-              <div class="cs-fork-content">
-                <p class="cs-fork-question">Make filtering the primary way in, or keep it optional?</p>
-                <p class="body-default">Most of the ten careers sites we audited led with filters, Canva, Figma, Stripe, Notion, Shopify and Atlassian among them. Filter-first was the safe pattern and nobody would have questioned it but filters serve the candidate who already knows they want Product in Dublin, and that wasn&#8217;t who we were losing. Almost nobody reached a job listing at all, so the failure sat upstream of search. Filters stayed optional and color-coded department tags carried the scan, then the targeted searcher scrolls further than they would elsewhere.</p>
-                <p class="body-default">The filters are still the first thing on Open Positions but the difference is that nothing is gated behind them. The list renders in full on arrival, and the color-coded department tags carry the scan.</p>
-              </div>
-            </div>
+            <h3 class="heading-subhead">Why filters stayed optional</h3>
+            <p class="body-default">Most of the ten careers sites we audited led with filters, Canva, Figma, Stripe, Notion, Shopify and Atlassian among them. Filter-first was the safe pattern and nobody would have questioned it. But filters serve the candidate who already knows they want Product in Dublin, and that wasn&#8217;t who we were losing. Almost nobody reached a job listing at all, so the failure sat upstream of search. Filters stayed optional, and the targeted searcher scrolls further than they would elsewhere.</p>
+            <p class="body-default">The filters are still the first thing on Open Positions. The difference is that nothing is gated behind them. The list renders in full on arrival, and the color-coded department tags carry the scan.</p>
             <h3 class="heading-subhead">Five tabs, five candidate questions</h3>
             <p class="body-default">The job detail page splits into Role Description, Meet the Team, Culture, Benefits, and Location, each tab mapped to a question a candidate actually asks. What&#8217;s the job? Who will I work with? Will I fit in? What&#8217;s in it for me? Where and how do I work? Tabs also made content depth independent: the Benefits tab could carry video and four regional card variants without making the Role Description tab heavier.</p>
             <p class="body-default">Each tab is its own URL rather than client-side state. That made the content independently linkable, cacheable and editable by content ops without a deploy.</p>
@@ -226,13 +221,8 @@
             </figure>
             <h3 class="heading-subhead">Recommendations that removed the back button</h3>
             <p class="body-default">A persistent right rail, Candidates Also Viewed, carries three related roles across every tab, matched on department first, then location, then seniority, with a recency fallback when a department has fewer than three open roles, which at our headcount was most of the time. The rail is honest about being a category browse, not a match. Pages per session in the jobs section went from 1.0 to three or four.</p>
-            <div class="cs-fork">
-              <span class="cs-fork-tag">DECISION FORK 2</span>
-              <div class="cs-fork-content">
-                <p class="cs-fork-question">Ship the simple matching rule, or build the recommendation engine?</p>
-                <p class="body-default">Candidates Also Viewed runs on three rules: same department, then same location, then similar seniority. A real model was the more interesting problem and the better answer, and it would have pushed launch by weeks. The crude version shipped on time, tripled pages per session, and produced the click data a real model would need anyway. It recommends by category, not by candidate, so browsing sideways gets you more of what you just looked at.</p>
-              </div>
-            </div>
+            <h3 class="heading-subhead">Three rules instead of a model</h3>
+            <p class="body-default">Candidates Also Viewed runs on three rules: same department, then same location, then similar seniority. A real model was the more interesting problem and the better answer, and it would have pushed launch by weeks. The crude version shipped on time, tripled pages per session, and produced the click data a real model would need anyway. It recommends by category, so browsing sideways gets you more of what you just looked at.</p>
           </div>
         </section>
 
@@ -315,7 +305,7 @@
             <h2 class="cs-title display-page">Learning</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">Content is a design constraint, not a production step. The architecture assumed team profiles, benefit copy and video that didn&#8217;t exist yet, and content strategy arrived after the structure was set. The structure was right; the schedule paid for it. On anything content-shaped I now bring content in at architecture, not production.</p>
+            <p class="body-default">Content was the constraint I planned around last. The architecture assumed team profiles, benefit copy and video that didn&rsquo;t exist yet, and content strategy arrived after the structure was set. The structure held. The schedule paid for it. On anything content-shaped I now bring content in at architecture.</p>
             <p class="body-default">Role Description sits first among the five tabs because I assumed it mattered most. I went back to the tab analytics. Role first was right, across seventy-three roles it outdrew the other four tabs combined, four to one. What I got wrong is the order after it; culture shipped third and finished last, at thirty-seven seconds of dwell against fifty-eight for the tabs either side of it. Given that 73% of sessions never touched the careers homepage, I can&#8217;t tell myself candidates got the culture story upstream. They just didn&#8217;t want it there. Meet the Team and Benefits are what a candidate opens when they&#8217;re deciding, and that&#8217;s the order I&#8217;d ship now.</p>
             <p class="body-default">Instrument for the business question, not the design question. I built the measurement plan around what HEAP could already see, pageviews on paths I controlled, and ended up with numbers that describe my own architecture as much as they describe candidate behavior. The question Marketing actually asked was which content drives applications. I should have started there and worked backwards to the events, even though it meant a Workday join I&#8217;d have had to fight for.</p>
           </div>
