@@ -143,7 +143,7 @@
           <div class="cs-content">
             <p class="body-default">GE Terminal answers that with a layered signal engine. It pulls live and historical prices across four timeframes, scores movers on momentum and volume, then runs each candidate through graded buy and sell checklists before anything surfaces as an action.</p>
             <h3 class="heading-subhead">Grading the market before looking at the signal</h3>
-            <p class="body-default">A momentum scanner&#8217;s failure mode is enthusiasm. Every violent move looks like an opportunity, and the biggest movers are almost always the worst trades; thin, wide-spread items where the move is two people trading at once. So the market gets graded first: range width, volatility, volume, spread, sample depth, each subtracting from a 100-point start. Below 45, and an item is graded with an F, and with the Trade grade &#8805; B filter on, F never becomes an action.</p>
+            <p class="body-default">A momentum scanner&#8217;s failure mode is enthusiasm. Every violent move looks like an opportunity, and the biggest movers are almost always the worst trades; thin, wide-spread items where the move is two people trading at once. So the market gets graded first: range width, volatility, volume, spread, sample depth, each subtracting from a 100-point start. Below 45 an item is graded F, and with the Trade grade &#8805; B filter on, F never becomes an action.</p>
             <picture>
               <source type="image/webp" srcset="/assets/ge-terminal/02-tested-live.webp">
               <img src="/assets/ge-terminal/02-tested-live.png" width="800" height="554" alt="Live stress test result: items crashed 50&#8211;61% in one hour, all graded F, and none surfaced to the Actions tab" loading="lazy">
@@ -153,7 +153,7 @@
               <span class="cs-fork-tag">DECISION FORK 1</span>
               <div class="cs-fork-content">
                 <p class="cs-fork-question">Surface every mover, or suppress by default?</p>
-                <p class="body-default">The obvious build surfaces the biggest movers. That&#8217;s what a scanner is for, and it&#8217;s what makes the tool feel alive but it&#8217;s also how you train yourself to ignore your own alerts. The market gets graded before the signal does, and what reaches Discord clears a floor I set, plus anything I hold or watch.</p>
+                <p class="body-default">The obvious build surfaces the biggest movers. That&#8217;s what a scanner is for, and it&#8217;s what makes the tool feel alive. It&rsquo;s also how you train yourself to ignore your own alerts. The market gets graded before the signal does, and what reaches Discord clears a floor I set, plus anything I hold or watch.</p>
               </div>
             </div>
             <h3 class="heading-subhead">Two scales, one word</h3>
@@ -216,9 +216,9 @@
             <h2 class="cs-title display-page">Learning</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">The thing I&#8217;d fix first isn&#8217;t a feature. I let six classification systems accumulate in parallel, each with its own vocabulary. Individually every one is defensible; they were added months apart, each solving a real problem.</p>
+            <p class="body-default">I let six classification systems accumulate in parallel, each with its own vocabulary. Individually every one is defensible; they were added months apart, each solving a real problem.</p>
             <p class="body-default">Each system arrived with a feature, named itself sensibly in isolation, and never got reconciled against the ones already there. Every card is readable. The problem is that fluency doesn&#8217;t transfer. Learning what ACCUMULATE means teaches you nothing about what HOLD or WAIT means, even though they&#8217;re the same measurement over a different window.</p>
-            <p class="body-default">The fix is fewer vocabularies. Zone and Verdict collapse into one percentile scale with a timeframe parameter. Signal grade and trade grade stop surfacing as letters at all and exist only as inputs to tier. Six scales down to three, and each remaining answering something the others can&#8217;t: where the price sits, whether the item is worth trading, and whether to act now.</p>
+            <p class="body-default">The fix is fewer vocabularies. Zone and Verdict collapse into one percentile scale with a timeframe parameter. Signal grade and trade grade stop surfacing as letters at all and exist only as inputs to tier. Six scales down to three, each one answering something the others can&#8217;t: where the price sits, whether the item is worth trading, and whether to act now.</p>
             <figure class="wh-figure">
               <picture>
                 <source type="image/webp" srcset="/assets/ge-terminal/05-vocabulary.webp">
@@ -226,7 +226,7 @@
               </picture>
               <figcaption class="wh-caption meta-caption">Signal grade (A&#8211;F, timing), Trade grade (A&#8211;F, safety), Tier (MAJOR/STRONG/SOLID/WEAK/SKIP), Zone state (BROKEN through DUMP), Verdict (SELL NOW through DON&#8217;T SELL), and Pattern (PERIODIC through NONE)</figcaption>
             </figure>
-            <p class="body-default">No single naming decision was wrong because each one was sensible when it was made. However, across eighteen versions I never asked whether they still added up to one language.</p>
+            <p class="body-default">No single naming decision was wrong because each one was sensible when it was made. Across eighteen versions I never asked whether they still added up to one language.</p>
             <picture>
               <source type="image/webp" srcset="/assets/ge-terminal/05-quote.webp">
               <img src="/assets/ge-terminal/05-quote.png" width="632" height="174" alt="Letting a system refuse to act, and show why it refused, is the thing I keep taking into design work with AI." loading="lazy">
