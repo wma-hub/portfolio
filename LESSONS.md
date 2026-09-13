@@ -25,3 +25,7 @@ Commit 2343556 renamed the 160x600 type SVGs to the `c-f*` prefix; e2ffc92 (the 
 
 `computeH()` reads the first `<img>` width/height attributes; a panel built from live iframes returns 0 and the frame collapses. The `.cs-live` wrapper also needs an explicit pixel height set by the same function — with `overflow:hidden` and a 0-height wrapper, the absolutely-positioned stage is clipped to nothing and the panel renders empty with no error anywhere.
 
+**A bare `sandbox="allow-scripts"` iframe silently loses cookies behind any auth layer — protected previews are the only place it shows up.**
+
+Step 06 and the §03 trio (ghia/graza/gorjana) rendered styled units with every image broken on the Vercel preview. The frame's opaque origin makes its subresource requests third-party, so the `_vercel_jwt` protection cookie is withheld: each image went 302 -> vercel.com/sso-api -> 307 -> /login and failed, while top-document requests on the same deployment (posters included) returned 200. It was misdiagnosed as an ad blocker and chased through four localhost repro runs, none of which could fail — localhost has no protection layer. Fix: `allow-scripts allow-same-origin`, matching the rail loader, which never showed the bug. That pair effectively neuters the sandbox; acceptable because the units are first-party content in this repo. Before theorising about a broken embed, read the failed request's status and redirect chain in DevTools on the environment where it broke.
+

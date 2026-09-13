@@ -117,6 +117,15 @@ Embed via iframe pointing at the deployed files:
     unit statically.
 
 Iframes at exact IAB pixel dimensions, descriptive `title` attrs.
+Every unit iframe uses `sandbox="allow-scripts allow-same-origin"` — never bare
+`allow-scripts`. A bare `allow-scripts` frame gets an opaque origin, so Chrome
+treats its subresource requests as third-party and withholds the `_vercel_jwt`
+deployment-protection cookie: on a protected preview every image inside the unit
+302s to Vercel SSO and fails, while the frame document itself (navigated by the
+same-origin parent) still loads styled. The pair effectively neuters the sandbox;
+that is acceptable because the framed units are first-party files in this repo,
+and the gallery rail loader has always done exactly this. Verify embed changes on
+the protected preview URL — localhost has no auth layer and passes either way.
 STAGE 1 CHECK: `curl -sI https://www.marly.cc/review/tumblerware/fathers-day`
 and inspect X-Frame-Options / CSP frame-ancestors. If framing from wma.nyc is
 blocked, fallback is copying unit files into this repo under `/ads/` — flag
