@@ -1483,9 +1483,9 @@ p:not(.text-link-line) > .text-link {
 .cs-stat { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
 .cs-stat-figure {
   font-size: var(--type-subhead);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-medium);
   letter-spacing: var(--tracking-tight);
-  color: var(--color-ink);
+  color: var(--color-signal);
   line-height: 1.5;
 }
 .cs-stat-caption { color: var(--color-ink-muted); }
