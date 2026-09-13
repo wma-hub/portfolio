@@ -51,15 +51,18 @@ ul, ol { list-style: none; }
 :root {
 
   /* ---- Palette — INVERTED from V2. Light theme. ---- */
-  --color-ink:            #1A1714;
-  --color-ink-muted:      rgba(26, 23, 20, 0.75);
-  --color-ink-subtle:     rgba(26, 23, 20, 0.50);
+  --color-ink:            #141618;
+  --color-ink-muted:      rgba(20, 22, 24, 0.75);
+  --color-ink-subtle:     rgba(20, 22, 24, 0.50);
   --color-accent:         #1B3BD4;
   --color-surface:        #FFFFFF;
-  --color-rule:           #E7E7E7;
-  --color-border-strong:  #4A453E;
-  --color-background:     #FAF8F5;
-  --color-background-acc: #EFEAE3;
+  --color-rule:           #DEDEDC;
+  --color-border-strong:  #3D4145;
+  --color-background:     #F8F8F6;
+  --color-background-acc: #EDEDEB;
+  --color-signal:         #A61B60;
+  /* --color-stage matches the field baked into the Build Traced step exports */
+  --color-stage:          #EFEAE3;
 
   /* V2 names kept as aliases so existing markup keeps working */
   --bg:             var(--color-background);
@@ -213,7 +216,7 @@ ul, ol { list-style: none; }
 }
 .site-nav.scrolled {
   border-color: var(--color-rule);
-  background: rgba(250, 248, 245, 0.92);
+  background: rgba(248, 248, 246, 0.92);
   backdrop-filter: blur(12px);
 }
 .nav-wordmark {
@@ -825,7 +828,7 @@ a.card:hover .card-title {
   font-size: var(--type-caption);
   font-weight: var(--font-weight-regular);
   letter-spacing: var(--tracking-tight);
-  color: rgba(26, 23, 20, 0.75);
+  color: var(--color-ink-muted);
   margin-top: 8px;
 }
 /* --lede: setup line precedes the quote rather than attributing it after */
@@ -923,7 +926,7 @@ a.card:hover .card-title {
   background: var(--color-background-acc);
   border-color: var(--color-background-acc);
 }
-.echo-tab:hover:not([aria-pressed="true"]) { background: rgba(239, 234, 227, 0.5); }
+.echo-tab:hover:not([aria-pressed="true"]) { background: rgba(237, 237, 235, 0.5); }
 .echo-frame {
   position: relative;
   height: 630px;
@@ -970,7 +973,7 @@ a.card:hover .card-title {
   background: var(--color-background-acc);
   border-color: var(--color-background-acc);
 }
-.echo-sol-tab:hover:not([aria-pressed="true"]) { background: rgba(239, 234, 227, 0.5); }
+.echo-sol-tab:hover:not([aria-pressed="true"]) { background: rgba(237, 237, 235, 0.5); }
 .echo-sol-frame {
   position: relative;
   transition: height 300ms ease;
@@ -1022,7 +1025,7 @@ a.card:hover .card-title {
   transition: background 120ms ease, border-color 120ms ease;
 }
 .cs-level-tab[aria-pressed="true"] { background: var(--color-background-acc); border-color: var(--color-background-acc); }
-.cs-level-tab:hover:not([aria-pressed="true"]) { background: rgba(239, 234, 227, 0.5); }
+.cs-level-tab:hover:not([aria-pressed="true"]) { background: rgba(237, 237, 235, 0.5); }
 .cs-level-frame { position: relative; transition: height 300ms ease; }
 .cs-level-panel { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; pointer-events: none; transition: opacity 200ms ease; display: flex; flex-direction: column; gap: 24px; }
 .cs-level-panel--active { opacity: 1; pointer-events: auto; }
@@ -1043,7 +1046,7 @@ a.card:hover .card-title {
    so it matches the baked-image panels 1:1. Ads sit at 0.7 of native IAB size
    so all three read at true relative scale. ------------------------------- */
 .cs-live { position: relative; width: 100%; overflow: hidden; }
-.cs-live-stage { position: absolute; top: 0; left: 0; background: var(--color-background-acc); transform-origin: top left; }
+.cs-live-stage { position: absolute; top: 0; left: 0; background: var(--color-stage); transform-origin: top left; }
 .cs-live-head { display: flex; gap: 16px; padding: 48px 0 0 47px; }
 .cs-live-idx { flex: 0 0 22px; font-size: 18px; line-height: 1.45; font-weight: var(--font-weight-bold); letter-spacing: var(--tracking-tight); color: var(--color-ink-subtle); }
 .cs-live-cap { width: 665px; margin: 0; font-size: 18px; line-height: 1.45; letter-spacing: var(--tracking-tight); color: var(--color-ink); }
@@ -1446,8 +1449,8 @@ p:not(.text-link-line) > .text-link {
   align-self: flex-start;
   padding: 8px 16px;
   border-radius: var(--radius-sm);
-  background: #b85c00;
-  color: #faf8f5;
+  background: var(--color-accent);
+  color: var(--color-background);
   font-size: 12px;
   font-weight: var(--font-weight-regular);
   text-transform: uppercase;
@@ -1482,9 +1485,9 @@ p:not(.text-link-line) > .text-link {
 .cs-stat { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
 .cs-stat-figure {
   font-size: var(--type-subhead);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-medium);
   letter-spacing: var(--tracking-tight);
-  color: var(--color-ink);
+  color: var(--color-signal);
   line-height: 1.5;
 }
 .cs-stat-caption { color: var(--color-ink-muted); }
