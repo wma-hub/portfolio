@@ -6,6 +6,16 @@
       "source": "/selected-works",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/workhuman",
+      "destination": "/#work",
+      "permanent": true
+    },
+    {
+      "source": "/workhuman/:path*",
+      "destination": "/#work",
+      "permanent": true
     }
   ]
 }
