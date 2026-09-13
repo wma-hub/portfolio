@@ -87,8 +87,16 @@ Embed via iframe pointing at the deployed files:
 `https://www.marly.cc/review/{client}/{campaign}/ads/{unit}/index.html`
 (adjust to actual file layout found on disk).
 
-- Step 6 "DELIVERED" slot: Tumblerware Father's Day **300x250** unit
-  (campaign at /review/tumblerware/fathers-day). Static, no rotation.
+- Step 6 "DELIVERED" slot: **all three** Tumblerware Father's Day units
+  (728x90, 300x250, 160x600), live and static, no rotation. Served from the
+  in-repo copies at `/work/tumblerware/fathers-day/{b,a,c}.html` — the §3
+  framing fallback is already executed sitewide, so every /marly embed points
+  at /work/, never at marly.cc. Built as an 800x640 native stage
+  (`.cs-live-stage`) scaled to the frame width by the cs-level JS; the ads sit
+  at 0.7 of native IAB size so the three read at true relative scale. Poster
+  PNGs from `/assets/marly/gallery/` stand in before load and are the whole
+  panel under prefers-reduced-motion. Size labels under each unit are part of
+  the composition — keep them.
 - Brand Range section: the mock slots become ROTATING SHOWCASES. Each slot
   keeps its Figma size and position and cycles through all seven brands'
   units at that slot's size (Tumblerware, Graza, Ghia, Ritual, Levi's,
@@ -109,6 +117,15 @@ Embed via iframe pointing at the deployed files:
     unit statically.
 
 Iframes at exact IAB pixel dimensions, descriptive `title` attrs.
+Every unit iframe uses `sandbox="allow-scripts allow-same-origin"` — never bare
+`allow-scripts`. A bare `allow-scripts` frame gets an opaque origin, so Chrome
+treats its subresource requests as third-party and withholds the `_vercel_jwt`
+deployment-protection cookie: on a protected preview every image inside the unit
+302s to Vercel SSO and fails, while the frame document itself (navigated by the
+same-origin parent) still loads styled. The pair effectively neuters the sandbox;
+that is acceptable because the framed units are first-party files in this repo,
+and the gallery rail loader has always done exactly this. Verify embed changes on
+the protected preview URL — localhost has no auth layer and passes either way.
 STAGE 1 CHECK: `curl -sI https://www.marly.cc/review/tumblerware/fathers-day`
 and inspect X-Frame-Options / CSP frame-ancestors. If framing from wma.nyc is
 blocked, fallback is copying unit files into this repo under `/ads/` — flag
