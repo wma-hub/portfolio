@@ -3,7 +3,7 @@
 ## 0. Context
 Personal portfolio for Wilson Ma. Static site on Vercel project "portfolio"
 (framework: null, no build step). Production domains: wma.nyc, www.wma.nyc.
-Work on branch `v4-assets` — NEVER commit to main.
+Production deploys from `main`. Commit to `main` when asked; confirm before pushing.
 
 ## 1. Source of truth
 Figma file `yL4hnNAJKHlEWVLT5OUhvx`, page "WMA.NYC — V4" (canvas 4147:3963).
@@ -143,8 +143,8 @@ before executing the fallback.
 - No dead `#` hrefs anywhere at gate time.
 
 ## 5. Deployment
-Branch `v4-assets` → push → Vercel preview URL → wma reviews → wma merges.
-Never merge yourself. Do not touch Vercel project settings, domains, or DNS.
+Push to `main` → Vercel production deploy (wma.nyc). Always confirm with wma
+before pushing. Do not touch Vercel project settings, domains, or DNS.
 
 ## 7. 1:1 Fidelity Protocol (site build standard — applies to all pages)
 
