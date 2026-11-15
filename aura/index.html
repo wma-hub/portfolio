@@ -13,17 +13,17 @@
     gtag('js', new Date());
     gtag('config', 'G-L3KK0FQDE6');
   </script>
-  <meta name="description" content="Fifteen button variants across two offices with no shared language. A four-tier token model and a contribution pipeline that outlasted me.">
+  <meta name="description" content="Two offices, no shared language, and a design file that had stopped matching the site. A four-tier token model and a contribution pipeline that outlasted me.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.wma.nyc/aura">
   <meta property="og:title" content="Web Design System, Aura — Wilson Ma">
-  <meta property="og:description" content="Fifteen button variants across two offices with no shared language. A four-tier token model and a contribution pipeline that outlasted me.">
+  <meta property="og:description" content="Two offices, no shared language, and a design file that had stopped matching the site. A four-tier token model and a contribution pipeline that outlasted me.">
   <meta property="og:image" content="https://www.wma.nyc/assets/meta/og-default.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Web Design System, Aura — Wilson Ma">
-  <meta name="twitter:description" content="Fifteen button variants across two offices with no shared language. A four-tier token model and a contribution pipeline that outlasted me.">
+  <meta name="twitter:description" content="Two offices, no shared language, and a design file that had stopped matching the site. A four-tier token model and a contribution pipeline that outlasted me.">
   <meta name="twitter:image" content="https://www.wma.nyc/assets/meta/og-default.png">
 </head>
 <body>
@@ -44,7 +44,7 @@
       <div class="hero-inner">
         <div class="hero-copy fade-up">
           <h1 class="display-hero">Web Design System, Aura</h1>
-          <p class="heading-subhead hero-sub">Fifteen button variants across two offices with no shared language.</p>
+          <p class="heading-subhead hero-sub">Two offices, no shared language, and a design file that had stopped matching the site.</p>
         </div>
       </div>
       <div class="ge-meta-row fade-up">
@@ -125,13 +125,6 @@
             <h2 class="cs-title display-page">Solution</h2>
           </div>
           <div class="cs-content">
-            <div class="cs-fork">
-              <span class="cs-fork-tag">DECISION FORK 1</span>
-              <div class="cs-fork-content">
-                <p class="cs-fork-question">Consolidate the fifteen buttons into one flexible component, or a small set of clearly-named ones?</p>
-                <p class="body-default">The elegant fix is one component with props for every case, and the smallest surface to maintain. But nobody was struggling with too many buttons. They were struggling to find the right one, and a single component moves that problem into a properties panel. I shipped six, named clearly enough that you find what you need by reading. Six is more to keep in sync, and someone will eventually want a seventh.</p>
-              </div>
-            </div>
             <h3 class="heading-subhead">Establishing a shared source of truth</h3>
             <p class="body-default">A four-tier token model: primitives, aliases, semantic tokens, component tokens. Each tier exists so a decision made once resolves the same way everywhere it lands: in Figma, in code, and in the conversation between them.</p>
             <figure class="wh-figure">
@@ -141,6 +134,7 @@
               </picture>
               <figcaption class="wh-caption meta-caption">Tier 1 primitive #5B63E4 &#8594; aliased as humanity/60 (Tier 2) &#8594; semantic tokens brandPrimary and buttonPrimary (Tier 3) &#8594; component tokens button-bg-primary and input-border-focus (Tier 4)</figcaption>
             </figure>
+            <p class="body-default">Aura V3 later collapsed this to three tiers, primitives, aliases and component tokens, mirrored one-to-one with code.</p>
             <h3 class="heading-subhead">Making the token chain visible</h3>
             <p class="body-default">White button, focus state: the focus ring resolves to border/acc-default, which aliases humanity/60, which is the primitive #5B63E4 from Tier 1. One annotated component showing the whole chain did more for adoption than the documentation site did.</p>
             <figure class="wh-figure">
@@ -151,7 +145,7 @@
               <figcaption class="wh-caption meta-caption">Callouts trace the focus ring through border/acc-default &#8594; humanity/60 &#8594; #5B63E4, showing a component token resolving to a Tier 1 primitive</figcaption>
             </figure>
             <div class="cs-fork">
-              <span class="cs-fork-tag">DECISION FORK 2</span>
+              <span class="cs-fork-tag">DECISION FORK</span>
               <div class="cs-fork-content">
                 <p class="cs-fork-question">Name tokens the way designers think, or the way engineers think?</p>
                 <p class="body-default">Designers reach for what a thing looks like, while engineers reach for where it&#8217;s used. Naming tokens the way they appear in Figma was the path of least resistance, and it broke the first time brand shifted a hue. Humanity/60 was still called humanity/60 and no longer described anything. The second pass named by role instead, so a value could change without the name going stale. The documentation matters as much as the library because designers can&#8217;t guess a token based on how it looks anymore.</p>
@@ -173,20 +167,7 @@
           </div>
           <div class="cs-content">
             <p class="body-default">Over the course of the rollout, the system moved from a source of friction to the default starting point for both teams.</p>
-            <div class="cs-stats cs-stats--3">
-              <div class="cs-stat">
-                <p class="cs-stat-figure">15 &#8594; 6</p>
-                <p class="cs-stat-caption meta-caption">button variants consolidated</p>
-              </div>
-              <div class="cs-stat">
-                <p class="cs-stat-figure">2&nbsp;wks &#8594; 4&nbsp;days</p>
-                <p class="cs-stat-caption meta-caption">new designer onboarding</p>
-              </div>
-              <div class="cs-stat">
-                <p class="cs-stat-figure">92%</p>
-                <p class="cs-stat-caption meta-caption">implementation adherence</p>
-              </div>
-            </div>
+            <p class="body-default">Fifteen-plus button implementations became one component. New designers got productive in days instead of weeks, by the team&#8217;s own estimate.</p>
             <div class="cs-collage" role="img" aria-label="Component library documentation screenshots">
               <div class="cs-collage-item" style="left:0%;top:0%;width:72.875%;height:68.80%">
                 <picture>
