@@ -13,17 +13,17 @@
     gtag('js', new Date());
     gtag('config', 'G-L3KK0FQDE6');
   </script>
-  <meta name="description" content="Market intelligence for a 4,700-item game economy. A signal engine built to refuse to act, and to show why it refused.">
+  <meta name="description" content="Market intelligence for a 4,700-item game economy. I designed the logic and the interface. Claude wrote the Python.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.wma.nyc/ge-terminal">
   <meta property="og:title" content="Grand Exchange Terminal — Wilson Ma">
-  <meta property="og:description" content="Market intelligence for a 4,700-item game economy. A signal engine built to refuse to act, and to show why it refused.">
+  <meta property="og:description" content="Market intelligence for a 4,700-item game economy. I designed the logic and the interface. Claude wrote the Python.">
   <meta property="og:image" content="https://www.wma.nyc/assets/meta/og-default.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Grand Exchange Terminal — Wilson Ma">
-  <meta name="twitter:description" content="Market intelligence for a 4,700-item game economy. A signal engine built to refuse to act, and to show why it refused.">
+  <meta name="twitter:description" content="Market intelligence for a 4,700-item game economy. I designed the logic and the interface. Claude wrote the Python.">
   <meta name="twitter:image" content="https://www.wma.nyc/assets/meta/og-default.png">
 </head>
 <body>
@@ -54,11 +54,11 @@
         </div>
         <div class="ge-meta">
           <p class="ge-meta-label body-default"><strong>Context</strong></p>
-          <p class="ge-meta-value body-default">Personal tool, built from zero Python experience</p>
+          <p class="ge-meta-value body-default">Personal tool. I designed it; Claude wrote the code.</p>
         </div>
         <div class="ge-meta">
           <p class="ge-meta-label body-default"><strong>Delivery</strong></p>
-          <p class="ge-meta-value body-default">Locally-deployed Python/Streamlit app</p>
+          <p class="ge-meta-value body-default">Locally run Python/Streamlit app</p>
         </div>
         <div class="ge-meta">
           <p class="ge-meta-label body-default"><strong>Status</strong></p>
@@ -83,7 +83,8 @@
             <h2 class="cs-title display-page">Context</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">The Grand Exchange is Old School RuneScape&#8217;s player-driven commodities market: 4,700+ items, real volatility, visible volume, and nothing but a raw price API to read it with. Grand Exchange &#8220;GE&#8221; Terminal is the market intelligence terminal I built and run daily, with a layered signal engine, verdicts that explain themselves, and an override that keeps a human in the loop.</p>
+            <p class="body-default">This started as a stock market idea: could I build my own Bloomberg Terminal from free data? Without paid data feeds it would only ever be a worse Yahoo Finance, so I moved the idea to a market with better free data.</p>
+            <p class="body-default">The Grand Exchange is Old School RuneScape’s player-run market: 4,700+ items, real volatility, visible volume, and nothing but a raw price API to read it with. GE Terminal reads that market every 60 seconds, grades it, tells me what to buy, hold or sell and why, and pings my phone on Discord when something needs action.</p>
             <div class="cs-stats cs-stats--5">
               <div class="cs-stat">
                 <p class="cs-stat-figure">4,700+</p>
@@ -95,7 +96,7 @@
               </div>
               <div class="cs-stat">
                 <p class="cs-stat-figure">2,400+</p>
-                <p class="cs-stat-caption meta-caption">lines of custom Python</p>
+                <p class="cs-stat-caption meta-caption">lines of Python, written with Claude</p>
               </div>
               <div class="cs-stat">
                 <p class="cs-stat-figure">18+</p>
@@ -103,7 +104,7 @@
               </div>
               <div class="cs-stat">
                 <p class="cs-stat-figure">1</p>
-                <p class="cs-stat-caption meta-caption">user (self)</p>
+                <p class="cs-stat-caption meta-caption">user (me)</p>
               </div>
             </div>
           </div>
@@ -115,7 +116,7 @@
             <h2 class="cs-title display-page">Problem</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">Flipping items on the Grand Exchange is a decision-making problem under noisy data. Prices spike and crash hourly, some items dump on predictable cycles, and the wiki’s raw price API gives you the number and nothing else.</p>
+            <p class="body-default">Flipping items is a decision problem with noisy data. Prices spike and crash hourly, some items dump on predictable cycles, and the wiki’s price API gives you the number and nothing else.</p>
             <div class="ge-problem-split">
               <figure class="wh-figure">
                 <picture>
@@ -141,23 +142,23 @@
             <h2 class="cs-title display-page">Solution</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">GE Terminal answers that with a layered signal engine. It pulls live and historical prices across four timeframes, scores movers on momentum and volume, then runs each candidate through graded buy and sell checklists before anything surfaces as an action.</p>
+            <p class="body-default">GE Terminal answers that with a layered signal engine. The tool pulls live and historical prices across four timeframes, scores movers on momentum and volume, and runs each one through graded buy/sell checklists before anything shows up as an action.</p>
             <h3 class="heading-subhead">Grading the market before looking at the signal</h3>
-            <p class="body-default">A momentum scanner&#8217;s failure mode is enthusiasm. Every violent move looks like an opportunity, and the biggest movers are almost always the worst trades; thin, wide-spread items where the move is two people trading at once. So the market gets graded first: range width, volatility, volume, spread, sample depth, each subtracting from a 100-point start. Below 45 an item is graded F, and with the Trade grade &#8805; B filter on, F never becomes an action.</p>
+            <p class="body-default">A momentum scanner can be overly active and excited. Every big move looks like an opportunity, and the biggest movers are usually the worst trades: thin items where the move is two people trading at once. So the market gets graded first: range, volatility, volume, spread and sample depth each subtract from a starting score of 100. Below 45, an item is graded F, and with the Trade grade ≥ B filter on, an F never becomes an action.</p>
             <picture>
               <source type="image/webp" srcset="/assets/ge-terminal/02-tested-live.webp">
               <img src="/assets/ge-terminal/02-tested-live.png" width="800" height="554" alt="Live stress test result: items crashed 50&#8211;61% in one hour, all graded F, and none surfaced to the Actions tab" loading="lazy">
             </picture>
-            <p class="body-default">The extreme case is a hard stop. If price breaks below its own 7-day floor, the zones the signal was derived from stop being valid, so the label is replaced with BROKEN and the grade takes a &#8722;60 penalty, enough to fail an item on its own. It fires rarely, because once an item crashes, the floor moves down to meet it. Most suppression happens in the grading.</p>
+            <p class="body-default">The extreme case is a hard stop. If price breaks below its own 7-day floor, the zones the signal came from stop being valid. The label switches to BROKEN and the grade takes a −60 penalty, enough to fail an item on its own. It fires rarely, because once an item crashes the floor moves down to meet it; most of the filtering happens in the grading.</p>
             <div class="cs-fork">
-              <span class="cs-fork-tag">DECISION FORK 1</span>
+              <span class="cs-fork-tag">DECISION FORK</span>
               <div class="cs-fork-content">
-                <p class="cs-fork-question">Surface every mover, or suppress by default?</p>
-                <p class="body-default">The obvious build surfaces the biggest movers. That&#8217;s what a scanner is for, and it&#8217;s what makes the tool feel alive. It&rsquo;s also how you train yourself to ignore your own alerts. The market gets graded before the signal does, and what reaches Discord clears a floor I set, plus anything I hold or watch.</p>
+                <p class="cs-fork-question">Surface every mover, or hold back by default?</p>
+                <p class="body-default">The obvious build shows the biggest movers; that’s what a scanner is for, and it makes the tool feel alive. However, it’s also how you learn to ignore your own alerts. So the market gets graded before the signal does, and only what clears my floor reaches Discord, plus anything I already hold or watch.</p>
               </div>
             </div>
             <h3 class="heading-subhead">Two scales, one word</h3>
-            <p class="body-default">Two grade systems run in parallel, measuring different things. Trade grade asks whether the item is worth trading at all: range width, volatility, volume, spread, sample depth. It&#8217;s a property of the market and it barely moves hour to hour. Signal grade asks whether right now is the moment: three checklist questions, rescored on every refresh. Is this a dip rather than a trend? Is there room to move? Are buyers in control?</p>
+            <p class="body-default">Two grades run side by side and measure different things. Trade grade asks whether an item is worth trading at all, based on range, volatility, volume, spread and sample depth. It barely moves hour to hour. Signal grade asks whether now is the moment. It’s three checklist questions, rescored every refresh: Is this a dip or a trend? Is there room to move? Are buyers in control?</p>
             <picture>
               <source type="image/webp" srcset="/assets/ge-terminal/02-discord-alert.webp">
               <img src="/assets/ge-terminal/02-discord-alert.png" width="800" height="759" alt="Discord GE Alerts bot message: SELL signal for Emerald at 598 gp, 74% confidence, 52,694 vol/h, Trade A grade, 2 of 3 checks passed" loading="lazy">
@@ -170,7 +171,7 @@
               <figcaption class="wh-caption meta-caption">Cells map to MAJOR, STRONG, SOLID, WEAK, and SKIP tier labels; dashed cells show where B-signal returns SOLID before trade grade is checked</figcaption>
             </figure>
             <h3 class="heading-subhead">Verdicts that explain themselves</h3>
-            <p class="body-default">A verdict engine weighs 7-day, 30-day, and 90-day percentile position into plain-English calls, from SELL NOW to DON&#8217;T SELL, each with its reasoning attached. Nothing appears on screen without a letter-grade and a reason why. Dump detection classifies the drop and measures how long recovery historically takes.</p>
+            <p class="body-default">A verdict engine turns 7-day, 30-day and 90-day price position into plain calls, from SELL NOW to DON’T SELL, each with its reasoning attached. Nothing shows up without a letter grade and a reason. “Dump detection” classifies the drop and measures how long recovery usually takes.</p>
             <figure class="wh-figure">
               <picture>
                 <source type="image/webp" srcset="/assets/ge-terminal/02-item-lookup.webp">
@@ -183,12 +184,24 @@
                 <source type="image/webp" srcset="/assets/ge-terminal/02-dump-code.webp">
                 <img src="/assets/ge-terminal/02-dump-code.png" width="800" height="674" alt="Python source: is_dumping() function body" loading="lazy">
               </picture>
-              <figcaption class="wh-caption meta-caption">Two magic numbers carry the entire heuristic: an 8% hourly drop and 1.5&#215; typical volume. Every dump the tool has ever reported traces back to this line.</figcaption>
+              <figcaption class="wh-caption meta-caption">Two numbers carry the whole dump heuristic: an 8% hourly drop and 1.5× typical volume. Every dump the tool has reported traces back to this line.</figcaption>
             </figure>
             <picture>
               <source type="image/webp" srcset="/assets/ge-terminal/02-ingame.webp">
               <img src="/assets/ge-terminal/02-ingame.png" width="632" height="174" alt="The algorithm serves the interface, and the interface serves a decision a human has to make under uncertainty." loading="lazy">
             </picture>
+          </div>
+        </section>
+
+        <!-- 04 — How I Built It -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">How I Built It</h2>
+          </div>
+          <div class="cs-content">
+            <p class="body-default">While I don’t write Python code, I designed and directed everything the tool does: the grading rules, the checklists, the thresholds, the verdict language and the interface, and Claude helped bring this idea to life.</p>
+            <p class="body-default">I can follow the Python code well enough to trace a rule from the screen back to the line that produces it, like the dump threshold above, and to catch it when the code and the design disagree. Design it, read it, push back: a loop that built all eighteen versions.</p>
+            <p class="body-default">It isn’t shipped software, but it’s built like it could be: cached API calls, saved state, and custom alert thresholds.</p>
           </div>
         </section>
 
@@ -198,8 +211,7 @@
             <h2 class="cs-title display-page">In Use</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">Eighteen-plus versions, running daily, still the tool I trade with.</p>
-            <p class="body-default">Early versions had no exit logic at all. I&#8217;d buy into something that looked like it was climbing and then sit on it, holding inventory I couldn&#8217;t read: no sell zone, no sense of whether it was coming back or whether I should take the loss. That&#8217;s where the verdict engine came from, and the recovery window with it. The tool learned to tell me when to get out because I&#8217;d already proved I couldn&#8217;t work it out myself.</p>
+            <p class="body-default">Early versions had no exit logic at all. I’d buy into something that looked like it was climbing and then sit on it, with no sell zone and no idea whether it was coming back; ultimately, that’s what led to the verdict engine and the recovery window. The tool learned to tell me when to get out because I’d proved I couldn’t work it out myself.</p>
             <figure class="wh-figure">
               <picture>
                 <source type="image/webp" srcset="/assets/ge-terminal/04-cards.webp">
@@ -216,9 +228,9 @@
             <h2 class="cs-title display-page">Learning</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">I let six classification systems accumulate in parallel, each with its own vocabulary. Individually every one is defensible; they were added months apart, each solving a real problem.</p>
-            <p class="body-default">Each system arrived with a feature, named itself sensibly in isolation, and never got reconciled against the ones already there. Every card is readable. The problem is that fluency doesn&#8217;t transfer. Learning what ACCUMULATE means teaches you nothing about what HOLD or WAIT means, even though they&#8217;re the same measurement over a different window.</p>
-            <p class="body-default">The fix is fewer vocabularies. Zone and Verdict collapse into one percentile scale with a timeframe parameter. Signal grade and trade grade stop surfacing as letters at all and exist only as inputs to tier. Six scales down to three, each one answering something the others can&#8217;t: where the price sits, whether the item is worth trading, and whether to act now.</p>
+            <p class="body-default">I let six classification systems pile up, each with its own vocabulary. Each one made sense on its own. They were added months apart, each solving a new, real problem.</p>
+            <p class="body-default">However, none of them ever got checked against the ones already there. Every card is readable, but learning one doesn’t educate you on the others. Knowing what ACCUMULATE means tells you nothing about HOLD or WAIT, even though they measure the same thing over a different window.</p>
+            <p class="body-default">The fix is fewer vocabularies. Zone and Verdict merge into one percentile scale with a timeframe setting. Signal grade and trade grade stop showing as letters and only feed into tier. Six scales become three: where the price sits, whether the item is worth trading, and whether to act now.</p>
             <figure class="wh-figure">
               <picture>
                 <source type="image/webp" srcset="/assets/ge-terminal/05-vocabulary.webp">
@@ -226,7 +238,7 @@
               </picture>
               <figcaption class="wh-caption meta-caption">Signal grade (A&#8211;F, timing), Trade grade (A&#8211;F, safety), Tier (MAJOR/STRONG/SOLID/WEAK/SKIP), Zone state (BROKEN through DUMP), Verdict (SELL NOW through DON&#8217;T SELL), and Pattern (PERIODIC through NONE)</figcaption>
             </figure>
-            <p class="body-default">No single naming decision was wrong because each one was sensible when it was made. Across eighteen versions I never asked whether they still added up to one language.</p>
+            <p class="body-default">Across eighteen versions I never stopped to ask whether they still added up to one language.</p>
             <picture>
               <source type="image/webp" srcset="/assets/ge-terminal/05-quote.webp">
               <img src="/assets/ge-terminal/05-quote.png" width="632" height="174" alt="Letting a system refuse to act, and show why it refused, is the thing I keep taking into design work with AI." loading="lazy">
@@ -234,16 +246,6 @@
           </div>
         </section>
 
-        <!-- 06 — Origin -->
-        <section class="cs-section fade-up">
-          <div class="cs-lockup">
-            <h2 class="cs-title display-page">Origin</h2>
-          </div>
-          <div class="cs-content">
-            <p class="body-default">I started this with zero Python background. GE Terminal became a way to learn by building something I&#8217;d actually use. Eighteen versions later it isn&rsquo;t shipped software. It&rsquo;s built like it expects to be: cached API layers, state persistence, alert thresholds I actually trust.</p>
-            <p class="body-default">It&#8217;s the first thing I&rsquo;ve built where I didn&rsquo;t have to ask anyone to build it.</p>
-          </div>
-        </section>
 
       </div>
     </section>

@@ -13,17 +13,17 @@
     gtag('js', new Date());
     gtag('config', 'G-L3KK0FQDE6');
   </script>
-  <meta name="description" content="Two offices, no shared language, and a design file that had stopped matching the site. A four-tier token model and a contribution pipeline that outlasted me.">
+  <meta name="description" content="Designers and developers working from two different systems. A token model and a contribution process that gave them one.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.wma.nyc/aura">
   <meta property="og:title" content="Web Design System, Aura — Wilson Ma">
-  <meta property="og:description" content="Two offices, no shared language, and a design file that had stopped matching the site. A four-tier token model and a contribution pipeline that outlasted me.">
+  <meta property="og:description" content="Designers and developers working from two different systems. A token model and a contribution process that gave them one.">
   <meta property="og:image" content="https://www.wma.nyc/assets/meta/og-default.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Web Design System, Aura — Wilson Ma">
-  <meta name="twitter:description" content="Two offices, no shared language, and a design file that had stopped matching the site. A four-tier token model and a contribution pipeline that outlasted me.">
+  <meta name="twitter:description" content="Designers and developers working from two different systems. A token model and a contribution process that gave them one.">
   <meta name="twitter:image" content="https://www.wma.nyc/assets/meta/og-default.png">
 </head>
 <body>
@@ -44,7 +44,7 @@
       <div class="hero-inner">
         <div class="hero-copy fade-up">
           <h1 class="display-hero">Web Design System, Aura</h1>
-          <p class="heading-subhead hero-sub">Two offices, no shared language, and a design file that had stopped matching the site.</p>
+          <p class="heading-subhead hero-sub">Two teams, no shared language, and a design file that had stopped matching the site.</p>
         </div>
       </div>
       <div class="ge-meta-row fade-up">
@@ -76,7 +76,8 @@
             <h2 class="cs-title display-page">Context</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">Workhuman is a B2B SaaS platform for employee recognition. Its US and Ireland design teams had developed their component libraries independently. By the time I joined, the drift was visible everywhere: inconsistent spacing, divergent type scales, and a button component that had forked into fifteen variants across both codebases, and neither of them were formally documented.</p>
+            <p class="body-default">Workhuman’s website is built by two stateside teams: web designers working in Figma, and web developers working in Storybook and Contentful. Over time the two had drifted apart; spacing didn’t match, type scales didn’t match, and none of it was documented. An audit turned up more than fifteen button implementations alone.</p>
+            <p class="body-default">The Ireland product design team owns Workhuman’s product design system. Their goals are different from ours, so the web system was never meant to copy theirs. Where the two overlap in Figma, we brought them in so the web system would follow the same practices.</p>
             <div class="cs-stats cs-stats--3">
               <div class="cs-stat">
                 <p class="cs-stat-figure">3</p>
@@ -100,7 +101,7 @@
             <h2 class="cs-title display-page">Problem</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">Fragmented user experiences from inconsistent UI, inefficient designer&#8211;developer handoffs caused by differing layout systems, and the ongoing cost of maintaining two divergent visual languages.</p>
+            <p class="body-default">Every handoff between design and development started from a different place. Designers drew one thing, developers built another, and both sides lost time asking the same questions.</p>
             <div class="cs-quote">
               <img src="/assets/shared/quote-mark.svg" width="85" height="85" aria-hidden="true" alt="">
               <div class="cs-quote-body">
@@ -108,13 +109,13 @@
                 <p class="cs-quote-attr">Engineering, discovery interviews</p>
               </div>
             </div>
-            <p class="body-default">The work was less about building new components and more about establishing the conditions under which both teams could stop rebuilding the same things. That meant a token layer first: named decisions about color, spacing, and typography that could travel between Figma and code without re-interpretation at each handoff.</p>
+            <p class="body-default">So the first job wasn’t new components but rather a shared layer both teams could trust: named decisions about color, spacing and type that move between Figma and code without being reinterpreted at every handoff.</p>
             <figure class="wh-figure">
               <picture>
                 <source type="image/webp" srcset="/assets/aura/01-fifteen-buttons.webp">
                 <img src="/assets/aura/01-fifteen-buttons.png" width="800" height="333" alt="Grid of button styles drawn from the pre-Aura audit: varied shapes, fills, stroke weights, and label treatments with no shared visual language" loading="eager">
               </picture>
-              <figcaption class="wh-caption meta-caption">Design audit revealed 15+ button implementations across products; each required separate maintenance and causing inconsistent UX.</figcaption>
+              <figcaption class="wh-caption meta-caption">The design audit found 15+ button implementations across the site, each maintained separately.</figcaption>
             </figure>
           </div>
         </section>
@@ -126,7 +127,7 @@
           </div>
           <div class="cs-content">
             <h3 class="heading-subhead">Establishing a shared source of truth</h3>
-            <p class="body-default">A four-tier token model: primitives, aliases, semantic tokens, component tokens. Each tier exists so a decision made once resolves the same way everywhere it lands: in Figma, in code, and in the conversation between them.</p>
+            <p class="body-default">I set up a four-tier token model: primitives, aliases, semantic tokens and component tokens. Each tier exists so a decision gets made once and lands the same way in Figma, in code, and in the conversation between the two teams.</p>
             <figure class="wh-figure">
               <picture>
                 <source type="image/webp" srcset="/assets/aura/02-token-tiers.webp">
@@ -134,9 +135,9 @@
               </picture>
               <figcaption class="wh-caption meta-caption">Tier 1 primitive #5B63E4 &#8594; aliased as humanity/60 (Tier 2) &#8594; semantic tokens brandPrimary and buttonPrimary (Tier 3) &#8594; component tokens button-bg-primary and input-border-focus (Tier 4)</figcaption>
             </figure>
-            <p class="body-default">Aura V3 later collapsed this to three tiers, primitives, aliases and component tokens, mirrored one-to-one with code.</p>
+            <p class="body-default">Aura V3 later collapsed this to three tiers (primitives, aliases and component tokens), mirrored one-to-one with code.</p>
             <h3 class="heading-subhead">Making the token chain visible</h3>
-            <p class="body-default">White button, focus state: the focus ring resolves to border/acc-default, which aliases humanity/60, which is the primitive #5B63E4 from Tier 1. One annotated component showing the whole chain did more for adoption than the documentation site did.</p>
+            <p class="body-default">Take the white button’s focus state. The focus ring uses border/acc-default, which points to humanity/60, which is the primitive #5B63E4. One annotated component showing the whole chain did more for adoption than the documentation site did.</p>
             <figure class="wh-figure">
               <picture>
                 <source type="image/webp" srcset="/assets/aura/02-button-anatomy.webp">
@@ -147,12 +148,12 @@
             <div class="cs-fork">
               <span class="cs-fork-tag">DECISION FORK</span>
               <div class="cs-fork-content">
-                <p class="cs-fork-question">Name tokens the way designers think, or the way engineers think?</p>
-                <p class="body-default">Designers reach for what a thing looks like, while engineers reach for where it&#8217;s used. Naming tokens the way they appear in Figma was the path of least resistance, and it broke the first time brand shifted a hue. Humanity/60 was still called humanity/60 and no longer described anything. The second pass named by role instead, so a value could change without the name going stale. The documentation matters as much as the library because designers can&#8217;t guess a token based on how it looks anymore.</p>
+                <p class="cs-fork-question">Name tokens the way designers think, or the way developers think?</p>
+                <p class="body-default">Designers name things by how they look and by contrast, developers name them by where they’re used. Naming tokens after how they looked in Figma was the easy route, and it broke the first time the Brand team shifted a hue: humanity/60 was still called humanity/60 and no longer described anything. On the second pass we named tokens by role, so a value can change without the name going stale. The tradeoff is that designers can’t guess a token from how it looks anymore, so the documentation matters as much as the library.</p>
               </div>
             </div>
             <h3 class="heading-subhead">Governing contribution, instead of policing it</h3>
-            <p class="body-default">A six-step contribution pipeline: request, validate against three-plus use cases, design review, engineering feasibility, required docs, ship. Semantic versioning, a changelog every release, six-month deprecation notices, and migration guides for breaking changes.</p>
+            <p class="body-default">Anyone can add to the system through a six-step process: request, show three or more use cases, design review, engineering check, docs, ship. Every release gets a version number and a changelog. Deprecations get six months’ notice and a migration guide.</p>
             <picture>
               <source type="image/webp" srcset="/assets/aura/04-pipeline-diagram.webp">
               <img src="/assets/aura/04-pipeline-diagram.png" width="804" height="78" alt="Contribution pipeline: Request, Validate need (3+ use cases), Design review, Engineering feasibility, Docs required, Ship" loading="lazy">
@@ -166,7 +167,7 @@
             <h2 class="cs-title display-page">Impact</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">Over the course of the rollout, the system moved from a source of friction to the default starting point for both teams.</p>
+            <p class="body-default">Over the rollout, the system went from a source of friction to where both teams start.</p>
             <p class="body-default">Fifteen-plus button implementations became one component. New designers got productive in days instead of weeks, by the team&#8217;s own estimate.</p>
             <div class="cs-collage" role="img" aria-label="Component library documentation screenshots">
               <div class="cs-collage-item" style="left:0%;top:0%;width:72.875%;height:68.80%">
@@ -251,14 +252,25 @@
           </div>
         </section>
 
+        <!-- 04b — V3 -->
+        <section class="cs-section fade-up">
+          <div class="cs-lockup">
+            <h2 class="cs-title display-page">V3</h2>
+          </div>
+          <div class="cs-content">
+            <p class="body-default">By 2026 the design file had drifted from the site again: the wrong typeface in Figma, layout specs that no longer matched the code, and themes the CMS used every day that weren’t drawn anywhere.</p>
+            <p class="body-default">For V3, my web developer partner and I redid the original work with Claude Code, connected to Figma through MCP: the audit, the rebuild, and the connection to Storybook and Contentful. I did the audit and the design rebuild. Cam O. connected it to the codebase, Storybook and GitHub. What took months the first time took two weeks this time.</p>
+            <p class="body-default">We’re now looking at the same workflow for future brand and site updates, not just audits.</p>
+          </div>
+        </section>
+
         <!-- 05 — Learning -->
         <section class="cs-section fade-up">
           <div class="cs-lockup">
             <h2 class="cs-title display-page">Learning</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">A design system&#8217;s users are designers and engineers, and they behave like any other user: they route around anything slower than what they already do. Aura was adopted when reaching for a component became faster than rebuilding one. Most of the work was removing reasons to go around them.</p>
-            <p class="body-default">Two teams in two time zones needed a shared way to decide what a button is, and somewhere that decision would survive the conversation. The vocabulary and the review ritual are what stuck.</p>
+            <p class="body-default">A design system’s users are designers and developers, and they act like any other users: they go around anything slower than what they already do. Aura got adopted once grabbing a component was faster than rebuilding one. Most of the work was removing reasons to go around it.</p>
           </div>
         </section>
 
@@ -268,7 +280,7 @@
             <h2 class="cs-title display-page">Credits</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">Aura was built with the US and Ireland product and web design teams and the engineers who owned the component libraries on both sides. Thanks to the Ireland team, Gin, Amanda, Cameron, Jesse, and Jon, who took the arguments about naming seriously enough to make them worth having.</p>
+            <p class="body-default">Aura was built with Workhuman’s web design and web development teams, including Cam O. Thanks to the Ireland product design team (Gin, Amanda, Jesse and Jon), who took the naming arguments seriously enough to make them worth having.</p>
           </div>
         </section>
 

@@ -13,17 +13,17 @@
     gtag('js', new Date());
     gtag('config', 'G-L3KK0FQDE6');
   </script>
-  <meta name="description" content="Thirty deliverables a month, rebuilt from scratch every time. A component library that turned campaign production into an assembly problem.">
+  <meta name="description" content="Monthly campaigns that should have been routine. A component library that turned production into assembly.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.wma.nyc/echo">
   <meta property="og:title" content="Marketing Design System, Echo — Wilson Ma">
-  <meta property="og:description" content="Thirty deliverables a month, rebuilt from scratch every time. A component library that turned campaign production into an assembly problem.">
+  <meta property="og:description" content="Monthly campaigns that should have been routine. A component library that turned production into assembly.">
   <meta property="og:image" content="https://www.wma.nyc/assets/meta/og-default.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Marketing Design System, Echo — Wilson Ma">
-  <meta name="twitter:description" content="Thirty deliverables a month, rebuilt from scratch every time. A component library that turned campaign production into an assembly problem.">
+  <meta name="twitter:description" content="Monthly campaigns that should have been routine. A component library that turned production into assembly.">
   <meta name="twitter:image" content="https://www.wma.nyc/assets/meta/og-default.png">
 </head>
 <body>
@@ -44,7 +44,7 @@
       <div class="hero-inner">
         <div class="hero-copy fade-up">
           <h1 class="display-hero">Marketing Design System, Echo</h1>
-          <p class="heading-subhead hero-sub">Thirty deliverables a month. Starting each campaign from scratch became the bottleneck.</p>
+          <p class="heading-subhead hero-sub">The briefs came in two months early. Every campaign still ran like a fire drill.</p>
         </div>
       </div>
       <div class="ge-meta-row fade-up">
@@ -76,8 +76,8 @@
             <h2 class="cs-title display-page">Context</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">Workhuman&#8217;s marketing team ran a monthly webinar program across six channels: paid social, email, display ads, organic social, landing pages, and on-brand event promotion. Every month the same visual problem was solved again from scratch. There was no system for it.</p>
-            <p class="body-default">Echo was the system: a purpose-built component library structured as two parallel tracks: a Webinar Library covering ads, landing pages, and email, and an Organic Social Library covering award badges.</p>
+            <p class="body-default">Workhuman’s marketing team runs a monthly webinar program across six channels: paid social, email, display, organic social, landing pages and event promotion. Every month, the same design problems got solved again from scratch.</p>
+            <p class="body-default">Echo took what I’d learned during the Aura DS build and pointed it at another problem: a component library for marketing, in two tracks. A Webinar Library covers ads, landing pages and email and an Organic Social Library covers award badges. I had built Echo by hand in Figma as the lead designer and Marly came later, as my attempt to automate the same problem.</p>
             <div class="cs-stats cs-stats--3">
               <div class="cs-stat">
                 <p class="cs-stat-figure">30</p>
@@ -101,8 +101,8 @@
             <h2 class="cs-title display-page">Problem</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">The problem was repetition. Each month&#8217;s campaign began as a blank file, so every decision that had already been made, layout, hierarchy, how a speaker headshot sits against a banner, all were rebuilt under deadline.</p>
-            <p class="body-default">Marketing felt it as turnaround. A webinar campaign meant 30+ days from brief to shipped set across six channels, and five rounds of revision that were mostly re-litigating last month&#8217;s answers. Late deliverables compressed the promotion window, which is the one variable a webinar&#8217;s attendance actually depends on.</p>
+            <p class="body-default">Each month started as a blank file, so decisions we’d already made (layout, hierarchy, how a speaker headshot sits on a banner) got rebuilt under deadline.</p>
+            <p class="body-default">By our own estimate, a webinar campaign took 30+ days from brief to shipped set and about five rounds of revisions; most of them re-arguing last month’s answers. Late assets shrank the promotion window, and promotion is what webinar attendance depends on.</p>
             <div class="echo-compare">
               <div class="echo-tabs" role="group" aria-label="View">
                 <button class="echo-tab" aria-pressed="true">Pre-Echo</button>
@@ -132,18 +132,18 @@
             <h2 class="cs-title display-page">Solution</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">The fix was to treat a campaign as assembly. That meant deciding which parts of a webinar campaign were genuinely variable (event title, speaker, date) and which only looked variable because they were getting remade by hand each time.</p>
-            <h3 class="heading-subhead">Splitting along how the work actually arrived</h3>
-            <p class="body-default">The Webinar Library covers ads, landing pages, and email: three surfaces driven by one recurring event, sharing a date, a time, a title, and a speaker set. The Organic Social Library covers award badges, which followed a different cadence and a different approval path.</p>
+            <p class="body-default">The fix was to treat a campaign as assembly. That meant sorting what genuinely changes each month (event title, speaker, date) from what only looked like it changed because it got remade by hand every time.</p>
+            <h3 class="heading-subhead">Splitting along how the work arrived</h3>
+            <p class="body-default">The Webinar Library covers ads, landing pages and email: three surfaces driven by one event, sharing a date, time, title and speakers. The Organic Social Library covers award badges, which run on a different schedule and a different approval path.</p>
             <div class="cs-fork">
               <span class="cs-fork-tag">DECISION FORK 1</span>
               <div class="cs-fork-content">
-                <p class="cs-fork-question">One unified marketing library, or two parallel tracks?</p>
-                <p class="body-default">Webinar and organic social both needed systematizing, and one library or two decided how much of either could be reused. One library meant fewer files, one place to look, and cleaner to explain. Instead, I built two. Every webinar deliverable descends from a single event, one date, one title, one speaker set, feeding ads, landing page, and email. Social runs on a different cadence, a different approval path, a different asset lifecycle. Abstracting over both would have thrown away the thing that made webinars fast.</p>
+                <p class="cs-fork-question">One marketing library, or two parallel tracks?</p>
+                <p class="body-default">One library meant fewer files and one place to look, and it’s easier to explain; instead, I built two libraries. Every webinar deliverable comes from a single event, so one date, one title and one speaker set feed the ads, landing page and email. Social runs on a different schedule, approval path and asset lifecycle altogether; forcing both into one library would have thrown away what made webinars fast.</p>
               </div>
             </div>
             <h3 class="heading-subhead">Turning monthly decisions into component properties</h3>
-            <p class="body-default">The landing page component exposes four properties: event type, event title, date, and time. Everything else (banner geometry, headshot row, copy blocks, the desktop and mobile variants) is fixed inside the component.</p>
+            <p class="body-default">The landing page component exposes four properties: event type, title, date and time. Everything else (banner layout, headshot row, copy blocks, desktop and mobile versions) is fixed inside the component.</p>
             <figure class="wh-figure">
               <picture>
                 <source type="image/webp" srcset="/assets/echo/02-lp-properties.webp">
@@ -155,11 +155,11 @@
               <span class="cs-fork-tag">DECISION FORK 2</span>
               <div class="cs-fork-content">
                 <p class="cs-fork-question">Expose everything as properties, or leave blocks detachable?</p>
-                <p class="body-default">How much of a monthly campaign should be editable without opening the component? Exposing everything is the generous answer, and every property withheld becomes a future request. The landing page component exposes four: event type, title, date, time. Everything else stays locked, because the whole point was that the monthly build stopped being a design task, and each new property puts a settled decision back on the table. The way out is detaching, which stops the instance inheriting updates.</p>
+                <p class="body-default">How much should someone be able to change without opening the component? Exposing everything is the generous answer, and every property you hold back becomes a future request; that said, I exposed four properties. Everything else stays locked, because the goal was to stop the monthly build being a teeth-pulling design task, and each new property reopens a decision that’s already settled. The way out is detaching an instance, which cuts it off from updates.</p>
               </div>
             </div>
             <h3 class="heading-subhead">One library, three channel surfaces</h3>
-            <p class="body-default">Landing pages, emails, and social posts each render from the same component layer, with per-surface variants handling the dimensional differences rather than separate source files.</p>
+            <p class="body-default">Landing pages, emails and social posts all render from the same components. Variants handle the size differences, so no channel needs its own source file.</p>
             <div class="echo-sol" tabindex="0" aria-label="Channel showcase">
               <div class="echo-sol-tabs" role="group" aria-label="Channel">
                 <button class="echo-sol-tab" aria-pressed="true">Landing Pages</button>
@@ -227,7 +227,7 @@
                   </div>
                 </div>
               </div>
-              <p class="echo-badge-caption meta-caption">Organic Social Library: one campaign, four component variants &#8212; cover, double-badge, single-badge, and end card.</p>
+              <p class="echo-badge-caption meta-caption">Organic Social Library: one campaign, four component variants: cover, double badge, single badge and end card.</p>
               <div class="echo-sol-bar"><div class="echo-sol-fill"></div></div>
             </div>
           </div>
@@ -239,15 +239,15 @@
             <h2 class="cs-title display-page">Impact</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">Once the component layer existed, each month&#8217;s deliverables became an assembly question rather than a design question.</p>
+            <p class="body-default">Once the components existed, each month’s work became assembly instead of design.</p>
             <div class="cs-stats cs-stats--4">
               <div class="cs-stat">
                 <p class="cs-stat-figure">5&nbsp;wks &#8594; 2&nbsp;wks</p>
-                <p class="cs-stat-caption meta-caption">time to produce a month&#8217;s campaign</p>
+                <p class="cs-stat-caption meta-caption">time to produce a month’s campaign (estimated)</p>
               </div>
               <div class="cs-stat">
                 <p class="cs-stat-figure">5+ &#8594; ~3</p>
-                <p class="cs-stat-caption meta-caption">revision rounds per campaign</p>
+                <p class="cs-stat-caption meta-caption">revision rounds per campaign (estimated)</p>
               </div>
               <div class="cs-stat">
                 <p class="cs-stat-figure">30+&nbsp;/&nbsp;mo.</p>
@@ -258,7 +258,7 @@
                 <p class="cs-stat-caption meta-caption">channels served</p>
               </div>
             </div>
-            <p class="body-default">After the library shipped, no month started with a blank file and no channel needed a source file of its own.</p>
+            <p class="body-default">After the library shipped, no month started from a blank file.</p>
             <figure class="wh-figure">
               <div class="cs-strip fade-up" style="gap: 16px">
                 <img src="/assets/echo/04-gallery-1.png" width="442" height="301" alt="Meta Traffic Static Image ad for &#8216;5 Workplace Challenges Defining 2026&#8217; webinar at square, portrait, and landscape sizes" loading="lazy">
@@ -278,8 +278,8 @@
             <h2 class="cs-title display-page">Learning</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">Aura&#8217;s users were designers and engineers, who will read documentation if the payoff is real. Echo&#8217;s user is a marketer three days out from a webinar. She doesn&rsquo;t want options, she wants the variables already decided.</p>
-            <p class="body-default">So: four properties, not forty. Banner geometry, headshot placement, copy structure, the desktop-to-mobile relationship &#8212; all locked inside the component, because each was a decision I&rsquo;d made well once and would have made badly under deadline.</p>
+            <p class="body-default">Aura’s users were designers and developers, who’ll read documentation if it pays off; Echo’s user is a marketer three weeks out from a webinar and (s)he doesn’t want options, but instead, for the decisions already made. Solution: four editable properties, not forty.</p>
+            <p class="body-default">While Echo is still in use, it’s starting to break at the seams. Other designers have been detaching components to get around the locked parts, which is exactly the exit the second fork left open. I spent a stretch on other work, and now that I’m back on campaigns, the fire drills are coming back. It needs an update, and the next version has to make the locked parts easier to live with than to detach.</p>
           </div>
         </section>
 
@@ -289,7 +289,7 @@
             <h2 class="cs-title display-page">Credits</h2>
           </div>
           <div class="cs-content">
-            <p class="body-default">Echo was built for and with Workhuman&#8217;s demand generation and brand marketing teams, who ran the webinar program it was designed around. Thanks to Carrie, Jesse, Liu, and Brianna for treating a component library as a production tool.</p>
+            <p class="body-default">Echo was built for and with Workhuman’s demand generation and brand marketing teams, who run the webinar program. Thanks to Carrie, Jesse, Liu and Brianna for treating a component library as a production tool.</p>
           </div>
         </section>
 
